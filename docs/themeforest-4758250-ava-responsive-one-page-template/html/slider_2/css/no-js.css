@@ -1,0 +1,8 @@
+.page-loading { display:none; }
+
+.flexslider.loading { background:none; }
+
+.flexslider .slides li:first-child { display:block; }
+
+#header .container .text-rotator, #header .container .text-rotator > div:first-child { display:block; }
+#header .container .text-rotator > div { display:none; }

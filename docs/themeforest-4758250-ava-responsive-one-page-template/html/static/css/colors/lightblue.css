@@ -1,0 +1,21 @@
+a, a:visited, #header .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#27bfd5; }
+
+a:hover { color:#404040; } /* Don't change the value */
+
+.header { border-left:3px solid #27bfd5; }
+
+.flex-control-paging li a { background-color:#bdedf4; }
+
+.btn, .tbl-skills .item .tbl-skills-process, #about .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#27bfd5; }
+
+.btn:hover, #blog .item figure a:hover { background-color:#404040; } /* Don't change the value */
+
+figure.figure-hover div { background-color:rgba(39, 191, 213, .7); }
+
+.testimonials, .tweets {
+	border-top:1px solid #11a0b5;
+	border-bottom:1px solid #11a0b5;	
+}
+.tweets { border-bottom:0px; }
+
+.testimonials .testimonials-icon, .tweets .tweets-icon { color:#5ee5f9; }
