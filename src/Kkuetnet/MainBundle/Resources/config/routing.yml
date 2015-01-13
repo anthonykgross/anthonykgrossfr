@@ -1,0 +1,3 @@
+kkuetnet_main_homepage:
+    path:     /
+    defaults: { _controller: KkuetnetMainBundle:Default:index }

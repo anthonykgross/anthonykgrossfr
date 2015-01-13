@@ -1,0 +1,289 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header id="header">
+        <div class="header-overlay">
+
+            <div class="container">
+                <img src="images/logo.png" alt="Ava" />
+                <div class="text-rotator">
+                    <div><h1>Developpeur Freelance sur Marseille</h1></div>
+                    <div><h1>Expertise, développement, e-commerce & formation</h1></div>
+                </div> <!-- End text-rotator -->
+            </div> <!-- End container -->
+
+            <div class="arrow-link">
+                <a href="#services"><i class="fa fa-angle-down"></i></a>
+            </div> <!-- End arrow-link -->
+
+        </div> <!-- End header-overlay -->
+    </header> <!-- End header -->
+    <div class="main-wrap stickem-container">
+
+        <section id="navigation" class="stickem">
+            <div class="logo">
+                <img src="images/logo-2.png" alt="Ava" /> <!-- site logo -->
+            </div>
+
+            <nav class="nav nav-menu">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portofolio">Projets</a></li>
+                    <li><a href="#about">A propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="http://blog.kkuet.net">Blog</a></li>
+                </ul>
+            </nav> <!-- End nav-menu -->
+        </section> <!-- End navigation -->
+
+        <div class="sep-padding"></div> <!-- separator -->
+
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="span3 item"> <!-- 1 -->
+                        <i class="fa fa-desktop"></i>
+                        <h5>Vos besoins informatiques</h5>
+                        <h4>Développement</h4>
+                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                    </div>
+
+                    <div class="span3 item"> <!-- 2 -->
+                        <i class="fa fa-check-square-o"></i>
+                        <h5>Conseils & solutions</h5>
+                        <h4>Expertise</h4>
+                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                    </div>
+
+                    <div class="span3 item"> <!-- 3 -->
+                        <i class="fa fa-video-camera"></i>
+                        <h5>consolidation ou perfectionnement</h5>
+                        <h4>Formation</h4>
+                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                    </div>
+
+                    <div class="span3 item"> <!-- 4 -->
+                        <i class="fa fa-shopping-cart"></i>
+                        <h5>Créer votre boutique en ligne</h5>
+                        <h4>E-Commerce</h4>
+                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                    </div>
+
+                </div> <!-- End row -->
+            </div> <!-- End container -->
+        </section> <!-- End services -->
+
+        <div class="sep-border-main"></div> <!-- separator -->
+
+        <section id="portofolio">
+            <div class="container">
+                <div class="header">
+                    <h2>Projets</h2>
+                    <p>Retrouvez mes participations aux projets ainsi que quelques-unes de mes créations.</p>
+                </div>
+
+                <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.</p>
+
+                <div class="flexslider loading">
+                    <ul class="slides">
+                        <li class="row-fluid">
+                            <div class="span3 item">
+                                <figure class="figure-hover">
+                                    <a href="{{ asset("images/portofolio/kdm24-full.png") }}" class="swipebox" title="Kosmetik-direkt24.com">
+                                        <img src="{{ asset("images/portofolio/kdm24-thumb.png") }}" alt="Kosmetik-direkt24.com" />
+                                        <div><span class="fa fa-hover fa fa-hover-zoom"></span></div>
+                                    </a>
+                                </figure>
+                            </div>
+                        </li>
+
+                    </ul> <!-- End slides -->
+                </div> <!-- End flexslider -->
+
+            </div> <!-- End container -->
+        </section> <!-- End portofolio -->
+
+        <section class="testimonials">
+            <div class="container">
+                
+                <span class="testimonials-icon"><i class="fa fa-quote-left"></i></span> <!-- testimonials-icon -->
+
+                <div class="flexslider loading">
+                    <ul class="slides">
+                        <li>
+                            <p>Consciencieux, rigoureux et ponctuel, Anthony a fortement permis à mon activité de se developper sur internet malgré les barrières de la langue (allemand).</p>
+                             - <span class="name">Axel, <a href="http://kosmetik-direkt24.com">Kosmetik-direkt24.com</a></span>
+                        </li>
+                    </ul> <!-- End slides -->
+
+                </div> <!-- End flexslider -->
+            </div> <!-- End container -->
+        </section> <!-- End testimonials -->
+
+        <section id="about">
+            <div class="container">
+
+                <div class="header">
+                    <h2>Kkuet ?</h2>
+                    <p>Apprenez-en davantage sur moi : mes formations, ma carrière, mes loisirs...</p>
+                </div>
+
+                <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.</p><br>
+
+                <div class="row margin-bottom60">
+                    <div class="span6">
+                        <h3>&laquo; Once upon a time ... &raquo;</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum semper nulla vitae diam lobortis interdum varius arcu tincidunt. Quisque sed nisi vel lorem blandit pharetra. Vivamus mollis blandit elit, nec lobortis tellus laoreet id. Integer sodales, lorem eu pellentesque scelerisque, urna orci lobortis mauris, sed facilisis mi est eu enim. Aenean felis tellus, consequat nec hendrerit a, ornare quis arcu. Aenean imperdiet sem nec mauris bibendum tristique. Etiam eros erat, feugiat ac fringilla sed, ultricies sed tellus. Suspendisse nisi sem, rhoncus sit amet malesuada nec, placerat ut magna.</p>
+                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui.</p>
+                    </div> <!-- End span6 -->
+
+                    <div class="span6">
+                        <h3>Mes compétences</h3>
+
+                        <div class="tbl-skills">
+                            <div class="item"> <!-- 1 -->
+                                <p><span>Symfony</span><i>85%</i></p>
+                                <div class="tbl-skills-process" style="width:85%;"></div>
+                            </div>
+                            <div class="item"> <!-- 1 -->
+                                <p><span>Webservice (REST / SOAP)</span><i>83%</i></p>
+                                <div class="tbl-skills-process" style="width:83%;"></div>
+                            </div>
+                            <div class="item"> <!-- 2 -->
+                                <p><span>E-commerce (Prestashop / Magento)</span><i>80%</i></p>
+                                <div class="tbl-skills-process" style="width:80%;"></div>
+                            </div>
+                            <div class="item"> <!-- 2 -->
+                                <p><span>Base de données (MySQL / PostgreSQL / MongoDB / ...)</span><i>80%</i></p>
+                                <div class="tbl-skills-process" style="width:80%;"></div>
+                            </div>
+                            <div class="item"> <!-- 1 -->
+                                <p><span>HTML / CSS / JavaScript (AngularJs / Node / jQuery / ...)</span><i>75%</i></p>
+                                <div class="tbl-skills-process" style="width:75%;"></div>
+                            </div>
+                            <div class="item"> <!-- 1 -->
+                                <p><span>Java / Python</span><i>60%</i></p>
+                                <div class="tbl-skills-process" style="width:60%;"></div>
+                            </div>
+                        </div> <!-- End tbl-skills -->
+
+                    </div> <!-- End span6 -->
+                </div> <!-- End row -->
+
+                <div class="sep-border-main"></div> <!-- separator -->
+
+                <div class="teams">
+                    <div class="row-fluid">
+                        <div class="span4 item">
+                            <figure>
+                                <img src="{{ asset("images/cnrs.png") }}" alt="CNRS - Laboratoire d'Astrophysique de Marseille" />
+                                <p>Ingénieur d'étude</p>
+                            </figure>
+                            <div class="name">
+                                <h5>Laboratoire d'Astrophysique de Marseille</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <ul class="social">
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#" title="Google Plus"><i class="fa fa-google-plus-sign"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="span4 item">
+                            <figure>
+                                <img src="{{ asset("images/kalyzee.png") }}" alt="Kalyzée" />
+                                <p>Ingénieur logiciel</p>
+                            </figure>
+                            <div class="name">
+                                <h5>Kalyzée</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <ul class="social">
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="span4 item">
+                            <figure>
+                                <img src="{{ asset('images/lordofweb.png') }}" alt="LordOfWeb" />
+                                <p>Analyste & Développeur web</p>
+                            </figure>
+                            <div class="name">
+                                <h5>Lord of Web</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <ul class="social">
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" title="Google Plus"><i class="fa fa-google-plus-sign"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div> <!-- End row-fluid -->
+                </div> <!-- End teams -->
+
+            </div> <!-- End container -->
+        </section> <!-- End about -->
+
+        <div class="map" id="contact-map" data-map-lat="43.302642" data-map-lon="5.377865" data-map-zoom="17" data-map-title="Localisation" data-map-address="107 rue Longue des Capucins 13001 Marseille"></div> <!-- google map -->
+
+        <section id="contact">
+            <div class="container">
+
+                <div class="header">
+                    <h2>Restez en contact</h2>
+                    <p>J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.</p>
+                </div>
+
+                <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.</p><br>
+
+                <form id="contact-form" method="post" action="#">
+                    <div class="row">
+                        <div class="span6">
+                            <input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)" />
+                            <input type="text" name="email" maxlength="255" placeholder="Votre adresse email (obligatoire)" />
+                            <input type="text" name="subject" placeholder="Sujet" class="no-margin-bottom" />
+                        </div>
+                        <div class="span6">
+                            <textarea name="message" placeholder="Message (obligatoire)"></textarea>
+                            <input type="submit" name="submit" value="C'est parti !" class="btn btn-large" />
+                        </div>
+                    </div>
+                </form>
+
+                <div class="data-status"></div> <!-- data submit status -->
+
+            </div> <!-- End container -->
+        </section> <!-- End contact -->
+
+        <section class="footer-social">
+            <div class="container">
+
+                <ul>
+                    <li><a target="_blank" href="https://www.facebook.com/gross.anthony"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/anthonykgross"><i class="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a target="_blank" href="https://github.com/kkuetnet"><i class="fa fa-github"></i></a></li>
+                    <li><a target="_blank" href="skype:anthony.k.gross?call"><i class="fa fa-skype"></i></a></li>
+                    <li><a target="_blank" href="https://plus.google.com/u/0/117182078090794461481"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+
+            </div> <!-- End container -->
+        </section> <!-- End footer-social -->
+
+        <footer class="footer-copyright">
+            <div class="container">
+                <img src="images/logo-2.png" alt="Ava" />
+                <p>&copy; 2015 Kkuet.net</p> <!-- copyright text -->
+            </div> <!-- End container -->
+        </footer> <!-- End footer-copyright -->
+
+    </div> <!-- End stickem-container -->
+
+    <div class="page-loading"></div>
+
+{% endblock %}

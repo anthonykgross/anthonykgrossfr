@@ -1,3 +1,4 @@
-app:
-    resource: @AppBundle/Controller/
-    type:     annotation
+kkuetnet_main:
+    resource: "@KkuetnetMainBundle/Resources/config/routing.yml"
+    prefix:   /
+

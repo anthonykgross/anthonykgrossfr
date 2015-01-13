@@ -1,0 +1,7 @@
+parameters:
+#    kkuetnet_main.example.class: Kkuetnet\MainBundle\Example
+
+services:
+#    kkuetnet_main.example:
+#        class: %kkuetnet_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
