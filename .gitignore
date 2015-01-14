@@ -8,7 +8,6 @@
 /build/
 /vendor/
 /bin/
-/composer.phar
 /nbproject/private/
 /nbproject
 /web/libs/
