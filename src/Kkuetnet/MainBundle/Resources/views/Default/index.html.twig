@@ -5,7 +5,7 @@
         <div class="header-overlay">
 
             <div class="container">
-                <img src="images/logo.png" alt="Ava" />
+                <img src="{{ asset('images/akg2.svg') }}" alt="Anthony Kkuet GROSS" />
                 <div class="text-rotator">
                     <div><h1>Developpeur Freelance sur Marseille</h1></div>
                     <div><h1>Expertise, développement, e-commerce & formation</h1></div>
@@ -22,7 +22,7 @@
 
         <section id="navigation" class="stickem">
             <div class="logo">
-                <img src="images/logo-2.png" alt="Ava" /> <!-- site logo -->
+                <img src="{{ asset('images/akg.svg') }}" alt="Anthony Kkuet GROSS" />
             </div>
 
             <nav class="nav nav-menu">
@@ -33,8 +33,8 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="http://blog.kkuet.net">Blog</a></li>
                 </ul>
-            </nav> <!-- End nav-menu -->
-        </section> <!-- End navigation -->
+            </nav>
+        </section>
 
         <div class="sep-padding"></div> <!-- separator -->
 
@@ -45,28 +45,30 @@
                         <i class="fa fa-desktop"></i>
                         <h5>Vos besoins informatiques</h5>
                         <h4>Développement</h4>
-                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                        <p>Créez ou améliorez votre projet tout en gardant un oeil sur le développement et son budget. Documentation, liste des tâches et du temps passé sont disponibles grâce au suivi en ligne </p>
                     </div>
 
                     <div class="span3 item"> <!-- 2 -->
                         <i class="fa fa-check-square-o"></i>
                         <h5>Conseils & solutions</h5>
                         <h4>Expertise</h4>
-                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                        <p>
+                            Profitez des conseils d'un réseau d'experts compétents dans la majorité des domaines de l'informatique. Architecture, performance, mobilité et ergonomie sont d'autant de points à ne pas négliger.
+                        </p>
                     </div>
 
                     <div class="span3 item"> <!-- 3 -->
                         <i class="fa fa-video-camera"></i>
                         <h5>consolidation ou perfectionnement</h5>
                         <h4>Formation</h4>
-                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                        <p>Dans les limites de mes connaissances et de mes expériences, je réponds aux demandes de formations et de soutien scolaire en conception et développement informatique.</p>
                     </div>
 
                     <div class="span3 item"> <!-- 4 -->
                         <i class="fa fa-shopping-cart"></i>
                         <h5>Créer votre boutique en ligne</h5>
                         <h4>E-Commerce</h4>
-                        <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet. Duis tempor rhoncus quam, at blandit nulla egestas vitae risus dictum tempor luctus.</p>
+                        <p>Développez votre activité commerciale sur Internet avec la création d'une boutique en ligne 100% personnalisable pour élargir autant que possible votre audience.</p>
                     </div>
 
                 </div> <!-- End row -->
@@ -105,14 +107,14 @@
 
         <section class="testimonials">
             <div class="container">
-                
+
                 <span class="testimonials-icon"><i class="fa fa-quote-left"></i></span> <!-- testimonials-icon -->
 
                 <div class="flexslider loading">
                     <ul class="slides">
                         <li>
                             <p>Consciencieux, rigoureux et ponctuel, Anthony a fortement permis à mon activité de se developper sur internet malgré les barrières de la langue (allemand).</p>
-                             - <span class="name">Axel, <a href="http://kosmetik-direkt24.com">Kosmetik-direkt24.com</a></span>
+                            - <span class="name">Axel, <a href="http://kosmetik-direkt24.com">Kosmetik-direkt24.com</a></span>
                         </li>
                     </ul> <!-- End slides -->
 
@@ -122,13 +124,21 @@
 
         <section id="about">
             <div class="container">
-
                 <div class="header">
                     <h2>Kkuet ?</h2>
                     <p>Apprenez-en davantage sur moi : mes formations, ma carrière, mes loisirs...</p>
                 </div>
-
-                <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.</p><br>
+                <div class="row">
+                    <div class="span1">
+                        <img src="{{ asset('images/photo.jpg') }}" alt="Anthony Kkuet GROSS" />
+                    </div>
+                    <div class="span11">
+                        <p>
+                            Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.
+                        </p>
+                    </div>
+                </div>
+                <br>
 
                 <div class="row margin-bottom60">
                     <div class="span6">
@@ -184,10 +194,11 @@
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                             <ul class="social">
-                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#" title="Google Plus"><i class="fa fa-google-plus-sign"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/UMR7326" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/LAM_Marseille" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/profile/view?id=314887837" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="http://lam.fr/" title="Site internet"><i class="fa fa-link"></i></a></li>
+                                
                             </ul>
                         </div>
 
@@ -201,9 +212,10 @@
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                             <ul class="social">
-                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/kalyzee" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/kalyzee" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/company/2839284" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="http://www.kalyzee.com/" title="Site internet"><i class="fa fa-link"></i></a></li>
                             </ul>
                         </div>
 
@@ -241,7 +253,7 @@
 
                 <p>Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci, a laoreet libero vehicula ac. Duis tempor rhoncus quam, at blandit nulla egestas vitae. Pellentesque pulvinar, risus dictum tempor luctus, quam augue blandit sapien, eget interdum libero mi rhoncus risus. Morbi felis risus, feugiat vel lacinia eu, aliquam eu nisl. Aliquam magna velit, vulputate quis tincidunt eget, scelerisque et dui. Proin et nisi justo, nec pretium mi.</p><br>
 
-                <form id="contact-form" method="post" action="#">
+                <form id="contact-form" method="post" action="{{ path("kkuetnet_contactez_moi")}}">
                     <div class="row">
                         <div class="span6">
                             <input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)" />
@@ -277,7 +289,25 @@
 
         <footer class="footer-copyright">
             <div class="container">
-                <img src="images/logo-2.png" alt="Ava" />
+                <div class="row">
+                    <div class="span2">
+                        <img src="{{ asset('images/qrcode.png') }}" style="width: 150px; height: 150px;"/>
+                    </div>
+                    <div class="span4">
+                        Anthony GROSS<br/>
+                        107 rue Longue des Capucins<br/>
+                        13001 Marseille <br/>
+                    </div>
+                    <div class="span3">
+                       Mobile: +33 6 99 49 42 90<br/>
+                       Email : Anthony.k.gross@gmail.com<br/>
+                       Skype : anthony.k.gross
+                    </div>
+                    <div class="span3">
+                       Siret: 530 132 729 00027
+                    </div>
+                </div>
+                <br/>
                 <p>&copy; 2015 Kkuet.net</p> <!-- copyright text -->
             </div> <!-- End container -->
         </footer> <!-- End footer-copyright -->

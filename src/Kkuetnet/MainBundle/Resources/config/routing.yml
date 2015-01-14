@@ -1,3 +1,7 @@
 kkuetnet_main_homepage:
     path:     /
     defaults: { _controller: KkuetnetMainBundle:Default:index }
+
+kkuetnet_contactez_moi:
+    path:     /contactez_moi
+    defaults: { _controller: KkuetnetMainBundle:Default:sendmail }

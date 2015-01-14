@@ -1,0 +1,35 @@
+<p>
+    <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('images/akg.svg') }}" alt="Kkuet.net" /><br/>
+    
+    Bonjour {{name}},<br/><br/>
+    Votre email traitant du sujet <b>{{subject}}</b> m'est bien parvenu. Je vous repondrais dès que possible.<br/><br/>
+
+    <u>Récapitulatif</u><br/>
+    {% include "KkuetnetMainBundle:Default:email.html.twig" %}
+    <br>
+    <div dir="ltr">
+        <div>
+            <font color="#cccccc">------------------------------<wbr>------------------------------<wbr>------------------------------<wbr>-----------------------</font>
+        </div>
+        <b>
+            Anthony GROSS
+        </b>
+        <div>
+            <font color="#444444">DEVELOPER &amp; FREELANCE&nbsp;</font>
+        </div>
+        <div>
+            <font color="#444444">En poste au Laboratoire d'Astrophysique de Marseille - CNRS</font>
+        </div>
+        <br>
+        <div>
+            <font color="#444444">Mobile : <a href="http://www.kkuet.net/vcard.vcf" target="_blank">+33 6 99 49 42 90</a></font>
+        </div>
+        <div>
+            <font color="#444444">Email &nbsp;: <a href="mailto:anthony.k.gross@gmail.com" target="_blank">anthony.k.gross@gmail.com</a>
+            </font>
+        </div>
+        <div>
+            <font color="#444444">Site &nbsp; &nbsp; : <a href="http://kkuet.net" target="_blank">kkuet.net</a></font>
+        </div>
+    </div>
+</p>

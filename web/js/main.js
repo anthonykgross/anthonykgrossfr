@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
 	});
 	
 	// Top fullscreen image with jQuery backstretch
-	$.backstretch('images/base-body.jpg');
+	$.backstretch('images/bg.png');
 	
 	// jQuery figure hover effect
 	$('figure.figure-hover').hover(
@@ -234,28 +234,32 @@ jQuery(document).ready(function($){
 		
 		$.ajax({ // Send an offer process with AJAX
 			type: "POST",
-			url: "contact.php",
-			data: submitData + "&action=add",
-			dataType: "html",
-			success: function(msg){
-				if(parseInt(msg, 0) !== 0) {
-					var msg_split = msg.split("|");
-					if(msg_split[0] === "success") {
-						$name.val('').removeAttr('disabled');
-						$email.val('').removeAttr('disabled');
-						$subject.val('').removeAttr('disabled');
-						$message.val('').removeAttr('disabled');
-						$submit.removeAttr('disabled');
-						$datastatus.html(msg_split[1]).fadeIn();
-					} else {
-						$name.removeAttr('disabled');
-						$email.removeAttr('disabled');
-						$subject.removeAttr('disabled');
-						$message.removeAttr('disabled');
-						$submit.removeAttr('disabled');
-						$datastatus.html(msg_split[1]).fadeIn();
-					}
-				}
+			url: $("#contact-form").attr("action"),
+                        data: submitData,
+			dataType: "json",
+			success: function(data){
+                            $name.removeAttr('disabled');
+                            $email.removeAttr('disabled');
+                            $subject.removeAttr('disabled');
+                            $message.removeAttr('disabled');
+                            $submit.removeAttr('disabled');
+                            $datastatus.html('<div class="alert alert-info"><ul></ul></div>');
+                            
+                            $.each(data.msg, function(k, v){
+                                $datastatus.find("ul").append("<li><b>"+v+"</b></li>");
+                            });
+			},
+                        error: function(data){
+                            $name.removeAttr('disabled');
+                            $email.removeAttr('disabled');
+                            $subject.removeAttr('disabled');
+                            $message.removeAttr('disabled');
+                            $submit.removeAttr('disabled');
+                            $datastatus.html('<div class="alert alert-danger"><ul></ul></div>');
+                            
+                            $.each(data.msg, function(k, v){
+                                $datastatus.find("ul").append("<li><b>"+v+"</b></li>");
+                            });
 			}
 		});
 		return false;

@@ -12,6 +12,14 @@
         <meta name="description" content="Ava is one page template that you can use for portofolio or business template. This template built with very cool responsive design, bootstrap system, colorful template and a slew of features." />
         <meta name="keywords" content="developpeur, informaticien, marseille, web, freelance, autoentrepreneur, codeur, programmeur, ingenieur, service, client, projets, werbservice, kkuet, saop, rest, javascript, symfony, angular, jqeury" />
 
+        <meta property='og:locale' content='fr_FR'/>
+        <meta property='og:title' content='Kkuet.net - Développeur freelance sur Marseille'/>
+        <meta property='og:description' content=''/>
+        <meta property='og:url' content='http://{{ app.request.host }}'/>
+        <meta property='og:site_name' content='Kkuet.net'/>
+        <meta property='og:type' content='website'/>
+        <meta property="og:image" content="http://{{ app.request.host ~ asset('images/akg.svg') }}">
+        
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -44,10 +52,10 @@
         <noscript><link rel="stylesheet" href="css/no-js.css"></noscript>
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="images/favicon.ico">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}">
         {% block stylesheets %}{% endblock %}
         
     </head>
