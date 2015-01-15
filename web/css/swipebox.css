@@ -221,3 +221,7 @@
   line-height: 43px;
   font-family: Ubuntu, Arial, sans-serif;
 }
+
+#swipebox-overlay a {
+    color: white;
+}

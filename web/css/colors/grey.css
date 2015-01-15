@@ -10,7 +10,7 @@ a:hover { color:#404040; } /* Don't change the value */
 
 .btn:hover, #blog .item figure a:hover { background-color:#404040; } /* Don't change the value */
 
-figure.figure-hover div { background-color:rgba(39, 191, 213, .7); }
+figure.figure-hover div { background-color:#11a0b5; opacity: 0.7;}
 
 .testimonials, .tweets {
     border-top:1px solid #11a0b5;
