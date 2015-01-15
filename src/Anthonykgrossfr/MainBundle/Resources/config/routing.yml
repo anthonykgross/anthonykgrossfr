@@ -1,0 +1,7 @@
+anthonykgrossfr_main_homepage:
+    path:     /
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:index }
+
+anthonykgrossfr_contactez_moi:
+    path:     /contactez_moi
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:sendmail }

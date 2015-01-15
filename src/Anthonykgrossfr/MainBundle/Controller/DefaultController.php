@@ -1,6 +1,6 @@
 <?php
 
-namespace Kkuetnet\MainBundle\Controller;
+namespace Anthonykgrossfr\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('KkuetnetMainBundle:Default:index.html.twig');
+        return $this->render('AnthonykgrossfrMainBundle:Default:index.html.twig');
     }
 
     public function sendmailAction()
@@ -31,10 +31,10 @@ class DefaultController extends Controller
         if(count($e['msg'])==0){
             try{
                 $message = \Swift_Message::newInstance()
-                    ->setSubject("[Kkuet.net] - ".$subject)
-                    ->setFrom('no-reply@kkuet.net')
+                    ->setSubject("[AnthonyKGross.fr] - ".$subject)
+                    ->setFrom('no-reply@anthonykgross.fr')
                     ->setTo('anthony.k.gross@gmail.com')
-                    ->setBody($this->renderView('KkuetnetMainBundle:Default:email.html.twig', array(
+                    ->setBody($this->renderView('AnthonykgrossfrMainBundle:Default:email.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -44,10 +44,10 @@ class DefaultController extends Controller
                 $this->get('mailer')->send($message);
 
                 $message = \Swift_Message::newInstance()
-                    ->setSubject("[Kkuet.net] - Prise de contact")
-                    ->setFrom('no-reply@kkuet.net')
+                    ->setSubject("[AnthonyKGross.fr] - Prise de contact")
+                    ->setFrom('no-reply@anthonykgross.fr')
                     ->setTo($email)
-                    ->setBody($this->renderView('KkuetnetMainBundle:Default:email-client.html.twig', array(
+                    ->setBody($this->renderView('AnthonykgrossfrMainBundle:Default:email-client.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,

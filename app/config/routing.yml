@@ -1,4 +1,4 @@
-kkuetnet_main:
-    resource: "@KkuetnetMainBundle/Resources/config/routing.yml"
+anthonykgrossfr_main:
+    resource: "@AnthonykgrossfrMainBundle/Resources/config/routing.yml"
     prefix:   /
 
