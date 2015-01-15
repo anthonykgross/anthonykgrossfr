@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
 	$('.nav-menu ul').ddscrollSpy({ scrolltopoffset: -60 });
 	
 	// jQuery smooth scrolling
-	$('.nav-menu ul li a, #header .arrow-link a').bind('click', function(event) {
+	$('#navigation a, #header .arrow-link a').bind('click', function(event) {
 		var $anchor = $(this);		
 		$('html, body').stop().animate({
 			scrollTop: parseInt($($anchor.attr('href')).offset().top - 80, 0)
