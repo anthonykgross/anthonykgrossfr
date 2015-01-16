@@ -238,10 +238,10 @@ jQuery(document).ready(function($){
                         data: submitData,
 			dataType: "json",
 			success: function(data){
-                            $name.removeAttr('disabled');
-                            $email.removeAttr('disabled');
-                            $subject.removeAttr('disabled');
-                            $message.removeAttr('disabled');
+                            $name.val('').removeAttr('disabled');
+                            $email.val('').removeAttr('disabled');
+                            $subject.val('').removeAttr('disabled');
+                            $message.val('').removeAttr('disabled');
                             $submit.removeAttr('disabled');
                             $datastatus.html('<div class="alert alert-info"><ul></ul></div>');
                             
