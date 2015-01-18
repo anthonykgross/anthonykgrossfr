@@ -5,8 +5,8 @@
         <div class="header-overlay">
 
             <div class="container">
-                <img src="{{ asset('images/akg2.svg') }}" title="AKG - Anthony Kkuet GROSS" style="margin-left: 130px;" alt="AKG - Anthony Kkuet GROSS" />
-                <img src="{{ asset('images/remerciement.png') }}" style="margin-top: -100px;"title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
+                <img id="logo_akg" src="{{ asset('images/akg2.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
+                <img id="remerciement_akg" src="{{ asset('images/remerciement.png') }}" style="margin-top: -100px;"title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
                 <div class="text-rotator">
                     <div><h1>Developpeur Freelance sur Marseille</h1></div>
                     <div><h1>Expertise, développement, e-commerce & formation</h1></div>
@@ -54,7 +54,7 @@
                         <h5>Conseils & solutions</h5>
                         <h4>Expertise</h4>
                         <p>
-                            Profitez des conseils d'un réseau d'experts compétents dans la majorité des domaines de l'informatique. Architecture, performance, mobilité et ergonomie sont d'autant de points à ne pas négliger.
+                            Profitez des conseils d'un réseau d'experts compétents dans la majorité des domaines de l'informatique. Architecture, performance, mobilité et ergonomie sont autant de points à ne pas négliger.
                         </p>
                     </div>
 
@@ -85,7 +85,7 @@
                     <p>Retrouvez mes participations aux projets ainsi que quelques-unes de mes créations.</p>
                 </div>
 
-                <p>Vous avez besoin d'être rassuré ? Je vous présente les projets sur lesquelle j'ai travaillé et dont on m'autorise à en faire la publicité. </p>
+                <p>Vous avez besoin d'être rassuré ? Je vous présente les projets sur lesquels j'ai travaillé et dont on m'autorise à en faire la publicité. </p>
 
                 <div class="flexslider loading">
                     <ul class="slides">
@@ -166,6 +166,10 @@
                             <p>Consciencieux, rigoureux et ponctuel, Anthony a fortement permis à mon activité de se developper sur internet malgré les barrières de la langue (allemand).</p>
                             - <span class="name">Axel, <a href="http://kosmetik-direkt24.com">Kosmetik-direkt24.com</a></span>
                         </li>
+                        <li>
+                            <p>J'ai été agréablement surpris d'avoir à faire à un professionnel "carré" alors qu'on rencontre vraiment de tout en matière de développement web.</p>
+                            - <span class="name">Pascal, <a href="http://fadou.com">Fadou.com</a></span>
+                        </li>
                     </ul> <!-- End slides -->
 
                 </div> <!-- End flexslider -->
@@ -193,8 +197,8 @@
                 <div class="row margin-bottom60">
                     <div class="span6">
                         <h3>&laquo; Once upon a time ... &raquo;</h3>
-                        <p>Né à Villeneuve sur Lot (47) d'une mère normande et d'un père allemand, j'ai vécu dans cette petite ville jusqu'à ma majorité. Pour poursuivre mes études après mon Bac STG (Sciences et technologies de la Gestion), nous avons décidé avec ma famille de partir sur Marseille pour que j'intègre une classe de BTS Informatique de gestion au lycée Marie Curie. Après avoir décroché mon diplome, j'ai ensuite choisi de faire une licence SIL-NTI (Systèmes Informatiques et Logiciels - Nouvelles Technologies de l'Informatique) à la faculté de Saint-Charles pour terminer ma scolarité.</p>
-                        <p>Depuis l'age de 14ans, je suis passionné d'informatique. &Agrave; 16ans, je developpais mon premier jeu virtuel totalement en PHP, avec une base de données de 30+ tables, dont l'expérience m'a énormément apporté pour la suite. Depuis plus de 2 ans, je refais ce jeu entre mon emploi et les missions qu'on me donne (<a target="_blank" href="http://sharingame.com">Sharingame.com</a>) car il me tient énormément à coeur. Je suis un autodidacte, créatif et minutieux. Je suis freelance, en plus de mon poste, car j'aime les beaux projets et j'ai de la chance car on m'en propose beaucoup. Pour finir et vous l'avez surement déjà compris, j'ai un certain franc-parler qui est souvent apprécié de mes interlocuteurs donc autant vous informez que je ne vous vendrais pas un service dont j'estime que vous n'avez pas besoin.</p>
+                        <p>Né à Villeneuve sur Lot (47) d'une mère normande et d'un père allemand, j'ai vécu dans cette petite ville jusqu'à ma majorité. Pour poursuivre mes études après mon Bac STG (Sciences et technologies de la Gestion), nous avons décidé avec ma famille de partir sur Marseille pour que j'intègre une classe de BTS Informatique de gestion au lycée Marie Curie. Après avoir décroché mon diplôme, j'ai ensuite choisi de faire une licence SIL-NTI (Systèmes Informatiques et Logiciels - Nouvelles Technologies de l'Informatique) à la faculté de Saint-Charles pour terminer ma scolarité.</p>
+                        <p>Depuis l'âge de 14ans, je suis passionné d'informatique. &Agrave; 16ans, je developpais mon premier jeu virtuel totalement en PHP, avec une base de données de 30+ tables, dont l'expérience m'a énormément apporté pour la suite. Depuis plus de 2 ans, je refais ce jeu entre mon emploi et les missions qu'on me donne (<a target="_blank" href="http://sharingame.com">Sharingame.com</a>) car il me tient énormément à coeur. Je suis un autodidacte, créatif et minutieux. Je suis freelance, en plus de mon poste, car j'aime les beaux projets et j'ai de la chance car on m'en propose beaucoup. Pour finir et vous l'avez surement déjà compris, j'ai un certain franc-parler qui est souvent apprécié de mes interlocuteurs donc autant vous informer que je ne vous vendrai pas un service dont j'estime que vous n'avez pas besoin.</p>
                     </div> <!-- End span6 -->
 
                     <div class="span6">
@@ -300,7 +304,7 @@
                     <p>J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.</p>
                 </div>
 
-                <p>Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ? N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez timide ! Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre davantage.</p>
+                <p>Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ? N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez pas timide ! Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre davantage.</p>
                 <form id="contact-form" method="post" action="{{ path("anthonykgrossfr_contactez_moi")}}">
                     <div class="row">
                         <div class="span6">
@@ -344,7 +348,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span2">
-                        <img src="{{ asset('images/qrcode.png') }}" style="width: 150px; height: 150px;"/>
+                        <img src="{{ asset('images/qrcode.png') }}" style="width: 100%;"/>
                     </div>
                     <div class="span4">
                         <span property="v:name">Anthony GROSS</span><br/>

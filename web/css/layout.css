@@ -546,6 +546,7 @@ figure.figure-hover { position:relative; }
 	border-bottom:1px solid #0b8ed0;
 	color:#FFF;
 	overflow:hidden;
+        min-height: 250px;
 }
 .tweets {
 	margin-bottom:0px;
@@ -770,7 +771,9 @@ figure.figure-hover { position:relative; }
 
 .ie7 #blog #comments .comment-form textarea { width:96%; }
 	
-	
+#logo_akg{
+    margin-left: 130px;
+}	
 	
 /* ========================= Media Queries ========================= */
 
@@ -789,7 +792,9 @@ figure.figure-hover { position:relative; }
 	#navigation .nav-menu ul li a { padding:23px 15px; }
 	
 	.footer-social ul li { margin:0px 25px; }
-	
+	#about .item{
+            font-size: 12px;
+        }
 }
 
 @media (max-width: 767px) {
@@ -861,7 +866,6 @@ figure.figure-hover { position:relative; }
 	.testimonials .testimonials-icon, .tweets .tweets-icon { position:static; }
 	
 	.footer-social ul li { margin:0px 20px; }
-	
 }
 
 @media (max-width: 600px) {
@@ -873,7 +877,6 @@ figure.figure-hover { position:relative; }
 	
 	#blog #comments .comment-lists ul li img { width:13%; }
 	#blog #comments .comment-lists ul li .content { width:83%; }
-
 }
 
 @media (max-width: 540px) {
@@ -928,7 +931,12 @@ figure.figure-hover { position:relative; }
 	
 	#blog #comments .comment-lists ul li img { width:20%; }
 	#blog #comments .comment-lists ul li .content { width:74%; }
-	
+	#logo_akg{
+            margin-left: 0px;
+        }
+        #about .item{
+            font-size: 10px;
+        }
 }
 
 @media (max-width: 300px) {
@@ -952,7 +960,6 @@ figure.figure-hover { position:relative; }
 		display:block;
 		text-align:center;	
 	}
-	
 }
 
 @media (max-height: 300px) {
