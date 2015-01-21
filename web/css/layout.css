@@ -506,7 +506,37 @@ figure.figure-hover { position:relative; }
 				#about .teams .item .social li a:hover { color:#404040; }
 				#about .teams .item .social li i { font-size:18px; }
 
+/* ========================= Partners ========================= */
 
+#partners { padding:60px 0px 50px; }
+#partners .teams { padding-top:40px; }
+	#partners .teams .item { padding-bottom:30px; }
+		#partners .teams .item figure { position:relative; }
+			#partners .teams .item figure p {
+				position:absolute;
+				top:0;
+				right:0;
+				background-color:#2baaea;
+				padding:8px 15px;
+				font-size:12px;
+				color:#FFF;
+				text-transform:uppercase;
+			}
+		#partners .teams .item .name { margin-bottom:15px; }
+		#partners .teams .item p { margin:0px; text-align: justify; }
+			#partners .teams .item .name h5 {
+				font-size:18px;
+				margin:15px 0px 5px;
+			}
+		#partners .teams .item .social { margin-top:15px; }
+			#partners .teams .item .social li {
+				list-style-type:none;
+				display:inline;
+				margin-right:12px;
+			}
+				#partners .teams .item .social li a { color:#a9a9a9; }
+				#partners .teams .item .social li a:hover { color:#404040; }
+				#partners .teams .item .social li i { font-size:18px; }
 
 /* ========================= Contact ========================= */
 
@@ -792,7 +822,7 @@ figure.figure-hover { position:relative; }
 	#navigation .nav-menu ul li a { padding:23px 15px; }
 	
 	.footer-social ul li { margin:0px 25px; }
-	#about .item{
+	#partners .item, #about .item{
             font-size: 12px;
         }
 }
@@ -814,7 +844,7 @@ figure.figure-hover { position:relative; }
 	#navigation .logo { padding-left:0px; }
 	#navigation .nav-menu ul { display:none; }
 	
-	#services, #portofolio, #about, #contact {
+	#services, #portofolio, #about, #partners, #contact {
 		padding-left:20px;
 		padding-right:20px;
 	}
@@ -934,7 +964,7 @@ figure.figure-hover { position:relative; }
 	#logo_akg{
             margin-left: 0px;
         }
-        #about .item{
+        #partners .item, #about .item{
             font-size: 10px;
         }
 }
