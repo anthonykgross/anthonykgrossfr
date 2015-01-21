@@ -56,6 +56,7 @@ jQuery(document).ready(function($){
 	$('.testimonials .flexslider, .tweets .flexslider').flexslider({
 		directionNav: false,
 		controlNav: false,
+                slideshowSpeed: 10000,
 		start: function(slider) { $(slider).removeClass('loading'); }	
 	});
 	
