@@ -33,6 +33,7 @@ class DefaultController extends Controller
                 $message = \Swift_Message::newInstance()
                     ->setSubject("[AnthonyKGross.fr] - ".$subject)
                     ->setFrom('no-reply@anthonykgross.fr')
+		    ->setReplyTo(array($email => $name))
                     ->setTo('anthony.k.gross@gmail.com')
                     ->setBody($this->renderView('AnthonykgrossfrMainBundle:Default:email.html.twig', array(
                         'subject'   => $subject,
@@ -46,6 +47,7 @@ class DefaultController extends Controller
                 $message = \Swift_Message::newInstance()
                     ->setSubject("[AnthonyKGross.fr] - Prise de contact")
                     ->setFrom('no-reply@anthonykgross.fr')
+		    ->setReplyTo(array("anthony.k.gross@gmail.com" => "Anthony K GROSS"))
                     ->setTo($email)
                     ->setBody($this->renderView('AnthonykgrossfrMainBundle:Default:email-client.html.twig', array(
                         'subject'   => $subject,
