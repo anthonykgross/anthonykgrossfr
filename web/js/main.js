@@ -21,9 +21,11 @@ jQuery(document).ready(function($){
 	
 	// jQuery smooth scrolling
 	$('#navigation a, #header .arrow-link a').bind('click', function(event) {
-		var $anchor = $(this);		
+		var $anchor = $(this);	
+                
+                var final_anchor = $anchor.attr('href').split("#");
 		$('html, body').stop().animate({
-			scrollTop: parseInt($($anchor.attr('href')).offset().top - 80, 0)
+			scrollTop: parseInt($("#"+final_anchor[1]).offset().top - 80, 0)
 		}, 2000,'easeInOutExpo');
 		event.preventDefault();
 	});
