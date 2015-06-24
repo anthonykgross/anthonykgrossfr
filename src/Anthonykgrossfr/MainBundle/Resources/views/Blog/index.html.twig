@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="blog">
+
+            <div class="header margin-bottom40">
+                <h2>Blog</h2>
+                <p>&Agrave; quoi bon garder l'information pour moi ? Je partage mon petit savoir.</p>
+            </div>
+
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/sintel.png') }}" alt="Thumbnail" />
+                    <div class="title"><a href="{{ path('anthonykgrossfr_blog_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}">Créer un plugin javascript pour JWPlayer 6</a></div>
+                </figure>
+                <p>
+                    Vous souhaitez rendre vos plugins jwplayer compatibles avec HTML5 ? 
+                    Suite à l'article Créer un plugin flash pour JWPlayer 6, je vais vous montrer comment faire vos plugins JWPlayer 6 avec javascript. 
+                    La raison ? Flash n'est plus supporté par Adobe et Android ne l'intègre plus sur ses nouvelles versions.
+                </p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> &nbsp; Le 14 Juin 2013 <span class="font-slight">|</span> 
+                    <a href="{{ path('anthonykgrossfr_blog_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}" class="read-more">Lire</a>
+                </div>
+            </div>
+
+            <!--<nav class="nav-page">
+                <a href="blog.html">Prev</a>
+                <a href="blog.html">1</a>
+                <a href="blog.html">2</a>
+                <a href="blog.html">3</a>
+                <a href="blog.html">4</a>
+                <a href="blog.html" class="active">5</a>
+                <a href="blog.html">6</a>
+                <a href="blog.html">7</a>
+                <a href="blog.html">Next</a>
+            </nav> -->
+
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

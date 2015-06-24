@@ -12,6 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "fontawesome": "~4.2.0"
+    "fontawesome": "~4.2.0",
+    "prismjs" : "https://github.com/PrismJS/prism.git#v1.0.0"
   }
 }

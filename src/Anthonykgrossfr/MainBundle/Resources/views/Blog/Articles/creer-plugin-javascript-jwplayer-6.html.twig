@@ -1,0 +1,240 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnthonyKGross.fr - Créer un plugin javascript pour JWPlayer 6{% endblock %}
+{% block description %}Article - Créer un plugin javascript pour JWPlayer 6.{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Créer un plugin javascript pour JWPlayer 6</h2>
+                <p>
+                    Vous souhaitez rendre vos plugins jwplayer compatibles avec HTML5 ? 
+                    Suite à l'article Créer un plugin flash pour JWPlayer 6, je vais vous montrer comment faire vos plugins JWPlayer 6 avec javascript. 
+                    La raison ? Flash n'est plus supporté par Adobe et Android ne l'intègre plus sur ses nouvelles versions.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/sintel.png') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <div id="myElement">Loading the player...</div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Installation de l’environnement de travail</h3>
+                            <p>
+                                N’oubliez jamais que pour travailler avec JWPlayer vous ne pouvez pas voir le rendu de votre fichier HTML dans votre navigateur à partir de 
+                                file://…/index.html. De ce fait, vous devez créer un virtualhost et renseigner le nom de domaine local dans /etc/hosts.
+                                
+                            </p>
+                            <h4>Téléchargement</h4>
+                            <p>JWPlayer 6 – JWPlayer 6 [sur Kkuet.net]</p>
+                            <p>Structure de base d’un plugin JWPlayer Javascript [sur Kkuet.net]</p>
+                            <p>jQuery 1.7+</p>
+                            
+                            <h4>Structure du dossier</h4>
+                            <p>
+<pre class="language-php"><code>votre_dossier_jwplayer/
+    index.html                          //Qui sera votre page dans laquel JWPlayer et votre plugin s’affichera
+    jwplayer.js                         //JWPlayer
+    jwplayer.html5.js                   //Player HTML5 de JWPlayer
+    jwplayer.flash.swf                  //Player Flash de JWPlayer
+    commentlikeyoutube.js               //Qui sera votre plugin : Ici, afficher des commentaires dans la vidéo comme Youtube le fait !
+</code></pre>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Développement</h3>
+                            <p>index.html</p>
+<pre class="language-html"><code>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="jwplayer.js"></script>
+    </head>
+    <body>
+        <div id="myElement">Loading the player...</div>
+        <script type="text/javascript">
+           jwplayer("myElement").setup({
+              file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+              playlist: [{
+                 sources: [{ 
+                    file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                    file: "http://media.w3.org/2010/05/sintel/trailer.webm"
+                 }],
+              }],
+              plugins: {
+                 "commentlikeyoutube.js":{
+                     comments: [
+                          {
+                             min:5,
+                             max:9,
+                             comment: "Woaaahhh !! "
+                          },
+                          {
+                             min:12,
+                             max:14,
+                             comment: "Yo le vieux ! "
+                          },
+                          {
+                             min:22,
+                             max:25,
+                             comment: "Cour !!!! "
+                          }
+                     ]
+		         }
+             },
+             modes: [
+                { type: "html5" }
+             ],
+             primary: "html5" //On force le player en HTML5
+       });
+       </script>
+    </body>
+</html>
+</code></pre>
+                            <p>
+                                Jusqu’ici rien de bien spécial pour intégrer JwPlayer dans votre fichier HTML; sauf plugins. 
+                                C’est cette attribut qui va permettre à notre player de charger un plugin externe. 
+                                Tout d’abord, commencez par lui renseigner le chemin votre javascript (ici: commentlikeyoutube.js) puis, envoyez en paramètre les données nécessaires. 
+                                Sachant que nous avons besoin d’afficher des commentaires situés dans la durée de la vidéo, nous allons lui envoyer un tableau d’objets qui contiennent 
+                                chacun un intervalle (temps de début min et de fin max spécifiés en seconde) et la valeur de notre commentaire comment. Autrement dit, 
+                                le commentaire « Yo le vieux ! » sera visible entre la 12ème et 14ème seconde de notre vidéo.
+                            </p>
+                            <p>commentlikeyoutube.js</p>
+<pre class="language-javascript"><code>
+(function(jwplayer){
+   var template = function(player, config, div) {
+
+      //valeurs par défaut de notre configuration
+      var _config = {
+         comments: []
+      }
+
+      function setup(evt) {
+         //On fusionne la configuration par défaut avec celle envoyée par nous
+         $.extend(_config, config);
+
+         createDiv();
+      }
+
+      //Création d'un calque pour afficher nos commentaires
+      function createDiv(){
+         $("#myElement").after("<div id='commentlikeyoutube'/>");
+         //On positionne notre calque en css
+         $("#commentlikeyoutube").css({
+            height: "50px",
+            width: "480px",
+            display: "block",
+            color: "red",
+            fontWeight: "bold",
+            padding: "5px",
+            position: "absolute",
+            marginTop: "-235px"
+        })
+      }
+
+      function eachTime(time){
+         //On vide notre calque de commentaires
+         $("#commentlikeyoutube").html("");
+
+         /*
+         * Pour chaque commentaire (comment), 
+         * on compare si le temps du player (time) est supérieur au temps de début de celui en cours (min) 
+         * et inférieur à son temps de fin (max)
+         * Si c'est le cas, on l'affiche dans notre calque.
+         */
+         $.each(_config.comments, function(k,v){
+            if(time.position >= v.min && time.position <= v.max){
+               $("#commentlikeyoutube").html(v.comment);
+            }
+         });
+      }	
+	
+      //En lecture, on lance la fonction eachTime() de notre plugin
+      player.onTime(eachTime);
+
+      //Dès que jwplayer est prêt, on lance la fonction setup() de notre plugin
+      player.onReady(setup);
+   };
+   jwplayer().registerPlugin("commentlikeyoutube", "6.0", template);
+})(jwplayer);
+</code></pre>
+                            <p>
+                                A l’instanciation du player, JWplayer va prendre connaissance de notre plugin via l’attribut « plugins » de l’objet en paramètre 
+                                de la méthode setup(). Une fois que celui-ci est prêt, il déclenche l’événement onReady qui lui va lancer la méthode setup() de 
+                                notre plugin. A partir de là, nous allons créer la DIV qui va contenir nos commentaires, puis pour chaque seconde de la vidéo jouée (onTime), nous allons vérifier si un commentaire doit être affiché ou pas. N.B : Faites très attention à bien spécifier la version de JWPlayer (ici, 6.0). Tadam ! et voilà, un plugin simple qui vous servira d’exemple pour créer facilement un plugin javascript pour jwplayer 6.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Conclusion</h3>
+                            <p>
+                                Faire passer les applications flash en javascript est devenu incontournable si vous souhaitez que celles-ci soient compatibles avec la plupart des supports médias. 
+                                Sachez qu’ils restent tout de même des inconvénients dans l’utilisation de javascript avec JWPlayer, notamment que vos plugins ne sont pas visibles si le visiteur regarde la vidéo en plein écran ou sur les appareils iOS (Quicktime); 
+                                ou encore des lenteurs de celle-ci si votre code met du temps à s’exécuter. Je vous invite à lire attentivement l’article de LongTail concernant l’état actuel des videos avec HTML5. 
+                                En espérant que vous aurez trouvé ce que vous cherchiez avant de venir ici.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+   jwplayer("myElement").setup({
+      file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+      playlist: [{
+         sources: [{ 
+            file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+            file: "http://media.w3.org/2010/05/sintel/trailer.webm"
+         }],
+      }],
+      plugins: {
+         "commentlikeyoutube.js":{
+             comments: [
+                  {
+                     min:5,
+                     max:9,
+                     comment: "Woaaahhh !! "
+                  },
+                  {
+                     min:12,
+                     max:14,
+                     comment: "Yo le vieux ! "
+                  },
+                  {
+                     min:22,
+                     max:25,
+                     comment: "Cour !!!! "
+                  }
+             ]
+                 }
+     },
+     modes: [
+        { type: "html5" }
+     ],
+     primary: "html5" //On force le player en HTML5
+});
+</script>
+{% endblock %}

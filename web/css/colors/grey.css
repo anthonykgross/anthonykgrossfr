@@ -2,7 +2,7 @@ a, a:visited, #header .arrow-link a:hover, #navigation .nav-menu ul li.active a,
 
 a:hover { color:#404040; } /* Don't change the value */
 
-.header { border-left:3px solid #4B4B4B; }
+.header { border-left:3px solid #11a0b5; }
 
 .flex-control-paging li a { background-color:#bdedf4; }
 
@@ -28,4 +28,29 @@ figure.figure-hover div { background-color:#11a0b5; opacity: 0.7;}
 }
 .footer-social ul li a:hover{
     color: #11a0b5;
+}
+
+#blog .item figure a{
+    background-color: #11a0b5;
+}
+
+.single-page a, .single-blog a, .blog a{
+    color: #11a0b5;
+}
+.single-page a:hover, .single-blog a:hover, .blog a:hover{
+    color: #4B4B4B;
+}
+
+/* CV */
+#cv .row{
+    margin-bottom: 20px;
+}
+
+#skills .row h4 {
+    font-weight: bold;
+    color:  #4B4B4B;
+}
+
+pre.code{
+    
 }

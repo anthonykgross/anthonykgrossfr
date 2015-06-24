@@ -862,7 +862,7 @@ figure.figure-hover { position:relative; }
 	
 	#contact textarea { margin-top:20px; }
 	
-	#blog {
+	#blog, #cv {
 		padding-left:20px;
 		padding-right:20px;	
 	}

@@ -146,7 +146,7 @@
                 </div>
                 <div class="row">
                     <div class="span1">
-                        <span property="v:photo"><img src="{{ asset('images/photo.jpg') }}" alt="Anthony Kkuet GROSS" /></span>
+                        <span property="v:photo"><img src="{{ asset('bundles/anthonykgrossfrmain/images/photo.jpg') }}" alt="Anthony Kkuet GROSS" /></span>
                     </div>
                     <div class="span11">
                         <p>
@@ -341,33 +341,4 @@
         </section> 
         
         <div class="map" id="contact-map" data-map-lat="43.302642" data-map-lon="5.377865" data-map-zoom="17" data-map-title="Localisation" data-map-address="107 rue Longue des Capucins 13001 Marseille"></div> <!-- google map -->
-
-        <section id="contact">
-            <div class="container">
-
-                <div class="header">
-                    <h2>Restez en contact</h2>
-                    <p>J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.</p>
-                </div>
-
-                <p>Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ? N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez pas timide ! Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre davantage.</p>
-                <form id="contact-form" method="post" action="{{ path("anthonykgrossfr_contactez_moi")}}">
-                    <div class="row">
-                        <div class="span6">
-                            <input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)" />
-                            <input type="text" name="email" maxlength="255" placeholder="Votre adresse email (obligatoire)" />
-                            <input type="text" name="subject" placeholder="Sujet" class="no-margin-bottom" />
-                        </div>
-                        <div class="span6">
-                            <textarea name="message" placeholder="Message (obligatoire)"></textarea>
-                            <input type="submit" name="submit" value="C'est parti !" class="btn btn-large" />
-                        </div>
-                    </div>
-                </form>
-
-                <div class="data-status"></div> <!-- data submit status -->
-
-            </div> <!-- End container -->
-        </section> <!-- End contact -->
-
 {% endblock %}
