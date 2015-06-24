@@ -5,3 +5,7 @@ anthonykgrossfr_main_homepage:
 anthonykgrossfr_contactez_moi:
     path:     /contactez_moi
     defaults: { _controller: AnthonykgrossfrMainBundle:Default:sendmail }
+    
+anthonykgrossfr_cv:
+    path:     /cv
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:cv }

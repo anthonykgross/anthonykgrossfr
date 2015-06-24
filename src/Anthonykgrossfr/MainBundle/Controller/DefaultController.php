@@ -66,4 +66,9 @@ class DefaultController extends Controller
         $view       = new \Symfony\Component\HttpFoundation\JsonResponse($e);
         return $view;
     }
+    
+    public function cvAction()
+    {
+        return $this->render('AnthonykgrossfrMainBundle:Default:cv.html.twig');
+    }
 }
