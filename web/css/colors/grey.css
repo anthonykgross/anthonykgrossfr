@@ -46,7 +46,7 @@ figure.figure-hover div { background-color:#11a0b5; opacity: 0.7;}
     margin-bottom: 20px;
 }
 
-#skills .row h4 {
+h4.bolded {
     font-weight: bold;
     color:  #4B4B4B;
 }

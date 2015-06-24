@@ -15,5 +15,5 @@ anthonykgrossfr_blog:
     defaults: { _controller: AnthonykgrossfrMainBundle:Blog:index }
 
 anthonykgrossfr_blog_lire:
-    path:     /blog/{name}
+    path:     /p/{name}
     defaults: { _controller: AnthonykgrossfrMainBundle:Blog:lire }

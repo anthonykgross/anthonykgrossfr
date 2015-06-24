@@ -1,7 +1,5 @@
-parameters:
-#    anthonykgrossfr_main.example.class: Anthonykgrossfr\MainBundle\Example
-
 services:
-#    anthonykgrossfr_main.example:
-#        class: %anthonykgrossfr_main.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    anthonykgrossfr_htmlencode_extension:
+        class: Anthonykgrossfr\MainBundle\Twig\HtmlEncodeExtension
+        tags:
+        - { name: twig.extension } 
