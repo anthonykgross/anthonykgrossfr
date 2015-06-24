@@ -24,10 +24,14 @@ jQuery(document).ready(function($){
 		var $anchor = $(this);	
                 
                 var final_anchor = $anchor.attr('href').split("#");
-		$('html, body').stop().animate({
-			scrollTop: parseInt($("#"+final_anchor[1]).offset().top - 80, 0)
-		}, 2000,'easeInOutExpo');
-		event.preventDefault();
+                
+                if(final_anchor.length > 1){
+                    $('html, body').stop().animate({
+                            scrollTop: parseInt($("#"+final_anchor[1]).offset().top - 80, 0)
+                    }, 2000,'easeInOutExpo');
+                    event.preventDefault();
+                }
+		
 	});
 	
 	// Top fullscreen image with jQuery backstretch
