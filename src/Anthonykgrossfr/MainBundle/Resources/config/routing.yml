@@ -3,7 +3,7 @@ anthonykgrossfr_main_homepage:
     defaults: { _controller: AnthonykgrossfrMainBundle:Default:index }
 
 anthonykgrossfr_contactez_moi:
-    path:     /contactez_moi
+    path:     /contact
     defaults: { _controller: AnthonykgrossfrMainBundle:Default:sendmail }
     
 anthonykgrossfr_cv:
@@ -12,8 +12,16 @@ anthonykgrossfr_cv:
     
 anthonykgrossfr_blog:
     path:     /blog
-    defaults: { _controller: AnthonykgrossfrMainBundle:Blog:index }
-
-anthonykgrossfr_blog_lire:
+    defaults: { _controller: AnthonykgrossfrMainBundle:Page:blog }
+    
+anthonykgrossfr_event:
+    path:     /event
+    defaults: { _controller: AnthonykgrossfrMainBundle:Page:event }
+    
+anthonykgrossfr_project:
+    path:     /project
+    defaults: { _controller: AnthonykgrossfrMainBundle:Page:project }
+    
+anthonykgrossfr_page_lire:
     path:     /p/{name}
-    defaults: { _controller: AnthonykgrossfrMainBundle:Blog:lire }
+    defaults: { _controller: AnthonykgrossfrMainBundle:Page:lire }

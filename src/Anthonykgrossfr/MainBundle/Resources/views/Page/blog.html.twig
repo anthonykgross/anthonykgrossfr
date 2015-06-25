@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnthonyKGross.fr - Le blog{% endblock %}
+{% block description %}&Agrave; quoi bon garder l'information pour moi ? Je partage mon petit savoir.{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_blog') }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="blog">
+
+            <div class="header margin-bottom40">
+                <h2>Blog</h2>
+                <p>&Agrave; quoi bon garder l'information pour moi ? Je partage mon petit savoir.</p>
+            </div>
+
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/sintel.png') }}" alt="Thumbnail" />
+                    <div class="title"><a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}">Créer un plugin javascript pour JWPlayer 6</a></div>
+                </figure>
+                <p>
+                    Vous souhaitez rendre vos plugins jwplayer compatibles avec HTML5 ? 
+                    Suite à l'article Créer un plugin flash pour JWPlayer 6, je vais vous montrer comment faire vos plugins JWPlayer 6 avec javascript. 
+                    La raison ? Flash n'est plus supporté par Adobe et Android ne l'intègre plus sur ses nouvelles versions.
+                </p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> &nbsp; Le 14 Juin 2013 <span class="font-slight">|</span> 
+                    <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}" class="read-more">Lire</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/ffmpeg.jpg') }}" alt="Thumbnail" />
+                    <div class="title"><a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-partie-3-commandes-avancees' }) }}">FFmpeg – Partie 3 – Commandes avancées</a></div>
+                </figure>
+                <p>
+                    Découvrez les commandes avancées de FFmpeg.
+                </p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> &nbsp; Le 03 Novembre 2012 <span class="font-slight">|</span> 
+                    <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-partie-3-commandes-avancees' }) }}" class="read-more">Lire</a>
+                </div>
+            </div>
+                
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/ffmpeg.jpg') }}" alt="Thumbnail" />
+                    <div class="title"><a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-commandes-base' }) }}">FFmpeg – Partie 2 – Commandes de base</a></div>
+                </figure>
+                <p>
+                    Commençons avec quelques commandes de base pour utiliser notre petit FFmpeg fraîchement installé.
+                </p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> &nbsp; Le 03 Novembre 2012 <span class="font-slight">|</span> 
+                    <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-commandes-base' }) }}" class="read-more">Lire</a>
+                </div>
+            </div>
+                
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/ffmpeg.jpg') }}" alt="Thumbnail" />
+                    <div class="title"><a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-installation-x264' }) }}">FFmpeg – Partie 1 – Installation</a></div>
+                </figure>
+                <p>
+                    Toute la procédure d'installation de FFmpeg avec x264
+                </p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> &nbsp; Le 27 Septembre 2012 <span class="font-slight">|</span> 
+                    <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-installation-x264' }) }}" class="read-more">Lire</a>
+                </div>
+            </div>
+            <!--<nav class="nav-page">
+                <a href="blog.html">Prev</a>
+                <a href="blog.html">1</a>
+                <a href="blog.html">2</a>
+                <a href="blog.html">3</a>
+                <a href="blog.html">4</a>
+                <a href="blog.html" class="active">5</a>
+                <a href="blog.html">6</a>
+                <a href="blog.html">7</a>
+                <a href="blog.html">Next</a>
+            </nav> -->
+
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

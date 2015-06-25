@@ -2,7 +2,7 @@
 
 {% block title %}AnthonyKGross.fr - Créer un plugin javascript pour JWPlayer 6{% endblock %}
 {% block description %}Article - Créer un plugin javascript pour JWPlayer 6.{% endblock %}
-{% block og_url %}{{ path('anthonykgrossfr_blog_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -11,7 +11,7 @@
                 <h2>Créer un plugin javascript pour JWPlayer 6</h2>
                 <p>
                     Vous souhaitez rendre vos plugins jwplayer compatibles avec HTML5 ? 
-                    Suite à l'article <a href="{{path("anthonykgrossfr_blog_lire", {name: "creer-plugin-flash-jwplayer-6"})}}">Créer un plugin flash pour JWPlayer 6</a>, je vais vous montrer comment faire vos plugins 
+                    Suite à l'article <a href="{{path("anthonykgrossfr_page_lire", {name: "creer-plugin-flash-jwplayer-6"})}}">Créer un plugin flash pour JWPlayer 6</a>, je vais vous montrer comment faire vos plugins 
                     JWPlayer 6 avec javascript. 
                     La raison ? Flash n'est plus supporté par Adobe et Android ne l'intègre plus sur ses nouvelles versions.
                 </p>
@@ -60,7 +60,7 @@
                         <div class="span12">
                             <h3>Développement</h3>
                             <p>index.html</p>
-<pre class="language-javascript"><code>{{ '<html>
+<pre class="language-php"><code>{{ '<html>
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
