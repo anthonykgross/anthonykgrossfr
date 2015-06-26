@@ -11,3 +11,5 @@
 /nbproject/private/
 /nbproject
 /web/libs/
+npm-debug.log
+node_modules/
