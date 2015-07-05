@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnthonyKGross.fr - Sun is up - Plugin jQuery{% endblock %}
+{% block description %}Projet - Sun is up - Plugin jQuery.{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'sun-is-up-plugin-jquery-sunisup' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/sunisup.jpg") }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Sun is up</h2>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/sunisup.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Introduction</h2>
+                            <p>
+                                Quelques heures avant la fin du monde, je publie un article pour les survivants potentiels à l’apocalypse. 
+                                Apparemment, il sera impossible de vivre à l’air libre donc c’est là que mon plugin jQuery prend tout 
+                                son sens! Et oui, à jouer les troglodytes ces survivants n’auront plus la chance de revoir 
+                                le soleil avant bien longtemps donc s’ils ont Internet c’est le lien ci-dessous qu’ils devrons cliquer.
+                            </p>
+                            <p>
+                                Bien sûr, vous n’êtes pas obligé d’être un survivant de la fin du monde pour admirer.
+                            </p>
+                            <p>
+                                Bientôt: la source et la documentation du plugin.
+                            </p>
+                            <p>
+                                Remerciement à benjaminb.fr pour son super tutoriel sur  <a href="http://blog.benjaminb.fr/tutoriels/comment-creer-un-plugin-jquery/" target="_blank">Comment créer un plugin jQuery</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Démonstration</h2>
+                            <div class="row">
+                                <iframe src="http://blog.kkuet.net/demo/sunisup/"  class="span6" style="min-height: 800px;"></iframe>
+                                <iframe src="http://blog.kkuet.net/demo/sunisup/bob.html"  class="span6" style="min-height: 800px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 21 Décembre 2012 <span class="font-slight"></span> 
+            </div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

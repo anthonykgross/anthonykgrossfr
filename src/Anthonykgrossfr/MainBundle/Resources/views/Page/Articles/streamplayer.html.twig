@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnthonyKGross.fr - Streamplayer{% endblock %}
+{% block description %}Projet - Streamplayer.{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'streamplayer' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/streamplayer.jpg") }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Streamplayer</h2>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/streamplayer.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Introduction</h2>
+                            <p>
+                                Marre de passer son temps entre différents sites pour trouver la radio que vous aimez ? Avec Streamplayer est là.
+                                En effet, grâce à cette application vous avez désormais le choix entre différentes WebTV, radios, vidéos ou musiques. 
+                                De plus, vous pouvez ajouter vos liens Youtube préférés grâce au formulaire de proposition. 
+                                Une vidéo validée par l’administrateur (moi-même pour l’instant), celle-ci sera disponible par les autres utilisateurs. 
+                                Autant dire que cette prochaine application sera avant tout communautaire.
+                                Cette application est disponible sur le web mais aussi pour les pc disposant du Système d’exploitation Windows. 
+                                Pour plus d’information, contactez-moi..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Démonstration</h2>
+                            <div class="row">
+                                <div class="span12">
+                                    <h3>Streamplayer.kkuet.net</h3>
+                                </div>
+                                <iframe src="http://streamplayer.kkuet.net/"  class="span12" style="min-height: 800px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 27 Janvier 2011 <span class="font-slight"></span> 
+            </div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

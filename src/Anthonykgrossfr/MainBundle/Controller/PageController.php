@@ -3,6 +3,7 @@
 namespace Anthonykgrossfr\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class PageController extends Controller
 {
@@ -24,7 +25,8 @@ class PageController extends Controller
     public function lireAction($name)
     {
         if (!$this->get('templating')->exists('AnthonykgrossfrMainBundle:Page:Articles/'.strtolower($name).'.html.twig') ) {
-            return $this->render('AnthonykgrossfrMainBundle:Page:not_found.html.twig');
+            $response = new Response(null, 404);
+            return $this->render('AnthonykgrossfrMainBundle:Page:not_found.html.twig', array(), $response);
         }
         return $this->render('AnthonykgrossfrMainBundle:Page:Articles/'.strtolower($name).'.html.twig');
     }
