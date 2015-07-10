@@ -4,6 +4,10 @@
 {% block description %}Consultez le CV d'Anthony K GROSS.{% endblock %}
 {% block og_url %}{{ path('anthonykgrossfr_cv') }}{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("libs/startbootstrap-sb-admin-2/dist/css/timeline.css")}}">
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <section id="cv" class="single-page">
