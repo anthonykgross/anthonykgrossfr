@@ -19,6 +19,7 @@
         <meta property='og:site_name' content='AnthonyKGross.fr'/>
         <meta property='og:type' content='website'/>
         <meta property="og:image" content="{% block og_image %}http://{{ app.request.host ~  asset("images/fb_image.png") }}{% endblock %}">
+        <meta property="fb:admins" content="gross.anthony"/>
         
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -183,7 +184,8 @@
             </footer> <!-- End footer-copyright -->
         </div> <!-- End stickem-container -->
         <div class="page-loading"></div>
-        
+        <div id="fb-root"></div>
+
         <!-- JavaScript -->
         <script type="text/javascript" src="{{ asset("js/jquery-1.9.1.min.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/jquery-migrate.min.js") }}"></script>
@@ -200,6 +202,13 @@
         <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
         <script type="text/javascript" src="{{ asset("libs/prismjs/prism.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.4&appId=1488082224825425";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
         
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
