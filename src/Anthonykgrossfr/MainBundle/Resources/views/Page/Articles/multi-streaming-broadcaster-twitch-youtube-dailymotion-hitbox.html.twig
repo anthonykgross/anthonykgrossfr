@@ -84,10 +84,10 @@ chmod +x create-image.sh
                             <h4>Explications</h4>
                             <p>
                                 Pour ce qui est de l'étape 1, nous avons seulement installer des outils utiles pour l'installation de Docker et la seconde étape, c'est la récupération de l'image <b>anthonykgross/docker-broadcaster</b> que nous aurons besoin. 
-                                Bien entendu, il n'est pas &laquo;nécéssaire&raquo; de récupérer l'image via Github car celle-ci est disponible sur le Docker Hub mais je préfère, pour les néophytes, que vous en ayez trop que pas assez.
+                                Bien entendu, il n'est pas &laquo;nécéssaire&raquo; de récupérer l'image via <a href="https://github.com/anthonykgross/docker-broadcaster" target="_blank">Github</a> car celle-ci est disponible sur le <a href="https://hub.docker.com/r/anthonykgross/docker-broadcaster/" target="_blank">Docker Hub</a> mais je préfère, pour les néophytes, que vous en ayez trop que pas assez.
                             </p>
                             <p>
-                                En effet, dans le répertoire <b>docker-broadcaster</b>, vous avez un fichier <b>docker-compose.yml</b> qui est très important. Si vous l'ouvrez dans un éditeur de texte, vous verrez que celui-ci possède déjà toutes les configurations possible de notre image. 
+                                En effet, dans le répertoire <b>docker-broadcaster</b>, vous avez un fichier <b>docker-compose.yml</b> qui est très important. Si vous l'ouvrez avec un éditeur de texte, vous verrez que celui-ci possède déjà toutes les configurations possibles de notre image. 
                             </p>
                         </div>
                     </div>
@@ -170,8 +170,8 @@ broadcaster:
                             </div>
                             <p>
                                 &laquo;Mais à quoi peuvent servir les autres paramêtres ? (<b>YOUR_IP</b>, <b>PRIVATE_KEY</b> & <b>EXPIRATION_TOKEN</b>) &raquo; - Déjà, pour <b>YOUR_IP</b> : Mettez la votre, pas la mienne ! Vous n'êtes pas obligé de la renseigner mais pour la suite ça pourrait être utile.<br/>
-                                <b>PRIVATE_KEY</b> est un paramêtre qui vous servira à sécuriser votre serveur. Sinon ? Si vous ne sécuriser pas votre serveur et que quelqu'un parvient à prendre votre URl de streaming => il streamera sur tous vos compte à votre place ! Donc pensez bien à la changer régulièrement.<br/>
-                                <b>EXPIRATION_TOKEN</b> permet de donner une validité à votre token que nous verrons plus tard. Si vous mettez 3600 (secondes) soit 1h, vous ne pourrez plus diffuser votre video car votre token sera périmé.
+                                <b>PRIVATE_KEY</b> est un paramêtre qui vous servira à sécuriser votre serveur. Sinon ? Si vous ne sécuriser pas votre serveur et que quelqu'un parvient à prendre votre URl de streaming => il streamera sur tous vos comptes à votre place donc pensez bien à la changer régulièrement.<br/>
+                                <b>EXPIRATION_TOKEN</b> permet de donner une validité à votre token que nous verrons plus tard. Si vous mettez 3600 (secondes) soit 1h, vous ne pourrez plus diffuser votre video après 1h de live car votre token sera périmé.
                             </p>
                         </div>
                     </div>
@@ -185,16 +185,24 @@ broadcaster:
                             <p>
                                 J'arrête de vous faire languir : place au spetacle ! Pour lancer le l'image Docker :
                             </p>
+                            <p>
+                                <b>Méthode 1</b> (Conseillée)
+                            </p>
 <pre class="language-bash"><code>
 docker-compose up -d
 </code></pre>
                             <p>
                                 Cette commande va lire le fichier <b>docker-compose.yml</b> et créer le container en conséquence avec tous les paramêtres. Bien entendu, vous pouvez éviter de passer par <b>Compose</b> mais vous devrez à chaque fois renseigner vos paramêtres.<br/>
-                                Ex : 
+                            </p>
+                            <p>
+                                <b>Méthode 2</b>
                             </p>
 <pre class="language-bash"><code>
 docker run -e "YOUTUBE_URL=rtmp://a.rtmp.youtube.com/live2" -e "YOUTUBE_STREAMKEY=poopaplla-7537.ea0k-ef3-czsz" ... anthonykgross/docker-broadcaster
 </code></pre>
+                            <p>
+                                Cette commande <b>ne lira pas</b> le fichier <b>docker-compose.yml</b> donc il n'ait pas nécessaire de le remplir. Vous devez lui envoyer toute votre configuration en paramêtre.
+                            </p>
                             <p>
                                 Donc si tout se passe bien, rien ne devrez se passer ! Bizarre? Non, c'est parfait !
                             </p>
@@ -217,7 +225,7 @@ CONTAINER ID        IMAGE                              COMMAND             CREAT
 4df494575536        anthonykgross/docker-broadcaster   "/entrypoint.sh"    21 hours ago        Up 21 hours         0.0.0.0:1935->1935/tcp, 0.0.0.0:8080->8080/tcp   dockerbroadcaster_broadcaster_1
 </code></pre>
                             <p>
-                                Donc jusqu'ici tout va bien : mon container est en marche ! Nous allons chercher mes identifiants pour streamer sur ma machine.  
+                                Donc jusqu'ici tout va bien : mon container est en marche et son <b>CONTAINER ID</b> est <b>4df494575536</b>! Nous allons chercher mes identifiants pour streamer sur ma machine grâce justement à cet ID.  
                             </p>
 <pre class="language-bash"><code>
 docker logs 4df494575536
@@ -239,13 +247,13 @@ broadcaster_1 | ================================================================
 </code></pre>
                             <p>
                                 Le container nous affiche tous nos paramêtres afin de vérfier que ceux-ci ont bien été pris en compte.<br/>
-                                De plus, si vous avez renseigner <b>YOUR_IP</b>, vous avez à votre disponibilité deux URLs: <b>live</b> et <b>transcode</b>. Pour ce qui est de <b>transcode</b>, c'est une version beta donc je ne vous conseille pas de l'utiliser. Pour ce qui est de <b>live</b>, c'est celle-ci qui nous intéresse ainsi que <b>Stream Key</b> 
+                                De plus, si vous avez renseigné <b>YOUR_IP</b>, vous avez à votre disponibilité deux URLs: <b>live</b> et <b>transcode</b>. Pour ce qui est de <b>transcode</b>, c'est une version beta donc je ne vous conseille pas de l'utiliser pour l'instant. Pour ce qui est de <b>live</b>, c'est celle-ci qui nous intéresse ainsi que <b>Stream Key</b> 
                             </p>
                             <h4>STRREEEEAAAMMMIIINNNGGGG !!! </h4>
                             <p>
                                 Sur votre pc de maison, vous ouvrez <b>OBS</b> (ou <b>XplitBroadcaster</b>) et vous renseignez dans <b>RTMP-URL</b> "rtmp://YOUR_IP:1935/live/" (à remplacer par la votre hein?!).</br>
                                 Ensuite, dans la clé du flux, vous mettez votre ... <b>Stream Key</b>.<br/>
-                                Et si tout se passe bien ... <b>CA MARCHE</b> ! Vous pouvez vous rendre sur tous vos profiles publiques de tous les plateforme que vous avez choisi et vous devriez voir votre belle video.
+                                Et si tout se passe bien ... <b>CA MARCHE</b> ! Vous pouvez vous rendre sur tous vos profiles publiques de toutes les plateformes que vous avez choisi et vous devriez voir votre belle video.
                             </p>
                         </div>
                     </div>
@@ -257,8 +265,8 @@ broadcaster_1 | ================================================================
                         <div class="span12">
                             <h3>Conclusion</h3>
                             <p>
-                                Dans un premier temps, sachez que je m'excuse pour les fautes d'orthographe : j'ai du écrire rapidement cette article car j'en ai un peu trop fait la promo sur les réseaux sociaux !
-                                Sachez néanmoins que ça m'a beaucoup appris de Docker en réalisant cette image. <br/>Pour finir je voudrais remercier mon frangin qui, avec ces idées à la con parfois, m'a donné un bel objectif : J'te kiff' bro!
+                                Dans un premier temps, sachez que je m'excuse pour les fautes d'orthographe : j'ai du écrire rapidement cet article car j'en ai un peu trop fait la promo sur les réseaux sociaux !
+                                Sachez néanmoins que ça m'a beaucoup appris de Docker en réalisant cette image. <br/>Pour finir je voudrais remercier mon frangin qui, avec ses idées à la con parfois, m'a donné un bel objectif : J'te kiff' bro!
                                 Ah et ... merci à Clément Vidal pour m'avoir fait comprendre quelques subtilités de Docker et m'avoir aidé à écrire la doc en anglais (en cours de relecture).<br/>
                                 Sur ce, j'ai garé mon panda en double file. A+
                             </p>
