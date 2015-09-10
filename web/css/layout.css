@@ -532,6 +532,7 @@ figure.figure-hover { position:relative; }
 				font-size:18px;
 				margin:15px 0px 5px;
 			}
+                #partners .teams .item p.description{height: 100px;}
 		#partners .teams .item .social { margin-top:15px; }
 			#partners .teams .item .social li {
 				list-style-type:none;
