@@ -501,6 +501,7 @@ figure.figure-hover { position:relative; }
 				margin:15px 0px 5px;
 			}
 		#about .teams .item .social { margin-top:15px; }
+                #about .teams .item .description { height:250px; }
 			#about .teams .item .social li {
 				list-style-type:none;
 				display:inline;
