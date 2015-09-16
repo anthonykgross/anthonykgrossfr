@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kkuet.net - SunIsUp</title>
+        <link href="designBob.css" type="text/css" rel="stylesheet" />
+        <script src="jquery.min.js"></script>
+        <script src="bob.jquery.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script> 
+	<script>
+		var params={allowScriptAccess:"always"},atts={id:"myytplayer"};swfobject.embedSWF("http://www.youtube.com/v/5fBhjgFKJQg?enablejsapi=1&playerapiid=ytplayer&version=3","myytplayer","425","356","8",null,null,params,atts);function onYouTubePlayerReady(){ytplayer=document.getElementById("myytplayer");ytplayer.addEventListener("onStateChange","onytplayerStateChange")}
+function onytplayerStateChange(a){i=parseInt(ytplayer.getCurrentTime());1==a&&(interval=setInterval(function(){$("body").sunisup({value:i});i+=1},1E3));2==a&&clearInterval(interval)};
+	</script>
+    </head>
+    <body>
+	<div id="panneau">
+		   
+  <div id="myytplayer">
+    You need Flash player 8+ and JavaScript enabled to view this video.
+  </div>
+	</div>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kkuet.net - SunIsUp</title>
+        <link href="design.css" type="text/css" rel="stylesheet" />
+        <script src="jquery.min.js"></script>
+        <script src="sunisup.jquery.js"></script>
+	<script>
+	$(function(){function d(){a=setInterval(function(){c=new Date;b=10*c.getHours();$("body").sunisup({value:b});e(c.getTime()/1E3)},1E3)}function e(a){secondes=Math.floor(a%86400%3600%60);minutes=Math.floor(a%86400%3600/60);hours=Math.floor(a%86400/3600);$("#maDate").html(hours+"h "+minutes+"m "+secondes+"s")}var b,c,a;$(".passDay").on("click",function(){clearInterval(a);y=b;a=setInterval(function(){$("body").sunisup({value:y});y+=1;e(3600*((y-1)/10));parseInt(y%230)==parseInt(b)&&(clearInterval(a),
+d())},200)});d()});
+	</script>
+    </head>
+    <body>
+	<div id="panneau">
+		<div id="maDate"></div>
+		<button class="passDay">Passez une journée</button>
+	</div>
+    </body>
+</html>
