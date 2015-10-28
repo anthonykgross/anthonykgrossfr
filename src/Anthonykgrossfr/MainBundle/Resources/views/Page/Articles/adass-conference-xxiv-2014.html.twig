@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnthonyKGross.fr - ADASS XXIV{% endblock %}
+{% block description %}&Eacute;vènement - ADASS XXIV.{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg") }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>ADASS XXIV</h2>
+                <p>
+                    L'ADASS (Astronomical Data Analysis Software and Systems) est une conférence 
+                    annuelle qui se déroule dans différentes institutions astronomiques. Elle favorise l'échange
+                    entre les scientifiques et les ingénieurs sur les themes des algorithmes,
+                    des logiciels, de la réduction, de l'analyse et du stockage des données astronomiques.
+                    La conférence se compose majoritaire de présentations orales, de posters et de démonstrateurs autour des projets 
+                    de chacun des participants.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Présentation</h2>
+                            <p>
+                                Suite à la <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'hackathon-openedx-ionisx-xhack-2015' }) }}">OpenedXHack</a>
+                                où nous, l'équipe KNOTES, avons terminé second toutes catégories confondues, nous avons décidé de nous rendre à la conférence 
+                                annuelle d'OpenedX à Boston et de participer au hackathon. Pourquoi ? Tout d'abord, les retours du premier hackathon ont été très 
+                                favorables pour Kalyzée. Nous espérons que notre participation à ce second hackathon, notre rencontre avec l'équipe de l'organisation
+                                et la demonstration de notre détermination augmenteront notre visibilité dans le domaine de la formation en ligne.
+                            </p>
+                            <br/>
+                            <h2>Notre projet</h2>
+                            <p>
+                                Lors de cette seconde compétition sur le thème de la formation en ligne par vidéo avec OpenedX,
+                                nous avions le choix entre : continuer Knotes ou créer un nouveau produit. Dans l'éventualité où nous créions un nouveau produit, 
+                                il fallait que ce soit aussi impressionnant que Knotes et répondant à un besoin de la plateforme.
+                                Au final, nous avons décidé d'intégrer, directement 
+                                sur le site, un moyen pour les formateurs de créer facilement leurs vidéos, que nous appelerions : KAST.
+                                Bien entendu, au vu du temps imparti pour y parvenir, nous savions que le défi était de taille et que nous pourrions
+                                avoir seulement un prototype. Un pari risqué mais un pari à la hauteur de nos ambitions. Voici, ci dessous, notre présentation finale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Comment dire ... ? L'expérience fût complètement folle et j'ai vraiment adoré me confronter aux autres
+                                développeurs du monde entier; car oui, cette conférence rassemblée énormément de personnes hors USA.
+                                De plus, c'était pour moi la première fois que j'allais aux États Unis ! Je sais que mon équipe et moi-même avons 
+                                tout donné afin de répondre aux mieux aux attentes de Kalyzée et je souhaite que le voyage sera à la hauteur de l'investissement
+                                et de la confiance que l'entreprise a misé sur nous; pour, pourquoi pas, peut être recommencer l'an prochain.
+                                Maintenant, j'ai seulement deux jours avant mon prochain voyage (ADASS XXV à Sydney) donc sur ce, j'ai garé 
+                                mon tatou en double file. Tchou !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Liens utiles</h3>
+                            <li><a href="{{ asset('data/cnrs/POSTER-ADASS-XXIV_ETC-42.pdf') }}" target="_blank">Le poster d'ETC42</a></li>
+                            <li><a href="{{ asset('data/cnrs/ADASS-XXIV_ETC-42.pdf') }}" target="_blank">L'article scientifique d'ETC42</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 19 Octobre 2014 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}
