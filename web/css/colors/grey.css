@@ -1,4 +1,4 @@
-a, a:visited, #header .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#4B4B4B; }
+a, a:visited, #logo .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#4B4B4B; }
 
 a:hover { color:#404040; } /* Don't change the value */
 
@@ -6,7 +6,7 @@ a:hover { color:#404040; } /* Don't change the value */
 
 .flex-control-paging li a { background-color:#bdedf4; }
 
-.btn, .tbl-skills .item .tbl-skills-process, #about .teams .item figure p, #partners .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#4B4B4B; }
+.btn, .tbl-skills .item .tbl-skills-process, #apropos .teams .item figure p, #partenaires .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#4B4B4B; }
 
 .btn:hover, #blog .item figure a:hover { background-color:#404040; } /* Don't change the value */
 
@@ -52,5 +52,5 @@ h4.bolded {
 }
 
 pre.code{
-    
+
 }

@@ -1,4 +1,4 @@
-a, a:visited, #header .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#4cbb1b; }
+a, a:visited, #logo .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#4cbb1b; }
 
 a:hover { color:#404040; } /* Don't change the value */
 
@@ -6,15 +6,15 @@ a:hover { color:#404040; } /* Don't change the value */
 
 .flex-control-paging li a { background-color:#b9f79e; }
 
-.btn, .tbl-skills .item .tbl-skills-process, #about .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#4cbb1b; }
+.btn, .tbl-skills .item .tbl-skills-process, #apropos .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#4cbb1b; }
 
 .btn:hover, #blog .item figure a:hover { background-color:#404040; } /* Don't change the value */
 
 figure.figure-hover div { background-color:rgba(76, 187, 27, .7); }
 
 .testimonials, .tweets {
-	border-top:1px solid #369c09;
-	border-bottom:1px solid #369c09;	
+    border-top:1px solid #369c09;
+    border-bottom:1px solid #369c09;	
 }
 .tweets { border-bottom:0px; }
 
