@@ -15,12 +15,20 @@ anthonykgrossfr_blog:
     defaults: { _controller: AnthonykgrossfrMainBundle:Page:blog }
     
 anthonykgrossfr_event:
-    path:     /event
+    path:     /evenements
     defaults: { _controller: AnthonykgrossfrMainBundle:Page:event }
+
+anthonykgrossfr_event2:
+    path:     /event
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:event }
     
 anthonykgrossfr_project:
-    path:     /project
+    path:     /projets
     defaults: { _controller: AnthonykgrossfrMainBundle:Page:project }
+
+anthonykgrossfr_project2:
+    path:     /project
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:project }
     
 anthonykgrossfr_page_lire:
     path:     /p/{name}

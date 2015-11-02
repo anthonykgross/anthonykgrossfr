@@ -344,20 +344,21 @@ figure.figure-hover { position:relative; }
 	height:50%;
 }
 	#header .header-overlay {
-		background:url(../images/base-overlay.png) repeat;
+		/*background:url(../images/base-overlay.png) repeat;*/
 		width:100%;
 		height:100%;
 	}
 	#header .container {
 		position:relative;
 		top:30%;
+                opacity:0.45;
 	}
 		#header .container .slides {
 			top:0;
 			left:0;
 		}
 		#header .container img {
-			height:70px;
+			height:150px;
 			margin-bottom:35px;
 		}
 		#header .container h1 {

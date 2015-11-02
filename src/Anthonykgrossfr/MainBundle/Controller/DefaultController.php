@@ -11,6 +11,14 @@ class DefaultController extends Controller
         return $this->render('AnthonykgrossfrMainBundle:Default:index.html.twig');
     }
 
+    public function projectAction(){
+        return $this->redirect($this->generateUrl('anthonykgrossfr_project'), 301); 
+    }
+    
+    public function eventAction(){
+        return $this->redirect($this->generateUrl('anthonykgrossfr_event'), 301); 
+    }
+    
     public function sendmailAction()
     {
         $e          = array('msg' => array());
