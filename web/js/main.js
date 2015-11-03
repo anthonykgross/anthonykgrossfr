@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
 	$('.nav-menu ul').ddscrollSpy({ scrolltopoffset: -60 });
 	
 	// jQuery smooth scrolling
-	$('#navigation a, #header .arrow-link a').bind('click', function(event) {
+	$('#navigation a, #logo .arrow-link a').bind('click', function(event) {
 		var $anchor = $(this);	
                 
                 var final_anchor = $anchor.attr('href').split("#");
@@ -47,7 +47,7 @@ jQuery(document).ready(function($){
 	$("#portofolio .swipebox").swipebox();
 	
 	// Header text rotator with jTicker
-	$("#header .text-rotator").show().ticker({ rate: 150, delay: 3000 }).trigger("play");
+	$("#logo .text-rotator").show().ticker({ rate: 150, delay: 3000 }).trigger("play");
 	
 	// Portofolio carousel animation with Flexslider
 	$('#portofolio .flexslider').flexslider({

@@ -818,6 +818,9 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     #navigation .nav-menu ul li a { padding:23px 20px; }
 
     .footer-social ul li { margin:0px 35px; }
+    #logo .container img{
+        height: 70px
+    }
 
 }
 
@@ -830,6 +833,9 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     #partenaires .item, #apropos .item{
         font-size: 12px;
     }
+    #logo .container img{
+        height: 100px
+    }
 }
 
 @media (max-width: 767px) {
@@ -838,10 +844,14 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
     #logo .container { padding:0px 20px; }
     #logo .container h1 {
-        font-size:42px;
+        font-size:16px;
         line-height:48px;
     }
 
+    #logo .container img{
+        height: 70px
+    }
+    
     #navigation {
         padding-left:10px;
         padding-right:10px;
@@ -955,15 +965,29 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     #blog #comments .comment-lists ul li .content { width:80%; }
     #blog #comments .comment-lists ul li > ul { padding-left:0px; }
 
+    #logo .container h1 {
+        font-size:16px;
+        line-height:16px;
+    }
+    
+    #logo .container img{
+        height: 35px
+    }
+    
 }
 
 @media (max-width: 380px) {
 
     #logo .container h1 {
-        font-size:26px;
-        line-height:32px;
+        font-size:14px;
+        line-height:16px;
     }
 
+    #logo .container img{
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
     #blog #comments .comment-lists ul li img { width:20%; }
     #blog #comments .comment-lists ul li .content { width:74%; }
     #logo_akg{
