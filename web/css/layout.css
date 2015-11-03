@@ -819,7 +819,11 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
     .footer-social ul li { margin:0px 35px; }
     #logo .container img{
-        height: 70px
+        height: 100px;
+    }
+    #logo .container h1 {
+        font-size:32px;
+        line-height:36px;
     }
 
 }
@@ -834,7 +838,11 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
         font-size: 12px;
     }
     #logo .container img{
-        height: 100px
+        height: 100px;
+    }
+    #logo .container h1 {
+        font-size:32px;
+        line-height:36px;
     }
 }
 
@@ -844,8 +852,8 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
     #logo .container { padding:0px 20px; }
     #logo .container h1 {
-        font-size:16px;
-        line-height:48px;
+        font-size:38px;
+        line-height:44px;
     }
 
     #logo .container img{
@@ -856,6 +864,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
         padding-left:10px;
         padding-right:10px;
     }
+    
     #navigation .logo { padding-left:0px; }
     #navigation .nav-menu ul { display:none; }
 
@@ -915,6 +924,11 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
 @media (max-width: 600px) {
 
+    #logo .container img{
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
     #logo .container h1 {
         font-size:38px;
         line-height:44px;
@@ -926,9 +940,14 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
 @media (max-width: 540px) {
 
+    #logo .container img{
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
     #logo .container h1 {
-        font-size:34px;
-        line-height:40px;
+        font-size:30px;
+        line-height:36px;
     }
 
     #blog #comments .comment-lists ul li img { width:14%; }
@@ -945,6 +964,11 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
         line-height:36px;
     }
 
+    #logo .container img{
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
     #navigation {
         padding-left:20px;
         padding-right:20px;
@@ -964,15 +988,6 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     #blog #comments .comment-lists ul li img { width:15%; }
     #blog #comments .comment-lists ul li .content { width:80%; }
     #blog #comments .comment-lists ul li > ul { padding-left:0px; }
-
-    #logo .container h1 {
-        font-size:16px;
-        line-height:16px;
-    }
-    
-    #logo .container img{
-        height: 35px
-    }
     
 }
 
@@ -1000,6 +1015,11 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
 @media (max-width: 300px) {
 
+    #logo .container img{
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
     #logo .container h1 {
         font-size:22px;
         line-height:28px;
