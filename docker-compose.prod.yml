@@ -7,4 +7,4 @@ anthonykgrossfr:
     - ./src:/src
     - ./logs:/logs
   environment:
-    VIRTUAL_HOST: "anthonykgrossfr.com, anthonykgrossfr.local"
+    VIRTUAL_HOST: "anthonykgrossfr.com,anthonykgrossfr.local"
