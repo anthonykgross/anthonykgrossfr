@@ -10,6 +10,10 @@ anthonykgrossfr_cv:
     path:     /cv
     defaults: { _controller: AnthonykgrossfrMainBundle:Default:cv }
     
+anthonykgrossfr_captcha:
+    path:     /captcha
+    defaults: { _controller: AnthonykgrossfrMainBundle:Default:captcha }
+    
 anthonykgrossfr_blog:
     path:     /blog
     defaults: { _controller: AnthonykgrossfrMainBundle:Page:blog }
