@@ -148,7 +148,7 @@
                                 <li><a target="_blank" href="https://twitter.com/anthonykgross"><i class="fa fa-twitter"></i></a></li>
                                 <li><a target="_blank" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a target="_blank" href="https://github.com/anthonykgross"><i class="fa fa-github"></i></a></li>
-                                <li><a target="_blank" href="skype:anthony.k.gross?call"><i class="fa fa-skype"></i></a></li>
+                                <li><a target="_blank" href="http://twitch.tv/anthonykgross"><i class="fa fa-twitch"></i></a></li>
                                 <li><a target="_blank" href="https://plus.google.com/u/0/117182078090794461481"><i class="fa fa-google-plus"></i></a></li>
                             </ul>
                         </div>
@@ -159,9 +159,6 @@
             <footer class="footer-copyright">
                 <div class="container">
                     <div class="row">
-                        <div class="span2">
-                            <img src="{{ asset('images/qrcode.png') }}" style="width: 100%;"/>
-                        </div>
                         <div class="span4">
                             <span property="v:name">Anthony GROSS</span><br/>
                             <span rel="v:address">
@@ -171,17 +168,15 @@
                                 </span>
                             </span>
                         </div>
-                        <div class="span3">
-                           Mobile: <span property="v:tel">+33 6 99 49 42 90</span><br/>
+                        <div class="span4"style="text-align: center;">
                            Email : <span property="v:email">Anthony.k.gross@gmail.com</span><br/>
-                           Skype : anthony.k.gross
                         </div>
-                        <div class="span3">
+                        <div class="span4" style="text-align: right;">
                            Siret: 530 132 729 00027
                         </div>
                     </div>
                     <br/>
-                    <p>&copy; 2015 AnthonyKGross.fr</p> <!-- copyright text -->
+                    <p>&copy; {{ "now"|date('Y') }} AnthonyKGross.fr</p> <!-- copyright text -->
                 </div> <!-- End container -->
             </footer> <!-- End footer-copyright -->
         </div> <!-- End stickem-container -->
