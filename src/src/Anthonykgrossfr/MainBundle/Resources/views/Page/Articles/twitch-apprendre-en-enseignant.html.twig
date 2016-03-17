@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AnthonyKGross.fr - JDEV 2015 - Bordeaux{% endblock %}
-{% block description %}&Eacute;vènement - JDEV 2015 - Bordeaux.{% endblock %}
+{% block title %}AnthonyKGross.fr - Twitch - Apprendre en enseignant{% endblock %}
+{% block description %}Article - Twitch - Apprendre en enseignant{% endblock %}
 {% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/twitch.png") }}{% endblock %}
 
@@ -9,17 +9,28 @@
     <div class="container">
         <section id="blog" class="single-page">
             <div class="header margin-bottom40">
-                <h2>JDev 2015</h2>
+                <h2>Twitch - Apprendre en enseignant</h2>
                 <p>
-                    La JDev est un réseau des acteurs du développement logiciel au sein de l'enseignement supérieur et de la recherche
-                    dont sa mission essentielle est de favoriser les échanges : soutien aux réseaux régionaux dans leurs actions, 
-                    offre complémentaire d’actions et de formations, lien entre la communauté et les tutelles afin de 
-                    remonter les réalités du terrain.
+                    Twitch est une plateforme de streaming principalement de jeu vidéo qui, depuis peu, ouvre ses portes aux artistes.
+                    Musiciens, sculpteurs, graphistes et .. développeurs peuvent désormais partager leur art avec les spectateurs et discuter de leur passion commune.
+                    Vous l'aurez compris : je suis l'un d'eux !
                 </p>
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/twitch.png') }}" alt="Thumbnail" />
+                    <div class="row">
+                        <div class="span8">
+                            <iframe src="https://player.twitch.tv/?channel=anthonykgross" style="display: inline-block;" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
+                        </div>
+                        <div class="span4">
+                            <div id="info-live" class="row" style="height: 50px;">
+                                sd
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <iframe src="https://www.twitch.tv/anthonykgross/chat?popout=" frameborder="0" scrolling="no" height="450" width="100%"></iframe>
+                        </div>
+                    </div>
                 </figure>
             </div>
             <br/>
@@ -27,84 +38,68 @@
                 <div class="span12">
                     <div class="row">
                         <div class="span12">
-                            <h2>Les sessions</h2>
+                            <h2>Pourquoi ?</h2>
+                        </div>
+                        <div class="span6">
                             <p>
-                                Durant ces journées, j'ai eu l'occasion de participer à différentes présentations et ateliers. Voici le détail:
+                                Lors de mes expériences professionnelles, j'ai eu la chance de gagner la confiance de mes supérieurs et collègues. Ils m'ont partagés leurs expériences, permis
+                                d'encadrer des stagiaires, de voyager presque partout dans le monde afin d'assister à des conférences, hackathons et j'en passe;
+                                tout ça, très rapidement. J'ai accumulé énormément d'expérence et c'est celle-ci qui me donne la force aujourd'hui de pouvoir la partager. 
                             </p>
-                            <br/>
-                            <h3>Une usine logicielle pour industrialiser le développement, l'intégration continue et le déploiement avec des 
-                                conteneurs</h3>
+                        </div>
+                        <div class="span6">
                             <p>
-                                Le principe de cet atelier était de nous démontrer les avantages de l'architecture orientée MicroServices par 
-                                rapport à SOA (Service Oriented Architecture). Pour être honnête, je ne voyais pas la subtilité entre ces 
-                                différentes architectures mais il s'avère que celle de MicroService comporte de beaux avantages.
+                                Les raisons qui m'amènent à faire des &laquo;lives&raquo; de mon métier, c'est que je souhaite aider à mon tour
+                                les passionnés de dev' comme moi qui ont besoin d'un coup de pouce pour être propulsés. &Eacute;tudiants, amateurs ou encore professionnels, mes streams permettent 
+                                à toutes ces personnes de trouver des réponses, de réviser et d'éveiller de nouvels curiosités.
                             </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Et toi, qu'est ce que t'y gagnes ?</h2>
+                        </div>
+                        <div class="span6">
                             <p>
-                                SOA limite la communication entre les services avec l'utilisation d'orchestrateurs. 
-                                Ceux-ci organisent les services afin d'éviter les appels direct entre-eux, et obligent chaque entrées/sorties à passer par eux. 
-                                Quant à MicroService, les orchestrateurs existent toujours mais leur rôle est 
-                                d'orienter seulement les communcations. Les services peuvent se répondre directement.
+                                Bien entendu, je ne suis pas mère Thérèsa : je m'y retrouve également. J'ai souvent remarqué que lorsqu'on apprenait quelque chose à quelqu'un, 
+                                cette personne avait toujours des remarques interessantes et souvent jamais entendues auparavant. Ce qui m'intéresse, c'est d'être confronté à celles-ci
+                                et d'y trouver des réponses adaptées, et pourquoi pas éveiller d'autres curiosités de mon coté. C'est ce que j'entends quand je dis que &laquo;j'apprends en enseignant&raquo;
+                                car le fait d'apprendre aux autres me fait réviser, me confronte à d'autres problèmes et fait accroître ma communication.
                             </p>
+                        </div>
+                        <div class="span6">
                             <p>
-                                Microservice a pour principe de faire de chaque fonctionnalité un service indépendant alors que 
-                                SOA favorisera l'implémentation des fonctionnalités au sein d'un gros service afin de simplifier les communications (orchestrateur); 
-                                le problème du choix du langage doit correspondre du coup à chacune des fonctionnalités.
+                                D'autres interêts pour moi sont au rendez-vous : une notoriété grandissante grâce à aux visites sur mon site et les réseaux sociaux, un cercle
+                                de professionnels et clients potientiels, et quelques nouveaux amis aussi. Pour finir, les donations me permettent d'investir dans les lives :
+                                amélioration du matériel, achats de licences et matériels de développements (ex: Raspberry pi, Arduino, etc ...), la formation et les déplacements éventuelles.
                             </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Programmes</h2>
                             <p>
-                                Plus les services sont petits et autonomes, et plus il est facile de les corriger, tester et deployer.
+                                Chaque début de semaine, les intéressés votent pour un sujet parmi troix choix. Le mercredi soir, celui qui a le plus de succès est annoncé sur <a href="https://twitter.com/AnthonyKGROSS">Twitter</a>.
+                                Le samedi qui suit, à 14h, les spectateurs et moi-même parlons du sujet et accessoirement je l'illustre avec une démonstration (code, diagramme, etc ...).
                             </p>
+                        </div>
+                        <div class="span6">
+                            <h3>Passés</h3>
                             <p>
-                                <b>Bilan</b> : 
-                                <ul> 
-                                    <li>Autonomie : Les services doivent être évalués indépendamment sans que l'un compromette l'autre. (Code source, depôts, etc ..)</li>
-                                    <li>Scalabilité : Sachant que chaque service est désormais autonome, il est 
-                                            possible d'augmenter le nombre de services 
-                                            aux besoins avec peu de configuration</li>
-                                    <li>Choix du meilleur language pour chaque service : l'hétérogénéité des solutions techniques masquée derrière l'API.</li>
-                                    <li>Favorise l'utilisation de machine virtuelles (conservation de l'autonomie).</li>
+                                <ul>
+                                    <li>Docker - Les bases</li>
+                                    <li>HTML / CSS - Créer son CV.</li>
+                                    <li>Symfony - Les bases</li>
                                 </ul>
                             </p>
-                            <br/>
-                            <h3>Les technologies du Web des Données</h3>
+                        </div>
+                        <div class="span6">
+                            <h3>Prévues</h3>
                             <p>
-                                L'atelier présentais l'utilisation de RDF (Ressource Description Framework) ainsi que ses formats et ses utilisations. Nous avons vu ce qu'était un triplet, de quoi il est composé, comment nous pouvons créer les notres et les interroger.
-                            </p>
-                            <p>
-                                Tout d'abord, à quoi ça sert ? Je vais prendre l'exemple qui a été prit lors de l'atelier : selon le contexte, un mot peut avoir diffentes significations; par exemple : un fouet. En cuisine ou en équitation, le sens varie alors que son orthographe non; et les moteurs de recherche actuels sont incapable de faire la distinction entre ces deux sens. 
-                                Le but de RDF est donc de créer des dictionnaires à partir d'existants et de rajouter du sens. Chacun de ces mots est appellé triplet. Un triplet est composé d'un Sujet, d'un Prédicat et d'un Objet.
-                            </p>
-                            <p>
-                                Une fois votre ressource créée, vous pouvais l'interroger avec des requêtes SPARQL et remonter dans l'ensemble des dictionnaires hérités. 
-                                &Agrave; la fin, vous participer la création d'un gigantesque graphe répertoriant toutes les entités.
-                            </p>
-                            <br/>
-                            <h3>Docker et orchestration</h3>
-                            <p>
-                                Une petite initiation à Docker pour finir le JDev directement présentée par un membre de la docker team de San Francisco, J.Petazzo. 
-                                Par où commencer ? Docker est tout simplement génial !<br />
-                                
-                                Pour ceux qui ne connaissent pas Docker : <a href="https://www.docker.com/" target="_blank">Docker</a> | <a href="https://webcast.in2p3.fr/videos-introduction_a_docker" target="_blank">Présentation</a>
-                            </p>
-                            <p>
-                                Lors de l'atelier, nous avons pu tester le rapport entre limite logiciel et limite du serveur. 
-                                Il arrive souvent que le logiciel atteigne sa limite de performance alors que le serveur est peu utilisé. 
-                                Docker permet de dupliquer facilement ses logiciels pour profiter pleinement des ressources serveurs allouées.
-                            </p>
-                            <p>
-                                Un des points qui m'a beaucoup plus sur Docker, c'est son fichier de configuration pour créer et déployer une machine virtuelle. 
-                                C'est très simple d'utilisation et ce fichier est versionnable ce qui rend accessible l'architecture réseau aux développeurs.
-                            </p>
-                            <p>
-                                Il est possible de générer des machines virtuelles spécifiques et pré-configurer grâce au DockerHub.
-                            </p>
-                            <p>
-                                Pour finir, grâce à Swarm (actuellement en Alpha) il sera bientot possible de créer des clusters facilement à partir des containers.
-                            </p>
-                            <p>
-                                <b>Bilan</b> : 
-                                <ul> 
-                                    <li>Facilite de deploiment : génération de machines viruelles à partir d'un fichier de configuration versionnable</li>
-                                    <li>Scalabilité : Duplication des machines</li>
+                                <ul>
+                                    <li>Angular2 <i>avec <a href="http://clement-vidal.fr/" target="_blank">Clément</a></i></li>
+                                    <li>Le référencement naturel <i>avec <a href="http://www.guillaumerobbe.com/" target="_blank">Guillaume</a></i></li>
+                                    <li>Et des tas d'autres sur le feu ! </li>
                                 </ul>
                             </p>
                         </div>
@@ -118,10 +113,10 @@
                         <div class="span12">
                             <h2>Conclusion</h2>
                             <p>
-                                Ce Jdev a été très enrichissant pour moi car j'ai pu voir l'étendue de certaines technologies notamment Docker. 
-                                Je compte prendre le temps de mieux me former afin de pouvoir les intégrer à mes projets. 
-                                Malgré quelques problèmes d'organisation et de climat, les sessions se sont plutôt bien déroulées, même si certaines n'ont pas été à la hauteur de mes exigences.
-                                Sur ce, j'ai garé mon aligator en double file. Tchou !
+                                Il n'est pas nécessaire de vous faire savoir que l'organisation des lives me demande énormément de temps ! J'aime m'investir dans cette activité car
+                                ça me motive à donner le meilleur de moi-même et mes &laquo;viewers&raquo; me le rendent bien. Je ne compte pas en vivre, seulement partager avec les autres ma passion
+                                et accessoirement en apprendre d'eux.
+                                Sur ce, j'ai garé ma salamandre en double file. Tchou !
                             </p>
                         </div>
                     </div>
@@ -133,19 +128,50 @@
                     <div class="row">
                         <div class="span12">
                             <h3>Liens utiles</h3>
-                            <li><a href="http://devlog.cnrs.fr/jdev2015" target="_blank">jDev 2015</a></li>
-                            <li><a href="https://webcast.in2p3.fr/live/jdev-amphi-D" target="_blank">Présentations de la jDev - Amphi D</a></li>
-                            <li><a href="https://webcast.in2p3.fr/live/jdev-amphi-E" target="_blank">Présentations de la jDev - Amphi E</a></li>
+                            <li><a href="https://www.twitch.tv/anthonykgross" target="_blank">La chaîne coding</a></li>
+                            <li><a href="https://www.twitch.tv/gregorymgross" target="_blank">La chaîne gaming</a></li>
                         </div>
                     </div>
                 </div>
             </div>
             <br/>
             <div class="meta-desc">
-                <i class="fa fa-calendar"></i> &nbsp; Le 10 Juillet 2015 <span class="font-slight"></span> 
+                <i class="fa fa-calendar"></i> &nbsp; Le 2 Décembre 2015 <span class="font-slight"></span> 
             </div>
             <br/>
             <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}" data-numposts="5" data-width="100%"></div>
         </section> <!-- End blog -->
     </div> <!-- End container -->
+<style>
+#info-live {
+    text-align: center;
+}
+#info-live i{
+    margin-right: 10px;
+}
+</style>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        (function(){
+            var twitch_url = "https://api.twitch.tv/kraken/channels/anthonykgross";
+
+            function refreshTwitchStat(){
+                $.ajax({
+                    url: twitch_url,
+                    success: function(d){
+                        $('#info-live').html('');
+                        var li_follower = $("<div/>").attr('title','Nombre de suivis').addClass("span2").append($('<i/>').addClass("fa fa-user")).append(d.followers);
+                        var li_viewer   = $("<div/>").attr('title','Nombre de vues').addClass("span2").append($('<i/>').addClass("fa fa-eye")).append(d.views);
+                        $('#info-live').append(li_viewer).append(li_follower);
+                    }
+                });
+            }
+            refreshTwitchStat();
+            
+            setInterval(function(){
+                refreshTwitchStat();
+            },1000*30);
+        })();
+    </script>
 {% endblock %}
