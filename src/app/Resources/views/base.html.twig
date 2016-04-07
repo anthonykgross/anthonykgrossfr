@@ -9,17 +9,17 @@
         <!-- Your Basic Site Informations -->
         <title>{% block title %}AnthonyKGross.fr - Developpeur freelance sur Marseille{% endblock %}</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-        <meta name="description" content="{% block description %}Anthony K GROSS, développeur freelance sur Marseille vous propose son expertise, développement, e-commerce & formation.{% endblock %}" />
-        <meta name="keywords" content="developpeur, marseille, freelance, formation, e-commerce" />
+        <meta name="description" content="{% block description %}Developpeur freelance sur Marseille vous propose son expertise, développement, ecommerce & formation.{% endblock %}" />
+        <meta name="keywords" content="freelance, marseille, developpeur, formation, ecommerce" />
 
         <meta property='og:locale' content='fr_FR'/>
         <meta property='og:title' content="{{ block('title') }}"/>
         <meta property='og:description' content="{{ block('description') }}"/>
         <meta property='og:url' content='http://{{ app.request.host }}{% block og_url %}{% endblock %}'/>
-        <meta property='og:site_name' content='AnthonyKGross.fr'/>
+        <meta property='og:site_name' content='AnthonyKGross.fr - Developpeur freelance sur Marseille'/>
         <meta property='og:type' content='website'/>
         <meta property="og:image" content="{% block og_image %}http://{{ app.request.host ~  asset("images/fb_image.png") }}{% endblock %}">
-        <meta property="fb:admins" content="gross.anthony"/>
+        <meta property="fb:admins" content="anthonykgross"/>
         
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
