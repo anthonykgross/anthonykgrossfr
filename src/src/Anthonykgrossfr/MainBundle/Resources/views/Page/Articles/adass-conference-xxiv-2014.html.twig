@@ -2,7 +2,7 @@
 
 {% block title %}AnthonyKGross.fr - ADASS XXIV{% endblock %}
 {% block description %}&Eacute;vènement - ADASS XXIV.{% endblock %}
-{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg") }}{% endblock %}
 
 {% block javascripts %}
@@ -21,8 +21,8 @@
             "height": 1200,
             "width": 400
         },
-        "datePublished": "{{ "2014-10-19"|date("") }}",
-        "dateModified": "{{ "2014-10-19"|date("") }}",
+        "datePublished": "{{ "2014-10-19"|date("c") }}",
+        "dateModified": "{{ "2014-10-19"|date("c") }}",
         "author": {
             "@type": "Person",
             "name": "Anthony GROSS"
@@ -37,7 +37,7 @@
                 "height": 170
             }
         },
-        "description": "{{ block("description") }}""
+        "description": "{{ block("description") }}"
     }
 </script>
 {% endblock %}
@@ -137,7 +137,7 @@
                 <i class="fa fa-calendar"></i> &nbsp; Le 19 Octobre 2014 <span class="font-slight"></span> 
             </div>
             <br/>
-            <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}" data-numposts="5" data-width="100%"></div>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
         </section> <!-- End blog -->
     </div> <!-- End container -->
 {% endblock %}
