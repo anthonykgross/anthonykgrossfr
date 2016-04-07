@@ -17,9 +17,9 @@
         "headline": "{{ block("title") }}",
         "image": {
             "@type": "ImageObject",
-            "url": "{{ asset('bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg') }}",
-            "height": 1200,
-            "width": 400
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
         },
         "datePublished": "{{ "2014-10-19"|date("c") }}",
         "dateModified": "{{ "2014-10-19"|date("c") }}",
@@ -32,9 +32,9 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg.png",
-                "width": 170,
-                "height": 170
+                "url": "http://anthonykgross.fr/images/akg.svg",
+                "width": 700,
+                "height": 700
             }
         },
         "description": "{{ block("description") }}"
