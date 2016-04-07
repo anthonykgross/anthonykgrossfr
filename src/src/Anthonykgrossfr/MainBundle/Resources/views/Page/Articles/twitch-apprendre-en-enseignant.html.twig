@@ -2,7 +2,7 @@
 
 {% block title %}AnthonyKGross.fr - Twitch - Apprendre en enseignant{% endblock %}
 {% block description %}Article - Twitch - Apprendre en enseignant{% endblock %}
-{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/twitch.png") }}{% endblock %}
 
 {% block body %}
@@ -139,7 +139,7 @@
                 <i class="fa fa-calendar"></i> &nbsp; Le 17 Mars 2016 <span class="font-slight"></span> 
             </div>
             <br/>
-            <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}" data-numposts="5" data-width="100%"></div>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
         </section> <!-- End blog -->
     </div> <!-- End container -->
 <style>
@@ -173,5 +173,39 @@
                 refreshTwitchStat();
             },1000*30);
         })();
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage":{
+                "@type":"WebPage",
+                "@id":"{{ block("og_url") }}"
+            },
+            "headline": "{{ block("title") }}",
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ block("og_image") }}",
+                "height": 400,
+                "width": 1200
+            },
+            "datePublished": "{{ "2016-03-17"|date("c") }}",
+            "dateModified": "{{ "2016-03-17"|date("c") }}",
+            "author": {
+                "@type": "Person",
+                "name": "Anthony GROSS"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "AnthonyKGROSS",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "http://anthonykgross.fr/images/akg-wide.png",
+                    "width": 80,
+                    "height": 60
+                }
+            },
+            "description": "{{ block("description") }}"
+        }
     </script>
 {% endblock %}

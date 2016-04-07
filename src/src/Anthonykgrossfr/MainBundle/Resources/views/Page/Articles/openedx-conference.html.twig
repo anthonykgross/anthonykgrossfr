@@ -2,8 +2,45 @@
 
 {% block title %}AnthonyKGross.fr - Open edX Conference{% endblock %}
 {% block description %}&Eacute;vènement - Open edX Conference.{% endblock %}
-{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'openedx-conference' }) }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'openedx-conference' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/hackathon_openedx_boston.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2015-10-13"|date("c") }}",
+        "dateModified": "{{ "2015-10-13"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -94,7 +131,7 @@
                 <i class="fa fa-calendar"></i> &nbsp; Le 13 Octobre 2015 <span class="font-slight"></span> 
             </div>
             <br/>
-            <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'openedx-conference' }) }}" data-numposts="5" data-width="100%"></div>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
         </section> <!-- End blog -->
     </div> <!-- End container -->
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block title %}AnthonyKGross.fr - Créer un plugin javascript pour JWPlayer 6{% endblock %}
 {% block description %}Article - Créer un plugin javascript pour JWPlayer 6.{% endblock %}
-{% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/sintel.png") }}{% endblock %}
 
 {% block body %}
@@ -205,7 +205,11 @@
                     </div>
                 </div>
             </div>
-            <div class="fb-comments" data-href="http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}" data-numposts="5" data-width="100%"></div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 14 Juin 2013<span class="font-slight"></span> 
+            </div>
+            <br/>
         </section> <!-- End blog -->
     </div> <!-- End container -->
 {% endblock %}
@@ -257,5 +261,39 @@
         ],
 	primary: 'html5'
     });
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2013-06-14"|date("c") }}",
+        "dateModified": "{{ "2013-06-14"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
 </script>
 {% endblock %}
