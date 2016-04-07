@@ -5,6 +5,43 @@
 {% block og_url %}{{ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg") }}{% endblock %}
 
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ asset('bundles/anthonykgrossfrmain/images/Articles/adass2014.jpg') }}",
+            "height": 1200,
+            "width": 400
+        },
+        "datePublished": "{{ "2014-10-19"|date("") }}",
+        "dateModified": "{{ "2014-10-19"|date("") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg.png",
+                "width": 170,
+                "height": 170
+            }
+        },
+        "description": "{{ block("description") }}""
+    }
+</script>
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <section id="blog" class="single-page">
