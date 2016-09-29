@@ -1,4 +1,4 @@
-FROM akg-php5:latest
+FROM registry.gitlab.com/anthonykgross/akg-php5:master
 
 MAINTAINER Anthony K GROSS
 
