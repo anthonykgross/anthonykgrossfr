@@ -1,2 +1,2 @@
 #/bin/bash
-docker build --file="images/anthonykgrossfr/Dockerfile" --tag="akg-anthonykgrossfr:latest" images/anthonykgrossfr/.
+docker build --file="Dockerfile" --tag="registry.gitlab.com/anthonykgross/akg-anthonykgrossfr:master" .

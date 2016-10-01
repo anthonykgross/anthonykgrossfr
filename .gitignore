@@ -12,3 +12,4 @@
 /src/npm-debug.log
 /src/node_modules/
 /logs/*.log
+.idea
