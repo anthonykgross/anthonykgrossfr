@@ -13,7 +13,7 @@ build:
   script:
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker pull $CONTAINER_PHP5
-    - docker build --file="images/anthonykgrossfr/Dockerfile" --tag="$CONTAINER_TEST_IMAGE" images/anthonykgrossfr/.
+    - docker build --file="Dockerfile" --tag="$CONTAINER_TEST_IMAGE" .
     - docker push $CONTAINER_TEST_IMAGE
 #    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
 #    - docker push $CONTAINER_RELEASE_IMAGE
