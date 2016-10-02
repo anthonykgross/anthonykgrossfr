@@ -14,7 +14,6 @@ build:
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker pull $CONTAINER_PHP5
     - docker build --file="Dockerfile" --tag="$CONTAINER_TEST_IMAGE" .
-    - docker run -ti $CONTAINER_TEST_IMAGE tests
     - docker push $CONTAINER_TEST_IMAGE
 #    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
 #    - docker push $CONTAINER_RELEASE_IMAGE
