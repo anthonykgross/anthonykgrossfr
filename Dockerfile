@@ -24,8 +24,7 @@ RUN chmod 777 /logs -Rf && \
     chmod 777 /src -Rf && \
     chmod +x /entrypoint.sh && \
     sh /entrypoint.sh install && \
-    rm web/app_dev.php && \
-    sh /entrypoint.sh tests
+    rm web/app_dev.php
 
 EXPOSE 80
 EXPOSE 443
