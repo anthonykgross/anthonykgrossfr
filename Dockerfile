@@ -23,14 +23,10 @@ COPY logs /logs
 RUN chmod 777 /logs -Rf && \
     chmod 777 /src -Rf && \
     chmod +x /entrypoint.sh && \
-    rm -Rf app/cache/* && \
-    rm -Rf node_modules/ && \
-    npm install && \
-    gulp && \
-    composer install && \
-    php app/console assets:install
+    sh /entrypoint.sh install
 
 EXPOSE 80
 EXPOSE 443
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["run"]

@@ -1,17 +1,39 @@
 #!/bin/bash
 set -e
 
-#rm node_modules/ -Rf
-#rm app/cache/* -Rf
+install() {
+    rm -Rf app/cache/*
+    rm -Rf node_modules/
+    npm install
+    gulp
+    composer install
+    php app/console assets:install
+}
 
-#npm install
-#gulp
+tests() {
+    php bin/phpunit -c app/
+}
 
-#php composer.phar self-update
-#php composer.phar install
+run() {
+    chmod 777 * -Rf
+    supervisord
+}
 
-#php app/console assets:install
-
-chmod 777 * -Rf
-
-supervisord
+case "$1" in
+"install")
+    echo "Install"
+    install
+    ;;
+"tests")
+    echo "Tests"
+    tests
+    ;;
+"run")
+    echo "Run"
+    run
+    ;;
+*)
+    echo "Custom command : $@"
+    exec "$@"
+    ;;
+esac
