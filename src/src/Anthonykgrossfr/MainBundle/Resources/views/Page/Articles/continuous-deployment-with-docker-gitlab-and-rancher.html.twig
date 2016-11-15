@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astronomical Data Analysis Software and Systems XXIV{% endblock %}
+{% block description %}L'ADASS est une conférence annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'continuous-deployment-with-docker-gitlab-and-rancher' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/continuous-deployment-with-docker-gitlab-and-rancher.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2016-11-14"|date("c") }}",
+        "dateModified": "{{ "2016-11-14"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>ADASS XXIV</h2>
+                <p>
+                    L'ADASS (Astronomical Data Analysis Software and Systems) est une conférence 
+                    annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques. Elle favorise l'échange
+                    entre les scientifiques et les ingénieurs sur les thèmes des algorithmes,
+                    des logiciels, de la réduction, de l'analyse et du stockage des données astronomiques.
+                    Elle se compose majoritairement de présentations orales, de posters et de démonstrateurs autour des projets 
+                    de chacun des participants.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/continuous-deployment-with-docker-gitlab-and-rancher.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Présentation</h2>
+                            <p>
+                                Lors de ma première année au CNRS, mon supérieur m'a proposé de partir à l'ADASS (à Calgary, Canada) 
+                                afin que je puisse présenter le poster du projet sur lequel je travaille depuis mon arrivée : ETC42. 
+                                ETC (Exposure Time Calculator) est un logiciel qui permet de calculer le temps d'exposition optimal 
+                                pour regarder un objet céleste en prenant en considération toutes les contraintes de l'observation 
+                                (luminosité du ciel, site d'observation, contrainte de l'objet). Il en existe plusieurs dans le monde, 
+                                autant qu'il y a d'instruments d'observation (télescope terrestre et télescope spatial) car chacun 
+                                d'eux a ses propres spécificités; mais l'avantage du notre c'est qu'il est générique et qu'il est 
+                                possible de créer ses propres plugins.
+                            </p>
+                            <p>
+                                Malgré mon faible niveau d'anglais, mon équipe m'a assuré que ça serait une très bonne chose pour mon service 
+                                et une très belle expérience personnelle. Je n'ai pas longtemps hésité : je voulais voyager, progresser en anglais et j'avais la confiance de mon chef de service.
+                            </p>
+                        </div>
+                        <div class="span12">
+                            <h2>Retour d'expérience</h2>
+                            <p>
+                                Comme me l'avait dit l'ensemble des membres de mon service : cette expérience fût très enrichissante pour moi.
+                                Sachant que c'était la première fois que je traversais l'atlantique, je suis beaucoup impressionné 
+                                par nos différences de culture : les grands buildings, le café brûlant à emporter et l'émulsion que génère un 
+                                match de hockey de l'équipe locale dans un petit pub populaire.
+                            </p>
+                            <p>
+                                En ce qui concerne ma mission, je suis un peu déçu de moi-même. Étant très timide et n'aimant pas parler 
+                                de sujets que je ne maîtrisé pas absolument, j'ai régulièrement fuit le contact avec les personnes 
+                                étrangères afin de ne pas à avoir parler anglais. Très complexé par mon faible niveau, je me suis 
+                                souvent caché derrière mes collègues bilingues qui pouvait répondre, avec exactitude, aux questions 
+                                des intervenants. Malgré cela, mon objectif a été atteint : le nombre de téléchargements d'ETC a 
+                                incroyablement augmenté à mon retour de mission.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Conclusion</h2>
+                            <p>
+                               Cette expérience m'a beaucoup apporté. Tout d'abord, sachant que je fais parti des plus jeunes ingénieurs 
+                               de mon service, je suis flatté de la confiance que ma hiérarchie me porte en m'envoyant, 
+                               dès la première année, représenter mon laboratoire à l'étranger. J'étais content de savoir que 
+                               mon voyage a apporté de la visibilité à mon service, au projet sur lequel je travaillais même 
+                               si j'aurais aimé progresser davantage en anglais. Mais maintenant, je suis déterminé : 
+                               j'ai décidé de prendre des cours ! Sur ce, j'ai garé mon porc-épic en double file. Tchou !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Liens utiles</h3>
+                            <li><a href="{{ asset('data/cnrs/POSTER-ADASS-XXIV_ETC-42.pdf') }}" target="_blank">Le poster d'ETC42</a></li>
+                            <li><a href="{{ asset('data/cnrs/ADASS-XXIV_ETC-42.pdf') }}" target="_blank">L'article scientifique d'ETC42</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 14 Novembre 2016 <span class="font-slight"></span>
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

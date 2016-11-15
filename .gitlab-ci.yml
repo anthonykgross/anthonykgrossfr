@@ -20,5 +20,7 @@ build:
 deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
+  only:
+    - master
   script:
     - upgrade --environment $RANCHER_ENV --stack $RANCHER_STACK --service $RANCHER_SERVICE --no-start-before-stopping --no-wait-for-upgrade-to-finish
