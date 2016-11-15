@@ -6,7 +6,7 @@
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/continuous-deployment-with-docker-gitlab-and-rancher.jpg") }}{% endblock %}
 
 {% block javascripts %}
-<script type="application/ld+json">
+<script type="application/ld+json" xmlns="http://www.w3.org/1999/html">
     {
         "@context": "http://schema.org",
         "@type": "NewsArticle",
@@ -65,16 +65,251 @@
             <div class="row">
                 <div class="span12">
                     <div class="row">
-                        <div class="span12">
+                        <div class="span8">
                             <h2>Présentation</h2>
                             <p>
                             </p>
                         </div>
+                        <div class="span4">
+                            <h2>Plan</h2>
+                            <ul>
+                                <li>
+                                    <a href="#projet-partie1">Projet - Partie 1</a>
+                                    <ul>
+                                        <li><a href="#configuration-symfony">Configuration  de Symfony</a></li>
+                                        <li><a href="#image-docker">Image Docker</a></li>
+                                        <li><a href="#configuration-gitlabci">Configuration de GitlabCI</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#gitlab-partie1">Gitlab - Partie 1</a>
+                                    <ul>
+                                        <li><a href="#gitlab-registry">Registry</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#rancher">Rancher</a>
+                                    <ul>
+                                        <li><a href="#rancher-services">Services</a></li>
+                                        <li><a href="#rancher-api">API</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#gitlab-partie2">Gitlab - Partie 2</a>
+                                    <ul>
+                                        <li><a href="#gitlab-variables">Variables</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#projet-partie2">Projet - Partie 2</a>
+                                    <ul>
+                                        <li><a href="#finalisation-gitlabci">Finalisation de la configuration de GitlabCI</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
                         <div class="span12">
-                            <h2>Retour d'expérience</h2>
-                            <p>
+                            <h2 id="projet-partie1">Projet - Partie 1</h2>
+                            <h3 id="configuration-symfony">Configuration  de Symfony</h3>
+                            <div class="row">
+                                <div class="span4">
+                                    <pre class="language-bash"><code>
+$ composer require phpunit/phpunit
+                                    </code></pre>
+                                </div>
+                                <div class="span4">
+                                    <pre class="language-bash"><code>
+# app/config/parameters.yml.dist
+database_host:     prod-mysql
+database_port:     ~
+database_name:     symfony
+database_user:     root
+database_password: symfony
+test_database_host:     test-mysql
+test_database_port:     ~
+test_database_name:     database_test
+test_database_user:     database_test
+test_database_password: database_test
+                                    </code></pre>
+                                </div>
+                                <div class="span4">
+                                    <pre class="language-bash"><code>
+# app/config/config_test.yml
+doctrine:
+   dbal:
+       driver:   pdo_mysql
+       host:     "%test_database_host%"
+       port:     "%test_database_port%"
+       dbname:   "%test_database_name%"
+       user:     "%test_database_user%"
+       password: "%test_database_password%"
+       charset:  UTF8
+                                    </code></pre>
+                                </div>
+                            </div>
+                            <h3 id="image-docker">Image Docker</h3>
+                            <div class="row">
+                                <div class="span6">
+                                    <pre class="language-bash"><code>
+# Dockerfile
+FROM debian:jessie
 
-                            </p>
+MAINTAINER Anthony K GROSS<anthony.k.gross@gmail.com>
+
+WORKDIR /src
+
+RUN apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install -y wget && \
+	apt-get install -y php5-common php5-cli php5-fpm php5-mcrypt \
+	                    php5-mysql php5-apcu php5-gd php5-imagick \
+	                    php5-curl php5-intl php5-sqlite && \
+	apt-get install -y curl git && \
+	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php composer-setup.php && \
+    php -r "unlink('composer-setup.php');" && \
+    chmod a+x composer.phar && \
+    mv composer.phar /usr/local/bin/composer && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get autoremove -y --purge
+
+RUN apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install -y supervisor nginx && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get autoremove -y --purge && \
+    usermod -u 1000 www-data
+
+COPY entrypoint.sh /entrypoint.sh
+COPY conf/supervisor /etc/supervisor/conf.d
+COPY conf/nginx /etc/nginx
+COPY src /src
+
+RUN chmod 777 /src -Rf && \
+    mkdir -p /logs && \
+    chmod 777 /logs -Rf && \
+    chmod +x /entrypoint.sh && \
+    sh /entrypoint.sh install && \
+    rm web/app_dev.php
+
+EXPOSE 80
+EXPOSE 443
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["run"]
+                                </code></pre>
+                                </div>
+                                <div class="span6">
+                                    <pre class="language-bash"><code>
+# entrypoint.sh
+#!/bin/bash
+set -e
+
+install() {
+    composer install
+    php bin/console assets:install
+}
+
+tests() {
+    php vendor/bin/phpunit -c /src/
+}
+
+run() {
+    supervisord
+}
+
+case "$1" in
+"install")
+    echo "Install"
+    install
+    ;;
+"tests")
+    echo "Tests"
+    tests
+    ;;
+"run")
+    echo "Run"
+    run
+    ;;
+*)
+    echo "Custom command : $@"
+    exec "$@"
+    ;;
+esac
+                            </code></pre>
+                                </div>
+                            </div>
+                            <h3 id="configuration-gitlabci">Configuration de GitlabCI</h3>
+                            <pre class="language-bash"><code>
+# .gitlab-ci.yml
+image: docker:latest
+services:
+  - docker:dind
+
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/anthonykgross/sample-continuous-deployment:$CI_BUILD_REF_NAME
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker build --file="Dockerfile" --tag="$CONTAINER_TEST_IMAGE" .
+    - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
+    - docker run --name gitlab-mysql -e MYSQL_DATABASE=database_test -e MYSQL_USER=database_test -e MYSQL_PASSWORD=database_test -e MYSQL_ROOT_PASSWORD=root -d mysql:5.5.44
+    - docker run --link gitlab-mysql:test-mysql $CONTAINER_TEST_IMAGE php bin/console doctrine:schema:update --force --env=test
+    - docker run --link gitlab-mysql:test-mysql $CONTAINER_TEST_IMAGE tests
+    - docker push $CONTAINER_TEST_IMAGE
+
+deploy:
+  stage: deploy
+  image: cdrx/rancher-gitlab-deploy
+  only:
+    - master
+  script:
+    - echo "Deployment not configured"
+  allow_failure: true
+                                </code></pre>
+
+                            <h2 id="gitlab-partie1">Gitlab - Partie 1</h2>
+                            <h3 id="gitlab-registry">Registry</h3>
+
+                            <h2 id="rancher">Rancher</h2>
+                            <h3 id="rancher-services">Services</h3>
+                            <h3 id="rancher-api">API</h3>
+
+                            <h2 id="gitlab-partie2">Gitlab - Partie 2</h2>
+                            <h3 id="gitlab-variables">Variables</h3>
+                                <pre class="language-bash"><code>
+RANCHER_ACCESS_KEY  MY_RANCHER_ACCESS_KEY
+RANCHER_ENV Default
+RANCHER_SECRET_KEY  MY_RANCHER_SECRET_KEY
+RANCHER_SERVICE symfony3_app
+RANCHER_STACK   Default
+RANCHER_URL http://yourdomain.com:8080
+                                </code></pre>
+                            <h2 id="projet-partie2">Projet - Partie 2</h2>
+                            <h3 id="finalisation-gitlabci">Finalisation de la configuration de GitlabCI</h3>
+                            <pre class="language-bash"><code>
+# .gitlab-ci.yml
+...
+deploy:
+  stage: deploy
+  image: cdrx/rancher-gitlab-deploy
+  only:
+    - master
+  script:
+    - upgrade --environment $RANCHER_ENV --stack $RANCHER_STACK --service $RANCHER_SERVICE --no-start-before-stopping --no-wait-for-upgrade-to-finish
+  allow_failure: true
+                                </code></pre>
                         </div>
                     </div>
                 </div>
