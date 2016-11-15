@@ -2,8 +2,8 @@
 
 {% block title %}Déploiement continu avec Docker entre Gitlab et Rancher{% endblock %}
 {% block description %}L'ADASS est une conférence annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques.{% endblock %}
-{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'continuous-deployment-with-docker-gitlab-and-rancher' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/continuous-deployment-with-docker-gitlab-and-rancher.jpg") }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'deploiement-continu-docker-gitlab-rancher' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/deploiement-continu-docker-gitlab-rancher.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json" xmlns="http://www.w3.org/1999/html">
@@ -58,7 +58,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/continuous-deployment-with-docker-gitlab-and-rancher.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/deploiement-continu-docker-gitlab-rancher.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>
@@ -69,6 +69,18 @@
                             <h2>Présentation</h2>
                             <p>
                             </p>
+                            <div class="row">
+                                <div class="span4">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" />
+                                    </a>
+                                </div>
+                                <div class="span4">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="span4">
                             <h2>Plan</h2>
@@ -281,14 +293,40 @@ deploy:
 
                             <h2 id="gitlab-partie1">Gitlab - Partie 1</h2>
                             <h3 id="gitlab-registry">Registry</h3>
+                            <div class="row">
+                                <div class="span12">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" />
+                                    </a>
+                                </div>
+                            </div>
 
                             <h2 id="rancher">Rancher</h2>
                             <h3 id="rancher-services">Services</h3>
+                            <div class="row">
+                                <div class="span6">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" />
+                                    </a>
+                                </div>
+                                <div class="span6">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" />
+                                    </a>
+                                </div>
+                            </div>
                             <h3 id="rancher-api">API</h3>
 
                             <h2 id="gitlab-partie2">Gitlab - Partie 2</h2>
                             <h3 id="gitlab-variables">Variables</h3>
-                                <pre class="language-bash"><code>
+                            <div class="row">
+                                <div class="span6">
+                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" />
+                                    </a>
+                                </div>
+                                <div class="span6">
+                                    <pre class="language-bash"><code>
 RANCHER_ACCESS_KEY  MY_RANCHER_ACCESS_KEY
 RANCHER_ENV Default
 RANCHER_SECRET_KEY  MY_RANCHER_SECRET_KEY
@@ -296,6 +334,9 @@ RANCHER_SERVICE symfony3_app
 RANCHER_STACK   Default
 RANCHER_URL http://yourdomain.com:8080
                                 </code></pre>
+                                </div>
+                            </div>
+
                             <h2 id="projet-partie2">Projet - Partie 2</h2>
                             <h3 id="finalisation-gitlabci">Finalisation de la configuration de GitlabCI</h3>
                             <pre class="language-bash"><code>
