@@ -70,15 +70,17 @@
                             <p>
                             </p>
                             <div class="row">
-                                <div class="span4">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" target="_blank">
+                                <div class="span4" style="text-align: center;">
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" />
                                     </a>
+                                    <i>Objectif</i>
                                 </div>
-                                <div class="span4">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" target="_blank">
+                                <div class="span4" style="text-align: center;">
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" />
                                     </a>
+                                    <i>Diagramme d'activité</i>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +138,7 @@ $ composer require phpunit/phpunit
                                     </code></pre>
                                 </div>
                                 <div class="span4">
-                                    <pre class="language-bash"><code>
+                                    <pre class="language-yaml"><code>
 # app/config/parameters.yml.dist
 database_host:     prod-mysql
 database_port:     ~
@@ -151,7 +153,7 @@ test_database_password: database_test
                                     </code></pre>
                                 </div>
                                 <div class="span4">
-                                    <pre class="language-bash"><code>
+                                    <pre class="language-yaml"><code>
 # app/config/config_test.yml
 doctrine:
    dbal:
@@ -168,7 +170,7 @@ doctrine:
                             <h3 id="image-docker">Image Docker</h3>
                             <div class="row">
                                 <div class="span6">
-                                    <pre class="language-bash"><code>
+                                    <pre class="language-docker"><code>
 # Dockerfile
 FROM debian:jessie
 
@@ -258,7 +260,7 @@ esac
                                 </div>
                             </div>
                             <h3 id="configuration-gitlabci">Configuration de GitlabCI</h3>
-                            <pre class="language-bash"><code>
+                            <pre class="language-yaml"><code>
 # .gitlab-ci.yml
 image: docker:latest
 services:
@@ -294,25 +296,33 @@ deploy:
                             <h2 id="gitlab-partie1">Gitlab - Partie 1</h2>
                             <h3 id="gitlab-registry">Registry</h3>
                             <div class="row">
-                                <div class="span12">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" target="_blank">
+                                <div class="span8">
+                                    egerergg
+                                </div>
+                                <div class="span4" style="text-align: center;">
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" />
                                     </a>
+                                    <i>Notre image Docker dans le registry</i>
                                 </div>
                             </div>
 
                             <h2 id="rancher">Rancher</h2>
                             <h3 id="rancher-services">Services</h3>
                             <div class="row">
-                                <div class="span6">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" target="_blank">
+                                <div class="span4" style="text-align: center;">
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" />
                                     </a>
-                                </div>
-                                <div class="span6">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
+                                    <i>MySQL</i>
+                                    <hr>
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" />
                                     </a>
+                                    <i>Symfony3</i>
+                                </div>
+                                <div class="span8">
+                                    sdff
                                 </div>
                             </div>
                             <h3 id="rancher-api">API</h3>
@@ -320,10 +330,11 @@ deploy:
                             <h2 id="gitlab-partie2">Gitlab - Partie 2</h2>
                             <h3 id="gitlab-variables">Variables</h3>
                             <div class="row">
-                                <div class="span6">
-                                    <a href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" target="_blank">
+                                <div class="span6" style="text-align: center;">
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" />
                                     </a>
+                                    <i>Ajout des variables dans Gitlab</i>
                                 </div>
                                 <div class="span6">
                                     <pre class="language-bash"><code>
@@ -339,7 +350,7 @@ RANCHER_URL http://yourdomain.com:8080
 
                             <h2 id="projet-partie2">Projet - Partie 2</h2>
                             <h3 id="finalisation-gitlabci">Finalisation de la configuration de GitlabCI</h3>
-                            <pre class="language-bash"><code>
+                            <pre class="language-yaml"><code>
 # .gitlab-ci.yml
 ...
 deploy:

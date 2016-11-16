@@ -14,6 +14,15 @@ var gulp = require('gulp'),
                 'web/libs/prismjs/components/prism-html.js',
                 'web/libs/prismjs/components/prism-bash.js',
                 'web/libs/prismjs/components/prism-php.js',
+                'web/libs/prismjs/components/prism-php-extras.js',
+                'web/libs/prismjs/components/prism-docker.js',
+                'web/libs/prismjs/components/prism-yaml.js',
+                'web/libs/prismjs/components/prism-sql.js',
+                'web/libs/prismjs/components/prism-rest.js',
+                'web/libs/prismjs/components/prism-python.js',
+                'web/libs/prismjs/components/prism-nginx.js',
+                'web/libs/prismjs/components/prism-java.js',
+                'web/libs/prismjs/components/prism-git.js',
                 'web/libs/prismjs/plugins/file-highlight/prism-file-highlight.js'
             ]
         };
@@ -27,7 +36,7 @@ gulp.task('build', ['bower'], function () {
             .pipe(header('\n/* **********************************************\n' +
                     '     Anthonykgross.fr Begin <%= file.relative %>\n' +
                     '********************************************** */\n\n'))
-            .pipe(concat('web/libs/prismjs/prism.js'))
+            .pipe(concat('web/libs/prismjs/custom-prismjs.js'))
             .pipe(uglify())
             .pipe(gulp.dest('./'));
 });
