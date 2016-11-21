@@ -48,12 +48,12 @@
             <div class="header margin-bottom40">
                 <h2>Déploiement continu avec Docker entre Gitlab et Rancher</h2>
                 <p>
-                    Avec la progression dans l’utilisation des containers d’application (Docker, AWS, etc …),
-                    il devient de plus en plus nécessaire de passer par des gestionnaires de containers pour gérer
-                    un peu tout ce chaos. Par conséquent, cette anarchie ne facilite pas la maintenance et la mise
-                    en production, le déploiement, de nos applications par un être humain &ldquo;normal&rdquo;; c’est ainsi qu’on
-                    en vient à automatiser le processus de déploiement. Ah bah ca comme de par exemple ?! C’est le
-                    sujet de l’article !
+                    Avec la progression de l’utilisation des containers d’application (Docker, AWS, etc …) favorisant
+                    les architectures microservices, nous divisons nos programmes en un ensemble de petits programmes
+                    communiquant les uns les autres. Cette division engendre une multiplication croissante du
+                    nombre de machines qui, avec le temps, deviennent de plus en plus difficile à gérer. Il devient donc nécessaire
+                    d'utiliser des gestionnaires de containers ainsi que l'élaboration de procédures de déploiement. Et comme de
+                    par hasard, mon article parle de ça !
                 </p>
             </div>
             <div class="item">
@@ -68,22 +68,22 @@
                         <div class="span8">
                             <h2>Présentation</h2>
                             <p>
-                                Vous l’aurez compris : nous allons faire en sorte qu'à partir d’un simple
-                                commit via Git (ici hébergé sur Gitlab.com), nous allons construire notre
-                                image serveur de notre application via Docker, lancer nos tests (Oui, car
-                                c'est important!) et si tout se passe bien : on balance le tout en prod’.
-                                Pour faciliter la compréhension, car oui mine de rien il y a beaucoup de
-                                chose a assimiler, j’ai déjà préparé une projet sous Symfony3 pour que vous
-                                puissiez le faire de votre côté sans trop vous prendre la tete avec du
+                                La procédure que je vous propose est plutôt simple : à partir d'un simple commit sur notre
+                                serveur Git fournit par Gitlab, nous allons construire notre machine,
+                                lancer nos tests (Oui, car c'est important!) et si tout se passe bien : on balance le
+                                tout en prod’.
+                                Pour faciliter la compréhension, car il y a beaucoup de
+                                choses à assimiler, j’ai préparé pour vous un projet sous Symfony3 pour que vous
+                                puissiez le faire de votre côté sans trop vous prendre la tête avec le
                                 superflux.
                             </p>
                             <p>
                                 Ah mince, j’ai oublié d’introduire mon plan …
-                                On commencera par configurer notre projet Symfony pour que vous
-                                puissiez tout de même le faire pour vos applications, puis configurer
-                                Gitlab et Rancher et tester le tout. Bien entendu, si vous ne connaissez
-                                pas Docker, Rancher et Gitlab, je m’y attarderais pas plus que ca.
-                                Je vous laisse le soin d’apprendre de votre côté et revenir lire l’article.
+                                On commencera par configurer notre projet Symfony, puis par configurer
+                                Gitlab et Rancher. Bien entendu, si vous ne connaissez
+                                pas Docker, Rancher et Gitlab, je vous laisse le soin d’apprendre ces prérequis de votre
+                                côté et revenir lire l’article. Pour les plus motivés, deux petits diagrammes pour avoir une vue
+                                d'ensemble de ce qu'on s'apprête à faire.
                             </p>
                             <div class="row">
                                 <div class="span4" style="text-align: center;">
@@ -142,9 +142,9 @@
                         <div class="span12">
                             <h5>Note</h5>
                             <div class="span12">
-                                Dans la suite de l’article, vous devrez changer certaine valeur
-                                comme la valeur de la variable CONTAINER_TEST_IMAGE dans le fichier .gitlab-ci.yml
-                                et l’image a monter dans Rancher.
+                                Dans la suite de l’article, vous devrez changer par vos propres valeurs la variable
+                                CONTAINER_TEST_IMAGE dans le fichier <a href="#configuration-gitlabci">.gitlab-ci.yml</a>
+                                et <a href="#rancher-services">l’image  à monter de votre projet Symfony</a> dans l'interface Rancher.
                             </div>
                         </div>
                     </div>
@@ -159,24 +159,26 @@
                             <div class="row">
                                 <div class="span12">
                                     <p>
-                                        Comme annonce dans la presentation, vous pouvez directement utiliser
-                                        l’exemple de projet que j’ai fait pour vous disponible en
-                                        ligne : https://gitlab.com/anthonykgross/sample-continuous-deployment et
-                                        passer directement la l’etape suivante.
-                                        Dans le cas contraire, nous allons devoir configurer Symfony, créer
+                                        Comme annoncé dans la présentation, vous pouvez directement utiliser
+                                        <a href="https://gitlab.com/anthonykgross/sample-continuous-deployment" target="_blank">
+                                            le projet d'exemple disponible en ligne
+                                        </a> qui vous permettra de suivre plus facilement.
+                                        Nous allons devoir configurer Symfony, créer
                                         l’image Docker contenant Nginx et PHP FPM avec son entrypoint et configurer le
                                         fichier .gitlab-ci.yml pour Gitlab.
                                     </p>
                                     <p>
-                                        Sachant que nous allons faire les choses bien, c’est à dire lancer nos tests
-                                        unitaires avant de déployer notre image nous allons tout d’abord installer PhpUnit.
+                                        Sachant que nous allons bien faire les choses, c’est à dire lancer nos tests
+                                        unitaires avant de déployer notre image, nous allons tout d’abord installer PhpUnit.
+                                        Bien entendu, si vous ne souhaitez pas lancer les tests, c'est à vous que revient
+                                        d'adapter la suite du post.
                                     </p>
                                 </div>
                                 <div class="span4">
                                     <p>
-                                        Via Composer, nous installons dans notre projet PhpUnit et ainsi
+                                        Via Composer, nous installons PhpUnit dans notre projet et ainsi
                                         nous pourrons lancer nos tests unitaires à l’avenir.
-                                        Pour l’installer, voici la commande a executer a la racine de
+                                        Pour l’installer, voici la commande à exécuter à la racine de
                                         votre projet Symfony.
                                     </p>
                                     <pre class="language-bash"><code>
@@ -186,8 +188,8 @@ $ composer require phpunit/phpunit
                                 <div class="span4">
                                     <p>
                                         Ensuite, nous allons définir nos constantes pour nos bases de données :
-                                        une de prod et une de tests. Prêtez bien attention au noms des HOST
-                                        (“prod-mysql” et “test-mysql”) : ils nous seront utiles à l’avenir.
+                                        une pour la prod et une pour les tests. Prêtez bien attention au noms des HOST
+                                        (“prod-mysql” et “test-mysql”) : ils nous seront utiles bientôt.
                                     </p>
                                     <pre class="language-yaml"><code>
 # app/config/parameters.yml.dist
@@ -205,10 +207,9 @@ test_database_password: database_test
                                 </div>
                                 <div class="span4">
                                     <p>
-                                        Pour finir, par défaut Symfony ne configure pas de base de
-                                        données de tests donc nous allons lui demander, gentillement,
-                                        d’en avoir une pour ne pas foutre le bordel dans notre
-                                        base de données de prod.
+                                        Pour finir, nous allons demander gentillement à Symfony de configurer notre base de
+                                        données de tests (Oui car nous ne souhaitons pas foutre le bordel dans notre
+                                        base de données de prod).
                                     </p>
                                     <pre class="language-yaml"><code>
 # app/config/config_test.yml
@@ -227,8 +228,8 @@ doctrine:
                                     <p>
                                         Jusqu’ici, c’est plutôt simple : Symfony utilisera nos constantes
                                         pour initialiser nos bases de données selon l’environnement
-                                        souhaite et nous avons Phpunit dans notre projet pour lancer nos tests
-                                        unitaire à venir.
+                                        souhaité et nous avons Phpunit dans notre projet pour lancer nos tests
+                                        unitaire.
                                     </p>
                                 </div>
                             </div>
