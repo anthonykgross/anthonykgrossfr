@@ -237,8 +237,8 @@ doctrine:
                             <div class="row">
                                 <div class="span12">
                                     <p>
-                                        J’avais prévenu, je parlerais peu de Docker mais pour faire
-                                        rapide on va avoir besoin de configurer notre serveur ainsi que
+                                        J’avais prévenu : je parlerais peu de Docker. Pour faire
+                                        rapide, on va avoir besoin de configurer notre serveur ainsi que
                                         son point d'entrée (l’entrypoint) qui donnera l’ordre à notre
                                         image d'exécuter un traitement désiré.
                                     </p>
@@ -247,19 +247,19 @@ doctrine:
                                     <p>
                                         Pour l’image, une configuration plutôt simple pour un serveur
                                         web basé sur Debian Jessie : PHP-FPM, Nginx, Composer
-                                        (qui lui-même aura besoin de curl et git pour les dépendances)
+                                        (qui lui-même aura besoin de curl et git pour les dépendences)
                                         et Supervisor. Ce dernier s’occupera de lancer Nginx et PHP-FPM car
-                                        Docker ne permet de lancer qu’un seul processus, or nous en avons
-                                        besoin dans lancer deux. Supervisor sert a ca ! Bien entendu, nous
-                                        balançons nos configurations pour Nginx et Supervisor dans notre
-                                        image, notre entrypoint ainsi que les sources de notre projet Symfony et
-                                        ouvrir les ports pour que notre site soit accessible depuis l’internet
+                                        Docker ne permet de lancer qu’un seul processus. Or, nous en avons
+                                        besoin dans lancer deux. Supervisor sert à ca ! Bien entendu, nous
+                                        balançons dans notre image nos configurations pour Nginx et Supervisor,
+                                        notre entrypoint ainsi que les sources de notre projet Symfony puis ouvrir
+                                        les ports pour que notre site soit accessible depuis l’internet
                                         mondial !
                                     </p>
                                     <p>
-                                        Je ne rentre pas dans les détails de la configuration du serveur,
+                                        Je n'entre pas dans les détails de la configuration du serveur,
                                         vous avez tout ce qu’il vous faut dans le projet d’exemple pour décortiquer
-                                        avec exactitude comment fonctionne un serveur web.
+                                        avec exactitude comment ça fonctionne.
                                     </p>
                                     <pre class="language-docker"><code>
 # Dockerfile
@@ -312,18 +312,18 @@ CMD ["run"]
                                 </div>
                                 <div class="span6">
                                     <p>
-                                        Le coeur de la tome : l’entrypoint. Plutôt simple lui aussi, explication :
-                                        Il faut savoir que notre image Docker se lance par un point d'entrée qu’on
-                                        peut redéfinir. Si vous regardez le Dockerfile a gauche, nous avons défini
-                                        que notre entrypoint serait notre fichier entrypoint.sh, son contenu ci-dessous.
+                                        Le coeur de la tome : l’entrypoint. Il faut savoir que notre image Docker
+                                        se lance par un point d'entrée qu’on peut redéfinir. Si vous regardez
+                                        le Dockerfile à gauche, nous avons défini
+                                        que ce point d'entrée serait notre fichier entrypoint.sh, son contenu ci-dessous.
                                     </p>
                                     <p>
-                                        Ici, nous voulons que selon le paramètre que nous enverrons à notre fichier
-                                        soit à notre image Docker, vous suivez ?, qu’il “Install”, “tests” ou “run”
+                                        Nous souhaitons que, selon le paramètre que nous envoyons à notre fichier entrypoint.sh,
+                                        l'image exécute une fonction particulière, vous suivez ? autrement dit, qu’il "install”, “tests” ou “run”
                                         notre serveur. Je recapitule : Si je fais “/entrypoint.sh install”:
-                                        ca m’installe les dependences de Composer, “/entrypoint.sh tests”: ca me
+                                        ça m’installe les dépendences de Composer, “/entrypoint.sh tests”: ça me
                                         lances les tests unitaires et “/entrypoint.sh run” me lance Supervisor soit
-                                        Nginx et PHP FPM. Je sens que je vais en perdre quelques-uns d’entre vous la …
+                                        Nginx et PHP FPM. Je sens que je vais en perdre quelques-uns d’entre vous là …
                                     </p>
                                     <pre class="language-bash"><code>
 # entrypoint.sh
@@ -365,48 +365,48 @@ esac
                                 </div>
                                 <div class="span12">
                                     <p>
-                                        Remarque : Avez vous remarque que je lance “/entrypoint.sh install”
+                                        Remarque : Avez vous remarqué que je lance “/entrypoint.sh install”
                                         dans le Dockerfile ? Le but étant que lors de la construction de
-                                        mon image, sachant qu’elle possède les sources de l’application,
-                                        Docker m’installe les dépendances Composer. L'intérêt est que
-                                        de cette manière, mon application est complete, prete a etre lancee.
+                                        notre image, sachant qu’elle possède les sources de l’application,
+                                        Docker m’installe les dépendences de Composer directement. L'intérêt est que
+                                        de cette manière, mon application est complète, prête à être lancée, avec tous ses prérequis.
                                     </p>
                                 </div>
                             </div>
                             <h3 id="configuration-gitlabci">Configuration de GitlabCI</h3>
                             <p>
-                                Pfiou, si vous êtes encore d’attaque on va faire la suite, le fichier
-                                .gitlab-ci.yml. Ce fichier va permettre à notre application Gitlab de savoir
+                                Pfiou, si vous êtes encore d’attaque on va faire la suite : le fichier
+                                .gitlab-ci.yml. Ce fichier va permettre à notre Gitlab de savoir
                                 que nous voulons profiter de serveur d'intégration continue (GitlabCI),
                                 c’est à dire, une machine qui lancera des traitements demandés à chaque
                                 fois que nous lui envoyons des modifications de notre projet.
                             </p>
                             <p>
-                                Le fichier décrit ci dessous demande à Gitlab que nous souhaitons,
-                                pour ce projet seulement, un serveur d'intégration continue utilisant Docker
-                                et que nous souhaitons utiliser du Docker dans cette machine Docker (DinD
+                                Le fichier décrit ci-dessous demande à Gitlab que nous souhaitons,
+                                pour ce repos seulement, un serveur d'intégration continue utilisant Docker
+                                et que nous souhaitons utiliser du Docker dans cette machine (DinD
                                 signifie “Docker in Docker”).
                             </p>
                             <p>
                                 GitlabCI fournit des variables par défaut comme $CI_BUILD_TOKEN,
                                 $CI_REGISTRY et $CI_BUILD_REF_NAME. Cette dernière est le nom de la
-                                branch git en cours, quand aux autres sont utiles pour éviter de définir
-                                manuellement notre Registry, serveur de stockage d’image docker, et le
-                                mot de passe pour se connecter à celui-ci.
+                                branch git en cours. Quant aux autres, elles sont utiles pour éviter de définir
+                                manuellement notre serveur de stockage d’images Docker (Registry) et le
+                                mot de passe pour s'y connecter.
                             </p>
                             <p>
-                                Notre processus est divisé en deux tâches : Build (Construction) et Deploy
+                                Notre procédure de déploiment est divisée en deux tâches : Build (Construction) et Deploy
                                 (Déploiement = mise en production). Nous nous occuperons que de la partie
-                                Build ici.
+                                Build pour le moment.
                             </p>
                             <p>
                                 Dans un premier temps, nous allons demander à GitlabCI de créer notre image
-                                docker a partir du fichier Dockerfile  présent à la racine de notre projet.
-                                Une fois que c’est fait, nous créons une base de données de test MySQL ainsi
+                                Docker à partir du fichier Dockerfile présent à la racine de notre projet.
+                                Une fois générée, nous créons une base de données MySQL de test ainsi
                                 que les identifiants de tests identiques à ceux de notre fichier de
-                                paramètres Symfony. Ensuite on lie la base de donnees de données de test à
-                                notre image Docker et on demande à Symfony de générer le schéma de la base
-                                de données puis nous lançons les tests unitaires. Pour finir, si les tests
+                                paramètres Symfony. Ensuite, on lie la base de données de test à
+                                notre image précédemment construite et nous demandons à Symfony de générer le schéma de la base
+                                de données. Vient le tour de lancer les tests unitaires. Pour finir, si les tests
                                 sont passés, nous nous connectons à notre Registry et poussons notre nouvelle
                                 image fraîchement créée sur celui-ci.
                             </p>
