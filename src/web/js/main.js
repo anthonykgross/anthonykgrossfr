@@ -33,7 +33,18 @@ jQuery(document).ready(function($){
                 }
 		
 	});
-	
+	$('.active-anchor').bind('click', function(event) {
+		var $anchor = $(this);
+
+		var final_anchor = $anchor.attr('href').split("#");
+		if(final_anchor.length > 1){
+			$('html, body').stop().animate({
+				scrollTop: parseInt($("#"+final_anchor[1]).offset().top - 80, 0)
+			}, 2000,'easeInOutExpo');
+			event.preventDefault();
+		}
+
+	});
 	// Top fullscreen image with jQuery backstretch
 	$.backstretch('/images/bg.png');
 	

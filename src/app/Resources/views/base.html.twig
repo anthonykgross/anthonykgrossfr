@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css")}}">
         <link rel="stylesheet" href="{{ asset("css/bootstrap-responsive.min.css")}}">
         <link rel="stylesheet" href="{{ asset("libs/fontawesome/css/font-awesome.min.css")}}">
+        <link rel="stylesheet" href="{{ asset("libs/magnific-popup/dist/magnific-popup.css")}}">
         <link rel="stylesheet" href="{{ asset("css/flexslider.css")}}">
         <link rel="stylesheet" href="{{ asset("css/swipebox.css")}}" />
         <link rel="stylesheet" href="{{ asset("css/layout.css")}}">
@@ -184,7 +185,7 @@
         <div id="fb-root"></div>
 
         <!-- JavaScript -->
-        <script type="text/javascript" src="{{ asset("js/jquery-1.9.1.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("libs/jquery/jquery.min.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/jquery-migrate.min.js") }}"></script>
         <script type='text/javascript' src="{{ asset("js/bootstrap.min.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/jquery-easing.js") }}"></script>
@@ -197,7 +198,8 @@
         <script type='text/javascript' src="{{ asset("js/jquery.jticker.js") }}"></script>
         <script type='text/javascript' src="{{ asset("js/jquery.backstretch.min.js") }}"></script>
         <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="{{ asset("libs/prismjs/prism.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("libs/prismjs/custom-prismjs.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("libs/magnific-popup/dist/jquery.magnific-popup.min.js") }}"></script>
         <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
         <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -223,6 +225,25 @@
                     success: function(d){
                         $('input[name="captcha_id"]').val(d.idx);
                         $('input[name="captcha"]').attr("placeholder",d.question);
+                    }
+                });
+                $('.image-popup').magnificPopup({
+                    type:'image',
+                    mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+                    zoom: {
+                        enabled: true, // By default it's false, so don't forget to enable it
+
+                        duration: 300, // duration of the effect, in milliseconds
+                        easing: 'ease-in-out', // CSS transition easing function
+
+                        // The "opener" function should return the element from which popup will be zoomed in
+                        // and to which popup will be scaled down
+                        // By defailt it looks for an image tag:
+                        opener: function(openerElement) {
+                            // openerElement is the element on which popup was initialized, in this case its <a> tag
+                            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                            return openerElement.is('img') ? openerElement : openerElement.find('img');
+                        }
                     }
                 });
             });

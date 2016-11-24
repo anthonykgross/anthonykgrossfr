@@ -12,9 +12,10 @@
     "tests"
   ],
   "dependencies": {
+    "jquery": "1.9.1",
     "fontawesome": "~4.2.0",
-    "prismjs" : "https://github.com/PrismJS/prism.git#v1.0.0",
+    "prismjs" : "https://github.com/PrismJS/prism.git#v1.4.1",
     "jwplayer": "6.10",
-    "startbootstrap-sb-admin-2-blackrockdigital": "~1.0.5"
+    "magnific-popup": "1.1.0"
   }
 }

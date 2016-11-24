@@ -2,7 +2,7 @@ image: docker:latest
 services:
   - docker:dind
 variables:
-  CONTAINER_PHP5: registry.gitlab.com/anthonykgross/akg-php5:$CI_BUILD_REF_NAME
+  CONTAINER_PHP5: registry.gitlab.com/anthonykgross/akg-php5:master
   CONTAINER_TEST_IMAGE: registry.gitlab.com/anthonykgross/anthonykgrossfr:$CI_BUILD_REF_NAME
 
 stages:
@@ -20,5 +20,7 @@ build:
 deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
+  only:
+    - master
   script:
     - upgrade --environment $RANCHER_ENV --stack $RANCHER_STACK --service $RANCHER_SERVICE --no-start-before-stopping --no-wait-for-upgrade-to-finish

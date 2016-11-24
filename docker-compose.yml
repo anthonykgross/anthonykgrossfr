@@ -1,6 +1,12 @@
 anthonykgrossfr:
-  extends:
-    file: docker-compose.prod.yml
-    service: anthonykgrossfr
+  image: registry.gitlab.com/anthonykgross/anthonykgrossfr:develop
+  volumes:
+    - ./conf/php5:/etc/php5
+    - ./conf/supervisor:/etc/supervisor/conf.d
+    - ./conf/nginx:/etc/nginx
+    - ./src:/src
+    - ./logs:/logs
+  environment:
+    VIRTUAL_HOST: "anthonykgross.fr,anthonykgross.local"
   ports:
     - 80:80
