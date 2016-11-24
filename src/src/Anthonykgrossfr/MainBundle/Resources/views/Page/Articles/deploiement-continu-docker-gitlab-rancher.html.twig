@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Déploiement continu avec Docker entre Gitlab et Rancher{% endblock %}
-{% block description %}L'ADASS est une conférence annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques.{% endblock %}
+{% block description %}La progression de l’utilisation des containers d’application (Docker, AWS, etc …) favorise les architectures microservices.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'deploiement-continu-docker-gitlab-rancher' }) }}{% endblock %}
 {% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/deploiement-continu-docker-gitlab-rancher.jpg") }}{% endblock %}
 
@@ -104,31 +104,31 @@
                             <h2>Plan</h2>
                             <ul>
                                 <li>
-                                    <a href="#projet">Projet</a>
+                                    <a class="active-anchor" href="#projet">Projet</a>
                                     <ul>
-                                        <li><a href="#configuration-symfony">Configuration  de Symfony</a></li>
-                                        <li><a href="#image-docker">Image Docker</a></li>
-                                        <li><a href="#configuration-gitlabci">Configuration de GitlabCI</a></li>
-                                        <li><a href="#gitlab-registry">Registry</a></li>
+                                        <li><a class="active-anchor" href="#configuration-symfony">Configuration  de Symfony</a></li>
+                                        <li><a class="active-anchor" href="#image-docker">Image Docker</a></li>
+                                        <li><a class="active-anchor" href="#configuration-gitlabci">Configuration de GitlabCI</a></li>
+                                        <li><a class="active-anchor" href="#gitlab-registry">Registry</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#rancher">Rancher</a>
+                                    <a class="active-anchor" href="#rancher">Rancher</a>
                                     <ul>
-                                        <li><a href="#rancher-services">Services</a></li>
-                                        <li><a href="#rancher-api">API</a></li>
+                                        <li><a class="active-anchor" href="#rancher-services">Services</a></li>
+                                        <li><a class="active-anchor" href="#rancher-api">API</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#gitlab">Gitlab</a>
+                                    <a class="active-anchor" href="#gitlab">Gitlab</a>
                                     <ul>
-                                        <li><a href="#gitlab-variables">Variables</a></li>
+                                        <li><a class="active-anchor" href="#gitlab-variables">Variables</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#dernieres-modifications">Dernières modifications</a>
+                                    <a class="active-anchor" href="#dernieres-modifications">Dernières modifications</a>
                                     <ul>
-                                        <li><a href="#finalisation-gitlabci">Finalisation de la configuration de GitlabCI</a></li>
+                                        <li><a class="active-anchor" href="#finalisation-gitlabci">Finalisation de la configuration de GitlabCI</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -143,8 +143,8 @@
                             <h5>Note</h5>
                             <div class="span12">
                                 Dans la suite de l’article, vous devrez changer par vos propres valeurs la variable
-                                <b>CONTAINER_TEST_IMAGE</b> dans le fichier <a href="#configuration-gitlabci">.gitlab-ci.yml</a>
-                                et <a href="#rancher-image-symfony">l’image  à monter de votre projet Symfony</a> dans l'interface Rancher.
+                                <b>CONTAINER_TEST_IMAGE</b> dans le fichier <a class="active-anchor" href="#configuration-gitlabci">.gitlab-ci.yml</a>
+                                et <a class="active-anchor" href="#rancher-image-symfony">l’image  à monter de votre projet Symfony</a> dans l'interface Rancher.
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,9 @@
                 <div class="span12">
                     <div class="row">
                         <div class="span12">
+                            <br/>
                             <h2 id="projet">Projet</h2>
+                            <br/>
                             <h3 id="configuration-symfony">Configuration  de Symfony</h3>
                             <div class="row">
                                 <div class="span12">
@@ -233,6 +235,7 @@ doctrine:
                                     </p>
                                 </div>
                             </div>
+                            <br/>
                             <h3 id="image-docker">Image Docker</h3>
                             <div class="row">
                                 <div class="span12">
@@ -250,7 +253,7 @@ doctrine:
                                         (qui lui-même aura besoin de curl et git pour les dépendences)
                                         et Supervisor. Ce dernier s’occupera de lancer Nginx et PHP-FPM car
                                         Docker ne permet de lancer qu’un seul processus. Or, nous en avons
-                                        besoin dans lancer deux. Supervisor sert à ca ! Bien entendu, nous
+                                        besoin d'en lancer deux. Supervisor sert à ca ! Bien entendu, nous
                                         balançons dans notre image nos configurations pour Nginx et Supervisor,
                                         notre entrypoint ainsi que les sources de notre projet Symfony puis ouvrir
                                         les ports pour que notre site soit accessible depuis l’internet
@@ -373,13 +376,14 @@ esac
                                     </p>
                                 </div>
                             </div>
+                            <br/>
                             <h3 id="configuration-gitlabci">Configuration de GitlabCI</h3>
                             <p>
                                 Pfiou, si vous êtes encore d’attaque on va faire la suite : le fichier
                                 <b>.gitlab-ci.yml</b>. Ce fichier va permettre à notre Gitlab de savoir
-                                que nous voulons profiter de serveur d'intégration continue (GitlabCI),
-                                c’est à dire, une machine qui lancera des traitements demandés à chaque
-                                fois que nous lui envoyons des modifications de notre projet.
+                                que nous voulons profiter de son serveur d'intégration continue (GitlabCI),
+                                c’est à dire, une machine qui lancera les traitements demandés à chaque
+                                fois que nous lui envoyions les modifications de notre projet.
                             </p>
                             <p>
                                 Le fichier décrit ci-dessous demande à Gitlab que nous souhaitons,
@@ -403,8 +407,8 @@ esac
                                 Dans un premier temps, nous allons demander à <b>GitlabCI</b> de créer notre image
                                 Docker à partir du fichier Dockerfile présent à la racine de notre projet.
                                 Une fois générée, nous créons une base de données MySQL de test ainsi
-                                que les identifiants de tests identiques à ceux de <a href="#configuration-symfony">notre fichier de
-                                paramètres Symfony<a>. Ensuite, on lie la base de données de test à
+                                que les identifiants de tests identiques à ceux de <a class="active-anchor" href="#configuration-symfony">notre fichier de
+                                paramètres Symfony</a>. Ensuite, on lie la base de données de test à
                                 notre image précédemment construite et nous demandons à Symfony de générer le schéma de la base
                                 de données. Vient le tour de lancer les tests unitaires. Pour finir, si les tests
                                 sont passés, nous nous connectons à notre Registry et poussons notre nouvelle
@@ -417,6 +421,7 @@ services:
   - docker:dind
 
 variables:
+  # Ici tu mets TON image, pas la mienne :) !
   CONTAINER_TEST_IMAGE: registry.gitlab.com/anthonykgross/sample-continuous-deployment:$CI_BUILD_REF_NAME
 
 stages:
@@ -445,6 +450,7 @@ deploy:
                                 Une fois terminées, vous pouvez envoyer vos modifications sur Gitlab via Git. Si vous avez été
                                 un élève assidu, le service GitlabCI a dû se déclencher et l'image Docker est en cours de construction.
                             </p>
+                            <br/>
                             <h3 id="gitlab-registry">Registry</h3>
                             <div class="row">
                                 <div class="span8">
@@ -455,7 +461,7 @@ deploy:
                                     avez manqué un truc, ou vos tests unitaire sont faux. Dans les deux
                                     cas … débrouillez vous ! <3 Ou bien, précisez votre problème en
                                     commentaire que je puisse affiner la qualité de mon article.
-
+                                    <br/><br/>
                                     <div style="text-align: center;">
                                         <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" target="_blank">
                                             <img style="width: 75%;" src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" />
@@ -471,8 +477,9 @@ deploy:
                                     <i>Notre image Docker dans le registry</i>
                                 </div>
                             </div>
-
+                            <br/>
                             <h2 id="rancher">Rancher</h2>
+                            <br/>
                             <h3 id="rancher-services">Services</h3>
                             <div class="row">
                                 <div class="span4" style="text-align: center;">
@@ -480,6 +487,11 @@ deploy:
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" />
                                     </a>
                                     <i>MySQL</i>
+                                    <hr>
+                                    <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" />
+                                    </a>
+                                    <i>Détails du container MySQL</i>
                                     <hr>
                                     <a class="image-popup" href="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
                                         <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" />
@@ -489,10 +501,10 @@ deploy:
                                 <div class="span8">
                                     <p>
                                         Si vous le ne le connaissez pas encore, <b>Rancher</b> est le programme qui
-                                        va gérer nos containers en productions. Si vous ne savez pas l’installer,
-                                        vous avez la procédure d’installation en <a href="#liens-utiles">Liens Utiles</a>. Admettons qu’il reste
+                                        va gérer nos containers en production. Si vous ne savez pas l’installer,
+                                        vous avez la procédure d’installation en <a class="active-anchor" href="#liens-utiles">Liens Utiles</a>. Admettons qu’il reste
                                         des survivants qui liront la suite de cet article, nous allons paramétrer notre
-                                        machine de production. Tout d’abord, nous allons créer notre base de données
+                                        machine. Tout d’abord, nous allons créer notre base de données
                                         de prod, configurer le container de notre projet et générer les identifiants
                                         de l’API Rancher pour la partie finale du post.
                                     </p>
@@ -500,23 +512,25 @@ deploy:
                                         Connectez vous sur votre serveur <b>Rancher</b> (http://yourdomain.com:8080 pour l'exemple),
                                         puis allez <b>Infrastructure</b> > <b>Registries</b> et <b>Add Registry</b>.
                                         Ici, nous allons ajouter notre registry Gitlab pour que notre Rancher
-                                        puisse avoir accès à nos image Docker.
+                                        puisse avoir accès à nos images Docker.
                                     </p>
                                     <p>
-                                        Address : registry.gitlab.com
-                                        Email : Sérieusement ? débrouillerez vous ! :)
-                                        Username : Votre login Gitlab
-                                        Password : Votre mot de passe Gitlab
+                                    <pre class="language-yaml"><code>
+Address : registry.gitlab.com # Ou l'adresse de ton registry
+Email : Sérieusement ? débrouillerez vous ! :)
+Username : Votre login Gitlab
+Password : Votre mot de passe Gitlab
+                                    </code></pre>
                                     </p>
                                     <p>
                                         Ensuite, allez dans <b>Environment</b> > <b>Default</b> et <b>Add Service</b>. Comme dans la
                                         première capture, nous allons installer MySQL. La configuration à suivre :
                                     </p>
-                                    <p>
-                                        Name : mysql
-                                        Image : mysql-5.5.44
-                                        Port : 3306 > 3306
-                                    </p>
+                                    <pre class="language-yaml"><code>
+Name : mysql
+Image : mysql-5.5.44
+Port : 3306 > 3306
+                                    </code></pre>
                                     <p>
                                         Si vous connaissez Docker, vous savez à quoi correspond ces champs. Si ce
                                         n’est pas le cas, je vous incite à revoir votre copie.
@@ -526,24 +540,29 @@ deploy:
                                         <b>Container</b> vous retrouverez l'état de la machine. Dans le <b>Menu</b>, recherchez
                                         <b>Execute Shell</b> : vous êtes désormais loggé dans votre container. Créer les identifiants
                                         MySQL pour votre base de données de prod; vous vous rappelez ? Dans le
-                                        fichier <a href="#configuration-symfony">parameters.yml.dist</a> de notre projet Symfony. Les mêmes oui !
+                                        fichier <a class="active-anchor" href="#configuration-symfony">parameters.yml.dist</a> de notre projet Symfony.
+                                        Les mêmes oui ! <b>Note</b> : N'oubliez pas de mettre l'accès à votre base de données depuis l'exterieur à votre utilisateur ! ("<b>%</b>" au lieu de "<b>localhost</b>")
                                     </p>
                                     <p>
                                         La suite sera de créer un second container, celle de nôtre application Symfony.
                                     </p>
                                     <p id="rancher-image-symfony">
-                                        Name : symfony3_app
-                                        Image : registry.gitlab.com/anthonykgross/sample-continuous-deployment:master
-                                        Port 80 > 80
-                                        Liens : Mysql > prod-mysql
+                                        <pre class="language-yaml"><code>
+Name : symfony3_app
+# Ici tu mets TON image, pas la mienne :) !
+Image : registry.gitlab.com/anthonykgross/sample-continuous-deployment:master
+Port : 80 > 80
+Liens : Mysql > prod-mysql
+                                        </code></pre>
                                     </p>
                                     <p>
                                         Rancher téléchargera l’image de votre <b>Registry</b>, créera le container à partir
                                         de votre image et liera l’instance MySQL nommé “<b>mysql</b>” au
-                                        container de notre projet sous le nom de “<b>prod-mysql</b>” (parameters.yml.dist)
+                                        container de notre projet sous le nom de “<b>prod-mysql</b>” (<a class="active-anchor" href="#configuration-symfony">parameters.yml.dist</a>)
                                     </p>
                                 </div>
                             </div>
+                            <br/>
                             <h3 id="rancher-api">API</h3>
                             <div class="row">
                                 <div class="span12" style="text-align: center;">
@@ -554,6 +573,7 @@ deploy:
                                     </p>
                                 </div>
                             </div>
+                            <br/>
                             <h2 id="gitlab">Gitlab</h2>
                             <div class="row">
                                 <div class="span12" style="text-align: center;">
@@ -569,7 +589,7 @@ deploy:
                                     </p>
                                 </div>
                             </div>
-
+                            <br/>
                             <h3 id="gitlab-variables">Variables</h3>
                             <div class="row">
                                 <div class="span12">
@@ -584,36 +604,40 @@ deploy:
                                     <i>Ajout des variables dans Gitlab</i>
                                 </div>
                                 <div class="span6">
-                                    <pre class="language-bash"><code>
-RANCHER_ACCESS_KEY  MY_RANCHER_ACCESS_KEY
-RANCHER_ENV Default
-RANCHER_SECRET_KEY  MY_RANCHER_SECRET_KEY
-RANCHER_SERVICE symfony3_app
-RANCHER_STACK   Default
-RANCHER_URL http://yourdomain.com:8080
+                                    <pre class="language-yaml"><code>
+RANCHER_ACCESS_KEY : MY_RANCHER_ACCESS_KEY
+RANCHER_ENV : Default
+RANCHER_SECRET_KEY : MY_RANCHER_SECRET_KEY
+RANCHER_SERVICE : symfony3_app
+RANCHER_STACK : Default
+RANCHER_URL : http://yourdomain.com:8080
                                     </code></pre>
                                 </div>
+                            </div>
+                            <br/>
+                            <div class="row">
                                 <div class="span12">
                                     <p>
                                         Pour ce qui est de <b>RANCHER_ACCESS_KEY</b> et de <b>RANCHER_SECRET_KEY</b> vous l'aurez compris :
                                         Elles serviront à se connecter à L’API de Rancher. La variable <b>RANCHER_URL</b> est l’adresse
                                         et le port d'accès au votre serveur, <b>RANCHER_ENV</b> et <b>RANCHER_STACK</b>
                                         sont vraiment spécifiques à notre gestionnaire de containers et à votre configuration. Rappelez vous,
-                                        après l’ajout de notre <b>Registry</b>, nous avons ajouté notre machine Mysql dans l’environnement <a href="#rancher-services">Default</a>.
+                                        après l’ajout de notre <b>Registry</b>, nous avons ajouté notre machine Mysql dans l’environnement <a class="active-anchor" href="#rancher-services">Default</a>.
                                         Sachez que si vous utilisez Rancher avec la configuration par défaut, la valeur de ces deux variables
                                         sont “<b>Default</b>”. Sinon, à vous de savoir comment remplir ces champs. Enfin, <b>RANCHER_SERVICE</b>
-                                        c’est le nom de la machine que vous voudrez mettre à jour après chacune des mise à jour de nos
+                                        c’est le nom de la machine que vous voudrez mettre à jour après chacune des mises à jour de nos
                                         sources; ici “<b>symfony3_app</b>” créée juste avant la génération des identifiants API.
                                     </p>
                                 </div>
                             </div>
-
+                            <br/>
                             <h2 id="dernieres-modifications">Dernières modifications</h2>
+                            <br/>
                             <h3 id="finalisation-gitlabci">Finalisation de la configuration de GitlabCI</h3>
                             <div class="row">
                                 <div class="span12">
                                     <p>
-                                        Ca y est, on est a la fin ! Nous n’avons plus qu’à éditer notre fichier
+                                        Ça y est, on est à la fin ! Nous n’avons plus qu’à éditer notre fichier
                                         <b>.gitlab-ci.yml</b> et à ajouter dans l'étape “<b>deploy</b>” la command pour remplacer
                                         notre image docker par celle que nous venons
                                         juste de créer. Une fois terminée, c'est fini!
