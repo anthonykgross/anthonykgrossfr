@@ -441,15 +441,19 @@ deploy:
   script:
     - echo "Deployment not configured"
                             </code></pre>
+                            <p>
+                                Une fois terminées, vous pouvez envoyer vos modifications sur Gitlab via Git. Si vous avez été
+                                un élève assidu, le service GitlabCI a dû se déclencher et l'image Docker est en cours de construction.
+                            </p>
                             <h3 id="gitlab-registry">Registry</h3>
                             <div class="row">
                                 <div class="span8">
                                     Du coup, rendez vous dans votre projet sur votre Gitlab et allez dans
                                     Pipeline. Si tout s’est bien passé, vous verrez que celui-ci s’est
                                     déroulé avec succès et vous retrouvez votre image prête à l’utilisation
-                                    dans Registry. Dans le cas contraire, j’ai pas ete assez claire et vous
+                                    dans Registry. Dans le cas contraire, je n’ai pas dû être assez clair et vous
                                     avez manqué un truc, ou vos tests unitaire sont faux. Dans les deux
-                                    cas … débrouillez vous ! <3 Ou bien, préciser votre problème en
+                                    cas … débrouillez vous ! <3 Ou bien, précisez votre problème en
                                     commentaire que je puisse affiner la qualité de mon article.
 
                                     <div style="text-align: center;">
@@ -487,26 +491,26 @@ deploy:
                                         Si vous le ne le connaissez pas encore, Rancher est le programme qui
                                         va gérer nos containers en productions. Si vous ne savez pas l’installer,
                                         vous avez la procédure d’installation en Liens Utiles. Admettons qu’il reste
-                                        des survivants qui liront la suite de cet article, nous allons préparer notre
+                                        des survivants qui liront la suite de cet article, nous allons paramétrer notre
                                         machine de production. Tout d’abord, nous allons créer notre base de données
                                         de prod, configurer le container de notre projet et générer les identifiants
                                         de l’API Rancher pour la partie finale du post.
                                     </p>
                                     <p>
-                                        Connectez vous sur votre serveur Rancher, puis allez Infrastructure > Registries
-                                        et Add Registry.
+                                        Connectez vous sur votre serveur Rancher (http://yourdomain.com:8080 pour l'exemple),
+                                        puis allez Infrastructure > Registries et Add Registry.
                                         Ici, nous allons ajouter notre registry Gitlab pour que notre Rancher
                                         puisse avoir accès à nos image Docker.
                                     </p>
                                     <p>
                                         Address : registry.gitlab.com
-                                        Email : Sérieusement, vous vous débrouillerez je pense :)
+                                        Email : Sérieusement ? débrouillerez vous ! :)
                                         Username : Votre login Gitlab
                                         Password : Votre mot de passe Gitlab
                                     </p>
                                     <p>
                                         Ensuite, allez dans Environment > Default et Add Service. Comme dans la
-                                        premiere capture, nous allons installer MySQL. La configuration a suivre :
+                                        première capture, nous allons installer MySQL. La configuration a suivre :
                                     </p>
                                     <p>
                                         Name : mysql
@@ -518,14 +522,14 @@ deploy:
                                         n’est pas le cas, je vous incite à revoir votre copie.
                                     </p>
                                     <p>
-                                        Une fois le container démarre, cliquez sur l’instance et dans l’onglet
+                                        Une fois le container démarré, cliquez sur l’instance et dans l’onglet
                                         Container vous retrouverez l'état de la machine. Dans le Menu, recherchez
-                                        Execute Shell : vous êtes loggé dans votre container. Créer les identifiants
+                                        Execute Shell : vous êtes désormais loggé dans votre container. Créer les identifiants
                                         MySQL pour votre base de données de prod; vous vous rappelez ? Dans le
-                                        fichier parameters.yml.dist de notre projet symfony. Les memes oui !
+                                        fichier parameters.yml.dist de notre projet Symfony. Les memes oui !
                                     </p>
                                     <p>
-                                        La suite sera de creer un second container
+                                        La suite sera de creér un second container, celle de nôtre application Symfony.
                                     </p>
                                     <p>
                                         Name : symfony3_app
@@ -534,8 +538,8 @@ deploy:
                                         Liens : Mysql > prod-mysql
                                     </p>
                                     <p>
-                                        Rancher telechargera l’image de votre Registry, créera le container a partir
-                                        de votre image et fera le liens entre l’instance MySQL nommé “mysql” vers le
+                                        Rancher téléchargera l’image de votre Registry, créera le container à partir
+                                        de votre image et liera l’instance MySQL nommé “mysql” au
                                         container de notre projet sous le nom de “prod-mysql” (parameters.yml.dist)
                                     </p>
                                 </div>
@@ -545,9 +549,8 @@ deploy:
                                 <div class="span12" style="text-align: center;">
                                     <p>
                                         On arrive au bout les copains ! Sous Rancher, cliquez sur API et
-                                        générez une Access Key et une Secret Key. Aucun pré requis
-                                        nécessaires à renseigner mais conserver vos identifiants, on va
-                                        s’en servir de suite.
+                                        générez une Access Key et une Secret Key. Aucun prérequis à renseigner
+                                        mais conservez vos identifiants, on va s’en servir de suite.
                                     </p>
                                 </div>
                             </div>
@@ -556,14 +559,13 @@ deploy:
                                 <div class="span12" style="text-align: center;">
                                     <p>
                                         Dans votre projet sous Gitlab, trouvez la section Variables. Nous allons
-                                        définir des constantes pour pouvoir les utiliser dans ton fichier
+                                        définir des constantes pour pouvoir les utiliser dans le fichier
                                         .gitlab-ci.yml. Pourquoi définir des variables au lieu d'écrire
                                         directement nos valeurs dans le fichier en question ? Tout simplement car
-                                        si vous avez à travailler avec plusieurs personnes sur le projet, vous n'êtes
-                                        pas obligé de rendre public les accès au serveur de production. Dans le fichier
-                                        .gitlab-ci.yml, tous vos collaborateurs pourraient avoir accès à vos clés
-                                        alors qu’en tant que variables Gitlab, seulement le serveur d'intégration
-                                        continue, GitlabCI.
+                                        si vous devez travailler avec plusieurs personnes sur le projet, vous ne serait
+                                        pas contraint de rendre public les accès au serveur de production. S'ils sont écris en clair
+                                        dans le fichier .gitlab-ci.yml, tous vos collaborateurs pourraient avoir accès à vos clés.
+                                        En tant que variables Gitlab, seul le serveur d'intégration continue connait leur valeur, GitlabCI.
                                     </p>
                                 </div>
                             </div>
@@ -593,15 +595,15 @@ RANCHER_URL http://yourdomain.com:8080
                                 </div>
                                 <div class="span12">
                                     <p>
-                                        Je pense pour ce qui est de  RANCHER_ACCESS_KEY et  RANCHER_SECRET_KEY c’est evident :
+                                        Pour ce qui est de RANCHER_ACCESS_KEY et de RANCHER_SECRET_KEY vous l'aurez compris :
                                         Elles serviront à se connecter à L’API de Rancher. La variable RANCHER_URL est l’adresse
-                                        et le port d'accès au votre serveur Rancher. Pour ce qui est de RANCHER_ENV et RANCHER_STACK
-                                        sont vraiment spécifiques à notre gestionnaire de containers et votre configuration. Rappelez vous,
+                                        et le port d'accès au votre serveur, RANCHER_ENV et RANCHER_STACK
+                                        sont vraiment spécifiques à notre gestionnaire de containers et à votre configuration. Rappelez vous,
                                         après l’ajout de notre Registry, nous avons ajouté notre machine Mysql dans l’environnement Default.
-                                        Sachez que si vous utilisez Rancher avec la configuration par défaut, laissez ces valeurs “Default”
-                                        pour ces deux variables. Sinon, a vous de savoir comment remplir ces champs. Enfin, RANCHER_SERVICE
-                                        c’est le nom de la machine que vous voudrez mettre à jour après chacune des mise a jour de nos
-                                        sources du projet; ici “symfony3_app” créé juste avant la génération des identifiants API.
+                                        Sachez que si vous utilisez Rancher avec la configuration par défaut, la valeur de ces deux variables
+                                        sont “Default”. Sinon, à vous de savoir comment remplir ces champs. Enfin, RANCHER_SERVICE
+                                        c’est le nom de la machine que vous voudrez mettre à jour après chacune des mise à jour de nos
+                                        sources; ici “symfony3_app” créée juste avant la génération des identifiants API.
                                     </p>
                                 </div>
                             </div>
@@ -611,11 +613,10 @@ RANCHER_URL http://yourdomain.com:8080
                             <div class="row">
                                 <div class="span12">
                                     <p>
-                                        Ca y est, on est a la fin ! Nous n’avons plus qu’a éditer notre fichier
-                                        .gitlab-ci.yml et ajouter dans l'étape “deploy”, la command de mise à
-                                        jour de notre image docker de notre projet par celle que nous venons
-                                        juste de créer. Une fois terminée, tout se derouler comme sur des
-                                        roulettes.
+                                        Ca y est, on est a la fin ! Nous n’avons plus qu’à éditer notre fichier
+                                        .gitlab-ci.yml et à ajouter dans l'étape “deploy” la command pour remplacer
+                                        notre image docker par celle que nous venons
+                                        juste de créer. Une fois terminée, c'est fini!
                                     </p>
                                     <pre class="language-yaml"><code>
 # .gitlab-ci.yml
@@ -630,16 +631,16 @@ deploy:
                                     </code></pre>
                                     <p>
                                         Pour vérifier, ouvrez votre serveur Rancher et allez dans la liste
-                                        des service en cours. Ouvrez dans une autre fenêtre votre Gitlab.
-                                        Modifiez les sources de votre projet ou celui-ci que je vous ai
-                                        fourni et poussez les modifications sur la branche Master.
+                                        des services en cours. Une autre fenêtre dans votre navigateur sera nécessaire pour
+                                        visualiser le lancement de GitlabCI dans votre Gitlab (dans l'onglet Pipeline).
+                                        Modifiez les sources de votre projet et poussez les modifications sur la branche Master.
                                         Gitlab recevra votre commit, lancera vos tests unitaires et signalera
-                                        a Rancher que celui-ci doit mettre à jour le service dont le nom est
+                                        à Rancher que celui-ci doit mettre à jour le service dont le nom est
                                         “Symfony3_app”. Regardez sur Rancher, votre service est en cours de
-                                        mise à jour, redémarre et votre nouvelle image est en production.
-                                        Bien entendu, si vous avez correctement configuré votre image docker,
-                                        vos nom de domaines, etc … (Tout ce qui vous est propre), vous devriez
-                                        voir la nouvelle version de votre site à votre adresse.
+                                        mise à jour, puis de redémarrage et votre nouvelle image est en production.
+                                        Bien entendu, si vous avez correctement configuré votre image Docker,
+                                        vos noms de domaines, etc … (Tout ce qui vous est propre), vous devriez
+                                        voir la nouvelle version de votre site en ligne.
                                     </p>
                                 </div>
                             </div>
