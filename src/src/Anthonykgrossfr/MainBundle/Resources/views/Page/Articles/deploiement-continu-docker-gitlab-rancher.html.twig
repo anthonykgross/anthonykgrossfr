@@ -421,7 +421,7 @@ services:
   - docker:dind
 
 variables:
-  # Ici tu mets TON image, pas la mienne :) !
+  # Ici vous mettez VOTRE image, pas la mienne :) !
   CONTAINER_TEST_IMAGE: registry.gitlab.com/anthonykgross/sample-continuous-deployment:$CI_BUILD_REF_NAME
 
 stages:
@@ -549,7 +549,7 @@ Port : 3306 > 3306
                                     <p id="rancher-image-symfony">
                                         <pre class="language-yaml"><code>
 Name : symfony3_app
-# Ici tu mets TON image, pas la mienne :) !
+# Ici vous mettez VOTRE image, pas la mienne :) !
 Image : registry.gitlab.com/anthonykgross/sample-continuous-deployment:master
 Port : 80 > 80
 Liens : Mysql > prod-mysql
