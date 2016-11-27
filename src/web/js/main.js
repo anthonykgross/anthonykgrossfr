@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
 	$('.nav-menu ul').ddscrollSpy({ scrolltopoffset: -60 });
 	
 	// jQuery smooth scrolling
-	$('#navigation a, #logo .arrow-link a').bind('click', function(event) {
+	$('#navigation a, #logo .arrow-link a, #footer_logo_akg').bind('click', function(event) {
 		var $anchor = $(this);	
                 
                 var final_anchor = $anchor.attr('href').split("#");

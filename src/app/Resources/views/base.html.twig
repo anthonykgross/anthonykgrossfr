@@ -71,14 +71,14 @@
             <div class="header-overlay">
                 <div class="container">
                     <img id="logo_akg" src="{{ asset('images/akg2.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
-                    <div class="text-rotator">
-                        <div><h1>Developpeur Freelance sur Marseille</h1></div>
-                        <div><h1>Expertise, développement, e-commerce & formation</h1></div>
-                    </div> <!-- End text-rotator -->
+                    {#<div class="text-rotator">#}
+                        {#<div><h1>Developpeur Freelance sur Marseille</h1></div>#}
+                        {#<div><h1>Expertise, développement, e-commerce & formation</h1></div>#}
+                    {#</div> <!-- End text-rotator -->#}
                 </div> <!-- End container -->
 
                 <div class="arrow-link">
-                    <a href="{{ path("anthonykgrossfr_main_homepage") }}#services"><i class="fa fa-angle-down"></i></a>
+                    <a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos"><i class="fa fa-angle-down"></i></a>
                 </div> <!-- End arrow-link -->
 
             </div> <!-- End header-overlay -->
@@ -93,7 +93,7 @@
 
                 <nav class="nav nav-menu">
                     <ul>
-                        <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#services">Services</a></li>
+                        {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#services">Services</a></li>#}
                         <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos">A propos</a></li>
                         <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#partenaires">Partenaires</a></li>
                         <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#contact">Contact</a></li>
@@ -148,8 +148,8 @@
                                 <li><a target="_blank" href="https://twitter.com/anthonykgross"><i class="fa fa-twitter"></i></a></li>
                                 <li><a target="_blank" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a target="_blank" href="https://github.com/anthonykgross"><i class="fa fa-github"></i></a></li>
-                                <li><a target="_blank" href="http://twitch.tv/anthonykgross"><i class="fa fa-twitch"></i></a></li>
-                                <li><a target="_blank" href="https://plus.google.com/u/0/117182078090794461481"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a target="_blank" href="https://gitlab.com/u/anthonykgross"><i class="fa fa-gitlab"></i></a></li>
+                                <li><a target="_blank" href="https://hub.docker.com/u/anthonykgross/"><i class="fa fa-cubes"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -177,7 +177,13 @@
                         </div>
                     </div>
                     <br/>
-                    <p>&copy; {{ "now"|date('Y') }} AnthonyKGross.fr</p> <!-- copyright text -->
+                    <p>
+                        <a id="footer_logo_akg" href="#logo">
+                            <img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
+                        </a>
+                        <br/><br/>
+                        &copy; {{ "now"|date('Y') }} AnthonyKGross.fr
+                    </p> <!-- copyright text -->
                 </div> <!-- End container -->
             </footer> <!-- End footer-copyright -->
         </div> <!-- End stickem-container -->
