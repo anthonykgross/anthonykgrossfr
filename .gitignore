@@ -13,3 +13,4 @@
 /src/node_modules/
 /logs/*.log
 .idea
+.DS_Store
