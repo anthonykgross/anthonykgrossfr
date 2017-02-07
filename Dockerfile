@@ -17,7 +17,7 @@ RUN rm -Rf /etc/php5/* && \
     rm -Rf /etc/supervisor/conf.d/* && \
     rm -Rf /etc/nginx/* && \
     rm -Rf /src/* && \
-    rm -Rf /logs/* && \
+    rm -Rf /logs/*
 
 COPY entrypoint.sh /entrypoint.sh
 COPY conf/php5 /etc/php5
