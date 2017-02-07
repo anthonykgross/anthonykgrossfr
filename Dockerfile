@@ -11,10 +11,13 @@ RUN apt-get update -y && \
 	apt-get install -y supervisor nginx && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y --purge && \
-    usermod -u 1000 www-data && \
-    rm -Rf /etc/php5/* && \
+    usermod -u 1000 www-data
+    
+RUN rm -Rf /etc/php5/* && \
     rm -Rf /etc/supervisor/conf.d/* && \
-    rm -Rf /etc/nginx/*
+    rm -Rf /etc/nginx/* && \
+    rm -Rf /src/* && \
+    rm -Rf /logs/* && \
 
 COPY entrypoint.sh /entrypoint.sh
 COPY conf/php5 /etc/php5
