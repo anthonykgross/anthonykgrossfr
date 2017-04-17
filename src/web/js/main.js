@@ -46,7 +46,7 @@ jQuery(document).ready(function($){
 
 	});
 	// Top fullscreen image with jQuery backstretch
-	$.backstretch('/images/bg.png');
+	// $.backstretch('/images/bg.png');
 	
 	// jQuery figure hover effect
 	$('figure.figure-hover').hover(

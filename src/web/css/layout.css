@@ -28,11 +28,11 @@
 
 body {
     font-family:'PT Sans', Arial, sans-serif;
-    color:#5a5a5a;
+    color:#232525;
     background-color:#404040;
     font-size:15px;
     line-height:21px;
-    background:#f6f6f6 url(../images/base-content.jpg) repeat;
+    background:#f6f6f6 url(../images/bg-repeat.png) repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -351,7 +351,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 #logo .container {
     position:relative;
     top:30%;
-    opacity:0.45;
+    opacity:0.9;
 }
 #logo .container .slides {
     top:0;
@@ -639,7 +639,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     line-height:16px;
     text-transform:uppercase;
 }
-#blog .meta-desc i { color:#5a5a5a; }
+#blog .meta-desc i { color:#232525; }
 #blog .meta-desc .font-slight {
     color:#e0e0e0;
     font-size:16px;
@@ -692,7 +692,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 #blog.single-blog { padding-bottom:80px; }
 #blog.single-blog .meta-desc { margin:30px 0px 15px; }
 #blog.single-blog .post-tags {
-    color:#5a5a5a;
+    color:#232525;
     padding:20px 0px;
     text-transform:uppercase;
     font-size:13px;

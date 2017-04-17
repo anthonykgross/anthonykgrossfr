@@ -1,44 +1,44 @@
-a, a:visited, #logo .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#4B4B4B; }
+a, a:visited, #logo .arrow-link a:hover, #navigation .nav-menu ul li.active a, #navigation .nav-menu ul li a.selected, #navigation .nav-menu ul li a:hover, #services .item i { color:#232525; }
 
 a:hover { color:#404040; } /* Don't change the value */
 
-.header { border-left:3px solid #11a0b5; }
+.header { border-left:3px solid #598DBB; }
 
 .flex-control-paging li a { background-color:#bdedf4; }
 
-.btn, .tbl-skills .item .tbl-skills-process, #apropos .teams .item figure p, #partenaires .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#4B4B4B; }
+.btn, .tbl-skills .item .tbl-skills-process, #apropos .teams .item figure p, #partenaires .teams .item figure p, .testimonials, .tweets, #blog .nav-page a.active, #blog .nav-page a:hover, #blog .item figure a, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color:#232525; }
 
 .btn:hover, #blog .item figure a:hover { background-color:#404040; } /* Don't change the value */
 
-figure.figure-hover div { background-color:#11a0b5; opacity: 0.7;}
+figure.figure-hover div { background-color:#598DBB; opacity: 0.7;}
 
 .testimonials, .tweets {
-    border-top:1px solid #11a0b5;
-    border-bottom:1px solid #11a0b5;	
+    border-top:1px solid #598DBB;
+    border-bottom:1px solid #598DBB;	
 }
 .tweets { border-bottom:0px; }
 
-.testimonials .testimonials-icon, .tweets .tweets-icon { color:#11a0b5; }
+.testimonials .testimonials-icon, .tweets .tweets-icon { color:#598DBB; }
 
 .tbl-skills .item .tbl-skills-process {
-    background-color: #11a0b5;
+    background-color: #598DBB;
 }
 #contact .btn {
-    background-color: #11a0b5;
+    background-color: #598DBB;
 }
 .footer-social ul li a:hover{
-    color: #11a0b5;
+    color: #598DBB;
 }
 
 #blog .item figure a{
-    background-color: #11a0b5;
+    background-color: #598DBB;
 }
 
 .single-page a, .single-blog a, .blog a{
-    color: #11a0b5;
+    color: #598DBB;
 }
 .single-page a:hover, .single-blog a:hover, .blog a:hover{
-    color: #4B4B4B;
+    color: #232525;
 }
 
 /* CV */
@@ -48,7 +48,7 @@ figure.figure-hover div { background-color:#11a0b5; opacity: 0.7;}
 
 h4.bolded {
     font-weight: bold;
-    color:  #4B4B4B;
+    color:  #232525;
 }
 
 pre.code{
