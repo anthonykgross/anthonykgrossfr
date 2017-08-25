@@ -1,0 +1,299 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un plugin javascript pour JWPlayer 6{% endblock %}
+{% block description %}Vous souhaitez rendre vos plugins JWPlayer compatibles avec HTML5 ? je vais vous montrer comment les faire en javascript.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/sintel.png") }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Créer un plugin javascript pour JWPlayer 6</h2>
+                <p>
+                    Vous souhaitez rendre vos plugins jwplayer compatibles avec HTML5 ? je vais vous montrer comment faire vos plugins 
+                    JWPlayer 6 avec javascript. 
+                    La raison ? Flash n'est plus supporté par Adobe et Android ne l'intègre plus sur ses nouvelles versions.
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <div id="myElement">Loading the player...</div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Installation de l’environnement de travail</h3>
+                            <p>
+                                <b>N’oubliez jamais</b> que pour travailler avec JWPlayer vous ne pouvez pas voir le rendu de votre fichier HTML dans votre navigateur à partir de 
+                                file://…/index.html. De ce fait, vous devez créer un <b>virtualhost</b> et renseigner le nom de domaine local dans <b>/etc/hosts</b>.
+                                
+                            </p>
+                            <br/><br/>
+                            <div class="row">
+                                <div class="span6">
+                                    <h4 class="bolded">Téléchargement</h4>
+                                    <p><a href="http://www.jwplayer.com/" target="_blank">JWPlayer 6</a></p>
+                                    <p>Structure de base d’un plugin JWPlayer Javascript <a href="{{ asset("bundles/anthonykgrossfrmain/libs/base_jwplayer_plugins.js.txt") }}" target="_blank">[sur Kkuet.net]</a></p>
+                                    <p><a href="http://jquery.com/download/" target="_blank">jQuery 1.7+</a></p>
+                                </div>
+                                <div class="span6">
+                                    <h4 class="bolded">Structure du dossier</h4>
+                                    <p>
+<pre class="language-javascript"><code>votre_dossier_jwplayer/
+    index.html                          
+    jwplayer.js                         //JWPlayer
+    jwplayer.html5.js                   //Player HTML5 de JWPlayer
+    jwplayer.flash.swf                  //Player Flash de JWPlayer
+    commentlikeyoutube.js               //Qui sera votre plugin
+</code></pre>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Développement</h3>
+                            <p>index.html</p>
+<pre class="language-php"><code>{{ '<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="jwplayer.js"></script>
+    </head>
+    <body>
+        <div id="myElement">Loading the player...</div>
+        <script type="text/javascript">
+           jwplayer("myElement").setup({
+              file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+              playlist: [{
+                 sources: [{ 
+                    file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                    file: "http://media.w3.org/2010/05/sintel/trailer.webm"
+                 }],
+              }],
+              plugins: {
+                "commentlikeyoutube.js":{
+                    comments: [
+                        {
+                                min:0,
+                                max:5,
+                                comment: "[Les commentaires s\'afficheront ici]"
+                        },
+                        {
+                           min:5,
+                           max:9,
+                           comment: "Woaaahhh !! "
+                        },
+                        {
+                           min:12,
+                           max:14,
+                           comment: "Yo le vieux ! "
+                        },
+                        {
+                           min:22,
+                           max:25,
+                           comment: "Cour !!!! "
+                        }
+                    ]
+                }
+             },
+             modes: [
+                { type: "html5" }
+             ],
+             primary: "html5" //On force le player en HTML5
+       });
+       </script>
+    </body>
+</html>'|htmlencode }}
+</code></pre>
+                            <p>
+                                Jusqu’ici rien de bien spécial pour intégrer JwPlayer dans votre fichier HTML; sauf plugins. 
+                                C’est cette attribut qui va permettre à notre player de charger un plugin externe. 
+                                Tout d’abord, commencez par lui renseigner le chemin votre javascript (ici: commentlikeyoutube.js) puis, envoyez en paramètre les données nécessaires. 
+                                Sachant que nous avons besoin d’afficher des commentaires situés dans la durée de la vidéo, nous allons lui envoyer un tableau d’objets qui contiennent 
+                                chacun un intervalle (temps de début min et de fin max spécifiés en seconde) et la valeur de notre commentaire comment. Autrement dit, 
+                                le commentaire « Yo le vieux ! » sera visible entre la 12ème et 14ème seconde de notre vidéo.
+                            </p>
+                            <p>commentlikeyoutube.js</p>
+<pre class="language-javascript"><code>
+(function(jwplayer){
+   var template = function(player, config, div) {
+
+      //valeurs par défaut de notre configuration
+      var _config = {
+         comments: []
+      }
+
+      function setup(evt) {
+         //On fusionne la configuration par défaut avec celle envoyée par nous
+         $.extend(_config, config);
+
+         createDiv();
+      }
+
+      //Création d'un calque pour afficher nos commentaires
+      function createDiv(){
+         $("#myElement").append("{{ "<div id='commentlikeyoutube'/>"|htmlencode }}");
+         //On positionne notre calque en css
+         $("#commentlikeyoutube").css({
+            height: "50px",
+            width: "480px",
+            display: "block",
+            color: "red",
+            fontWeight: "bold",
+            padding: "5px",
+            position: "absolute",
+            top: "0px"
+        })
+      }
+
+      function eachTime(time){
+         //On vide notre calque de commentaires
+         $("#commentlikeyoutube").html("");
+
+         /*
+         * Pour chaque commentaire (comment), 
+         * on compare si le temps du player (time) est supérieur au temps de début de celui en cours (min) 
+         * et inférieur à son temps de fin (max)
+         * Si c'est le cas, on l'affiche dans notre calque.
+         */
+         $.each(_config.comments, function(k,v){
+            if(time.position >= v.min && time.position <= v.max){
+               $("#commentlikeyoutube").html(v.comment);
+            }
+         });
+      }	
+	
+      //En lecture, on lance la fonction eachTime() de notre plugin
+      player.onTime(eachTime);
+
+      //Dès que jwplayer est prêt, on lance la fonction setup() de notre plugin
+      player.onReady(setup);
+   };
+   jwplayer().registerPlugin("commentlikeyoutube", "6.0", template);
+})(jwplayer);
+</code></pre>
+                            <p>
+                                A l’instanciation du player, JWplayer va prendre connaissance de notre plugin via l’attribut « plugins » de l’objet en paramètre 
+                                de la méthode setup(). Une fois que celui-ci est prêt, il déclenche l’événement onReady qui lui va lancer la méthode setup() de 
+                                notre plugin. A partir de là, nous allons créer la DIV qui va contenir nos commentaires, puis pour chaque seconde de la vidéo jouée (onTime), nous allons vérifier si un commentaire doit être affiché ou pas. N.B : Faites très attention à bien spécifier la version de JWPlayer (ici, 6.0). Tadam ! et voilà, un plugin simple qui vous servira d’exemple pour créer facilement un plugin javascript pour jwplayer 6.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Conclusion</h3>
+                            <p>
+                                Faire passer les applications flash en javascript est devenu incontournable si vous souhaitez que celles-ci soient compatibles avec la plupart des supports médias. 
+                                Sachez qu’ils restent tout de même des inconvénients dans l’utilisation de javascript avec JWPlayer, notamment que vos plugins ne sont pas visibles si le visiteur regarde la vidéo en plein écran ou sur les appareils iOS (Quicktime); 
+                                ou encore des lenteurs de celle-ci si votre code met du temps à s’exécuter. Je vous invite à lire attentivement l’article de LongTail concernant l’état actuel des <a href="http://www.jwplayer.com/html5/" target="_blank">videos avec HTML5</a>. 
+                                En espérant que vous aurez trouvé ce que vous cherchiez avant de venir ici.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 14 Juin 2013<span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset("libs/jwplayer/jwplayer.js") }}"></script>
+<script type="text/javascript" src="{{ asset("libs/jwplayer/jwplayer.html5.js") }}"></script>
+<script type="text/javascript">
+    jwplayer("myElement").setup({
+        file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+        width:"75%",
+        aspectratio: "16:9",
+        playlist: [{
+            image: "{{ asset('bundles/anthonykgrossfrmain/images/Articles/sintel.png') }}",
+            sources: [
+                {file: "http://media.w3.org/2010/05/sintel/trailer.mp4"},
+                {file: "http://media.w3.org/2010/05/sintel/trailer.webm"}
+            ]
+        }],
+	plugins: {
+            "{{ asset("bundles/anthonykgrossfrmain/libs/commentlikeyoutube.js") }}":{
+                comments: [
+                        {
+                                min:0,
+                                max:5,
+                                comment: "[Les commentaires s'afficheront ici]"
+                        },
+                        {
+                                min:5,
+                                max:9,
+                                comment: "Woaaahhh !! "
+                        },
+                        {
+                                min:12,
+                                max:14,
+                                comment: "Yo le vieux ! "
+                        }
+                        ,
+                        {
+                                min:22,
+                                max:25,
+                                comment: "Cour !!!! "
+                        }
+                ]
+            }
+  	},
+        modes: [
+            { type: 'html5' }
+        ],
+	primary: 'html5'
+    });
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2013-06-14"|date("c") }}",
+        "dateModified": "{{ "2013-06-14"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}

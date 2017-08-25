@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="fr"> <!--<![endif]-->
+
+    <head>
+
+        <!-- Your Basic Site Informations -->
+        <title>{% block title %}AnthonyKGross.fr - Developpeur freelance sur Marseille{% endblock %}</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="description" content="{% block description %}Developpeur freelance sur Marseille vous propose son expertise, développement, ecommerce & formation.{% endblock %}" />
+        <meta name="keywords" content="freelance, marseille, developpeur, formation, ecommerce" />
+
+        <meta property='og:locale' content='fr_FR'/>
+        <meta property='og:title' content="{{ block('title') }}"/>
+        <meta property='og:description' content="{{ block('description') }}"/>
+        <meta property='og:url' content='{% block og_url %}http://{{ app.request.host }}{% endblock %}'/>
+        <meta property='og:site_name' content='AnthonyKGross.fr - Developpeur freelance sur Marseille'/>
+        <meta property='og:type' content='website'/>
+        <meta property="og:image" content="{% block og_image %}http://{{ app.request.host ~  asset("images/fb_image.png") }}{% endblock %}">
+        <meta property="fb:app_id" content="1488082224825425" />
+        
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css")}}">
+        <link rel="stylesheet" href="{{ asset("css/bootstrap-responsive.min.css")}}">
+        <link rel="stylesheet" href="{{ asset("libs/fontawesome/css/font-awesome.min.css")}}">
+        <link rel="stylesheet" href="{{ asset("libs/magnific-popup/dist/magnific-popup.css")}}">
+        <link rel="stylesheet" href="{{ asset("css/flexslider.css")}}">
+        <link rel="stylesheet" href="{{ asset("css/swipebox.css")}}" />
+        <link rel="stylesheet" href="{{ asset("css/layout.css")}}">
+        
+        
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+        <link href="https://google.com/+AnthonyKkuetGROSS" rel="author" />
+        
+        <!-- Custom Colors -->
+        <link rel="stylesheet" href="{{ asset("css/colors/grey.css")}}">
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <noscript><link rel="stylesheet" href="css/no-js.css"></noscript>
+
+        <link rel="stylesheet" href="{{ asset("libs/prismjs/themes/prism-okaidia.css")}}">
+        
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <!--<link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">-->
+        <!--<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}">-->
+        <!--<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}">-->
+        {% block stylesheets %}{% endblock %}
+        
+    </head>
+
+    <body>
+        <header id="logo">
+            <div class="header-overlay">
+                <div class="container">
+                    <img id="logo_akg" src="{{ asset('images/theme.png') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
+                    {#<div class="text-rotator">#}
+                        {#<div><h1>Developpeur Freelance sur Marseille</h1></div>#}
+                        {#<div><h1>Expertise, développement, e-commerce & formation</h1></div>#}
+                    {#</div> <!-- End text-rotator -->#}
+                </div> <!-- End container -->
+
+                <div class="arrow-link">
+                    <a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos"><i class="fa fa-angle-down"></i></a>
+                </div> <!-- End arrow-link -->
+
+            </div> <!-- End header-overlay -->
+        </header> <!-- End header -->
+        
+        
+        <div class="main-wrap stickem-container">
+            <section id="navigation" class="stickem">
+                <div class="logo">
+                    <a href="{{ path("anthonykgrossfr_main_homepage") }}#logo"><img src="{{ asset('images/akg.svg') }}"title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" /></a>
+                </div>
+
+                <nav class="nav nav-menu">
+                    <ul>
+                        {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#services">Services</a></li>#}
+                        <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos">A propos</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#partenaires">Partenaires</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_main_homepage") }}#contact">Contact</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_cv") }}">CV</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_project") }}">Projets</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_event") }}">&Eacute;vènements</a></li>
+                        <li><a href="{{ path("anthonykgrossfr_blog") }}">Blog</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <div class="sep-padding"></div> <!-- separator -->
+
+            {% block body %}{% endblock %}
+            <section id="contact">
+                <div class="container">
+
+                    <div class="header">
+                        <h2>Restez en contact</h2>
+                        <p>J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.</p>
+                    </div>
+
+                    <p>Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ? N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez pas timide ! Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre davantage.</p>
+                    <form id="contact-form" method="post" action="{{ path("anthonykgrossfr_contactez_moi")}}">
+                        <div class="row">
+                            <div class="span6">
+                                <input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)" />
+                                <input type="text" name="email" maxlength="255" placeholder="Votre adresse email (obligatoire)" />
+                                <input type="text" name="subject" placeholder="Sujet" />
+                                <input type="text" name="captcha" placeholder="Chargement du captcha ..."  class="no-margin-bottom" />
+                                <input type="hidden" name="captcha_id" value=""/>
+                            </div>
+                            <div class="span6">
+                                <textarea name="message" placeholder="Message (obligatoire)"></textarea>
+                                <input type="submit" name="submit" value="C'est parti !" class="btn btn-large" />
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="data-status"></div> <!-- data submit status -->
+
+                </div> <!-- End container -->
+            </section> <!-- End contact -->
+            <section class="footer-social">
+                <div class="container">
+                    <div class="row">
+                        <div class="span2">
+                            <img src="{{ asset('images/rejoignezmoi.png') }}" />
+                        </div>
+                        <div class="span10">
+                            <ul>
+                                <li><a target="_blank" href="https://twitter.com/anthonykgross"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/channel/UC7hF0LUlIoShX2QZejF7z7g"><i class="fa fa-youtube-play"></i></a></li>
+                                <li><a target="_blank" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="https://github.com/anthonykgross"><i class="fa fa-github"></i></a></li>
+                                <li><a target="_blank" href="https://gitlab.com/u/anthonykgross"><i class="fa fa-gitlab"></i></a></li>
+                                <li><a target="_blank" href="https://hub.docker.com/u/anthonykgross/"><i class="fa fa-cubes"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> <!-- End container -->
+            </section> <!-- End footer-social -->
+
+            <footer class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="span4">
+                            <span>Anthony GROSS</span><br/>
+                            <span>
+                                <span>
+                                    <span>40 rue P.LUCCIONI</span><br/>
+                                    <span>Résidence Le clos des peintres</span><br/>
+                                    <span>13010</span> <span>Marseille</span><br/>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="span4"style="text-align: center;">
+                           Email : <span>Anthony.k.gross@gmail.com</span><br/>
+                        </div>
+                        <div class="span4" style="text-align: right;">
+                           Siret: 530 132 729 00027
+                        </div>
+                    </div>
+                    <br/>
+                    <p>
+                        <a id="footer_logo_akg" href="#logo">
+                            <img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS" />
+                        </a>
+                        <br/><br/>
+                        &copy; {{ "now"|date('Y') }} AnthonyKGross.fr
+                    </p> <!-- copyright text -->
+                </div> <!-- End container -->
+            </footer> <!-- End footer-copyright -->
+        </div> <!-- End stickem-container -->
+        <div class="page-loading"></div>
+        <div id="fb-root"></div>
+
+        <!-- JavaScript -->
+        <script type="text/javascript" src="{{ asset("libs/jquery/jquery.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("js/jquery-migrate.min.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/bootstrap.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("js/jquery-easing.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("js/ios-orientationchange-fix.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.placeholder.min.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.flexslider-min.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.swipebox.min.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.stickem.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/ddscrollspy.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.jticker.js") }}"></script>
+        <script type='text/javascript' src="{{ asset("js/jquery.backstretch.min.js") }}"></script>
+        <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="{{ asset("libs/prismjs/custom-prismjs.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("libs/magnific-popup/dist/jquery.magnific-popup.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '1488082224825425',
+                    xfbml      : true,
+                    version    : 'v2.8'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-58639100-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">        
+            $(function(){
+                $.ajax({
+                    url: "{{ path("anthonykgrossfr_captcha") }}",
+                    success: function(d){
+                        $('input[name="captcha_id"]').val(d.idx);
+                        $('input[name="captcha"]').attr("placeholder",d.question);
+                    }
+                });
+                $('.image-popup').magnificPopup({
+                    type:'image',
+                    mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+                    zoom: {
+                        enabled: true, // By default it's false, so don't forget to enable it
+
+                        duration: 300, // duration of the effect, in milliseconds
+                        easing: 'ease-in-out', // CSS transition easing function
+
+                        // The "opener" function should return the element from which popup will be zoomed in
+                        // and to which popup will be scaled down
+                        // By defailt it looks for an image tag:
+                        opener: function(openerElement) {
+                            // openerElement is the element on which popup was initialized, in this case its <a> tag
+                            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                            return openerElement.is('img') ? openerElement : openerElement.find('img');
+                        }
+                    }
+                });
+            });
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "AnthonyKGROSS",
+                "url": "http://anthonykgross.fr",
+                "logo": "http://anthonykgross.fr/images/akg.png",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Marseille, France",
+                    "postalCode": "13010",
+                    "streetAddress": "40 rue P.LUCCIONI"
+                },
+                "founder": {
+                    "@context" : "http://schema.org",
+                    "@type" : "Person",
+                    "name" : "Anthony GROSS",
+                    "url" : "http://anthonykgross.fr",
+                    "sameAs" : [
+                        "https://twitter.com/anthonykgross",
+                        "http://www.linkedin.com/pub/anthony-k-gross/6a/863/16",
+                        "https://github.com/anthonykgross",
+                        "http://twitch.tv/anthonykgross",
+                        "https://plus.google.com/u/0/117182078090794461481"
+                    ],
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Marseille, France",
+                        "postalCode": "13010",
+                        "streetAddress": "40 rue P.LUCCIONI"
+                    },
+                    "email": "mailto:anthony.k.gross@gmail.com",
+                    "image": "http://anthonykgross.fr/bundles/anthonykgrossfrmain/images/photo.jpg",
+                    "jobTitle": "Software Engineer"
+                }
+            }
+        </script>
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>

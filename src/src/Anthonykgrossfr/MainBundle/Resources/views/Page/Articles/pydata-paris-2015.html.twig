@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PyData 2015 Paris - Les conférences Python{% endblock %}
+{% block description %}Les objectifs sont de fournir aux amateurs de Python un endroit pour partager des idées et d'apprendre la meilleure façon d'appliquer le langage.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'pydata-paris-2015' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/anthonykgrossfrmain/images/Articles/pydata.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2015-04-15"|date("c") }}",
+        "dateModified": "{{ "2015-04-15"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>PyData 2015</h2>
+                <p>
+                    Les conférences PyData réunissent les utilisateurs et les développeurs autour des outils d'analyse de données en Python.
+                    Les objectifs sont de fournir aux amateurs de Python un endroit pour partager des idées et d'apprendre les uns des autres sur 
+                    la meilleure façon d'appliquer le langage et les outils en constante évolution dans le domaine de la gestion des données, le traitement, 
+                    l'analyse et la visualisation.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/anthonykgrossfrmain/images/Articles/pydata.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Présentation</h2>
+                            <p>
+                               Une des conférences de PyData pour 2015 s'est déroulée à Paris. Organisée par L'Institut Mines-Télécom, l'accueil a été très appréciée des participants : 
+                               facilité d'accès, inscription aux ateliers, distribution de goodies, buffets, etc .. Le rassemblement durait 2 jours proposant environs une dizaine de présentations par journée.
+                               Le thème abordé principalement est les outils d'optimisation des algorithmes sous Python. Si vous souhaitez voir les présentations, je vous invite à les regarder ci-dessous.
+                            </p>
+                            <br/>
+                            <div class="row">
+                                <div class="span6" style="text-align: center;">
+                                    <iframe width="570" height="380" src="https://www.youtube.com/embed/E3p2gX67oBA?list=PLzjFI0G5nSsqCLCRa-Iyh5G_yIFn-Bw9G" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="span6" style="text-align: center;">
+                                    <a data-flickr-embed="true" href="https://www.flickr.com/photos/98102551@N04/sets/72157651981082605" title="PyData Paris 2015">
+                                        <img src="https://farm8.staticflickr.com/7715/16532763724_5346d232aa_z.jpg" width="570" height="380" alt="PyData Paris 2015">
+                                    </a>
+                                    <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Conclusion</h2>
+                            <p>
+                               Je n'ai pas grand chose à dire sur cet évènement du fait que tout s'est très bien passé hormis un manque de places assises parfois par présentation. 
+                               J'ai beaucoup aimé l'accueil, l'école et certaines interventions. Je trouve juste un peu dommage que la plus part d'entre-elles avaient une portée 
+                               plus scientifique qu'opérationnelle. Énormément de mathématique statistique au programme démontrant davantage l'efficacité des outils que leur utilisation.
+                               En ce qui me concerne, je pense que la prochaine fois je me contenterais de regarder les rediffusions que de me rendre sur place.
+                               Sur ce, j'ai garé mon écureuil en double file. Tchou !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Liens utiles</h3>
+                            <li><a href="http://pydataparis.joinux.org/" target="_blank">PyData Paris 2015</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=E3p2gX67oBA&list=PLzjFI0G5nSsqCLCRa-Iyh5G_yIFn-Bw9G" target="_blank">Présentations de la PyData Paris 2015</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 15 Avril 2015 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

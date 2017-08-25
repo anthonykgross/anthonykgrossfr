@@ -1,0 +1,22 @@
+body{
+    background-image: url('../docker.png');
+    background-repeat: repeat;
+}
+
+#page{
+    background-color: #BDE6FF;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin:auto;
+    padding: 20px;
+}
+
+#twitter iframe{
+    margin: auto;
+    display: block;
+}
+#youtube iframe{
+    margin: auto;
+    display: block;
+}

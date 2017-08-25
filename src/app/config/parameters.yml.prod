@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: null
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
+    mailer_transport: smtp
+    mailer_host: in.mailjet.com
+    mailer_auth_mode: login
+    mailer_port: 587
+    mailer_user: ${{MAILER_USER}}
+    mailer_password: ${{MAILER_PASSWORD}}

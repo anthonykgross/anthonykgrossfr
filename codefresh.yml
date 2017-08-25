@@ -1,0 +1,24 @@
+version: '1.0'
+steps:
+    build_the_image:
+        type: build
+        title: Builds my service
+        dockerfile: Dockerfile
+        image_name: anthonykgross/anthonykgrossfr
+        tag: ${{CF_BRANCH}}
+        build_arguments:
+            - APPLICATION_ENV=prod
+            - MAILER_USER=${{MAILER_USER}}
+            - MAILER_PASSWORD=${{MAILER_PASSWORD}}
+        when:
+            branch:
+                only: [ master ]
+
+    deploy:
+        title: Deployment
+        image: cdrx/rancher-gitlab-deploy
+        commands:
+            - upgrade --environment ${{RANCHER_ENV}} --stack ${{RANCHER_STACK}} --service ${{RANCHER_SERVICE}} --no-start-before-stopping --no-wait-for-upgrade-to-finish
+        when:
+            branch:
+                only: [ master ]

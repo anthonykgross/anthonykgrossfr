@@ -1,0 +1,10 @@
+anthonykgrossfr:
+  image: registry.gitlab.com/anthonykgross/anthonykgrossfr:develop
+  volumes:
+    - ./conf/php5:/etc/php5
+    - ./conf/supervisor:/etc/supervisor/conf.d
+    - ./conf/nginx:/etc/nginx
+    - ./src:/src
+    - ./logs:/logs
+  ports:
+    - 80:80
