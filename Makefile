@@ -1,4 +1,4 @@
-NAME=registry.gitlab.com/anthonykgross/anthonykgrossfr
+NAME=r.cfcr.io/anthonykgross/anthonykgross/anthonykgrossfr
 
 build:
 	docker build --file="Dockerfile" --tag="$(NAME):master" .

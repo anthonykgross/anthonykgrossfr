@@ -1,5 +1,5 @@
 anthonykgrossfr:
-  image: registry.gitlab.com/anthonykgross/anthonykgrossfr:develop
+  image: r.cfcr.io/anthonykgross/anthonykgross/anthonykgrossfr:master
   volumes:
     - ./conf/php5:/etc/php5
     - ./conf/supervisor:/etc/supervisor/conf.d

@@ -1,3 +1,5 @@
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=anthonykgross&repoName=anthonykgrossfr&branch=master&pipelineName=anthonykgrossfr&accountName=anthonykgross&key=eyJhbGciOiJIUzI1NiJ9.NTk2ZDVjM2NkMjMxY2IwMDAxYjdmMGVi.3RVId6fXkHpwyEa6s4dBwjkqA002DYoydBRVaieIOSo&type=cf-1)]( https://g.codefresh.io/repositories/anthonykgross/anthonykgrossfr/builds?filter=trigger:build;branch:master;service:599cddb84828a900010974ac~anthonykgrossfr)
+
 # Anthonykgross.fr 
 This project is my personal website available on <http://anthonykgross.fr>. I share the code sources to let you learn more about Symfony, Docker, etc ...  
 **WARNING** My graphical template is under a specific [licence](https://themeforest.net/licenses/terms/regular/2.1).
