@@ -16,12 +16,12 @@ make
 
 Install vendor
 ```console
-docker-compose run anthonykgrossfr install
+make install
 ```
 
 Run it !
 ```console
-docker-compose up
+make run
 ```
 
 ## Creator
