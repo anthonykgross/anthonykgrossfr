@@ -14,6 +14,11 @@ Create images for Docker
 make
 ```
 
+Install vendor
+```console
+docker-compose run anthonykgrossfr install
+```
+
 Run it !
 ```console
 docker-compose up
