@@ -5,6 +5,14 @@
   "nationality": "French",
   "current_place": "Melbourne, Australia",
   "position": "Software Engineer",
-  "twitter": "@anthonykgross",
-  "discord": "https://discord.gg/0tmccD4hUFRYO3rA"
+  "network": {
+    "twitter": "http://twitter.anthonykgross.fr",
+    "discord": "http://discord.anthonykgross.fr",
+    "slack": "http://slack.anthonykgross.fr",
+    "youtube": "http://youtube.anthonykgross.fr",
+    "github": "http://github.anthonykgross.fr",
+    "linkedin": "http://linkedin.anthonykgross.fr",
+    "twitch": "http://twitch.anthonykgross.fr",
+    "tips": "http://tips.anthonykgross.fr",
+  }
 }
