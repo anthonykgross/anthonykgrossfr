@@ -4,7 +4,7 @@ build:
 	docker build --file="Dockerfile" --tag="$(NAME):master" .
 
 debug:
-	docker run -it --rm --entrypoint=/bin/bash $(NAME):master
+	docker-compose run anthonykgrossfr bash
 
 install:
 	docker-compose run anthonykgrossfr install
