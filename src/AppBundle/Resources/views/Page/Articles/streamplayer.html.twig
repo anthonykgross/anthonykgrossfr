@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Streamplayer - Movies / Music / Tv center{% endblock %}
+{% block description %}L'application où vous avez désormais le choix entre différentes WebTV, radios, vidéos ou musiques.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'streamplayer' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/streamplayer.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2011-01-27"|date("c") }}",
+        "dateModified": "{{ "2011-01-27"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Streamplayer</h2>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/app/images/Articles/streamplayer.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Introduction</h2>
+                            <p>
+                                Marre de passer son temps entre différents sites pour trouver la radio que vous aimez ? Avec Streamplayer est là.
+                                En effet, grâce à cette application vous avez désormais le choix entre différentes WebTV, radios, vidéos ou musiques. 
+                                De plus, vous pouvez ajouter vos liens Youtube préférés grâce au formulaire de proposition. 
+                                Une vidéo validée par l’administrateur (moi-même pour l’instant), celle-ci sera disponible par les autres utilisateurs. 
+                                Autant dire que cette prochaine application sera avant tout communautaire.
+                                Cette application est disponible sur le web mais aussi pour les pc disposant du Système d’exploitation Windows. 
+                                Pour plus d’information, contactez-moi..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Démonstration</h2>
+                            <div class="row">
+                                <div class="span12">
+                                    <h3>streamplayer.anthonykgross.fr</h3>
+                                </div>
+                                <iframe src="http://streamplayer.anthonykgross.fr/"  class="span12" style="min-height: 800px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 27 Janvier 2011 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kosmetik-Direkt24{% endblock %}
+{% block description %}PrestaShop est une application Web permettant de créer une boutique en ligne dans le but de réaliser du commerce électronique. {% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'kosmetik-direkt24' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/kdm.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2012-11-11"|date("c") }}",
+        "dateModified": "{{ "2012-11-11"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Kosmetik-Direkt24</h2>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/app/images/Articles/kdm.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Prestashop, wtf?</h2>
+                            <p>
+                                PrestaShop est une application Web permettant de créer une boutique en ligne dans le but de réaliser du commerce électronique. 
+                                Facile à installer, configurer et modifier c’est une solution de plus en plus utilisée pour la vente en ligne. 
+                                Pourquoi? Car nativement Prestashop gère différents types de paiements (Virement bancaire, Paypal, MoneyBooker, PaySafe, etc..), 
+                                le stock, les factures et bons de livraison (exportables autant en PDF que CSV), l’envoi d’email ou encore la possibilité de déléguer 
+                                les tâches d’un employé à un autre autorisé à travailler sur le site, et même de traduire/changer tous les textes du site. De plus, 
+                                pour les partisans du « achetez Français », Prestashop est né en France !
+                            </p>
+                            <p>
+                                Sachant que cette boutique appartient à un membre de ma famille, je me suis senti obliger de donner mon maximum pour que celle-ci 
+                                soit représentative de ce qu’elle vend. A savoir des produits de soins pour le corps, esthétiques et cosmétiques. De nombreuses 
+                                fonctionnalités, disponibles par défaut par Prestashop, ont été mises en place: des points de fidélités échangeables contre des 
+                                bons d’achats, les ventes croisées, la possibilité de télécharger les notices des différents appareils mise en vente directement 
+                                sur la fiche produit. Mais de nouveaux modules sur-mesure sont en prévision comme la possibilité de s’inscrire à des ventes flash, 
+                                ou l’envoi de Newsletter à partir du backoffice.
+                            </p>
+                            <div style="text-align: right;font-style: italic;">To be continued ...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 11 Novembre 2012 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

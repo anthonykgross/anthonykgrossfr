@@ -1,4 +1,0 @@
-anthonykgrossfr_main:
-    resource: "@AnthonykgrossfrMainBundle/Resources/config/routing.yml"
-    prefix:   /
-

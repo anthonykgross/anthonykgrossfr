@@ -1,5 +1,0 @@
-services:
-    anthonykgrossfr_htmlencode_extension:
-        class: Anthonykgrossfr\MainBundle\Twig\HtmlEncodeExtension
-        tags:
-        - { name: twig.extension } 

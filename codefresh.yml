@@ -3,7 +3,7 @@ steps:
     build_the_image:
         type: build
         title: Builds my service
-        dockerfile: Dockerfile
+        dockerfile: docker/images/Dockerfile
         image_name: anthonykgross/anthonykgrossfr
         tag: ${{CF_BRANCH}}
         build_arguments:

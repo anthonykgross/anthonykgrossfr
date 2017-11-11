@@ -1,0 +1,215 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CV - Mon Cursus, mes compétences, mes projets{% endblock %}
+{% block description %}De php à python, en passant par java et nodejs, mes compétences de développeur sont à votre service en freelance dans les alentours de Marseille.{% endblock %}
+{% block og_url %}{{ path('anthonykgrossfr_cv') }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("libs/startbootstrap-sb-admin-2/dist/css/timeline.css")}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="cv" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Analyste Développeur</h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span8">
+                            <h3>&Eacute;tudes</h3>
+                            <p>
+                                2011 – Licence Informatique SIL-NTI (Nouvelles Technologies)
+                            </p>
+                            <p>
+                                2010 – BTS informatique de gestion option développeur d’applications
+                            </p>
+                            <p>
+                                2008 – BAC STG (télécommunication-gestion) avec mention AB
+                            </p>
+                        </div>
+                        <div class="span4" style="text-align: right;">
+                            <img src="{{ asset('bundles/app/images/photo_143.jpg') }}" alt="Anthony Kkuet GROSS">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="skills">
+                <div class="span12">
+                    <h3>Connaissances informatiques</h3>
+                    <div class="row">
+                        <div class="span4">
+                            <h4 class="bolded">Langages</h4>
+                            <p>Java (POO, C/S, Threads, notions OpenGL, MVC)</p>
+                            <p>C# (POO, connexion aux bases de données)</p>
+                            <p>Python (& Django)</p>
+                            <p>Bash</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Web</h4>
+                            <p>PHP (POO, Zend Framework, Symfony 1.4 & 2+)</p>
+                            <p>Javascript (Ajax, jQuery + plugins, NodeJs, AngularJS, Gulp)</p>
+                            <p>HTML, CSS, XML (norme W3C).</p>
+                            <p>E-commerce: ZenCart, Joomla, PrestaShop (+modules)</p>
+                            <p>Flash (notions)</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Technologies</h4>
+                            <p>ZeroMQ, ActiveMQ, Celery (& RabbitMQ)</p>
+                            <p>Conception de webservices (Client et Serveur) : REST, SOAP.</p>
+                            <p>Systèmes d’authentification/autorisation : OAuth2, WSSE, OpenID</p>
+                            <p>Intégration continue : Travis CI, Jenkins</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <h4 class="bolded">API</h4>
+                            <p>Youtube, DailyMotion</p>
+                            <p>Facebook, Twitter, Google</p>
+                            <p>OVH</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Mobile</h4>
+                            <p>Android (toutes versions)</p>
+                            <p>Market : Google Play</p>
+                            <p>Design responsive</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Bases de données</h4>
+                            <p>MySQL</p>
+                            <p>PostgreSQL</p>
+                            <p>Oracle</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <h4 class="bolded">Analyse Informatique</h4>
+                            <p>Merise/2</p>
+                            <p>UML</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Logiciels</h4>
+                            <p>Audio/Photo/Vidéo (Photoshop, Magix Vidéo Deluxe, Ulead Photo Impact)</p>
+                            <p>Bureautique (Word, Excel, Access, Powerpoint) - MicrosoftOffice & LibreOffice</p>
+                            <p>Conception (MySQL Workbench, ArgoUML, Dia Diagramm)</p>
+                        </div>
+                        <div class="span4">
+                            <h4 class="bolded">Réseau</h4>
+                            <p>Installation et configuration</p>
+                            <p>Serveur Svn, Git, Web, Ftp, Encodage, Streaming (Wowza), Virtualisation (Proxmox, Docker)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12" style="text-align: justify;">
+                    <h3>Expériences professionnelles</h3>
+                    <div class="row">
+                        <div class="span2">Février 2014</div>
+                        <div class="span2">CDD (en cours)</div>
+                        <div class="span6">CNRS (Laboratoire d’Astrophysique de Marseille)</div>
+                        <div class="span2">Ingénieur logiciel</div>
+                        <div class="span12" style="padding: 10px;">
+                            Après avoir passé quelques temps sur le debuggage d'une application en java, j'ai developpé un site web en python(django) 
+                            permettant de savoir si deux étoiles appartiennent au même système, en collaboration avec différents laboratoires. J'ai aussi participé
+                            à l'établissement de petits outils facilitant la maintenance de plus gros. J'ai énormement voyagé afin de promouvoir les travaux
+                            de notre service au travers de conférences internationales et de formations. Voir aussi  <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}">ADASS XXIV</a> & <a href="{{ path('anthonykgrossfr_page_lire', {'name' : "adass-conference-xxv-2015"})}}">ADASS XXV</a>
+                            <br/>
+                            <i><b>Technologies</b> : java, maven, php, javascript, python, html/css, django, docker, zMq, postgres, angularjs</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Avril 2012</div>
+                        <div class="span2">CDD 2 ans+</div>
+                        <div class="span6">Kalyzée Interactive Pictures (Marseille)</div>
+                        <div class="span2">Ingénieur logiciel</div>
+                        <div class="span12" style="padding: 10px;">
+                            Lors de mes années Kalyzée, j'ai du concevoir et mettre en place différents produits. De l'installation de serveur en tout genre (Virtualisation, Streaming, Web, etc ...) 
+                            jusqu'à la communication inter-logiciels, nous nous sommes spécialisés dans la manipulation des vidéos : encodage, streaming, sous-titrage automatique, etc ... La majorité de ces outils
+                            ont été architecturés par le CTO et moi-même et développés par l'ensemble de l'équipe. Voir aussi <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}">Créer un plugin javascript pour JWPlayer 6</a> & <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-partie-3-commandes-avancees' }) }}">FFmpeg - Partie 3 - Commandes avancées</a>           
+                            <br/>
+                            <i><b>Technologies</b> : java, php, nodejs, javascript, python, html/css, symfony2, proxmox, activeMq, flash, mysql</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Septembre 2011</div>
+                        <div class="span2">CDD 6 mois</div>
+                        <div class="span6">LordOfWeb</div>
+                        <div class="span2">Développeur web</div>
+                        <div class="span12" style="padding: 10px;">
+                            Design, intégration, développement, SEO, marketing, etc ... je développais les projets des clients. Analyse de leurs besoins, conception &
+                            développement du projet, j'ai du satisfaire à une bonne dizaine de clients en quelques mois en terme de site vitrine, e-commerce, correctif et évolutif.
+                            <br/>
+                            <i><b>Technologies</b> : php, javascript, html/css, prestashop</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Juin 2011</div>
+                        <div class="span2">Stage 12 semaines</div>
+                        <div class="span6">Idvive SARL (Marseille)</div>
+                        <div class="span2">-</div>
+                        <div class="span12" style="padding: 10px;">
+                            Afin de répondre plus rapidement aux besoins de sites d'e-commerce des clients de l'entreprise, j'ai du mettre un place
+                            un système qui permet d'installer automatiquement un prestashop ainsi que la commande du nom de domaine chez OVH.
+                            Celui-ci était déclenché lors de l'achat de ce service à partir du portail de l'entreprise.
+                            <br/>
+                            <i><b>Technologies</b> : php, javascript, html/css, prestashop, zendFramework1, OVH API, postgres</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Janvier 2010</div>
+                        <div class="span2">Stage 9 semaines</div>
+                        <div class="span6">GEIQ BTP 13 (Marseille)</div>
+                        <div class="span2">-</div>
+                        <div class="span12" style="padding: 10px;">
+                            Développement d'une plateforme favorisant le recrutement de personnes dans les métiers
+                            du batiments. Avec un second stagiaire, nous avons conçu et developpé l'ensemble de celle-ci sans outils particuliers.
+                            Objectif atteint car celle-ci a été utilisée durant plusieurs années.
+                            <br/>
+                            <i><b>Technologies</b> : php, javascript, html/css</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Aout 2009</div>
+                        <div class="span2">CDD 1 mois</div>
+                        <div class="span6">Kosmetik-Direkt24 (Allemagne)</div>
+                        <div class="span2">-</div>
+                        <div class="span12" style="padding: 10px;">
+                            Mise en place d'un site de e-commerce dans le domaine de la cosmetique. J'étais chargé de l'installation, la personnalisation et de la configuration 
+                            de la boutique afin qu'elle réponde aux besoins du gérant. Sous prestashop, j'ai dévéloppé un module d'envoi de newsletters depuis le site qui n'existait pas à l'époque. 
+                            Voir aussi  <a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'kosmetik-direkt24' }) }}">Kosmetik-Direkt24</a>
+                            <br/>
+                            <i><b>Technologies</b> : php, javascript, html/css, prestashop</i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">Mai 2009</div>
+                        <div class="span2">Stage 6 semaines</div>
+                        <div class="span6">R&D Internet (La Ciotat)</div>
+                        <div class="span2">-</div>
+                        <div class="span12" style="padding: 10px;">
+                            Mon objectif était de récupérer des données de classement sur tous les sites officiels de ligues amateurs de football.
+                            Avec l'aide d'un second stagiaire, nous avons developpé un robot en mesure de chercher automatiquement ces informations.
+                            <br/>
+                            <i><b>Technologies</b> : php, javascript, html/css</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <h3>Langues vivantes</h3>
+                    <p>Anglais niveau universitaire.</p>
+                    <p>Allemand courant (lu – parlé – écrit).</p>
+                </div>
+                <div class="span6">
+                    <h3>Informations personnelles</h3>
+                    <p>27 ans, célibataire.</p>
+                    <p>Loisirs : Informatique, mangas, guitare, lecture, activités physiques.</p>
+                    <p>Projets personnels informatiques : <a href="http://anthonykgross.fr" target="_blank">AnthonyKGross.fr</a> , <a href="http://Sharingame.com" target="_blank">Sharingame.com</a>, <a href="http://Sharinvideo.com" target="_blank">Sharinvideo.com</a> …</p>
+                </div>
+            </div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

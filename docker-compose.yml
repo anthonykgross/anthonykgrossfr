@@ -1,10 +1,13 @@
-anthonykgrossfr:
-  image: r.cfcr.io/anthonykgross/anthonykgross/anthonykgrossfr:master
-  volumes:
-    - ./conf/php5:/etc/php5
-    - ./conf/supervisor:/etc/supervisor/conf.d
-    - ./conf/nginx:/etc/nginx
-    - ./src:/src
-    - ./logs:/logs
-  ports:
-    - 80:80
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/images/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/conf/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
+      - ./docker/conf/nginx.conf:/etc/nginx/sites-enabled/nginx.conf
+      - ./docker/logs:/var/www/logs
+      - .:/var/www/html

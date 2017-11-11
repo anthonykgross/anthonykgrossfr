@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astronomical Data Analysis Software and Systems XXV{% endblock %}
+{% block description %}L'ADASS est une conférence annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxv-2015' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/adass2015.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2015-10-25"|date("c") }}",
+        "dateModified": "{{ "2015-10-25"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>ADASS XXV</h2>
+                <p>
+                    L'ADASS (Astronomical Data Analysis Software and Systems) est une conférence 
+                    annuelle qui se déroule sur plusieurs jours dans différentes institutions astronomiques. Elle favorise l'échange
+                    entre les scientifiques et les ingénieurs sur les thèmes des algorithmes,
+                    des logiciels, de la réduction, de l'analyse et du stockage des données astronomiques.
+                    Elle se compose majoritairement de présentations orales, de posters et de démonstrateurs autour des projets 
+                    de chacun des participants.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('bundles/app/images/Articles/adass2015.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Présentation</h2>
+                            <p>
+                                À la suite de l'<a href="{{ path('anthonykgrossfr_page_lire', {'name' : 'adass-conference-xxiv-2014' }) }}">ADASS XXIV</a> où j'avais présenté l'ETC42,
+                                mon chef de service m'a annoncé récemment que je partirais à la prochaine ADASS à Sydney pour présenter le nouveau projet sur lequel je travaille depuis 
+                                quelques temps : SPHERE TDB (Target DataBase).
+                            </p>
+                            <p>
+                                SPHERE TDB est un base de données d'objets célestes qui va permettre, à partir de futures observations, de détecter de nouvelles étoiles; du moins, 
+                                les caractériser. Le but étant de savoir si une étoile par rapport à une autre bouge de la même manière dans le ciel ou pas. Si c'est le cas, peut être
+                                que ces deux objets sont liés : même galaxie, l'une est un satellite de l'autre, etc ... Voici le rôle de l'application : aider les scientifiques
+                                à répondre à ces questions.
+                            </p>
+                            <br/>
+                            <h2>Retour d'expérience</h2>
+                            <p>
+                                Pour commencer, je ne savais pas que l'Australie était si loin sur Terre : plus de 26heures de voyage pour atteindre ce petit paradis.
+                                La nature est omniprésente sur le continent : j'ai eu l'occasion de voir des cacatoès sauvages en plein centre ville, des Ibis, des iguanes, etc ... De plus,
+                                les australiens sont des gens très accueillant qui n'hésitent pas une seule seconde à passer 15minutes avec vous à vous aider à trouver votre chemin.
+                            </p>
+                            <p>
+                                En ce qui concerne ma mission, je pense avoir mieux fait que l'an dernier. Grâce à mes cours d'anglais, j'ai un peu plus prit confiance 
+                                en mon petit niveau et j'ai essayé de discuter malgré ma timidité. C'était pas évident mais j'ai pu échanger sans être effrayé. Mes collègues m'ont beaucoup aidé à progresser,
+                                à me faire violence lorsque je voulais fuir. Je tenais à les remercier dans ce petit article.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Conclusion</h2>
+                            <p>
+                               Cette expérience m'a encore beaucoup apporté. Tout d'abord, je suis toujours autant flatté de la confiance que ma hiérarchie
+                               me porte en m'envoyant représenter mon laboratoire à l'étranger malgré mon jeune âge. Je ne sais pas encore si les conséquences de mon 
+                               déplacement sont bonnes ou pas, mais je sais que cette fois-ci, j'ai beaucoup donné de ma personne pour être le moins timide possible et 
+                               créer le contact avec des gens qui ne parlent pas ma langue. Mais maintenant, je suis encore plus déterminé à progresser en anglais. 
+                               Je songe à faire une école d'anglais à l'étranger prochainement; surement Sydney ! Sur ce, j'ai garé ma belette en double file. Tchou !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Liens utiles</h3>
+                            <li><a href="{{ asset('data/cnrs/POSTER-ADASS-XXV_SPHERE_TDB.pdf') }}" target="_blank">Le poster de SPHERE TDB</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 25 Octobre 2015 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}
