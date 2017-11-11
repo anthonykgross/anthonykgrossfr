@@ -3,7 +3,7 @@
 {% block title %}FFmpeg - Partie 3 - Commandes avancées.{% endblock %}
 {% block description %}Pour terminer, quelques utilisations avancées de FFmpeg comme l'incrustation de sous-titres, créer des videos multipiste / multilingues ou préparer votre streaming avec m3u8.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-partie-3-commandes-avancees' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/ffmpeg.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/ffmpeg.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }

@@ -3,7 +3,7 @@
 {% block title %}Créer un plugin javascript pour JWPlayer 6{% endblock %}
 {% block description %}Vous souhaitez rendre vos plugins JWPlayer compatibles avec HTML5 ? je vais vous montrer comment les faire en javascript.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'creer-plugin-javascript-jwplayer-6' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/sintel.png") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/sintel.png") }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -223,7 +223,7 @@
         width:"75%",
         aspectratio: "16:9",
         playlist: [{
-            image: "{{ asset('bundles/app/images/Articles/sintel.png') }}",
+            image: "{{ asset('bundles/app/images/articles/sintel.png') }}",
             sources: [
                 {file: "http://media.w3.org/2010/05/sintel/trailer.mp4"},
                 {file: "http://media.w3.org/2010/05/sintel/trailer.webm"}
@@ -288,7 +288,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }

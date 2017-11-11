@@ -3,7 +3,7 @@
 {% block title %}Déploiement continu avec Docker entre Gitlab et Rancher{% endblock %}
 {% block description %}L'utilisation d'un gestionnaire de containers ainsi que l'élaboration de procédures de déploiement.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'deploiement-continu-docker-gitlab-rancher' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/deploiement-continu-docker-gitlab-rancher.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/deploiement-continu-docker-gitlab-rancher.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json" xmlns="http://www.w3.org/1999/html">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -58,7 +58,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/deploiement-continu-docker-gitlab-rancher.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/deploiement-continu-docker-gitlab-rancher.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>
@@ -87,14 +87,14 @@
                             </p>
                             <div class="row">
                                 <div class="span4" style="text-align: center;">
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/diagramm-workflow.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/diagramm-workflow.png') }}" target="_blank">
+                                        <img src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/diagramm-workflow.png') }}" alt="Thumbnail" />
                                     </a>
                                     <i>Objectif</i>
                                 </div>
                                 <div class="span4" style="text-align: center;">
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/diagramm-activity.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/diagramm-activity.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/diagramm-activity.png') }}" />
                                     </a>
                                     <i>Diagramme d'activité</i>
                                 </div>
@@ -463,16 +463,16 @@ deploy:
                                     commentaire que je puisse affiner la qualité de mon article.
                                     <br/><br/>
                                     <div style="text-align: center;">
-                                        <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" target="_blank">
-                                            <img style="width: 75%;" src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" />
+                                        <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" target="_blank">
+                                            <img  alt="Thumbnail" style="width: 75%;" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-pipeline.png') }}" />
                                         </a>
                                         <br/>
                                         <i>Le build s'est bien passé</i>
                                     </div>
                                 </div>
                                 <div class="span4" style="text-align: center;">
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-registry.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-registry.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-registry.png') }}" />
                                     </a>
                                     <i>Notre image Docker dans le registry</i>
                                 </div>
@@ -483,18 +483,18 @@ deploy:
                             <h3 id="rancher-services">Services</h3>
                             <div class="row">
                                 <div class="span4" style="text-align: center;">
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-mysql.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-mysql.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-mysql.png') }}" />
                                     </a>
                                     <i>MySQL</i>
                                     <hr>
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-details-mysql.png') }}" />
                                     </a>
                                     <i>Détails du container MySQL</i>
                                     <hr>
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/rancher-symfony.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-symfony.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/rancher-symfony.png') }}" />
                                     </a>
                                     <i>Symfony3</i>
                                 </div>
@@ -598,8 +598,8 @@ Liens : Mysql > prod-mysql
                                     </p>
                                 </div>
                                 <div class="span6" style="text-align: center;">
-                                    <a class="image-popup" href="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" target="_blank">
-                                        <img src="{{ asset('bundles/app/images/Articles/gitlab-rancher-docker/gitlab-variables.png') }}" />
+                                    <a class="image-popup" href="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-variables.png') }}" target="_blank">
+                                        <img  alt="Thumbnail" src="{{ asset('bundles/app/images/articles/gitlab-rancher-docker/gitlab-variables.png') }}" />
                                     </a>
                                     <i>Ajout des variables dans Gitlab</i>
                                 </div>

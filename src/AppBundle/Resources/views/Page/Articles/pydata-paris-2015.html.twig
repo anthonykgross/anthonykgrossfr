@@ -3,7 +3,7 @@
 {% block title %}PyData 2015 Paris - Les conférences Python{% endblock %}
 {% block description %}Les objectifs sont de fournir aux amateurs de Python un endroit pour partager des idées et d'apprendre la meilleure façon d'appliquer le langage.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'pydata-paris-2015' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/pydata.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/pydata.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -56,7 +56,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/pydata.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/pydata.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

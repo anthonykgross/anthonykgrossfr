@@ -3,7 +3,7 @@
 {% block title %}Kctus (Cactus) - Contrôle à distance des vidéos{% endblock %}
 {% block description %}L’application a pour but de connecter votre smartphone à une vidéo sur votre ordinateur.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'kctus-controle-a-distance-des-videos' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/kctus.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/kctus.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -50,7 +50,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/kctus.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/kctus.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <div class="row">

@@ -3,7 +3,7 @@
 {% block title %}Sharindata - La boite à outils du développeur{% endblock %}
 {% block description %}Sharindata est là pour vous débarrasser de toutes les tâches récurrentes comme la liste des langues, des pays ou des devises.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'sharindata-donnees-outils-pour-developpeurs' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/sharindata.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/sharindata.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -56,7 +56,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/sharindata.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/sharindata.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

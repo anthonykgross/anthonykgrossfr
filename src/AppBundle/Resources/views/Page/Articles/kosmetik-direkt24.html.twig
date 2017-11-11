@@ -3,7 +3,7 @@
 {% block title %}Kosmetik-Direkt24{% endblock %}
 {% block description %}PrestaShop est une application Web permettant de créer une boutique en ligne dans le but de réaliser du commerce électronique. {% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'kosmetik-direkt24' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/kdm.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/kdm.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -50,7 +50,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/kdm.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/kdm.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

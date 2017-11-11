@@ -32,7 +32,7 @@ body {
     background-color:#404040;
     font-size:15px;
     line-height:21px;
-    background:#f6f6f6 url(../images/bg-repeat.png) repeat;
+    background:#f6f6f6 url(/bundles/app/images/bg-repeat.png) repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -238,7 +238,7 @@ figure.figure-hover div .icon-hover {
 }
 
 /* Figure hover icon */		
-figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/icon-hover-zoom.png) no-repeat center center; }
+figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(/bundles/app/images/icon-hover-zoom.png) no-repeat center center; }
 
 .responsive {
     display:none !important;
@@ -248,7 +248,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 }
 
 .page-loading {
-    background:#FFF url(../images/akg.svg) no-repeat center center;
+    background:#FFF url(/bundles/app/images/akg.svg) no-repeat center center;
     position:fixed;
     top:0;
     right:0;
@@ -259,7 +259,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 }
 
 .main-wrap {
-    background:#f6f6f6 url(../images/base-content.jpg) repeat;
+    background:#f6f6f6 url(/bundles/app/images/base-content.jpg) repeat;
     position:absolute;
     left:0;
     right:0;
@@ -270,7 +270,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
 .sep-border-main {
     height:30px;
-    background:url(../images/sep-border-main.png) no-repeat center center;	
+    background:url(/bundles/app/images/sep-border-main.png) no-repeat center center;
 }
 
 .header {
@@ -344,7 +344,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     height:50%;
 }
 #logo .header-overlay {
-    /*background:url(../images/base-overlay.png) repeat;*/
+    /*background:url(/bundles/app/images/base-overlay.png) repeat;*/
     width:100%;
     height:100%;
 }
@@ -358,13 +358,13 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     left:0;
 }
 #logo .container img {
-    height:150px;
-    margin-bottom:35px;
+    height:75px;
+    margin-bottom:10px;
 }
 #logo .container h1 {
-    color:#FFF;
-    font-size:54px;
-    line-height:60px;
+    color:#a9b7c6;
+    font-size:30px;
+    line-height:30px;
     margin:0px;
     text-transform:uppercase;
     font-family:'Fjalla One', Arial, sans-serif;
@@ -389,7 +389,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 /* ========================= Navigation ========================= */
 
 #navigation {
-    background:#f6f6f6 url(../images/base-content.jpg) repeat;
+    background:#f6f6f6 url(/bundles/app/images/base-content.jpg) repeat;
     border-bottom:1px solid #dadada;
     position:absolute;
     left:0;
@@ -797,7 +797,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
 .ie input[type="text"] { line-height:44px; }
 
-.ie figure.figure-hover div { background:url(../images/base-overlay.png) repeat; }
+.ie figure.figure-hover div { background:url(/bundles/app/images/base-overlay.png) repeat; }
 
 .ie7 #logo .container h1 { margin-bottom:10px; }
 
@@ -852,7 +852,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
 
     #logo .container { padding:0px 20px; }
     #logo .container h1 {
-        font-size:38px;
+        font-size:20px;
         line-height:44px;
     }
 
@@ -960,7 +960,7 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(../images/i
     .sep-padding { height:160px; }
 
     #logo .container h1 {
-        font-size:30px;
+        font-size:15px;
         line-height:36px;
     }
 

@@ -3,7 +3,7 @@
 {% block title %}JDEV 2015 Bordeaux - Acteurs du développement logiciel{% endblock %}
 {% block description %}La JDev est un réseau des acteurs du développement logiciel au sein de l'enseignement supérieur et de la recherche dont sa mission essentielle est de favoriser les échanges{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'jdev-bordeaux-2015' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/jdev_2015.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/jdev_2015.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -56,7 +56,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/jdev_2015.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/jdev_2015.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

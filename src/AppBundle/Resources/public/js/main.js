@@ -58,7 +58,7 @@ jQuery(document).ready(function($){
 	$("#portofolio .swipebox").swipebox();
 	
 	// Header text rotator with jTicker
-	$("#logo .text-rotator").show().ticker({ rate: 150, delay: 3000 }).trigger("play");
+	$("#logo .text-rotator").show().ticker({ rate: 150, delay: 10000 }).trigger("play");
 	
 	// Portofolio carousel animation with Flexslider
 	$('#portofolio .flexslider').flexslider({

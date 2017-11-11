@@ -3,7 +3,7 @@
 {% block title %}Faire du multi streaming sur Twitch, Dailymotion, Youtube & Hitbox{% endblock %}
 {% block description %}Streamer ses jeux favoris sur Internet, mis en place un système qui permet de diffuser sur toutes les platformes de votre choix votre live.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'multi-streaming-broadcaster-twitch-youtube-dailymotion-hitbox' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/docker-broadcaster.png") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/docker-broadcaster.png") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -303,7 +303,7 @@ broadcaster_1 | ================================================================
                 </div>
                 <div class="span6">
                     <a href="https://github.com/anthonykgross/docker-broadcaster/stargazers" target="_blank">
-                        <img src="{{ asset("bundles/app/images/Articles/github-docker-broadcaster.png") }}" />
+                        <img  alt="Thumbnail" src="{{ asset("bundles/app/images/articles/github-docker-broadcaster.png") }}" />
                     </a>
                 </div>
             </div>

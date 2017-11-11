@@ -3,7 +3,7 @@
 {% block title %}OpenedXHack Marseille - L'hackathon{% endblock %}
 {% block description %}IONISx, France Université Numérique et edX ont organisé le plus grand hackathon Open edX hors des Etats-Unis.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'hackathon-openedx-ionisx-xhack-2015' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/hackathon_openedx_1.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/hackathon_openedx_1.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -54,7 +54,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/hackathon_openedx_1.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/hackathon_openedx_1.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

@@ -3,7 +3,7 @@
 {% block title %}Twitch - Apprendre en enseignant{% endblock %}
 {% block description %}Twitch est une plateforme de streaming principalement de jeu vidéo qui, depuis peu, ouvre ses portes aux artistes. Vous l'aurez compris : je suis l'un d'eux !{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'twitch-apprendre-en-enseignant' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/twitch.png") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/twitch.png") }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -200,7 +200,7 @@
                 "name": "AnthonyKGROSS",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "http://anthonykgross.fr/images/akg-wide.png",
+                    "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                     "width": 80,
                     "height": 60
                 }

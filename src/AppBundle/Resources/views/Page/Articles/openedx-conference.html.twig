@@ -3,7 +3,7 @@
 {% block title %}Open edX Conference - Une plateforme d'apprentissage{% endblock %}
 {% block description %}OpenEdx est une plateforme open source d'apprentissage en ligne qui héberge et met gratuitement à disposition des cours en ligne.{% endblock %}
 {% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'openedx-conference' }) }}{% endblock %}
-{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/Articles/hackathon_openedx_boston.jpg") }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/articles/hackathon_openedx_boston.jpg") }}{% endblock %}
 
 {% block javascripts %}
 <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "name": "AnthonyKGROSS",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "url": "http://anthonykgross.fr/bundles/app/images/akg-wide.png",
                 "width": 80,
                 "height": 60
             }
@@ -57,7 +57,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ asset('bundles/app/images/Articles/hackathon_openedx_boston.jpg') }}" alt="Thumbnail" />
+                    <img src="{{ asset('bundles/app/images/articles/hackathon_openedx_boston.jpg') }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>

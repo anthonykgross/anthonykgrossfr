@@ -11,7 +11,7 @@
 <head>
 
     <!-- Your Basic Site Informations -->
-    <title>{% block title %}AnthonyKGross.fr - Developpeur freelance sur Marseille{% endblock %}</title>
+    <title>{% block title %}Developpeur freelance sur Marseille{% endblock %}</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="description"
           content="{% block description %}Developpeur freelance sur Marseille vous propose son expertise, développement, ecommerce & formation.{% endblock %}"/>
@@ -24,30 +24,19 @@
     <meta property='og:site_name' content='AnthonyKGross.fr - Developpeur freelance sur Marseille'/>
     <meta property='og:type' content='website'/>
     <meta property="og:image"
-          content="{% block og_image %}http://{{ app.request.host ~  asset("images/fb_image.png") }}{% endblock %}">
+          content="{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/fb_image.png") }}{% endblock %}">
     <meta property="fb:app_id" content="1488082224825425"/>
 
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/bootstrap-responsive.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("libs/fontawesome/css/font-awesome.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("libs/magnific-popup/dist/magnific-popup.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/flexslider.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/swipebox.css") }}"/>
-    <link rel="stylesheet" href="{{ asset("css/layout.css") }}">
-
-
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
     <link href="https://google.com/+AnthonyKkuetGROSS" rel="author"/>
 
     <!-- Custom Colors -->
-    <link rel="stylesheet" href="{{ asset("css/colors/grey.css") }}">
+    {#<link rel="stylesheet" href="{{ asset("css/colors/grey.css") }}">#}
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -56,7 +45,20 @@
         <link rel="stylesheet" href="css/no-js.css">
     </noscript>
 
-    <link rel="stylesheet" href="{{ asset("libs/prismjs/themes/prism-okaidia.css") }}">
+    {% stylesheets
+        '@AppBundle/Resources/public/css/bootstrap.min.css'
+        '@AppBundle/Resources/public/css/bootstrap-responsive.min.css'
+        'libs/fontawesome/css/font-awesome.min.css'
+        'libs/magnific-popup/dist/magnific-popup.css'
+        '@AppBundle/Resources/public/css/flexslider.css'
+        '@AppBundle/Resources/public/css/swipebox.css'
+        '@AppBundle/Resources/public/css/layout.css'
+        '@AppBundle/Resources/public/css/colors/grey.css'
+        'libs/prismjs/themes/prism-okaidia.css'
+        filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
@@ -71,16 +73,18 @@
     <header id="logo">
         <div class="header-overlay">
             <div class="container">
-                <img id="logo_akg" src="{{ asset('images/theme.png') }}" title="AKG - Anthony Kkuet GROSS"
-                     alt="AKG - Anthony Kkuet GROSS"/>
-                {#<div class="text-rotator">#}
-                {#<div><h1>Developpeur Freelance sur Marseille</h1></div>#}
-                {#<div><h1>Expertise, développement, e-commerce & formation</h1></div>#}
-                {#</div> <!-- End text-rotator -->#}
+                <img id="logo_akg" src="{{ asset('bundles/app/images/theme.png') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
+                <div class="text-rotator">
+                    <div>
+                        <h1>{{ block('title') }}</h1>
+                    </div>
+                </div> <!-- End text-rotator -->
             </div> <!-- End container -->
 
             <div class="arrow-link">
-                <a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos"><i class="fa fa-angle-down"></i></a>
+                <a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos">
+                    <i class="fa fa-angle-down"></i>
+                </a>
             </div> <!-- End arrow-link -->
 
         </div> <!-- End header-overlay -->
@@ -91,7 +95,7 @@
         <section id="navigation" class="stickem">
             <div class="logo">
                 <a href="{{ path("anthonykgrossfr_main_homepage") }}#logo">
-                    <img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
+                    <img src="{{ asset('bundles/app/images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
                 </a>
             </div>
 
@@ -150,37 +154,37 @@
             <div class="container">
                 <div class="row">
                     <div class="span2">
-                        <img src="{{ asset('images/rejoignezmoi.png') }}"/>
+                        <img alt="Rejoignez moi" src="{{ asset('bundles/app/images/rejoignezmoi.png') }}"/>
                     </div>
                     <div class="span10">
                         <ul>
                             <li>
-                                <a target="_blank" href="https://twitter.com/anthonykgross">
+                                <a target="_blank" title="Twitter" href="https://twitter.com/anthonykgross">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://www.youtube.com/channel/UC7hF0LUlIoShX2QZejF7z7g">
+                                <a target="_blank" title="Youtube" href="https://www.youtube.com/channel/UC7hF0LUlIoShX2QZejF7z7g">
                                     <i class="fa fa-youtube-play"></i>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16">
+                                <a target="_blank" title="Linkedin" href="http://www.linkedin.com/pub/anthony-k-gross/6a/863/16">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://github.com/anthonykgross">
+                                <a target="_blank" title="Github" href="https://github.com/anthonykgross">
                                     <i class="fa fa-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://gitlab.com/u/anthonykgross">
+                                <a target="_blank" title="Gitlab" href="https://gitlab.com/u/anthonykgross">
                                     <i class="fa fa-gitlab"></i>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://hub.docker.com/u/anthonykgross/">
+                                <a target="_blank" title="Docker Hub" href="https://hub.docker.com/u/anthonykgross/">
                                     <i class="fa fa-cubes"></i>
                                 </a>
                             </li>
@@ -211,7 +215,7 @@
                 <br/>
                 <p>
                     <a id="footer_logo_akg" href="#logo">
-                        <img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS"
+                        <img src="{{ asset('bundles/app/images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS"
                              alt="AKG - Anthony Kkuet GROSS"/>
                     </a>
                     <br/><br/>
@@ -224,22 +228,28 @@
     <div id="fb-root"></div>
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="{{ asset("libs/jquery/jquery.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("js/jquery-migrate.min.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/bootstrap.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("js/jquery-easing.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("js/ios-orientationchange-fix.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.placeholder.min.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.flexslider-min.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.swipebox.min.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.stickem.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/ddscrollspy.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.jticker.js") }}"></script>
-    <script type='text/javascript' src="{{ asset("js/jquery.backstretch.min.js") }}"></script>
+    {% javascripts
+        'libs/jquery/jquery.min.js'
+        '@AppBundle/Resources/public/js/jquery-migrate.min.js'
+        '@AppBundle/Resources/public/js/bootstrap.min.js'
+        '@AppBundle/Resources/public/js/jquery-easing.js'
+        '@AppBundle/Resources/public/js/ios-orientationchange-fix.js'
+        '@AppBundle/Resources/public/js/jquery.placeholder.min.js'
+        '@AppBundle/Resources/public/js/jquery.flexslider-min.js'
+        '@AppBundle/Resources/public/js/jquery.swipebox.min.js'
+        '@AppBundle/Resources/public/js/jquery.stickem.js'
+        '@AppBundle/Resources/public/js/ddscrollspy.js'
+        '@AppBundle/Resources/public/js/jquery.jticker.js'
+        '@AppBundle/Resources/public/js/jquery.backstretch.min.js'
+        'libs/prismjs/custom-prismjs.js'
+        'libs/magnific-popup/dist/jquery.magnific-popup.min.js'
+        '@AppBundle/Resources/public/js/main.js'
+        filter='uglifyjs2'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
     <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="{{ asset("libs/prismjs/custom-prismjs.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("libs/magnific-popup/dist/jquery.magnific-popup.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -313,7 +323,7 @@
                     "@type": "Organization",
                     "name": "AnthonyKGROSS",
                     "url": "http://anthonykgross.fr",
-                    "logo": "http://anthonykgross.fr/images/akg.png",
+                    "logo": "http://anthonykgross.fr/bundles/app/images/akg.png",
                     "address": {
                         "@type": "PostalAddress",
                         "addressLocality": "Marseille, France",
@@ -338,7 +348,7 @@
                             "postalCode": "13010",
                             "streetAddress": "40 rue P.LUCCIONI"
                         },
-                        "email": "mailto:anthony.k.gross@gmail.com",
+                        "email": "anthony.k.gross@gmail.com",
                         "image": "http://anthonykgross.fr/bundles/app/images/photo.jpg",
                         "jobTitle": "Software Engineer"
                     }

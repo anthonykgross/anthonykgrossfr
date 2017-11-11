@@ -15,7 +15,8 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y --purge && \
     rm -Rf /etc/nginx/sites-enabled/default && \
-    mkdir -p /var/www/logs
+    mkdir -p /var/www/logs && \
+    npm install -g uglify-js
 
 ADD docker/images/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

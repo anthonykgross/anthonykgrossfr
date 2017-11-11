@@ -70,3 +70,13 @@ swiftmailer:
     spool: { type: memory }
     auth_mode: '%mailer_auth_mode%'
     port: '%mailer_port%'
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    # the path to the node executable
+    node: /usr/bin/nodejs
+    filters:
+        uglifyjs2:
+            bin: /usr/bin/uglifyjs
+        cssrewrite: ~
