@@ -27,6 +27,14 @@
           content="{% block og_image %}http://{{ app.request.host ~  asset("bundles/app/images/fb_image.png") }}{% endblock %}">
     <meta property="fb:app_id" content="1488082224825425"/>
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@anthonykgross">
+    <meta name="twitter:creator" content="@anthonykgross">
+    <meta name="twitter:title" content="{{ block('title') }}">
+    <meta name="twitter:description" content="{{ block('description') }}">
+    <meta name="twitter:image" content="{{ block('og_image') }}">
+
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -35,8 +43,6 @@
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href="https://google.com/+AnthonyKkuetGROSS" rel="author"/>
 
-    <!-- Custom Colors -->
-    {#<link rel="stylesheet" href="{{ asset("css/colors/grey.css") }}">#}
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
