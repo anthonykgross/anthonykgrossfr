@@ -26,15 +26,14 @@ COPY ./docker/conf/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY ./docker/conf/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
 RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
-        cp -f app/config/parameters.yml.prod app/config/parameters.yml && \
-        sed -i -e "s,\${{MAILER_USER}},$MAILER_USER,g" app/config/parameters.yml && \
-        sed -i -e "s,\${{MAILER_PASSWORD}},$MAILER_PASSWORD,g" app/config/parameters.yml \
+        cp -f .env.prod .env && \
+        sed -i -e "s,\${{MAILER_USER}},$MAILER_USER,g" .env && \
+        sed -i -e "s,\${{MAILER_PASSWORD}},$MAILER_PASSWORD,g" .env \
     ; fi
 
 RUN chmod +x /entrypoint.sh && \
     bash --rcfile "/root/.bash_profile" -ic "/entrypoint.sh permission" && \
-    bash --rcfile "/root/.bash_profile" -ic "/entrypoint.sh install" && \
-    rm web/app_dev.php
+    bash --rcfile "/root/.bash_profile" -ic "/entrypoint.sh install"
 
 EXPOSE 80
 EXPOSE 443

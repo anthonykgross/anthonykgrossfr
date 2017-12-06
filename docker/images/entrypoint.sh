@@ -9,8 +9,8 @@ install() {
     gosu docker composer install
     gosu docker php bin/console assets:install
 
-    gosu docker php bin/console assets:install --env=prod
-    gosu docker php bin/console assetic:dump --env=prod
+#    gosu docker php bin/console assets:install --env=prod
+#    gosu docker php bin/console assetic:dump --env=prod
 }
 
 tests() {

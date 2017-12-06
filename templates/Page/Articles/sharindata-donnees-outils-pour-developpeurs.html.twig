@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sharindata - La boite à outils du développeur{% endblock %}
+{% block description %}Sharindata est là pour vous débarrasser de toutes les tâches récurrentes comme la liste des langues, des pays ou des devises.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'sharindata-donnees-outils-pour-developpeurs' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("images/articles/sharindata.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2013-11-09"|date("c") }}",
+        "dateModified": "{{ "2013-11-09"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>Sharindata</h2>
+                <p>
+                    Quel développeur n’a jamais eu besoin de données de bases comme la liste des langues, des pays ou des devises pour les 
+                    intégrer à son application ? 
+                    Ou même de petits outils comme un générateur de chaines aléatoires ou un convertisseur de devises ? 
+                    Sharindata est là pour vous débarrasser de toutes ces tâches récurrentes.
+                </p>
+            </div>
+            <div class="item">
+                <figure>
+                    <img src="{{ asset('images/articles/sharindata.jpg') }}" alt="Thumbnail" />
+                </figure>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Fonctionnalités</h2>
+                            <p>Encore en cours de développement, il a pour objectif de vous présenter différentes fonctionnalités :</p>
+
+                            <p>
+                                <ul>
+                                    <li>Données
+                                        <ul>
+                                            <li>Zones</li>
+                                            <li>Pays</li>
+                                            <li>Devises</li>
+                                            <li>Langues</li>
+                                            <li>Timezones</li>
+                                        </ul>
+                                    </li>
+                                    <li>Outils
+                                        <ul>
+                                            <li>Convertisseur de devises</li>
+                                            <li>Générateur de chaines aléatoires</li>
+                                            <li>Convertisseur de codes couleurs</li>
+                                            <li>Recherche de couleurs parmi un intervalle de couleurs</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Démonstration</h2>
+                            <div class="row">
+                                <div class="span12">
+                                    <h3>Sharindata.anthonykgross.fr</h3>
+                                </div>
+                                <iframe src="http://sharindata.anthonykgross.fr"  class="span12" style="min-height: 800px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i>&nbsp; Le 09 Novembre 2013 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FFmpeg - Partie 1 - Installation{% endblock %}
+{% block description %}La documentation complète pour l'installation de FFmpeg avec x264 pour les videos mp4.{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ path('anthonykgrossfr_page_lire', {'name' : 'ffmpeg-installation-x264' }) }}{% endblock %}
+{% block og_image %}http://{{ app.request.host ~  asset("images/articles/ffmpeg.jpg") }}{% endblock %}
+
+{% block javascripts %}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage":{
+            "@type":"WebPage",
+            "@id":"{{ block("og_url") }}"
+        },
+        "headline": "{{ block("title") }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ block("og_image") }}",
+            "height": 400,
+            "width": 1200
+        },
+        "datePublished": "{{ "2012-11-03"|date("c") }}",
+        "dateModified": "{{ "2012-11-03"|date("c") }}",
+        "author": {
+            "@type": "Person",
+            "name": "Anthony GROSS"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnthonyKGROSS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://anthonykgross.fr/images/akg-wide.png",
+                "width": 80,
+                "height": 60
+            }
+        },
+        "description": "{{ block("description") }}"
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section id="blog" class="single-page">
+            <div class="header margin-bottom40">
+                <h2>FFmpeg - Partie 1 - Installation</h2>
+                <p>
+                    Les commandes suivantes sont utilisables sous <strong>Debian</strong>. 
+                    Pour <strong>Ubuntu</strong>, <strong>Kubuntu</strong>, <strong>Xubuntu</strong> et <strong>Lubuntu</strong>, 
+                    remplacez <strong>aptitude</strong> par <strong>apt-get</strong> . 
+                    A savoir que toutes les commandes sont à utiliser en <strong>root</strong>.
+                </p>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <p>
+                                Afin que nous puissions parler de la même chose, je vous invite à installer 
+                                FFmpeg avec X264 afin que nous puissions bénéficier des outils nécessaires pour 
+                                encoder (= convertir une video) en H.264. <strong>Pourquoi H.264 ?</strong> Il faut savoir que 
+                                H.264 est une norme de compression puissante et utilisable sur plusieurs supports comme DVD/DivX, Mobile, TV et Web.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Installation de FFmpeg avec x264</h3>
+                            <pre class="language-bash">
+<code class="language-bash">#Ajout des libraries multimedia dans la sources.list de Debian
+echo "deb http://www.deb-multimedia.org squeeze main non-free" >> /etc/apt/sources.list
+aptitude update -y -f --allow-untrusted && aptitude upgrade -y -f --allow-untrusted
+
+#Installation des libraries multimedia
+aptitude install --allow-untrusted -y -f build-essential checkinstall git libfaac-dev libgpac-dev libjack-jackd2-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev texi2html yasm zlib1g-dev mplayer
+
+#On créée notre répertoire lib afin de stocker tous les Git nécessaires
+mkdir -p lib/
+
+#Récupération de Yasm 1.2
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz
+tar xzvf yasm-1.2.0.tar.gz
+rm -f yasm-1.2.0.tar.gz
+mv yasm-1.2.0 lib/yasm
+
+#Récupération de X264
+git clone http://repo.or.cz/r/x264.git
+mv x264/ lib/x264/
+
+#Récupération de libvpx
+git clone http://git.chromium.org/webm/libvpx.git
+mv libvpx/ lib/libvpx/
+
+#Récupération de FFmpeg
+git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git
+mv FFmpeg/ lib/FFmpeg/
+
+#Attribution des droits pour éviter les problèmes d'accès aux fichiers
+chmod 777 lib/ -Rf
+
+#Installation de Yasm
+cd lib/yasm/
+./configure
+make && make install
+
+#Installation de x264
+cd ../x264/
+./configure --enable-static
+make
+checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
+  awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes   --fstrans=no --default
+
+#Installation de libvpx
+cd ../libvpx/
+./configure
+make
+checkinstall --pkgname=libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" --backup=no   --deldoc=yes --fstrans=no --default
+
+#Installation de FFmpeg
+cd ../FFmpeg/
+./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb   --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx   --enable-libx264 --enable-nonfree --enable-version3 --enable-x11grab
+make
+
+#Vérification de l'installation de FFmpeg
+checkinstall --pkgname=ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no   --deldoc=yes --fstrans=no --default</code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span12">
+                            <h3>Conclusion</h3>
+                            <p>
+                                Et voilà, FFmpeg est installé sur votre machine et vous pouvez dès à présent manipuler 
+                                vos fichiers audios et videos. Si vous souhaiter apprendre les commandes de bases, je vous invite à passer à 
+                                l'article suivant : <a href="{{path("anthonykgrossfr_page_lire", {name: "ffmpeg-commandes-base"}) }}">FFmpeg - Partie 2 - Commandes de bases</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> &nbsp; Le 03 Novembre 2012 <span class="font-slight"></span> 
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </section> <!-- End blog -->
+    </div> <!-- End container -->
+{% endblock %}
