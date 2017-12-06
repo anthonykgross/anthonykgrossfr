@@ -30,7 +30,7 @@
 }
 
 #swipebox-slider .slide {
-  background: url("../images/swb-loader.gif") no-repeat center center;
+  background: url("../../public/images/swb-loader.gif") no-repeat center center;
   height: 100%;
   width: 100%;
   line-height: 1px;
@@ -90,7 +90,7 @@
 
 #swipebox-action #swipebox-prev, #swipebox-action #swipebox-next,
 #swipebox-action #swipebox-close {
-  background-image: url("../images/swb-icons.png");
+  background-image: url("../../public/images/swb-icons.png");
   background-repeat: no-repeat;
   border: none!important;
   text-decoration: none!important;

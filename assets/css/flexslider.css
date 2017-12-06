@@ -18,7 +18,7 @@
 .slides,
 .flex-control-nav,
 .flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
-.flexslider.loading {background: url(../images/loading.gif) no-repeat center center; width:100%;}
+.flexslider.loading {background: url(../../public/images/loading.gif) no-repeat center center; width:100%;}
 
 /* FlexSlider Necessary Styles
 *********************************/ 
@@ -50,7 +50,7 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a {width: 60px; height: 60px; margin: 0; display: block; background: url(../images/bg-direction-nav.png) no-repeat 0 0; position: absolute; top: 45%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.flex-direction-nav a {width: 60px; height: 60px; margin: 0; display: block; background: url(../../public/images/bg-direction-nav.png) no-repeat 0 0; position: absolute; top: 45%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
 .flex-direction-nav .flex-next {background-position: 100% 0; right: 0px; }
 .flex-direction-nav .flex-prev {left: 0px;}
 .flexslider:hover .flex-next {opacity: 0.8;}

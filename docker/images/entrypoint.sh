@@ -4,7 +4,7 @@ set -e
 source ~/.bash_profile
 
 install() {
-    gosu docker npm install
+    gosu docker yarn install
     gosu docker gulp
     gosu docker composer install
     gosu docker php bin/console assets:install

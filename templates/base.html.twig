@@ -51,20 +51,20 @@
         <link rel="stylesheet" href="css/no-js.css">
     </noscript>
 
-    {% stylesheets
-        '@AppBundle/Resources/public/css/bootstrap.min.css'
-        '@AppBundle/Resources/public/css/bootstrap-responsive.min.css'
-        'libs/fontawesome/css/font-awesome.min.css'
-        'libs/magnific-popup/dist/magnific-popup.css'
-        '@AppBundle/Resources/public/css/flexslider.css'
-        '@AppBundle/Resources/public/css/swipebox.css'
-        '@AppBundle/Resources/public/css/layout.css'
-        '@AppBundle/Resources/public/css/colors/grey.css'
-        'libs/prismjs/themes/prism-okaidia.css'
-        filter='cssrewrite'
-    %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+    {#{% stylesheets#}
+        {#'@AppBundle/Resources/public/css/bootstrap.min.css'#}
+        {#'@AppBundle/Resources/public/css/bootstrap-responsive.min.css'#}
+        {#'libs/fontawesome/css/font-awesome.min.css'#}
+        {#'libs/magnific-popup/dist/magnific-popup.css'#}
+        {#'@AppBundle/Resources/public/css/flexslider.css'#}
+        {#'@AppBundle/Resources/public/css/swipebox.css'#}
+        {#'@AppBundle/Resources/public/css/layout.css'#}
+        {#'@AppBundle/Resources/public/css/colors/grey.css'#}
+        {#'libs/prismjs/themes/prism-okaidia.css'#}
+        {#filter='cssrewrite'#}
+    {#%}#}
+        {#<link rel="stylesheet" href="{{ asset_url }}" />#}
+    {#{% endstylesheets %}#}
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
@@ -234,26 +234,26 @@
     <div id="fb-root"></div>
 
     <!-- JavaScript -->
-    {% javascripts
-        'libs/jquery/jquery.min.js'
-        '@AppBundle/Resources/public/js/jquery-migrate.min.js'
-        '@AppBundle/Resources/public/js/bootstrap.min.js'
-        '@AppBundle/Resources/public/js/jquery-easing.js'
-        '@AppBundle/Resources/public/js/ios-orientationchange-fix.js'
-        '@AppBundle/Resources/public/js/jquery.placeholder.min.js'
-        '@AppBundle/Resources/public/js/jquery.flexslider-min.js'
-        '@AppBundle/Resources/public/js/jquery.swipebox.min.js'
-        '@AppBundle/Resources/public/js/jquery.stickem.js'
-        '@AppBundle/Resources/public/js/ddscrollspy.js'
-        '@AppBundle/Resources/public/js/jquery.jticker.js'
-        '@AppBundle/Resources/public/js/jquery.backstretch.min.js'
-        'libs/prismjs/custom-prismjs.js'
-        'libs/magnific-popup/dist/jquery.magnific-popup.min.js'
-        '@AppBundle/Resources/public/js/main.js'
-        filter='uglifyjs2'
-    %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    {#{% javascripts#}
+        {#'libs/jquery/jquery.min.js'#}
+        {#'@AppBundle/Resources/public/js/jquery-migrate.min.js'#}
+        {#'@AppBundle/Resources/public/js/bootstrap.min.js'#}
+        {#'@AppBundle/Resources/public/js/jquery-easing.js'#}
+        {#'@AppBundle/Resources/public/js/ios-orientationchange-fix.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.placeholder.min.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.flexslider-min.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.swipebox.min.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.stickem.js'#}
+        {#'@AppBundle/Resources/public/js/ddscrollspy.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.jticker.js'#}
+        {#'@AppBundle/Resources/public/js/jquery.backstretch.min.js'#}
+        {#'libs/prismjs/custom-prismjs.js'#}
+        {#'libs/magnific-popup/dist/jquery.magnific-popup.min.js'#}
+        {#'@AppBundle/Resources/public/js/main.js'#}
+        {#filter='uglifyjs2'#}
+    {#%}#}
+    {#<script src="{{ asset_url }}"></script>#}
+    {#{% endjavascripts %}#}
 
     <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script>
