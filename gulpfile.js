@@ -1,44 +1,41 @@
 var gulp = require('gulp'),
-        rename = require('gulp-rename'),
         uglify = require('gulp-uglify'),
         header = require('gulp-header'),
         concat = require('gulp-concat'),
-        bower = require('gulp-bower'),
         paths = {
             main: [
-                'web/libs/prismjs/components/prism-core.js',
-                'web/libs/prismjs/components/prism-markup.js',
-                'web/libs/prismjs/components/prism-css.js',
-                'web/libs/prismjs/components/prism-clike.js',
-                'web/libs/prismjs/components/prism-javascript.js',
-                'web/libs/prismjs/components/prism-html.js',
-                'web/libs/prismjs/components/prism-bash.js',
-                'web/libs/prismjs/components/prism-php.js',
-                'web/libs/prismjs/components/prism-php-extras.js',
-                'web/libs/prismjs/components/prism-docker.js',
-                'web/libs/prismjs/components/prism-yaml.js',
-                'web/libs/prismjs/components/prism-sql.js',
-                'web/libs/prismjs/components/prism-rest.js',
-                'web/libs/prismjs/components/prism-python.js',
-                'web/libs/prismjs/components/prism-nginx.js',
-                'web/libs/prismjs/components/prism-java.js',
-                'web/libs/prismjs/components/prism-git.js',
-                'web/libs/prismjs/plugins/file-highlight/prism-file-highlight.js'
+                './node_modules/jquery/jquery.min.js',
+                './assets/js/jquery-migrate.min.js',
+                './node_modules/bootstrap/dist/js/bootstrap.min.js',
+                './assets/js/jquery-easing.js',
+                './assets/js/ios-orientationchange-fix.js',
+                './assets/js/jquery.stickem.js',
+                './assets/js/ddscrollspy.js',
+                './assets/js/jquery.jticker.js',
+                './node_modules/jquery-backstretch/jquery.backstretch.min.js',
+                './node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                './node_modules/jwplayer/jwplayer.js',
+                './node_modules/jwplayer/jwplayer.html5.js',
+                './public/build/js/prismjs.js',
+                './assets/js/main.js'
             ]
         };
 
-gulp.task('bower', function () {
-        return bower();
-});
 
-gulp.task('build', ['bower'], function () {
+gulp.task('build', [], function () {
+    gulp.src([
+        './node_modules/jwplayer/jwplayer.flash.swf'
+    ])
+    .pipe(gulp.dest('public/build'));
+
     return gulp.src(paths.main)
-            .pipe(header('\n/* **********************************************\n' +
-                    '     Anthonykgross.fr Begin <%= file.relative %>\n' +
-                    '********************************************** */\n\n'))
-            .pipe(concat('web/libs/prismjs/custom-prismjs.js'))
-            .pipe(uglify())
-            .pipe(gulp.dest('./'));
+        .pipe(header('\n/* **********************************************\n' +
+                '     Anthonykgross.fr Begin <%= file.relative %>\n' +
+                '********************************************** */\n\n'))
+        .pipe(concat('public/build/js/app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./'))
+    ;
 });
 
 gulp.task('default', ['build']);

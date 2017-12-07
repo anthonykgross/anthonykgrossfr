@@ -34,7 +34,7 @@
                                 <div class="span6">
                                     <h4 class="bolded">Téléchargement</h4>
                                     <p><a href="http://www.jwplayer.com/" target="_blank">JWPlayer 6</a></p>
-                                    <p>Structure de base d’un plugin JWPlayer Javascript <a href="{{ asset("libs/base_jwplayer_plugins.js.txt") }}" target="_blank">[sur Kkuet.net]</a></p>
+                                    <p>Structure de base d’un plugin JWPlayer Javascript <a href="{{ asset("data/base_jwplayer_plugins.js.txt") }}" target="_blank">[sur Kkuet.net]</a></p>
                                     <p><a href="http://jquery.com/download/" target="_blank">jQuery 1.7+</a></p>
                                 </div>
                                 <div class="span6">
@@ -215,8 +215,6 @@
 {% endblock %}
 
 {% block javascripts %}
-<script type="text/javascript" src="{{ asset("libs/jwplayer/jwplayer.js") }}"></script>
-<script type="text/javascript" src="{{ asset("libs/jwplayer/jwplayer.html5.js") }}"></script>
 <script type="text/javascript">
     jwplayer("myElement").setup({
         file: "http://media.w3.org/2010/05/sintel/trailer.mp4",
@@ -230,7 +228,7 @@
             ]
         }],
 	plugins: {
-            "{{ asset("libs/commentlikeyoutube.js") }}":{
+            "{{ asset("data/commentlikeyoutube.js") }}":{
                 comments: [
                         {
                                 min:0,

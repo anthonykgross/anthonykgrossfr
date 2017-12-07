@@ -4,13 +4,11 @@ set -e
 source ~/.bash_profile
 
 install() {
-    gosu docker yarn install
+    gosu docker yarn
+    gosu docker ./node_modules/.bin/encore production
     gosu docker gulp
     gosu docker composer install
-    gosu docker php bin/console assets:install
-
-#    gosu docker php bin/console assets:install --env=prod
-#    gosu docker php bin/console assetic:dump --env=prod
+    gosu docker php bin/console cache:warmup
 }
 
 tests() {
