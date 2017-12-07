@@ -37,10 +37,12 @@ class PageController extends Controller
      */
     public function lireAction($name)
     {
-        if (!$this->get('templating')->exists('Page\Articles/'.strtolower($name).'.html.twig')) {
+        try {
+            return $this->render('Page\Articles/'.strtolower($name).'.html.twig');
+        } catch (\Exception $e) {
             $response = new Response(null, 404);
             return $this->render('Page\not_found.html.twig', array(), $response);
         }
-        return $this->render('Page\Articles/'.strtolower($name).'.html.twig');
+
     }
 }

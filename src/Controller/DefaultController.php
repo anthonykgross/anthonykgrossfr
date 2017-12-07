@@ -95,14 +95,14 @@ class DefaultController extends Controller
         
         if (count($e['msg'])==0) {
             try {
-                $message = Swift_Message::newInstance()
-                    ->setSubject("[AnthonyKGross.fr] - ".$subject)
+
+                $message = (new Swift_Message("[AnthonyKGross.fr] - ".$subject))
                     ->setFrom('no-reply@anthonykgross.fr')
 		            ->setReplyTo(array(
 		                $email => $name
                     ))
                     ->setTo('anthony.k.gross@gmail.com')
-                    ->setBody($this->renderView('AppBundle:Default:email.html.twig', array(
+                    ->setBody($this->renderView('Default\email.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -111,14 +111,13 @@ class DefaultController extends Controller
                 ;
                 $this->get('mailer')->send($message);
 
-                $message = Swift_Message::newInstance()
-                    ->setSubject("[AnthonyKGross.fr] - Prise de contact")
+                $message = (new Swift_Message("[AnthonyKGross.fr] - Prise de contact"))
                     ->setFrom('no-reply@anthonykgross.fr')
 		            ->setReplyTo(array(
 		                "anthony.k.gross@gmail.com" => "Anthony K GROSS"
                     ))
                     ->setTo($email)
-                    ->setBody($this->renderView('AppBundle:Default:email-client.html.twig', array(
+                    ->setBody($this->renderView('Default\email-client.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
