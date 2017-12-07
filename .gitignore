@@ -1,28 +1,20 @@
-/.web-server-pid
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/var/
 /vendor/
-/web/bundles/
-/web/css/
-/web/js/
-/nbproject
-/web/libs/
-/npm-debug.log
-/node_modules/
+###< symfony/framework-bundle ###
 /docker/logs/*.log
 .idea
 .DS_Store
-/app/config/parameters.yml
-/docs
+public/libs
+/node_modules
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+public/build/
+###< symfony/webpack-encore-pack ###
