@@ -25,22 +25,12 @@ $(document).ready(function ($) {
                     {
                         scrollTop: parseInt(elm.offset().top, 0)
                     },
-                    2000
+                    1000
                 );
                 event.preventDefault();
             }
         }
     });
-
-    // jQuery figure hover effect
-    $('figure.figure-hover').hover(
-        function () {
-            $(this).children("a").children("div").fadeIn(300);
-        },
-        function () {
-            $(this).children("a").children("div").fadeOut(300);
-        }
-    );
 
     // Header text rotator with jTicker
     $("#logo .text-rotator").show().ticker({rate: 150, delay: 10000}).trigger("play");
