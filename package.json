@@ -8,6 +8,7 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.0",
+    "bootstrap": "^3.3.7",
     "font-awesome": "~4.7",
     "gulp": "~3.9.0",
     "gulp-concat": "~2.6.0",
@@ -15,13 +16,13 @@
     "gulp-rename": "~1.2.2",
     "gulp-uglify": "~1.2.0",
     "gulp-util": "~3.0.6",
+    "jQuery-Stickem": "https://github.com/davist11/jQuery-Stickem#v1.4",
     "jquery": "1.9.1",
     "jquery-backstretch": "^2.1.16",
+    "jticker": "https://github.com/stephband/jticker",
     "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
     "magnific-popup": "^1.1.0",
-    "prismjs": "1.4.1"
-  },
-  "dependencies": {
-    "bootstrap": "^3.3.7"
+    "prismjs": "1.4.1",
+    "urijs": "https://github.com/medialize/URI.js#v1.18.12"
   }
 }

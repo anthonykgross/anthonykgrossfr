@@ -1,50 +1,46 @@
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
-
 remove_trailing_slash:
     path: /{url}
-    defaults: { _controller: App\Controller\DefaultController::removeTrailingSlashAction }
+    defaults: { _controller: App\Controller\DefaultController::removeTrailingSlash }
     requirements:
         url: .*/$
     methods: [GET]
 
 anthonykgrossfr_main_homepage:
     path:     /
-    defaults: { _controller: App\Controller\DefaultController::indexAction }
+    defaults: { _controller: App\Controller\DefaultController::index }
 
 anthonykgrossfr_contactez_moi:
     path:     /contact
-    defaults: { _controller: App\Controller\DefaultController::sendmailAction }
+    defaults: { _controller: App\Controller\DefaultController::sendmail }
 
 anthonykgrossfr_cv:
     path:     /cv
-    defaults: { _controller: App\Controller\DefaultController::cvAction }
+    defaults: { _controller: App\Controller\DefaultController::cv }
 
 anthonykgrossfr_captcha:
     path:     /captcha
-    defaults: { _controller: App\Controller\DefaultController::captchaAction }
+    defaults: { _controller: App\Controller\DefaultController::captcha }
 
 anthonykgrossfr_blog:
     path:     /blog
-    defaults: { _controller: App\Controller\PageController::blogAction }
+    defaults: { _controller: App\Controller\PageController::blog }
 
 anthonykgrossfr_event:
     path:     /evenements
-    defaults: { _controller: App\Controller\PageController::eventAction }
+    defaults: { _controller: App\Controller\PageController::event }
 
 anthonykgrossfr_event2:
     path:     /event
-    defaults: { _controller: App\Controller\DefaultController::eventAction }
+    defaults: { _controller: App\Controller\DefaultController::event }
 
 anthonykgrossfr_project:
     path:     /projets
-    defaults: { _controller: App\Controller\PageController::projectAction }
+    defaults: { _controller: App\Controller\PageController::project }
 
 anthonykgrossfr_project2:
     path:     /project
-    defaults: { _controller: App\Controller\DefaultController::projectAction }
+    defaults: { _controller: App\Controller\DefaultController::project }
 
 anthonykgrossfr_page_lire:
     path:     /p/{name}
-    defaults: { _controller: App\Controller\PageController::lireAction }
+    defaults: { _controller: App\Controller\PageController::lire }

@@ -19,7 +19,7 @@ class DefaultController extends Controller
         array("trois plus zéro est égale à " => array("3", "trois"))
     );
 
-    public function removeTrailingSlashAction(Request $request)
+    public function removeTrailingSlash(Request $request)
     {
         $pathInfo = $request->getPathInfo();
         $requestUri = $request->getRequestUri();
@@ -32,7 +32,7 @@ class DefaultController extends Controller
     /**
      * @return Response
      */
-    public function indexAction()
+    public function index()
     {
         return $this->render('Default\index.html.twig');
     }
@@ -40,7 +40,7 @@ class DefaultController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function projectAction()
+    public function project()
     {
         return $this->redirect($this->generateUrl('anthonykgrossfr_project'), 301);
     }
@@ -48,7 +48,7 @@ class DefaultController extends Controller
     /**
      * @return RedirectResponse
      */
-    public function eventAction()
+    public function event()
     {
         return $this->redirect($this->generateUrl('anthonykgrossfr_event'), 301);
     }
@@ -57,7 +57,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function sendmailAction(Request $request)
+    public function sendmail(Request $request)
     {
         $e          = array('msg' => array());
         $subject    = $request->get('subject', null);
@@ -144,7 +144,7 @@ class DefaultController extends Controller
     /**
      * @return Response
      */
-    public function cvAction()
+    public function cv()
     {
         return $this->render('Default\cv.html.twig');
     }
@@ -153,7 +153,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function captchaAction(Request $request)
+    public function captcha(Request $request)
     {
         $response = new JsonResponse();
         if ($request->isXmlHttpRequest()) {

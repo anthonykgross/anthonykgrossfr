@@ -10,7 +10,7 @@ class PageController extends Controller
     /**
      * @return Response
      */
-    public function blogAction()
+    public function blog()
     {
         return $this->render('Page\blog.html.twig');
     }
@@ -18,7 +18,7 @@ class PageController extends Controller
     /**
      * @return Response
      */
-    public function eventAction()
+    public function event()
     {
         return $this->render('Page\event.html.twig');
     }
@@ -26,7 +26,7 @@ class PageController extends Controller
     /**
      * @return Response
      */
-    public function projectAction()
+    public function project()
     {
         return $this->render('Page\project.html.twig');
     }
@@ -35,7 +35,7 @@ class PageController extends Controller
      * @param $name
      * @return Response
      */
-    public function lireAction($name)
+    public function lire($name)
     {
         try {
             return $this->render('Page\Articles/'.strtolower($name).'.html.twig');
