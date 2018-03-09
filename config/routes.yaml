@@ -6,41 +6,43 @@ remove_trailing_slash:
     methods: [GET]
 
 anthonykgrossfr_main_homepage:
-    path:     /
+    path:     /{url}
+    requirements:
+        url: .*
     defaults: { _controller: App\Controller\DefaultController::index }
 
-anthonykgrossfr_contactez_moi:
-    path:     /contact
-    defaults: { _controller: App\Controller\DefaultController::sendmail }
-
-anthonykgrossfr_cv:
-    path:     /cv
-    defaults: { _controller: App\Controller\DefaultController::cv }
-
-anthonykgrossfr_captcha:
-    path:     /captcha
-    defaults: { _controller: App\Controller\DefaultController::captcha }
-
-anthonykgrossfr_blog:
-    path:     /blog
-    defaults: { _controller: App\Controller\PageController::blog }
-
-anthonykgrossfr_event:
-    path:     /evenements
-    defaults: { _controller: App\Controller\PageController::event }
-
-anthonykgrossfr_event2:
-    path:     /event
-    defaults: { _controller: App\Controller\DefaultController::event }
-
-anthonykgrossfr_project:
-    path:     /projets
-    defaults: { _controller: App\Controller\PageController::project }
-
-anthonykgrossfr_project2:
-    path:     /project
-    defaults: { _controller: App\Controller\DefaultController::project }
-
-anthonykgrossfr_page_lire:
-    path:     /p/{name}
-    defaults: { _controller: App\Controller\PageController::lire }
+#anthonykgrossfr_contactez_moi:
+#    path:     /contact
+#    defaults: { _controller: App\Controller\DefaultController::sendmail }
+#
+#anthonykgrossfr_cv:
+#    path:     /cv
+#    defaults: { _controller: App\Controller\DefaultController::cv }
+#
+#anthonykgrossfr_captcha:
+#    path:     /captcha
+#    defaults: { _controller: App\Controller\DefaultController::captcha }
+#
+#anthonykgrossfr_blog:
+#    path:     /blog
+#    defaults: { _controller: App\Controller\PageController::blog }
+#
+#anthonykgrossfr_event:
+#    path:     /evenements
+#    defaults: { _controller: App\Controller\PageController::event }
+#
+#anthonykgrossfr_event2:
+#    path:     /event
+#    defaults: { _controller: App\Controller\DefaultController::event }
+#
+#anthonykgrossfr_project:
+#    path:     /projets
+#    defaults: { _controller: App\Controller\PageController::project }
+#
+#anthonykgrossfr_project2:
+#    path:     /project
+#    defaults: { _controller: App\Controller\DefaultController::project }
+#
+#anthonykgrossfr_page_lire:
+#    path:     /p/{name}
+#    defaults: { _controller: App\Controller\PageController::lire }

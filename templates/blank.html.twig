@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ entity.metaTitle }}{% endblock %}
+{% block description %}{{ entity.metaDescription }}{% endblock %}
+{% block og_url %}http://{{ app.request.host ~ entity.url }}{% endblock %}
+
+{% block og_image %}
+{% spaceless %}
+    {% if entity.thumbnail %}
+        {{ entity.thumbnail }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block body %}
+    {{ entity.content }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ entity.extraCSS|raw }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ entity.extraJS|raw }}
+{% endblock %}

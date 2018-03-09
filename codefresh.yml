@@ -10,6 +10,10 @@ steps:
             - APPLICATION_ENV=prod
             - MAILER_USER=${{MAILER_USER}}
             - MAILER_PASSWORD=${{MAILER_PASSWORD}}
+            - DB_USER=${{DB_USER}}
+            - DB_PASSWORD=${{DB_PASSWORD}}
+            - DB_HOST=${{DB_HOST}}
+            - DB_NAME=${{DB_NAME}}
         when:
             branch:
                 only: [ master ]

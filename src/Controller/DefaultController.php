@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Page;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,11 +31,26 @@ class DefaultController extends Controller
     }
 
     /**
+     * @param null $url
      * @return Response
      */
-    public function index()
+    public function index($url = null)
     {
-        return $this->render('Default\index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository(Page::class)->findOneBy([
+           'url' => $url
+        ]);
+
+        if (!$page) {
+            $response = new Response();
+            $response->setStatusCode(404);
+            return $this->render('not_found.html.twig', [], $response);
+        }
+
+        return $this->render(
+            $page->getTemplate()->getFile(),
+            ['entity' => $page]
+        );
     }
 
     /**
