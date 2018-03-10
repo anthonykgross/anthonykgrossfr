@@ -36,9 +36,14 @@ class DefaultController extends Controller
      */
     public function index($url = null)
     {
+        if (!is_null($url) && strlen($url) == 0) {
+            $url = null;
+        }
+
         $em = $this->getDoctrine()->getManager();
         $page = $em->getRepository(Page::class)->findOneBy([
-           'url' => $url
+            'url' => $url,
+            'isOnline' => true
         ]);
 
         if (!$page) {

@@ -16,7 +16,7 @@ help:
 
 build:          ## Build the Docker image
 build:
-	docker-compose build
+	$(FIG) build
 
 install:        ## Install vendors
 install:
@@ -47,6 +47,14 @@ db:
 db-migrate:     ## Update the database
 db-migrate:
 	$(RUN) $(CONSOLE) doctrine:schema:update --force
+
+db-dump:	## Backup the database
+db-dump:
+	$(FIG) exec mysql bash -c "mysqldump -u root -proot anthonykgrossfr > /var/lib/mysql/backup.sql && chmod 777 /var/lib/mysql/backup.sql"
+
+db-restore: 	## Restore the database
+db-restore:
+	$(FIG) exec mysql bash -c "mysql -u root -proot anthonykgrossfr < /var/lib/mysql/backup.sql"
 
 ##
 ## Tests

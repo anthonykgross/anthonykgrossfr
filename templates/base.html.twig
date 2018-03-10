@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <!--[if lt IE 7 ]>
-<html class="ie ie6" lang="en"> <![endif]-->
+<html class="ie ie6" lang="en">
+<![endif]-->
 <!--[if IE 7 ]>
-<html class="ie ie7" lang="en"> <![endif]-->
+<html class="ie ie7" lang="en">
+<![endif]-->
 <!--[if IE 8 ]>
-<html class="ie ie8" lang="en"> <![endif]-->
+<html class="ie ie8" lang="en">
+<![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="fr"> <!--<![endif]-->
-
+<html lang="fr">
+<!--<![endif]-->
 <head>
 
     <!-- Your Basic Site Informations -->
     <title>{% block title %}Developpeur freelance sur Marseille{% endblock %}</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-    <meta name="description"
-          content="{% block description %}Developpeur freelance sur Marseille vous propose son expertise, développement, ecommerce & formation.{% endblock %}"/>
-    <meta name="keywords" content="freelance, marseille, developpeur, formation, ecommerce"/>
+    <meta name="description" content="{% block description %}Développeur freelance sur Marseille vous propose son expertise, développement, ecommerce & formation.{% endblock %}"/>
+    <meta name="keywords" content="{% block keywords %}freelance, marseille, developpeur, formation, ecommerce{% endblock %}"/>
 
     <meta property='og:locale' content='fr_FR'/>
     <meta property='og:title' content="{{ block('title') }}"/>
     <meta property='og:description' content="{{ block('description') }}"/>
     <meta property='og:url' content='{% block og_url %}http://{{ app.request.host }}{% endblock %}'/>
-    <meta property='og:site_name' content='AnthonyKGross.fr - Developpeur freelance sur Marseille'/>
+    <meta property='og:site_name' content='AnthonyKGross.fr - Développeur freelance sur Marseille'/>
     <meta property='og:type' content='website'/>
-    <meta property="og:image"
-          content="{% block og_image %}http://{{ app.request.host ~  asset("images/fb_image.png") }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}http://{{ app.request.host ~  "/images/fb_image.png" }}{% endblock %}">
     <meta property="fb:app_id" content="1488082224825425"/>
 
     <!-- Twitter -->
@@ -48,14 +49,14 @@
     <![endif]-->
 
     <noscript>
-        <link rel="stylesheet" href="{{ asset('build/css/no-js.css') }}" />
+        <link rel="stylesheet" href="/build/css/no-js.css" />
     </noscript>
 
-    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
+    <link rel="stylesheet" href="/build/css/app.css" />
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     {% block stylesheets %}{% endblock %}
 
 </head>
@@ -64,88 +65,89 @@
     <header id="logo">
         <div class="header-overlay">
             <div class="container">
-                <img id="logo_akg" src="{{ asset('images/theme.png') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
+                <img id="logo_akg" src="/images/theme.png" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
                 <div class="text-rotator">
                     <div>
                         <h1>{{ block('title') }}</h1>
                     </div>
-                </div> <!-- End text-rotator -->
-            </div> <!-- End container -->
+                </div>
+            </div>
 
             <div class="arrow-link">
-                {#<a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos">#}
-                    {#<i class="fa fa-angle-down"></i>#}
-                {#</a>#}
-            </div> <!-- End arrow-link -->
-
-        </div> <!-- End header-overlay -->
-    </header> <!-- End header -->
+                <a href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#apropos">
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
 
 
     <div class="main-wrap stickem-container">
         <section id="navigation" class="stickem">
             <div class="logo">
-                {#<a href="{{ path("anthonykgrossfr_main_homepage") }}#logo">#}
-                    {#<img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>#}
-                {#</a>#}
+                <a href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#logo">
+                    <img src="/images/akg.svg" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
+                </a>
             </div>
 
             <nav class="nav nav-menu">
                 <ul>
                     {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#services">Services</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#apropos">A propos</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#partenaires">Partenaires</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_main_homepage") }}#contact">Contact</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_cv") }}">CV</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_project") }}">Projets</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_event") }}">&Eacute;vènements</a></li>#}
-                    {#<li><a href="{{ path("anthonykgrossfr_blog") }}">Blog</a></li>#}
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#apropos">A propos</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#partenaires">Partenaires</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#contact">Contact</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: 'cv'}) }}">CV</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: 'projets'}) }}">Projets</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: 'evenements'}) }}">&Eacute;vènements</a></li>
+                    <li><a href="{{ path("anthonykgrossfr_main_homepage", {url: 'blog'}) }}">Blog</a></li>
                 </ul>
             </nav>
         </section>
 
-        <div class="sep-padding"></div> <!-- separator -->
+        <div class="sep-padding"></div>
 
         {% block body %}{% endblock %}
         <section id="contact">
             <div class="container">
-
                 <div class="header">
                     <h2>Restez en contact</h2>
-                    <p>J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.</p>
+                    <p>
+                        J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.
+                    </p>
                 </div>
-
-                <p>Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ?
+                <p>
+                    Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ?
                     N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez pas timide !
                     Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre
-                    davantage.</p>
-                {#<form id="contact-form" method="post" action="{{ path("anthonykgrossfr_contactez_moi") }}">#}
-                    {#<div class="row">#}
-                        {#<div class="span6">#}
-                            {#<input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)"/>#}
-                            {#<input type="text" name="email" maxlength="255"#}
-                                   {#placeholder="Votre adresse email (obligatoire)"/>#}
-                            {#<input type="text" name="subject" placeholder="Sujet"/>#}
-                            {#<input type="text" name="captcha" placeholder="Chargement du captcha ..."#}
-                                   {#class="no-margin-bottom"/>#}
-                            {#<input type="hidden" name="captcha_id" value=""/>#}
-                        {#</div>#}
-                        {#<div class="span6">#}
-                            {#<textarea name="message" placeholder="Message (obligatoire)"></textarea>#}
-                            {#<input type="submit" name="submit" value="C'est parti !" class="btn btn-large"/>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</form>#}
+                    davantage.
+                </p>
+                <form id="contact-form" method="post" action="{{ path("anthonykgrossfr_contactez_moi") }}">
+                    <div class="row">
+                        <div class="span6">
+                            <input type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)"/>
+                            <input type="text" name="email" maxlength="255"
+                                   placeholder="Votre adresse email (obligatoire)"/>
+                            <input type="text" name="subject" placeholder="Sujet"/>
+                            <input type="text" name="captcha" placeholder="Chargement du captcha ..."
+                                   class="no-margin-bottom"/>
+                            <input type="hidden" name="captcha_id" value=""/>
+                        </div>
+                        <div class="span6">
+                            <textarea name="message" placeholder="Message (obligatoire)"></textarea>
+                            <input type="submit" name="submit" value="C'est parti !" class="btn btn-large"/>
+                        </div>
+                    </div>
+                </form>
 
-                <div class="data-status"></div> <!-- data submit status -->
+                <div class="data-status"></div>
 
-            </div> <!-- End container -->
-        </section> <!-- End contact -->
+            </div>
+        </section>
         <section class="footer-social">
             <div class="container">
                 <div class="row">
                     <div class="span2">
-                        <img alt="Rejoignez moi" src="{{ asset('images/rejoignezmoi.png') }}"/>
+                        <img alt="Rejoignez moi" src="/images/rejoignezmoi.png"/>
                     </div>
                     <div class="span10">
                         <ul>
@@ -182,8 +184,8 @@
                         </ul>
                     </div>
                 </div>
-            </div> <!-- End container -->
-        </section> <!-- End footer-social -->
+            </div>
+        </section>
 
         <footer class="footer-copyright">
             <div class="container">
@@ -206,20 +208,20 @@
                 <br/>
                 <p>
                     <a id="footer_logo_akg" href="#logo">
-                        <img src="{{ asset('images/akg.svg') }}" title="AKG - Anthony Kkuet GROSS"
+                        <img src="/images/akg.svg" title="AKG - Anthony Kkuet GROSS"
                              alt="AKG - Anthony Kkuet GROSS"/>
                     </a>
                     <br/><br/>
                     &copy; {{ "now"|date('Y') }} AnthonyKGross.fr
-                </p> <!-- copyright text -->
-            </div> <!-- End container -->
-        </footer> <!-- End footer-copyright -->
-    </div> <!-- End stickem-container -->
+                </p>
+            </div>
+        </footer>
+    </div>
     <div class="page-loading"></div>
     <div id="fb-root"></div>
 
     <!-- JavaScript -->
-    <script src="{{ asset('build/js/app.js') }}"></script>
+    <script src="/build/js/app.js"></script>
 
     <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script>
@@ -262,7 +264,7 @@
     <script type="text/javascript">
         $(function () {
             $.ajax({
-                {#url: "{{ path("anthonykgrossfr_captcha") }}",#}
+                url: "{{ path("anthonykgrossfr_captcha") }}",
                 success: function (d) {
                     $('input[name="captcha_id"]').val(d.idx);
                     $('input[name="captcha"]').attr("placeholder", d.question);

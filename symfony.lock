@@ -281,6 +281,9 @@
     "symfony/property-access": {
         "version": "v4.0.6"
     },
+    "symfony/property-info": {
+        "version": "v4.0.6"
+    },
     "symfony/routing": {
         "version": "3.3",
         "recipe": {
@@ -301,6 +304,12 @@
             "version": "3.3",
             "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
         }
+    },
+    "symfony/serializer": {
+        "version": "v4.0.6"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.1"
     },
     "symfony/stopwatch": {
         "version": "v4.0.1"

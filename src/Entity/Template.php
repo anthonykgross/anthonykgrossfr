@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TemplateRepository")
@@ -21,6 +22,7 @@ class Template
      * @var string
      *
      * @ORM\Column(name="file", type="string", length=155)
+     * @Groups({"page"})
      */
     private $file;
 

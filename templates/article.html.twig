@@ -5,7 +5,7 @@
         <section id="blog" class="single-page">
             <div class="header margin-bottom40">
                 <h2>{{ entity.title }}</h2>
-                <p>{{ entity.abstract }}</p>
+                <p>{{ entity.abstract|raw }}</p>
             </div>
             <div class="item">
                 <figure>
@@ -14,7 +14,7 @@
             </div>
             <br/>
             <div class="row">
-                {{ entity.content }}
+                {{ entity.content|raw }}
             </div>
             <br/>
             <div class="meta-desc">
@@ -27,6 +27,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script type="application/ld+json" xmlns="http://www.w3.org/1999/html">
         {
             "@context": "http://schema.org",
@@ -61,5 +62,4 @@
             "description": "{{ block("description") }}"
         }
     </script>
-    {{ entity.extraJS|raw }}
 {% endblock %}

@@ -6,7 +6,7 @@
 
             <div class="header margin-bottom40">
                 <h2>{{ entity.title }}</h2>
-                <p>{{ entity.content }}</p>
+                <p>{{ entity.content|raw }}</p>
             </div>
 
             {% for a in entity.children %}
@@ -17,7 +17,7 @@
                             <a href="/{{ a.url }}">{{ a.title }}</a>
                         </div>
                     </figure>
-                    <p>{{ a.abstract }}</p>
+                    <p>{{ a.abstract|raw }}</p>
                     <div class="meta-desc">
                         <i class="fa fa-calendar"></i> {{ a.updatedAt|date('c') }} <span class="font-slight">|</span>
                         <a href="/{{ a.url }}" class="read-more">Lire</a>

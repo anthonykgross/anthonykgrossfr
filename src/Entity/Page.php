@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PageRepository")
@@ -14,14 +15,23 @@ class Page
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"page"})
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alias", type="string", length=155)
+     * @Groups({"page"})
+     */
+    private $alias;
 
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $title;
 
@@ -29,6 +39,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="thumbnail", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $thumbnail;
 
@@ -36,6 +47,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="abstract", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $abstract;
 
@@ -43,6 +55,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="content", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $content;
 
@@ -50,6 +63,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="url", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $url;
 
@@ -57,6 +71,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="meta_keywords", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $metaKeywords;
 
@@ -64,6 +79,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="meta_title", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $metaTitle;
 
@@ -71,6 +87,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="meta_description", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $metaDescription;
 
@@ -78,6 +95,7 @@ class Page
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
+     * @Groups({"page"})
      */
     private $createdAt;
 
@@ -85,6 +103,7 @@ class Page
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Groups({"page"})
      */
     private $updatedAt;
 
@@ -92,6 +111,7 @@ class Page
      * @var bool
      *
      * @ORM\Column(name="isOnline", type="boolean", options={"default":0})
+     * @Groups({"page"})
      */
     private $isOnline;
 
@@ -99,6 +119,7 @@ class Page
      * @var string
      *
      * @ORM\Column(name="extraCSS", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $extraCSS;
 
@@ -106,23 +127,26 @@ class Page
      * @var string
      *
      * @ORM\Column(name="extraJS", type="text", nullable=true)
+     * @Groups({"page"})
      */
     private $extraJS;
 
     /**
      * @ORM\ManyToOne(targetEntity="Template", inversedBy="pages")
      * @ORM\JoinColumn(name="template_id", referencedColumnName="id")
+     * @Groups({"page"})
      */
     private $template;
 
     /**
      * @ORM\ManyToOne(targetEntity="Page", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true)
+     * @Groups({"page"})
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="Page", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="parent", cascade={"remove"})
      */
     private $children;
 
@@ -469,6 +493,25 @@ class Page
      */
     public function __toString()
     {
-        return $this->title;
+        return $this->alias;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    /**
+     * @param string $alias
+     * @return Page
+     */
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
     }
 }

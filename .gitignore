@@ -10,6 +10,7 @@
 .DS_Store
 public/libs
 /node_modules
+/docker/db
 ###> phpunit/phpunit ###
 /phpunit.xml
 ###< phpunit/phpunit ###
