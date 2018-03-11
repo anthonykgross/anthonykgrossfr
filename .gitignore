@@ -5,12 +5,15 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
 /docker/logs/*.log
 .idea
 .DS_Store
 public/libs
 /node_modules
 /docker/db
+/bin/phpunit
+
 ###> phpunit/phpunit ###
 /phpunit.xml
 ###< phpunit/phpunit ###
@@ -19,3 +22,8 @@ public/libs
 /node_modules/
 public/build/
 ###< symfony/webpack-encore-pack ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###

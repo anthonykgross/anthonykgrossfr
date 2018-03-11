@@ -21,7 +21,11 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.0"
+        "mockery/mockery": "^1.0",
+        "symfony/browser-kit": "^4.0",
+        "symfony/css-selector": "^4.0",
+        "symfony/dotenv": "^4.0",
+        "symfony/phpunit-bridge": "^4.0"
     },
     "config": {
         "preferred-install": {

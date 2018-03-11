@@ -12,7 +12,7 @@ install() {
 }
 
 tests() {
-    gosu docker php vendor/bin/phpunit -c app/
+    gosu docker php bin/phpunit
 }
 
 run() {
