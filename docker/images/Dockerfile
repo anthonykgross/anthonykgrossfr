@@ -11,6 +11,8 @@ ARG DB_USER='DB_USER'
 ARG DB_PASSWORD='DB_PASSWORD'
 ARG DB_HOST='DB_HOST'
 ARG DB_NAME='DB_NAME'
+ARG ADMIN_USER='popeye'
+ARG ADMIN_SHA512_PASSWORD='y0fYairFHWDTFh4FeuufLm3eHIanWx5vJQyh4XeT4ZlwEGoSRuIMKA1CwRdggwG13zxa3zNElhjEBpwpCNcHLg=='
 ENV APPLICATION_ENV $APPLICATION_ENV
 
 RUN apt-get update -y && \
@@ -29,14 +31,16 @@ COPY . /var/www/html
 COPY ./docker/conf/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY ./docker/conf/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
-RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
+RUN if [ "$APPLICATION_ENV" = "dev" ]; then \
         cp -f .env.prod .env && \
         sed -i -e "s,\${{MAILER_USER}},$MAILER_USER,g" .env && \
         sed -i -e "s,\${{MAILER_PASSWORD}},$MAILER_PASSWORD,g" .env && \
         sed -i -e "s,\${{DB_USER}},$DB_USER,g" .env && \
         sed -i -e "s,\${{DB_PASSWORD}},$DB_PASSWORD,g" .env && \
         sed -i -e "s,\${{DB_HOST}},$DB_HOST,g" .env && \
-        sed -i -e "s,\${{DB_NAME}},$DB_NAME,g" .env \
+        sed -i -e "s,\${{DB_NAME}},$DB_NAME,g" .env && \
+        sed -i -e "s,admin:,$ADMIN_USER:,g" config/packages/security.yaml && \
+        sed -i -e "s,nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ==,$ADMIN_SHA512_PASSWORD,g" config/packages/security.yaml \
     ; fi
 
 RUN chmod +x /entrypoint.sh && \

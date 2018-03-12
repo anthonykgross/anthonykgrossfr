@@ -9,7 +9,7 @@
             </div>
             <div class="item">
                 <figure>
-                    <img src="{{ entity.thumbnail }}" alt="Thumbnail" />
+                    <img src="/{{ entity.thumbnail }}" alt="Thumbnail" />
                 </figure>
             </div>
             <br/>
@@ -18,7 +18,7 @@
             </div>
             <br/>
             <div class="meta-desc">
-                <i class="fa fa-calendar"></i> {{ entity.updatedAt|date('c') }} <span class="font-slight"></span>
+                <i class="fa fa-calendar"></i> {{ entity.updatedAt|date('d/m/Y') }} <span class="font-slight"></span>
             </div>
             <br/>
             <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>

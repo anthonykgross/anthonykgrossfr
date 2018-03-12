@@ -23,6 +23,7 @@
     "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
     "magnific-popup": "^1.1.0",
     "prismjs": "1.4.1",
-    "urijs": "https://github.com/medialize/URI.js#v1.18.12"
+    "urijs": "https://github.com/medialize/URI.js#v1.18.12",
+    "ckeditor": "^4.8.0"
   }
 }

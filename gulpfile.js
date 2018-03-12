@@ -36,15 +36,18 @@ var gulp = require('gulp'),
 
 
 gulp.task('build', [], function () {
-    gulp.src([
-        './node_modules/jwplayer/jwplayer.flash.swf'
-    ])
+    gulp.src(['./node_modules/jwplayer/jwplayer.flash.swf'])
     .pipe(gulp.dest('public/build'));
 
+    gulp.src(['./node_modules/ckeditor/**/*'])
+    .pipe(gulp.dest('public/libs/ckeditor'));
+
+    gulp.src(['./assets/js/admin.js'])
+    .pipe(concat('public/build/js/admin.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./'));
+
     return gulp.src(paths.main)
-        .pipe(header('\n/* **********************************************\n' +
-                '     Anthonykgross.fr Begin <%= file.relative %>\n' +
-                '********************************************** */\n\n'))
         .pipe(concat('public/build/js/app.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./'))

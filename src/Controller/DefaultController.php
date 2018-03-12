@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class DefaultController extends Controller
 {
@@ -32,19 +33,27 @@ class DefaultController extends Controller
 
     /**
      * @param null $url
+     * @param AuthorizationCheckerInterface $authorizationChecker
      * @return Response
      */
-    public function index($url = null)
+    public function index($url = null, AuthorizationCheckerInterface $authorizationChecker)
     {
         if (!is_null($url) && strlen($url) == 0) {
             $url = null;
         }
 
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository(Page::class)->findOneBy([
+        $filters = [
             'url' => $url,
             'isOnline' => true
-        ]);
+        ];
+
+        // Show all pages. (Draft mode)
+        if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+            unset($filters['isOnline']);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository(Page::class)->findOneBy($filters);
 
         if (!$page) {
             $response = new Response();
@@ -59,26 +68,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @return RedirectResponse
-     */
-    public function project()
-    {
-        return $this->redirect($this->generateUrl('anthonykgrossfr_project'), 301);
-    }
-
-    /**
-     * @return RedirectResponse
-     */
-    public function event()
-    {
-        return $this->redirect($this->generateUrl('anthonykgrossfr_event'), 301);
-    }
-
-    /**
      * @param Request $request
      * @return JsonResponse
      */
-    public function sendmail(Request $request)
+    public function sendMail(Request $request)
     {
         $e          = array('msg' => array());
         $subject    = $request->get('subject', null);
@@ -123,7 +116,7 @@ class DefaultController extends Controller
 		                $email => $name
                     ))
                     ->setTo('anthony.k.gross@gmail.com')
-                    ->setBody($this->renderView('Default\email.html.twig', array(
+                    ->setBody($this->renderView('Email\owner.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -138,7 +131,7 @@ class DefaultController extends Controller
 		                "anthony.k.gross@gmail.com" => "Anthony K GROSS"
                     ))
                     ->setTo($email)
-                    ->setBody($this->renderView('Default\email-client.html.twig', array(
+                    ->setBody($this->renderView('Email\client.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -160,14 +153,6 @@ class DefaultController extends Controller
         }
         $view       = new JsonResponse($e, 500);
         return $view;
-    }
-
-    /**
-     * @return Response
-     */
-    public function cv()
-    {
-        return $this->render('Default\cv.html.twig');
     }
 
     /**

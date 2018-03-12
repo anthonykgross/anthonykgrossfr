@@ -182,4 +182,61 @@ class DefaultControllerTest extends WebTestCase
         $this->assertSame(404, $this->client->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('h2:contains("Article introuvable")')->count());
     }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function testMetadata()
+    {
+        $page = $this->getFixturePage();
+        $page->setMetaTitle('my meta title')
+                ->setMetaDescription('my meta description')
+                ->setMetaKeywords('keywords, test, developer');
+        $this->em->persist($page->getTemplate());
+        $this->em->persist($page);
+        $this->em->flush();
+
+        $clientA = static::createClient();
+        $crawler = $clientA->request('GET', '/test');
+        $this->assertSame(200, $clientA->getResponse()->getStatusCode());
+        $this->assertSame(1, $crawler->filter('h2:contains("MyTitle")')->count());
+
+        // check metadata
+        // title
+        $title = 'my meta title';
+        $this->assertSame(
+            $title,
+            $crawler->filter('title')->text()
+        );
+        $this->assertSame(
+            $title,
+            $crawler->filter('meta[property="og:title"]')->attr('content')
+        );
+        $this->assertSame(
+            $title,
+            $crawler->filter('meta[name="twitter:title"]')->attr('content')
+        );
+
+        // keywords
+        $this->assertSame(
+            'keywords, test, developer',
+            $crawler->filter('meta[name=keywords]')->attr('content')
+        );
+
+        // description
+        $description = 'my meta description';
+        $this->assertSame(
+            $description,
+            $crawler->filter('meta[name=description]')->attr('content')
+        );
+        $this->assertSame(
+            $description,
+            $crawler->filter('meta[property="og:description"]')->attr('content')
+        );
+        $this->assertSame(
+            $description,
+            $crawler->filter('meta[name="twitter:description"]')->attr('content')
+        );
+    }
 }

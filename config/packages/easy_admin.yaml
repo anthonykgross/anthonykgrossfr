@@ -3,3 +3,12 @@ easy_admin:
         # List the entity class name you want to manage
         - App\Entity\Page
         - App\Entity\Template
+    design:
+        assets:
+            css:
+                - 'libs/ckeditor/theme/css/fonts.css'
+                - 'libs/ckeditor/theme/css/sdk.css'
+            js:
+                - 'build/js/admin.js'
+                - 'libs/ckeditor/ckeditor.js'
+                - 'libs/ckeditor/adapters/jquery.js'

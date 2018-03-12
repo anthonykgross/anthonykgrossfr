@@ -50,6 +50,12 @@
 {% endspaceless %}
 {% endblock %}
 
+{% block draft_mode %}
+    {% if not entity.isOnline %}
+        <div class="draft-mode" title="Page offline">Draft mode</div>
+    {% endif %}
+{% endblock %}
+
 {% block body %}
     {{ entity.content|raw }}
 {% endblock %}

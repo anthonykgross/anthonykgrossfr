@@ -1058,3 +1058,15 @@ figure.figure-hover div .icon-hover.icon-hover-zoom { background:url(img/icon-ho
     #logo .container { top:10%; }
 
 }
+
+.draft-mode {
+    text-align: center;
+    background-color: #BC3F3C;
+    position: fixed;
+    top: -20px;
+    left: 80px;
+    margin: 20px;
+    padding: 20px;
+    color: #EEE;
+    z-index: 9999;
+}
