@@ -42,6 +42,21 @@ gulp.task('build', [], function () {
     gulp.src(['./node_modules/ckeditor/**/*'])
     .pipe(gulp.dest('public/libs/ckeditor'));
 
+    gulp.src(['./node_modules/bootstrap/**/*'])
+        .pipe(gulp.dest('public/libs/bootstrap'));
+
+    gulp.src(['./node_modules/jquery/**/*'])
+        .pipe(gulp.dest('public/libs/jquery'));
+
+    gulp.src(['./node_modules/popper.js/**/*'])
+        .pipe(gulp.dest('public/libs/popper.js'));
+
+    gulp.src(['./node_modules/font-awesome/**/*'])
+        .pipe(gulp.dest('public/libs/font-awesome'));
+
+    gulp.src(['./node_modules/leaflet/**/*'])
+        .pipe(gulp.dest('public/libs/leaflet'));
+
     gulp.src(['./assets/js/admin.js'])
     .pipe(concat('public/build/js/admin.js'))
     .pipe(uglify())
