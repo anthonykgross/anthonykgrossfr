@@ -8,26 +8,27 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.0",
-    "bootstrap": "^4",
-    "ckeditor": "^4.8.0",
-    "font-awesome": "~4.7",
     "gulp": "~3.9.0",
     "gulp-concat": "~2.6.0",
     "gulp-header": "~1.2.2",
     "gulp-rename": "~1.2.2",
+    "gulp-sass": "^3.1.0",
     "gulp-uglify": "~1.2.0",
+    "gulp-uglifycss": "^1.0.9",
     "gulp-util": "~3.0.6",
-    "jQuery-Stickem": "https://github.com/davist11/jQuery-Stickem#v1.4",
-    "jquery": "^3.2.1",
-    "jquery-backstretch": "^2.1.16",
-    "jticker": "https://github.com/stephband/jticker",
-    "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
-    "magnific-popup": "^1.1.0",
-    "prismjs": "1.4.1",
-    "urijs": "https://github.com/medialize/URI.js#v1.18.12"
+    "gulp-watch": "^5.0.0"
   },
   "dependencies": {
+    "bootstrap": "^4",
+    "font-awesome": "~4.7",
+    "codemirror": "^5.35.0",
+    "jquery": "^3.2.1",
+    "jticker": "https://github.com/stephband/jticker",
+    "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
     "leaflet": "^1.3.1",
-    "popper.js": "~1.12.0"
+    "magnific-popup": "^1.1.0",
+    "popper.js": "~1.12.0",
+    "prismjs": "1.4.1",
+    "urijs": "^1.19.1"
   }
 }

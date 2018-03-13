@@ -6,9 +6,15 @@ easy_admin:
     design:
         assets:
             css:
-                - 'libs/ckeditor/theme/css/fonts.css'
-                - 'libs/ckeditor/theme/css/sdk.css'
+                - 'libs/codemirror/lib/codemirror.css'
+                - 'libs/codemirror/theme/material.css'
+                - 'libs/codemirror/addon/display/fullscreen.css'
+                - 'build/css/admin.css'
             js:
                 - 'build/js/admin.js'
-                - 'libs/ckeditor/ckeditor.js'
-                - 'libs/ckeditor/adapters/jquery.js'
+                - 'libs/codemirror/lib/codemirror.js'
+                - 'libs/codemirror/mode/javascript/javascript.js'
+                - 'libs/codemirror/mode/css/css.js'
+                - 'libs/codemirror/mode/xml/xml.js'
+                - 'libs/codemirror/mode/htmlmixed/htmlmixed.js'
+                - 'libs/codemirror/addon/display/fullscreen.js'
