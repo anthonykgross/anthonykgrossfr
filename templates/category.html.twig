@@ -1,29 +1,27 @@
 {% extends 'blank.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <section id="blog" class="blog">
+    <section class="article">
 
-            <div class="header margin-bottom40">
-                <h2>{{ entity.title }}</h2>
-                <p>{{ entity.content|raw }}</p>
-            </div>
+        <div class="header">
+            <h2>{{ entity.title }}</h2>
+            <p>{{ entity.content|raw }}</p>
+        </div>
 
-            {% for a in entity.children %}
-                <div class="item">
-                    <figure>
+        {% for a in entity.children %}
+            <div class="item">
+                <figure>
+                    <a href="/{{ a.url }}">
                         <img src="{{ a.thumbnail }}" alt="Thumbnail" />
-                        <div class="title">
-                            <a href="/{{ a.url }}">{{ a.title }}</a>
-                        </div>
-                    </figure>
-                    <p>{{ a.abstract|raw }}</p>
-                    <div class="meta-desc">
-                        <i class="fa fa-calendar"></i> {{ a.updatedAt|date('d/m/Y') }} <span class="font-slight">|</span>
-                        <a href="/{{ a.url }}" class="read-more">Lire</a>
-                    </div>
+                        <div class="title">{{ a.title }}</div>
+                    </a>
+                </figure>
+                <p>{{ a.abstract|raw }}</p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> {{ a.updatedAt|date('d/m/Y') }} <span class="font-slight">|</span>
+                    <a href="/{{ a.url }}" class="read-more">Lire</a>
                 </div>
-            {% endfor %}
-        </section>
-    </div>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

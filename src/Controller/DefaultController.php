@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Algolia\API;
 use App\Entity\Page;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,6 +30,33 @@ class DefaultController extends Controller
         $url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
 
         return $this->redirect($url, 301);
+    }
+
+    /**
+     * @param Request $request
+     * @param API $api
+     * @return Response
+     * @throws \AlgoliaSearch\AlgoliaException
+     */
+    public function search(Request $request, API $api)
+    {
+        $search = $request->query->get('q');
+        $result = $api->search($search);
+        $noResult = false;
+
+        if ($result['nbHits'] == 0) {
+            $noResult = true;
+            $result = $api->search('');
+        }
+
+        return $this->render(
+            'search.html.twig',
+            [
+                'result' => $result['hits'],
+                'noResult' => $noResult,
+            ]
+        );
+
     }
 
     /**

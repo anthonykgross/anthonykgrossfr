@@ -58,6 +58,7 @@ body {
     border-left: 0.2rem solid #598dbb;
     margin-bottom: 1.56rem;
     padding-left: 1.56rem;
+    text-align: justify;
 
     h2 {
         margin: 0 0 0.31rem;
@@ -290,5 +291,81 @@ footer {
         a {
             color: #FFF !important;
         }
+    }
+}
+
+/*ARTICLE*/
+.article{
+    text-align: justify;
+
+    .item {
+        margin-bottom: 2rem;
+
+        figure {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+
+            .title {
+                background-color: $blue;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: #fff;
+                font-size: 20px;
+                line-height: 26px;
+                padding: 10px 20px;
+            }
+        }
+        .meta-desc {
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 8px 0;
+            font-size: 12px;
+            color: #a9a9a9;
+            line-height: 16px;
+            text-transform: uppercase;
+
+            .font-slight {
+                color: #e0e0e0;
+                padding: 0 5px;
+            }
+
+            .read-more {
+                float: right;
+                margin-top: 1px;
+            }
+
+            i {
+                color: $brown;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+/*CLIPABLE*/
+.cliper {
+    cursor: pointer;
+    margin-left: 25px;
+    color: #DDD;
+    vertical-align: middle;
+    font-size: 25px;
+
+    &:hover {
+        color:inherit;
+    }
+}
+
+/*SEARCH*/
+.search-no-result {
+    text-align: center;
+
+    .separator {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
     }
 }

@@ -57,6 +57,21 @@ gulp.task('build', [], function () {
     gulp.src(['./node_modules/codemirror/**/*'])
         .pipe(gulp.dest('public/libs/codemirror'));
 
+    gulp.src(['./node_modules/clipboard/**/*'])
+        .pipe(gulp.dest('public/libs/clipboard'));
+
+    gulp.src(['./node_modules/urijs/**/*'])
+        .pipe(gulp.dest('public/libs/urijs'));
+
+    gulp.src(['./node_modules/noty/**/*'])
+        .pipe(gulp.dest('public/libs/noty'));
+
+    gulp.src(['./node_modules/algoliasearch/**/*'])
+        .pipe(gulp.dest('public/libs/algoliasearch'));
+
+    gulp.src(['./node_modules/prismjs/**/*'])
+        .pipe(gulp.dest('public/libs/prismjs'));
+
     gulp.src(paths.main)
         .pipe(concat('public/build/js/prism.js'))
         .pipe(uglify())

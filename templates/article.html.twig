@@ -1,17 +1,15 @@
 {% extends 'blank.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <section id="blog" class="single-page">
-            <div class="header margin-bottom40">
-                <h2>{{ entity.title }}</h2>
-                <p>{{ entity.abstract|raw }}</p>
-            </div>
-            <div class="item">
-                <figure>
-                    <img src="/{{ entity.thumbnail }}" alt="Thumbnail" />
-                </figure>
-            </div>
+    <section class="article">
+        <div class="header">
+            <h2>{{ entity.title }}</h2>
+            <p>{{ entity.abstract|raw }}</p>
+        </div>
+        <div class="item">
+            <figure>
+                <img src="/{{ entity.thumbnail }}" alt="Thumbnail" />
+            </figure>
             <br/>
             <div class="row">
                 {{ entity.content|raw }}
@@ -22,8 +20,8 @@
             </div>
             <br/>
             <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
-        </section>
-    </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block javascripts %}

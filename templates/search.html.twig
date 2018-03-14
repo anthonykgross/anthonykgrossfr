@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherchez un sujet qui vous inspire{% endblock %}
+{% block description %}Prenez le temps de faire une petit tour sur mes articles.{% endblock %}
+
+{% block body %}
+    <section class="article">
+
+        <div class="header">
+            <p>
+                <img src="https://www.algolia.com/static_assets/images/press/downloads/search-by-algolia.png">
+            </p>
+        </div>
+
+        {% if noResult %}
+            <div class="col-md-12 search-no-result">
+                <p>
+                    <b>0 R&eacute;sultat ?!</b> Deux solutions : soit ce service est bidon, soit vous en attendez trop de moi.
+                    Du coup, voici quelques articles au pif !
+                </p>
+                <div class="separator"></div>
+            </div>
+        {% endif %}
+
+        {% for r in result %}
+            <div class="item">
+                <figure>
+                    <a href="/{{ r.url }}">
+                        <img src="{{ r.thumbnail }}" alt="Thumbnail" />
+                        <div class="title">{{ r.title }}</div>
+                    </a>
+                </figure>
+                <p>{{ r.abstract|raw }}</p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i>  <span class="font-slight">|</span>
+                    <a href="/{{ r.url }}" class="read-more">Lire</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
