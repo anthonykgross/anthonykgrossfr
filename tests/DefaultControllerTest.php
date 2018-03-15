@@ -87,7 +87,7 @@ class DefaultControllerTest extends WebTestCase
 
         // check metadata
         // title
-        $title = 'AnthonyKGross.fr - La page introuvable';
+        $title = 'La découverte tant attendue de la page introuvable';
         $this->assertSame(
             $title,
             $crawler->filter('title')->text()
@@ -108,7 +108,7 @@ class DefaultControllerTest extends WebTestCase
         );
 
         // description
-        $description = 'Consultez la page introuvable.';
+        $description = 'Il n\'y a surement rien à voir ici.';
         $this->assertSame(
             $description,
             $crawler->filter('meta[name=description]')->attr('content')

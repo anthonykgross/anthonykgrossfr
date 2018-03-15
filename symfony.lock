@@ -1,4 +1,7 @@
 {
+    "algolia/algoliasearch-client-php": {
+        "version": "1.25.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

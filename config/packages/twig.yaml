@@ -2,3 +2,6 @@ twig:
     paths: ['%kernel.project_dir%/templates']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        algolia_app_id: '%algolia.app_id%'
+        algolia_api_key: '%algolia.api_key%'

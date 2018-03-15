@@ -7,6 +7,10 @@ anthonykgrossfr_captcha:
     path:     /captcha
     defaults: { _controller: App\Controller\DefaultController::captcha }
 
+anthonykgrossfr_search:
+    path:     /recherche
+    defaults: { _controller: App\Controller\DefaultController::search }
+
 remove_trailing_slash:
     path: /{url}
     defaults: { _controller: App\Controller\DefaultController::removeTrailingSlash }

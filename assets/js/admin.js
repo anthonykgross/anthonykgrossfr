@@ -1,20 +1,35 @@
 $(document).ready(function(){
-    $('.easyadmin #page_content').ckeditor();
-    $('.easyadmin #page_abstract').ckeditor();
 
-    // CKEDITOR.config.contentsCss = [
-    //     '/build/css/app.css',
-    //     '/build/css/no-js.css'
-    // ];
-    CKEDITOR.config.bodyClass = "contentViewport";
-    CKEDITOR.config.allowedContent = true;
-    // CKEDITOR.config.filebrowserImageBrowseUrl = filebrowserBrowseUrl;
-    // CKEDITOR.config.filebrowserImageUploadUrl = filebrowserUploadUrl;
-    CKEDITOR.config.height = '800px';
+    var extraKeys = {
+        "F11": function(cm) {
+            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+            if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+    };
 
-    // $('.field-tab textarea').ckeditor();
-    //
-    // $(document).on('click', '.field-collection-action', function() {
-    //     $('.field-tab:last textarea').ckeditor();
-    // });
+    var extraJS = document.getElementById('page_extraJS');
+    CodeMirror.fromTextArea(extraJS, {
+        mode:  "javascript",
+        lineNumbers: true,
+        theme: 'material',
+        extraKeys: extraKeys
+    });
+
+    var extraCSS = document.getElementById('page_extraCSS');
+    CodeMirror.fromTextArea(extraCSS, {
+        mode:  "css",
+        lineNumbers: true,
+        theme: 'material',
+        extraKeys: extraKeys
+    });
+
+    var content = document.getElementById('page_content');
+    CodeMirror.fromTextArea(content, {
+        mode:  "htmlmixed",
+        lineNumbers: true,
+        theme: 'material',
+        extraKeys: extraKeys
+    });
 });

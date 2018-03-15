@@ -52,7 +52,7 @@
 
 {% block draft_mode %}
     {% if not entity.isOnline %}
-        <div class="draft-mode" title="Page offline">Draft mode</div>
+        enabled
     {% endif %}
 {% endblock %}
 
@@ -60,7 +60,7 @@
     {{ entity.content|raw }}
 {% endblock %}
 
-{% block stylesheets %}
+{% block extraCSS %}
     {{ entity.extraCSS|raw }}
 {% endblock %}
 

@@ -2,6 +2,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    algolia.app_id: '%env(ALGOLIA_APP_ID)%'
+    algolia.admin_key: '%env(ALGOLIA_ADMIN_KEY)%'
+    algolia.api_key: '%env(ALGOLIA_API_KEY)%'
 
 services:
     # default configuration for services in *this* file
@@ -26,3 +29,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Algolia\EventListener:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        arguments:
+            $env: '%env(APP_ENV)%'
+
+    App\Algolia\API:
+        arguments:
+            $applicationID: '%algolia.app_id%'
+            $adminKey: '%algolia.admin_key%'
+
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        public: false
+        tags: [serializer.normalizer]
