@@ -2,6 +2,7 @@
 namespace App\Algolia;
 
 use AlgoliaSearch\Client;
+use App\Entity\Page;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class API
@@ -31,7 +32,7 @@ class API
      * @param $entity
      * @throws \AlgoliaSearch\AlgoliaException
      */
-    public function push($entity)
+    public function push(Page $entity)
     {
         $index = $this->client->initIndex('pages');
 
@@ -42,6 +43,9 @@ class API
 
         $obj = json_decode($json, true);
         $obj['objectID'] = $entity->getId();
+        $obj['createdAt'] = $entity->getCreatedAt()->format('d/m/Y');
+        $obj['updatedAt'] = $entity->getUpdatedAt()->format('d/m/Y');
+
         unset($obj['content']);
 
         $index->saveObject($obj);

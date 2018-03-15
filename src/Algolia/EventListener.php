@@ -2,6 +2,7 @@
 namespace App\Algolia;
 
 use App\Entity\Page;
+use DateTime;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 

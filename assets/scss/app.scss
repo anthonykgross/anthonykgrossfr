@@ -165,17 +165,12 @@ body {
 
 /*OVERLAY*/
 #overlay {
-    padding: 4rem 0;
     background: #f6f6f6 url($akg-bg-repeat) repeat;
     margin-bottom: 3rem;
     text-align: center;
+    height: 240px;
 
-    img {
-        height: 4.68rem;
-        vertical-align: middle;
-    }
-
-    .text-rotator {
+    .title {
         color: #a9b7c6;
         margin: 0;
         text-transform: uppercase;
@@ -184,6 +179,31 @@ body {
         h1 {
             font-size: 1.87rem;
             line-height: 1.87rem;
+        }
+    }
+    .banner {
+        padding: 4rem 0;
+        img {
+            height: 4.68rem;
+            vertical-align: middle;
+        }
+    }
+
+    .search-result {
+        display: none;
+        padding: 2rem 0;
+
+        .result {
+            .item {
+                img {
+                    width:100%;
+                    border: 1px solid #555;
+                }
+                .title {
+                    height: 48px;
+                    overflow: hidden;
+                }
+            }
         }
     }
 }

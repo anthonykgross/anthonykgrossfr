@@ -1,6 +1,8 @@
 var uri = new URI();
 
 $(document).ready(function () {
+    var resultH1 = $('#overlay .search-result h1');
+
     // LOADER
     $('.page-loading').fadeOut(1000, function () {
         $(this).remove();
@@ -126,9 +128,35 @@ $(document).ready(function () {
 
     $('.navbar form input').on('keyup', function() {
         var val = $(this).val();
+        var searchResult = $('#overlay .search-result');
+        var searchResultChild = searchResult.find('.result');
+        var banner = $('#overlay .banner');
 
+        resultH1.html(resultH1.attr('data-result-label'));
+        searchResult.css('display', 'none');
+        banner.css('display', 'block');
+
+        if (val.length > 0) {
+            searchResult.css('display', 'block');
+            banner.css('display', 'none');
+
+        }
         index.search(val, function(err, content) {
-            console.log(content.hits);
+            searchResultChild.empty();
+            var results = content.hits.slice(0, 4);
+
+            if (results.length === 0) {
+                resultH1.html(resultH1.attr('data-no-result-label'))
+            }
+            else {
+                $.each(results, function (i, d) {
+                    var a = $('<a/>').addClass('item col-md-3').attr('href', '/'+d.url);
+                    var thumb = $('<img/>').attr('src', '/'+d.thumbnail);
+                    var title = $('<div/>').addClass('title').html(d.title);
+                    a.append(thumb).append(title);
+                    searchResultChild.append(a);
+                });
+            }
         });
     })
 

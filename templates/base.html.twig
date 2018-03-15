@@ -93,7 +93,7 @@
                 </ul>
                 <form action="/recherche" method="GET" class="form-inline mt-2 mt-md-0">
                     <input name="q" class="form-control mr-sm-2" type="text" placeholder="je recherche ..." aria-label="Search" autocomplete="off">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">&Agrave; votre service !</button>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Fonce !</button>
                 </form>
             </div>
         </nav>
@@ -101,10 +101,16 @@
 
     <main role="main">
         <div id="overlay" class="container-fluid" data-anchor-id="overlay">
-            <div class="col-md-12">
+            <div class="col-md-12 banner">
                 <img src="/images/theme.png" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS">
-                <div class="text-rotator">
+                <div class="text-rotator title">
                     <h1>{{ block('title') }}</h1>
+                </div>
+            </div>
+            <div class="col-md-12 search-result">
+                <div class="title">
+                    <h1 data-result-label="R&eacute;sultats" data-no-result-label="Pas de r&eacute;sultats :( !"></h1>
+                    <div class="result row"></div>
                 </div>
             </div>
         </div>
