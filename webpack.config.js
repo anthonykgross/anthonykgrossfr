@@ -10,15 +10,10 @@ Encore
 
     // uncomment to define the assets of the project
     .addStyleEntry('css/app', [
-        './assets/css/bootstrap.min.css',
-        './assets/css/bootstrap-responsive.min.css',
         './node_modules/font-awesome/css/font-awesome.min.css',
         './node_modules/magnific-popup/dist/magnific-popup.css',
-        './assets/css/layout.css',
-        './assets/css/colors/grey.css',
         './node_modules/prismjs/themes/prism-okaidia.css'
     ])
-    .addStyleEntry('css/no-js','./assets/css/no-js.css')
 ;
 
 module.exports = Encore.getWebpackConfig();
