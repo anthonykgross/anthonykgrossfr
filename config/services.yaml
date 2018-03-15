@@ -32,6 +32,8 @@ services:
     App\Algolia\EventListener:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+        arguments:
+            $env: '%env(APP_ENV)%'
 
     App\Algolia\API:
         arguments:

@@ -12,11 +12,20 @@ class EventListener implements EventSubscriber
      * @var API
      */
     private $api;
+    /**
+     * @var string
+     */
+    private $env;
 
-
-    public function __construct(API $api)
+    /**
+     * EventListener constructor.
+     * @param API $api
+     * @param $env
+     */
+    public function __construct(API $api, $env)
     {
         $this->api = $api;
+        $this->env = $env;
     }
 
     public function getSubscribedEvents()
@@ -57,8 +66,10 @@ class EventListener implements EventSubscriber
             /**
              * @var Page $entity
              */
-            if ($entity->getTemplate()->getFile() == 'article.html.twig') {
-                $this->api->push($entity);
+            if($this->env !== 'test') {
+                if ($entity->getTemplate()->getFile() == 'article.html.twig') {
+                    $this->api->push($entity);
+                }
             }
         }
 
