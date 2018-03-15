@@ -131,6 +131,7 @@ $(document).ready(function () {
         var searchResult = $('#overlay .search-result');
         var searchResultChild = searchResult.find('.result');
         var banner = $('#overlay .banner');
+        animateAnchor('overlay');
 
         resultH1.html(resultH1.attr('data-result-label'));
         searchResult.css('display', 'none');
