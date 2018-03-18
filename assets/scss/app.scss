@@ -9,7 +9,11 @@ body {
     padding-top: 3.5rem;
     background: #f6f6f6 url($akg-base-content) repeat;
 }
-
+.row {
+    img {
+        width: 100%;
+    }
+}
 #contact .alert.alert-danger{
     margin: 1.25rem 0 0;
     padding: 0.93rem 1.56rem;
@@ -87,9 +91,6 @@ body {
         figure {
             position: relative;
 
-            img {
-                width: 100%;
-            }
             p {
                 position: absolute;
                 top: 0;
@@ -196,7 +197,6 @@ body {
         .result {
             .item {
                 img {
-                    width:100%;
                     border: 1px solid #555;
                 }
                 .title {
@@ -213,7 +213,6 @@ body {
     text-align: justify;
 
     .description img {
-        width: 100%;
         margin-bottom: 2rem;
     }
 
@@ -324,10 +323,6 @@ footer {
         figure {
             position: relative;
             overflow: hidden;
-
-            img {
-                width: 100%;
-            }
 
             .title {
                 background-color: $blue;
