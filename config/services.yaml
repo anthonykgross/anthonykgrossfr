@@ -5,6 +5,7 @@ parameters:
     algolia.app_id: '%env(ALGOLIA_APP_ID)%'
     algolia.admin_key: '%env(ALGOLIA_ADMIN_KEY)%'
     algolia.api_key: '%env(ALGOLIA_API_KEY)%'
+    host.url: '%env(HOST_URL)%'
 
 services:
     # default configuration for services in *this* file
@@ -40,7 +41,14 @@ services:
             $applicationID: '%algolia.app_id%'
             $adminKey: '%algolia.admin_key%'
 
+    debril.rss_atom.provider:
+        class: App\Rss\FeedContentProvider
+
     get_set_method_normalizer:
         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
         public: false
         tags: [serializer.normalizer]
+
+    App\Sitemap\Generator:
+        arguments:
+            $hostUrl: '%host.url%'

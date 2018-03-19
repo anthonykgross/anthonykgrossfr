@@ -15,6 +15,7 @@
         <env name="ALGOLIA_ADMIN_KEY" value="null" />
         <env name="ALGOLIA_API_KEY" value="null" />
         <env name="APP_ENV" value="test" />
+        <env name="HOST_URL" value="http://localhost" />
 
         <!-- ###+ symfony/swiftmailer-bundle ### -->
         <!-- For Gmail as a transport, use: "gmail://username:password@localhost" -->

@@ -1,100 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>http://anthonykgross.fr/</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/cv</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/projets</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/evenements</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/blog</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/twitch-apprendre-en-enseignant</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/multi-streaming-broadcaster-twitch-youtube-dailymotion-hitbox</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/kctus-controle-a-distance-des-videos</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/sharindata-donnees-outils-pour-developpeurs</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/sun-is-up-plugin-jquery-sunisup</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/kosmetik-direkt24</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/streamplayer</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/adass-conference-xxv-2015</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/openedx-conference</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/startup-weekend-aix-marseille-2015</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/jdev-bordeaux-2015</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/hackathon-openedx-ionisx-xhack-2015</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/pydata-paris-2015</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/adass-conference-xxiv-2014</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/creer-plugin-javascript-jwplayer-6</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/ffmpeg-partie-3-commandes-avancees</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/ffmpeg-commandes-base</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/p/ffmpeg-installation-x264</loc>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/data/sunisup/index.html</loc>
-  <lastmod>2016-01-21T10:05:45+00:00</lastmod>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/data/sunisup/bob.html</loc>
-  <lastmod>2016-01-21T10:05:45+00:00</lastmod>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/data/cnrs/POSTER-ADASS-XXV_SPHERE_TDB.pdf</loc>
-  <lastmod>2016-01-21T10:05:45+00:00</lastmod>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/data/cnrs/POSTER-ADASS-XXIV_ETC-42.pdf</loc>
-  <lastmod>2016-01-21T10:05:45+00:00</lastmod>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/data/cnrs/ADASS-XXIV_ETC-42.pdf</loc>
-  <lastmod>2016-01-21T10:05:45+00:00</lastmod>
-</url>
-<url>
-  <loc>http://anthonykgross.fr/bundles/anthonykgrossfrmain/libs/base_jwplayer_plugins.js.txt</loc>
-  <lastmod>2016-04-07T09:51:42+00:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://anthonykgross.fr/blog</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/cv</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/projets</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/evenements</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/adass-conference-xxiv-2014</loc>
+    <lastmod>2014-10-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/adass-conference-xxv-2015</loc>
+    <lastmod>2015-10-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/creer-plugin-javascript-jwplayer-6</loc>
+    <lastmod>2013-04-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/deploiement-continu-docker-gitlab-rancher</loc>
+    <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/ffmpeg-commandes-base</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/ffmpeg-installation-x264</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/ffmpeg-partie-3-commandes-avancees</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/hackathon-openedx-ionisx-xhack-2015</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/jdev-bordeaux-2015</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/kctus-controle-a-distance-des-videos</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/kosmetik-direkt24</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/openedx-conference</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/pydata-paris-2015</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/sharindata-donnees-outils-pour-developpeurs</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/startup-weekend-aix-marseille-2015</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/streamplayer</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/sun-is-up-plugin-jquery-sunisup</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/twitch-apprendre-en-enseignant</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://anthonykgross.fr/p/multi-streaming-broadcaster-twitch-youtube-dailymotion-hitbox</loc>
+    <lastmod>2018-03-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

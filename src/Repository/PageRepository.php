@@ -19,16 +19,23 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
-    /*
-    public function findBySomething($value)
+    /**
+     * @param null $id
+     * @return mixed
+     */
+    public function getArticles($id = null)
     {
-        return $this->createQueryBuilder('p')
-            ->where('p.something = :value')->setParameter('value', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
+        $qb = $this->createQueryBuilder('p')
+            ->where('p.parent IS NOT NULL')
+            ->orderBy('p.createdAt', 'DESC');
+
+        if (!is_null($id)) {
+            $qb->andWhere('p.id = :id')
+                ->setParameter('id', $id);
+        }
+
+        return $qb->getQuery()
             ->getResult()
         ;
     }
-    */
 }

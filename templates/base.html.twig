@@ -33,7 +33,6 @@
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href="https://google.com/+AnthonyKkuetGROSS" rel="author"/>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/build/css/bootstrap.css">
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/libs/leaflet/dist/leaflet.css">
@@ -92,8 +91,15 @@
                     </li>
                 </ul>
                 <form action="/recherche" method="GET" class="form-inline mt-2 mt-md-0">
-                    <input name="q" class="form-control mr-sm-2" type="text" placeholder="je recherche ..." aria-label="Search" autocomplete="off">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Fonce !</button>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                    <input name="q" class="form-control mr-sm-2" type="text" placeholder="" aria-label="Search" autocomplete="off">
+                    </div>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Feu !</button>
                 </form>
             </div>
         </nav>
@@ -200,13 +206,13 @@
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" title="Gitlab" href="https://gitlab.com/u/anthonykgross">
-                                <i class="fa fa-gitlab"></i>
+                            <a target="_blank" title="Docker Hub" href="https://hub.docker.com/u/anthonykgross/">
+                                <i class="fa fa-cubes"></i>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" title="Docker Hub" href="https://hub.docker.com/u/anthonykgross/">
-                                <i class="fa fa-cubes"></i>
+                            <a target="_blank" title="RSS" href="/rss">
+                                <i class="fa fa-rss"></i>
                             </a>
                         </li>
                     </ul>
@@ -257,10 +263,12 @@
     <script type='text/javascript' src="/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script type='text/javascript' src="/libs/clipboard/dist/clipboard.min.js"></script>
     <script type='text/javascript' src="/libs/urijs/src/URI.min.js"></script>
+    <script type='text/javascript' src="/libs/leaflet/dist/leaflet.js"></script>
     <script type='text/javascript' src="/libs/noty/lib/noty.min.js"></script>
     <script type='text/javascript' src="/libs/algoliasearch/dist/algoliasearch.min.js"></script>
     <script type='text/javascript' src="/build/js/prism.js"></script>
-    <script type='text/javascript' src="/build/js/main.js"></script>
+    <script type='text/javascript' src="/build/js/app.js"></script>
+
     <script>
         window.fbAsyncInit = function () {
             FB.init({

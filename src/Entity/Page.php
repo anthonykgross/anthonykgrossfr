@@ -147,6 +147,7 @@ class Page
 
     /**
      * @ORM\OneToMany(targetEntity="Page", mappedBy="parent", cascade={"remove"})
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $children;
 
