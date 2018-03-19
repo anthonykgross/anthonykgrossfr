@@ -324,6 +324,10 @@ footer {
             position: relative;
             overflow: hidden;
 
+            img {
+                width: 100%;
+            }
+
             .title {
                 background-color: $blue;
                 position: absolute;
