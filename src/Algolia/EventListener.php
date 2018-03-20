@@ -3,11 +3,10 @@ namespace App\Algolia;
 
 use App\Entity\Page;
 use App\Sitemap\Generator;
-use DateTime;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
-class EventListener implements EventSubscriber
+class EventListener
 {
     /**
      * @var API
@@ -25,22 +24,14 @@ class EventListener implements EventSubscriber
     /**
      * EventListener constructor.
      * @param API $api
-     * @param $env
      * @param Generator $generator
+     * @param $env
      */
-    public function __construct(API $api, $env, Generator $generator)
+    public function __construct(API $api, Generator $generator, $env)
     {
         $this->api = $api;
         $this->env = $env;
         $this->generator = $generator;
-    }
-
-    public function getSubscribedEvents()
-    {
-        return array(
-            'postPersist',
-            'postUpdate',
-        );
     }
 
     /**

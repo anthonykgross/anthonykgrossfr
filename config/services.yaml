@@ -30,9 +30,14 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Sitemap\Generator:
+        arguments:
+            $hostUrl: '%host.url%'
+
     App\Algolia\EventListener:
         tags:
-            - { name: doctrine.event_subscriber, connection: default }
+            - { name: doctrine.event_listener, event: postPersist, lazy: true }
+            - { name: doctrine.event_listener, event: postUpdate, lazy: true }
         arguments:
             $env: '%env(APP_ENV)%'
 
@@ -48,7 +53,3 @@ services:
         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
         public: false
         tags: [serializer.normalizer]
-
-    App\Sitemap\Generator:
-        arguments:
-            $hostUrl: '%host.url%'

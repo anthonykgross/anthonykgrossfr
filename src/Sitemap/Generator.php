@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: anthony
- * Date: 19/03/18
- * Time: 4:36 PM
- */
-
 namespace App\Sitemap;
-
 
 use App\Entity\Page;
 use Doctrine\ORM\EntityManagerInterface;

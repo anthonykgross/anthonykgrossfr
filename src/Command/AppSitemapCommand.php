@@ -20,10 +20,11 @@ class AppSitemapCommand extends Command
     private $generator;
 
 
-    public function __construct(?string $name = null, Generator $generator)
+    public function __construct(Generator $generator)
     {
-        parent::__construct($name);
         $this->generator = $generator;
+
+        parent::__construct();
     }
 
     protected function configure()
