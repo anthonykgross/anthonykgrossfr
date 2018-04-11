@@ -9,7 +9,6 @@ install() {
     gosu docker gulp
     gosu docker composer install
     gosu docker php bin/console cache:warmup
-    gosu docker php bin/console app:sitemap
 }
 
 tests() {
