@@ -11,6 +11,9 @@ ARG DB_USER='DB_USER'
 ARG DB_PASSWORD='DB_PASSWORD'
 ARG DB_HOST='DB_HOST'
 ARG DB_NAME='DB_NAME'
+ARG ALGOLIA_APP_ID='ALGOLIA_APP_ID'
+ARG ALGOLIA_ADMIN_KEY='ALGOLIA_ADMIN_KEY'
+ARG ALGOLIA_API_KEY='ALGOLIA_API_KEY'
 ARG CLOUDFLARE_KEY='CLOUDFLARE_KEY'
 ARG CLOUDFLARE_ZONE='CLOUDFLARE_ZONE'
 ARG ADMIN_USER='admin'
@@ -41,6 +44,9 @@ RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
         sed -i -e "s,\${{DB_PASSWORD}},$DB_PASSWORD,g" .env && \
         sed -i -e "s,\${{DB_HOST}},$DB_HOST,g" .env && \
         sed -i -e "s,\${{DB_NAME}},$DB_NAME,g" .env && \
+        sed -i -e "s,\${{ALGOLIA_APP_ID}},$ALGOLIA_APP_ID,g" .env && \
+        sed -i -e "s,\${{ALGOLIA_ADMIN_KEY}},$ALGOLIA_ADMIN_KEY,g" .env && \
+        sed -i -e "s,\${{ALGOLIA_API_KEY}},$ALGOLIA_API_KEY,g" .env && \
         sed -i -e "s,\${{CLOUDFLARE_KEY}},$CLOUDFLARE_KEY,g" .env && \
         sed -i -e "s,\${{CLOUDFLARE_ZONE}},$CLOUDFLARE_ZONE,g" .env && \
         sed -i -e "s,admin:,$ADMIN_USER:,g" config/packages/security.yaml && \
