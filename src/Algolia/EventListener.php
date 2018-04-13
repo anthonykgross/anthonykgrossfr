@@ -3,7 +3,6 @@ namespace App\Algolia;
 
 use App\Entity\Page;
 use App\Sitemap\Generator;
-use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
 class EventListener

@@ -6,6 +6,9 @@ parameters:
     algolia.admin_key: '%env(ALGOLIA_ADMIN_KEY)%'
     algolia.api_key: '%env(ALGOLIA_API_KEY)%'
     host.url: '%env(HOST_URL)%'
+    cloudflare.email: 'anthony.k.gross@gmail.com'
+    cloudflare.key: '%env(CLOUDFLARE_KEY)%'
+    cloudflare.zone: '%env(CLOUDFLARE_ZONE)%'
 
 services:
     # default configuration for services in *this* file
@@ -45,6 +48,12 @@ services:
         arguments:
             $applicationID: '%algolia.app_id%'
             $adminKey: '%algolia.admin_key%'
+
+    App\Cache\CloudFlare:
+        arguments:
+            $email: '%cloudflare.email%'
+            $key: '%cloudflare.key%'
+            $zone: '%cloudflare.zone%'
 
     debril.rss_atom.provider:
         class: App\Rss\FeedContentProvider

@@ -11,7 +11,9 @@ ARG DB_USER='DB_USER'
 ARG DB_PASSWORD='DB_PASSWORD'
 ARG DB_HOST='DB_HOST'
 ARG DB_NAME='DB_NAME'
-ARG ADMIN_USER='popeye'
+ARG CLOUDFLARE_KEY='CLOUDFLARE_KEY'
+ARG CLOUDFLARE_ZONE='CLOUDFLARE_ZONE'
+ARG ADMIN_USER='admin'
 ARG ADMIN_SHA512_PASSWORD='y0fYairFHWDTFh4FeuufLm3eHIanWx5vJQyh4XeT4ZlwEGoSRuIMKA1CwRdggwG13zxa3zNElhjEBpwpCNcHLg=='
 ENV APPLICATION_ENV $APPLICATION_ENV
 
@@ -39,8 +41,11 @@ RUN if [ "$APPLICATION_ENV" = "dev" ]; then \
         sed -i -e "s,\${{DB_PASSWORD}},$DB_PASSWORD,g" .env && \
         sed -i -e "s,\${{DB_HOST}},$DB_HOST,g" .env && \
         sed -i -e "s,\${{DB_NAME}},$DB_NAME,g" .env && \
+        sed -i -e "s,\${{CLOUDFLARE_KEY}},$CLOUDFLARE_KEY,g" .env && \
+        sed -i -e "s,\${{CLOUDFLARE_ZONE}},$CLOUDFLARE_ZONE,g" .env && \
         sed -i -e "s,admin:,$ADMIN_USER:,g" config/packages/security.yaml && \
-        sed -i -e "s,nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ==,$ADMIN_SHA512_PASSWORD,g" config/packages/security.yaml \
+        sed -i -e "s,nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ==,$ADMIN_SHA512_PASSWORD,g" config/packages/security.yaml && \
+        echo "Settings done !" \
     ; fi
 
 RUN chmod +x /entrypoint.sh && \

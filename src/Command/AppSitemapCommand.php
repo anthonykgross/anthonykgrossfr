@@ -36,6 +36,8 @@ class AppSitemapCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
         $this->generator->generate();
+        $io->success('Sitemap generated !');
     }
 }

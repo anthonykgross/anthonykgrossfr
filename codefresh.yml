@@ -47,6 +47,8 @@ steps:
             - DB_PASSWORD=${{DB_PASSWORD}}
             - DB_HOST=${{DB_HOST}}
             - DB_NAME=${{DB_NAME}}
+            - CLOUDFLARE_KEY=${{CLOUDFLARE_KEY}}
+            - CLOUDFLARE_ZONE=${{CLOUDFLARE_ZONE}}
         when:
             branch:
                 only: [ master ]
