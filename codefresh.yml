@@ -38,6 +38,7 @@ steps:
         title: Builds my service
         dockerfile: docker/images/Dockerfile
         image_name: anthonykgross/anthonykgrossfr
+        no_cache: true
         tag: ${{CF_BRANCH}}
         build_arguments:
             - APPLICATION_ENV=prod
