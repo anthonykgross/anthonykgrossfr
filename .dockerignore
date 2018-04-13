@@ -1,5 +1,6 @@
 #node_modules
 public/build
 docker/logs
+docker/db
 #vendor
 var

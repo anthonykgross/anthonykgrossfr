@@ -1,50 +1,25 @@
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+anthonykgrossfr_contactez_moi:
+    path:     /contact
+    defaults: { _controller: App\Controller\DefaultController::sendMail }
+
+anthonykgrossfr_captcha:
+    path:     /captcha
+    defaults: { _controller: App\Controller\DefaultController::captcha }
+
+anthonykgrossfr_search:
+    path:     /recherche
+    defaults: { _controller: App\Controller\DefaultController::search }
 
 remove_trailing_slash:
     path: /{url}
-    defaults: { _controller: App\Controller\DefaultController::removeTrailingSlashAction }
+    defaults: { _controller: App\Controller\DefaultController::removeTrailingSlash }
     requirements:
         url: .*/$
     methods: [GET]
 
 anthonykgrossfr_main_homepage:
-    path:     /
-    defaults: { _controller: App\Controller\DefaultController::indexAction }
-
-anthonykgrossfr_contactez_moi:
-    path:     /contact
-    defaults: { _controller: App\Controller\DefaultController::sendmailAction }
-
-anthonykgrossfr_cv:
-    path:     /cv
-    defaults: { _controller: App\Controller\DefaultController::cvAction }
-
-anthonykgrossfr_captcha:
-    path:     /captcha
-    defaults: { _controller: App\Controller\DefaultController::captchaAction }
-
-anthonykgrossfr_blog:
-    path:     /blog
-    defaults: { _controller: App\Controller\PageController::blogAction }
-
-anthonykgrossfr_event:
-    path:     /evenements
-    defaults: { _controller: App\Controller\PageController::eventAction }
-
-anthonykgrossfr_event2:
-    path:     /event
-    defaults: { _controller: App\Controller\DefaultController::eventAction }
-
-anthonykgrossfr_project:
-    path:     /projets
-    defaults: { _controller: App\Controller\PageController::projectAction }
-
-anthonykgrossfr_project2:
-    path:     /project
-    defaults: { _controller: App\Controller\DefaultController::projectAction }
-
-anthonykgrossfr_page_lire:
-    path:     /p/{name}
-    defaults: { _controller: App\Controller\PageController::lireAction }
+    path:     /{url}
+    requirements:
+        url: .*
+    defaults: { _controller: App\Controller\DefaultController::index }

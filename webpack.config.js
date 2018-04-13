@@ -7,18 +7,19 @@ Encore
     .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
+    .enableSassLoader()
 
     // uncomment to define the assets of the project
-    .addStyleEntry('css/app', [
-        './assets/css/bootstrap.min.css',
-        './assets/css/bootstrap-responsive.min.css',
-        './node_modules/font-awesome/css/font-awesome.min.css',
-        './node_modules/magnific-popup/dist/magnific-popup.css',
-        './assets/css/layout.css',
-        './assets/css/colors/grey.css',
-        './node_modules/prismjs/themes/prism-okaidia.css'
-    ])
-    .addStyleEntry('css/no-js','./assets/css/no-js.css')
+    // .addStyleEntry('css/app', [
+    //     './assets/scss/bootstrap.scss',
+    //     './node_modules/font-awesome/css/font-awesome.min.css',
+    //     './node_modules/leaflet/dist/leaflet.css',
+    //     './node_modules/magnific-popup/dist/magnific-popup.css',
+    //     './node_modules/noty/lib/noty.css',
+    //     './node_modules/noty/lib/themes/bootstrap-v4.css',
+    //     './node_modules/prismjs/themes/prism-okaidia.css',
+    //     './assets/scss/app.scss'
+    // ])
 ;
 
 module.exports = Encore.getWebpackConfig();

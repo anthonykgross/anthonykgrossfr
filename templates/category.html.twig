@@ -1,0 +1,27 @@
+{% extends 'blank.html.twig' %}
+
+{% block body %}
+    <section class="article">
+
+        <div class="header">
+            <h2>{{ entity.title }}</h2>
+            <p>{{ entity.content|raw }}</p>
+        </div>
+
+        {% for a in entity.children %}
+            <div class="item">
+                <figure>
+                    <a href="/{{ a.url }}">
+                        <img src="{{ a.thumbnail }}" alt="Thumbnail" />
+                        <div class="title">{{ a.title }}</div>
+                    </a>
+                </figure>
+                <p>{{ a.abstract|raw }}</p>
+                <div class="meta-desc">
+                    <i class="fa fa-calendar"></i> {{ a.createdAt|date('d/m/Y') }} <span class="font-slight">|</span>
+                    <a href="/{{ a.url }}" class="read-more">Lire</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,5 +1,38 @@
 version: '1.0'
 steps:
+    build_the_testing_image:
+        type: build
+        title: Builds my service for testing
+        dockerfile: docker/images/Dockerfile
+        image_name: anthonykgross/anthonykgrossfr
+        tag: ${{CF_BRANCH}}
+
+    unit_test:
+        type: composition
+        title: Run unit tests
+        working_directory: ${{main_clone}}
+        composition:
+            version: '2'
+            services:
+                mysql:
+                    image: mysql:5.7
+                    ports:
+                        - 3306
+                    environment:
+                        MYSQL_DATABASE: $MYSQL_DATABASE
+                        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+
+        composition_candidates:
+            test:
+                image: ${{build_the_testing_image}}
+                links:
+                    - mysql:mysql
+                command: bash -c 'sleep 30 && cp -f .env.test .env && php bin/console doctrine:schema:update --force --env=test && /entrypoint.sh tests'
+
+        composition_variables:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=anthonykgrossfr_test
+
     build_the_image:
         type: build
         title: Builds my service
@@ -10,6 +43,12 @@ steps:
             - APPLICATION_ENV=prod
             - MAILER_USER=${{MAILER_USER}}
             - MAILER_PASSWORD=${{MAILER_PASSWORD}}
+            - DB_USER=${{DB_USER}}
+            - DB_PASSWORD=${{DB_PASSWORD}}
+            - DB_HOST=${{DB_HOST}}
+            - DB_NAME=${{DB_NAME}}
+            - CLOUDFLARE_KEY=${{CLOUDFLARE_KEY}}
+            - CLOUDFLARE_ZONE=${{CLOUDFLARE_ZONE}}
         when:
             branch:
                 only: [ master ]

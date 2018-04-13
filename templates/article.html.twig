@@ -1,0 +1,63 @@
+{% extends 'blank.html.twig' %}
+
+{% block body %}
+    <section class="article">
+        <div class="header">
+            <h2>{{ entity.title }}</h2>
+            <p>{{ entity.abstract|raw }}</p>
+        </div>
+        <div class="item">
+            <figure>
+                <img src="/{{ entity.thumbnail }}" alt="Thumbnail" />
+            </figure>
+            <br/>
+            <div class="row">
+                {{ entity.content|raw }}
+            </div>
+            <br/>
+            <div class="meta-desc">
+                <i class="fa fa-calendar"></i> {{ entity.createdAt|date('d/m/Y') }} <span class="font-slight"></span>
+            </div>
+            <br/>
+            <div class="fb-comments" data-href="{{ block("og_url") }}" data-numposts="5" data-width="100%"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="application/ld+json" xmlns="http://www.w3.org/1999/html">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage":{
+                "@type":"WebPage",
+                "@id":"{{ block("og_url") }}"
+            },
+            "headline": "{{ block("title") }}",
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ block("og_image") }}",
+                "height": 400,
+                "width": 1200
+            },
+            "datePublished": "{{ entity.createdAt|date("c") }}",
+            "dateModified": "{{ entity.updatedAt|date("c") }}",
+            "author": {
+                "@type": "Person",
+                "name": "Anthony GROSS"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "AnthonyKGROSS",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "http://anthonykgross.fr/images/akg-wide.png",
+                    "width": 80,
+                    "height": 60
+                }
+            },
+            "description": "{{ block("description") }}"
+        }
+    </script>
+{% endblock %}

@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Algolia\API;
+use App\Entity\Page;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class DefaultController extends Controller
 {
@@ -19,7 +22,7 @@ class DefaultController extends Controller
         array("trois plus zéro est égale à " => array("3", "trois"))
     );
 
-    public function removeTrailingSlashAction(Request $request)
+    public function removeTrailingSlash(Request $request)
     {
         $pathInfo = $request->getPathInfo();
         $requestUri = $request->getRequestUri();
@@ -30,34 +33,73 @@ class DefaultController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param API $api
+     * @return Response
+     * @throws \AlgoliaSearch\AlgoliaException
+     */
+    public function search(Request $request, API $api)
+    {
+        $search = $request->query->get('q');
+        $result = $api->search($search);
+        $noResult = false;
+
+        if ($result['nbHits'] == 0) {
+            $noResult = true;
+            $result = $api->search('');
+        }
+
+        return $this->render(
+            'search.html.twig',
+            [
+                'result' => $result['hits'],
+                'noResult' => $noResult,
+            ]
+        );
+
+    }
+
+    /**
+     * @param null $url
+     * @param AuthorizationCheckerInterface $authorizationChecker
      * @return Response
      */
-    public function indexAction()
+    public function index($url = null, AuthorizationCheckerInterface $authorizationChecker)
     {
-        return $this->render('Default\index.html.twig');
-    }
+        if (!is_null($url) && strlen($url) == 0) {
+            $url = null;
+        }
 
-    /**
-     * @return RedirectResponse
-     */
-    public function projectAction()
-    {
-        return $this->redirect($this->generateUrl('anthonykgrossfr_project'), 301);
-    }
+        $filters = [
+            'url' => $url,
+            'isOnline' => true
+        ];
 
-    /**
-     * @return RedirectResponse
-     */
-    public function eventAction()
-    {
-        return $this->redirect($this->generateUrl('anthonykgrossfr_event'), 301);
+        // Show all pages. (Draft mode)
+        if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+            unset($filters['isOnline']);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository(Page::class)->findOneBy($filters);
+
+        if (!$page) {
+            $response = new Response();
+            $response->setStatusCode(404);
+            return $this->render('not_found.html.twig', [], $response);
+        }
+
+        return $this->render(
+            $page->getTemplate()->getFile(),
+            ['entity' => $page]
+        );
     }
 
     /**
      * @param Request $request
      * @return JsonResponse
      */
-    public function sendmailAction(Request $request)
+    public function sendMail(Request $request)
     {
         $e          = array('msg' => array());
         $subject    = $request->get('subject', null);
@@ -102,7 +144,7 @@ class DefaultController extends Controller
 		                $email => $name
                     ))
                     ->setTo('anthony.k.gross@gmail.com')
-                    ->setBody($this->renderView('Default\email.html.twig', array(
+                    ->setBody($this->renderView('Email\owner.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -117,7 +159,7 @@ class DefaultController extends Controller
 		                "anthony.k.gross@gmail.com" => "Anthony K GROSS"
                     ))
                     ->setTo($email)
-                    ->setBody($this->renderView('Default\email-client.html.twig', array(
+                    ->setBody($this->renderView('Email\client.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
@@ -142,18 +184,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @return Response
-     */
-    public function cvAction()
-    {
-        return $this->render('Default\cv.html.twig');
-    }
-
-    /**
      * @param Request $request
      * @return JsonResponse
      */
-    public function captchaAction(Request $request)
+    public function captcha(Request $request)
     {
         $response = new JsonResponse();
         if ($request->isXmlHttpRequest()) {
