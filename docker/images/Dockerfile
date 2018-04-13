@@ -33,7 +33,7 @@ COPY . /var/www/html
 COPY ./docker/conf/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY ./docker/conf/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
-RUN if [ "$APPLICATION_ENV" = "dev" ]; then \
+RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
         cp -f .env.prod .env && \
         sed -i -e "s,\${{MAILER_USER}},$MAILER_USER,g" .env && \
         sed -i -e "s,\${{MAILER_PASSWORD}},$MAILER_PASSWORD,g" .env && \
