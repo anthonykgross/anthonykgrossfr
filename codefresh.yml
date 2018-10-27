@@ -39,6 +39,7 @@ steps:
         dockerfile: docker/images/Dockerfile
         image_name: anthonykgross/anthonykgrossfr
         no_cache: true
+        no_cf_cache: true
         tag: ${{CF_BRANCH}}
         build_arguments:
             - APPLICATION_ENV=prod
