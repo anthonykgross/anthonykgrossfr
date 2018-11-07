@@ -10,17 +10,17 @@ Prenez la liberté de corriger mes fautes d'orthographe si vous le désirez. Vot
 
 Create images for Docker
 ```console
-make
+make start
 ```
 
-Install vendor
+Update database schema
 ```console
-make install
+make db-migrate
 ```
 
-Run it !
+Log into your container !
 ```console
-make run
+make debug
 ```
 
 ## Creator
@@ -30,4 +30,4 @@ make run
 - <https://github.com/anthonykgross>
 
 ## Copyright and license
-Code and documentation copyright 2017. Code released under [Apache License 2.0](https://github.com/anthonykgross/anthonykgrossfr/blob/master/LICENSE).
+Code and documentation copyright 2019. Code released under [Apache License 2.0](https://github.com/anthonykgross/anthonykgrossfr/blob/master/LICENSE).

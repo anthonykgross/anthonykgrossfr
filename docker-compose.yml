@@ -18,6 +18,7 @@ services:
     volumes:
       - ./docker/db:/var/lib/mysql
     environment:
+      MYSQL_DATABASE: anthonykgrossfr
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
