@@ -22,7 +22,7 @@ ENV APPLICATION_ENV $APPLICATION_ENV
 
 RUN apt-get update -y && \
 	apt-get upgrade -y && \
-	apt-get install -y supervisor nginx unzip && \
+	apt-get install -y supervisor nginx && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y --purge && \
     rm -Rf /etc/nginx/sites-enabled/default && \
