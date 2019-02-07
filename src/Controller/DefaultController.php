@@ -5,14 +5,13 @@ namespace App\Controller;
 use App\Algolia\API;
 use App\Entity\Page;
 use Swift_Message;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
     private static $questions = array(
         array("trois plus un est égale à "      => array("4", "quatre")),

@@ -27,7 +27,7 @@ steps:
                 image: ${{build_the_testing_image}}
                 links:
                     - mysql:mysql
-                command: bash -c 'sleep 30 && cp -f .env.test .env && php bin/console doctrine:schema:update --force --env=test && /entrypoint.sh tests'
+                command: bash -c 'sleep 30 && cp -f .env.test .env && php bin/console doctrine:schema:update --force && /entrypoint.sh tests'
 
         composition_variables:
             - MYSQL_ROOT_PASSWORD=root
