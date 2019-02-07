@@ -34,7 +34,7 @@ class FeedContentProvider implements FeedContentProviderInterface
      *
      * @return FeedInterface
      */
-    public function getFeedContent(array $options)
+    public function getFeedContent(array $options) : FeedInterface
     {
         $pages = $this->em->getRepository(Page::class)->getArticles($options['id']);
 
