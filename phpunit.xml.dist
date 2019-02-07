@@ -32,6 +32,7 @@
         <!-- Configure your db driver and server_version in config/packages/doctrine.yaml -->
         <env name="DATABASE_URL" value="mysql://root:root@mysql:3306/anthonykgrossfr_test"/>
         <!-- ###- doctrine/doctrine-bundle ### -->
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
     </php>
 
     <testsuites>
