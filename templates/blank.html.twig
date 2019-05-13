@@ -43,7 +43,7 @@
 {% block og_image %}
 {% spaceless %}
     {% if entity.thumbnail %}
-        {{ entity.thumbnail }}
+        /{{ entity.thumbnail }}
     {% else %}
         {{ parent() }}
     {% endif %}
