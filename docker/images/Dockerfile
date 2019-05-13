@@ -1,4 +1,4 @@
-FROM anthonykgross/docker-fullstack-web:php7
+FROM anthonykgross/docker-fullstack-web:ubuntu-php7.2
 
 MAINTAINER Anthony K GROSS
 
