@@ -69,6 +69,7 @@ gulp.task('build', [], function () {
         './node_modules/prismjs/components/prism-nginx.js',
         './node_modules/prismjs/components/prism-java.js',
         './node_modules/prismjs/components/prism-git.js',
+        './node_modules/prismjs/components/prism-ini.js',
         './node_modules/prismjs/plugins/file-highlight/prism-file-highlight.js'
     ])
     .pipe(concat('public/build/js/prism.js'))
