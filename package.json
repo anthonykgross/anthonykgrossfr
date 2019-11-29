@@ -7,14 +7,13 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "gulp": "~3.9.0",
-    "gulp-concat": "~2.6.0",
-    "gulp-header": "~1.2.2",
-    "gulp-rename": "~1.2.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "~1.2.0",
+    "gulp-uglify": "^1.2.0",
     "gulp-uglifycss": "^1.0.9",
-    "gulp-util": "~3.0.6",
+    "gulp-util": "^3.0.6",
     "gulp-watch": "^5.0.0",
     "sass-loader": "^6.0.7"
   },
@@ -23,15 +22,15 @@
     "bootstrap": "^4",
     "clipboard": "^2.0.0",
     "codemirror": "^5.35.0",
-    "font-awesome": "~4.7",
+    "font-awesome": "^4.7",
     "jquery": "^3.2.1",
     "jticker": "https://github.com/stephband/jticker",
     "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
     "leaflet": "^1.3.1",
     "magnific-popup": "^1.1.0",
     "noty": "^3.2.0-beta",
-    "popper.js": "~1.12.0",
-    "prismjs": "1.4.1",
+    "popper.js": "^1.12.0",
+    "prismjs": "^1.4.1",
     "urijs": "^1.19.1"
   }
 }
