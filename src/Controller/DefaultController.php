@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Algolia\API;
 use App\Entity\Page;
-use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 class DefaultController extends AbstractController
 {
@@ -96,9 +98,10 @@ class DefaultController extends AbstractController
 
     /**
      * @param Request $request
+     * @param MailerInterface $mailer
      * @return JsonResponse
      */
-    public function sendMail(Request $request)
+    public function sendMail(Request $request, MailerInterface $mailer)
     {
         $e          = array('msg' => array());
         $subject    = $request->get('subject', null);
@@ -137,35 +140,33 @@ class DefaultController extends AbstractController
         if (count($e['msg'])==0) {
             try {
 
-                $message = (new Swift_Message("[AnthonyKGross.fr] - ".$subject))
-                    ->setFrom('no-reply@anthonykgross.fr')
-		            ->setReplyTo(array(
-		                $email => $name
-                    ))
-                    ->setTo('anthony.k.gross@gmail.com')
-                    ->setBody($this->renderView('Email\owner.html.twig', array(
+                $message = (new Email())
+                    ->subject("[AnthonyKGross.fr] - ".$subject)
+                    ->from('no-reply@anthonykgross.fr')
+		            ->replyTo(new Address($email, $name))
+                    ->to('anthony.k.gross@gmail.com')
+                    ->html($this->renderView('Email\owner.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
                         'message'   => $msg
                     )), 'text/html')
                 ;
-                $this->get('mailer')->send($message);
+                $mailer->send($message);
 
-                $message = (new Swift_Message("[AnthonyKGross.fr] - Prise de contact"))
-                    ->setFrom('no-reply@anthonykgross.fr')
-		            ->setReplyTo(array(
-		                "anthony.k.gross@gmail.com" => "Anthony K GROSS"
-                    ))
-                    ->setTo($email)
-                    ->setBody($this->renderView('Email\client.html.twig', array(
+                $message = (new Email())
+                    ->subject("[AnthonyKGross.fr] - Prise de contact")
+                    ->from('no-reply@anthonykgross.fr')
+		            ->replyTo(new Address("anthony.k.gross@gmail.com", "Anthony K GROSS"))
+                    ->to($email)
+                    ->html($this->renderView('Email\client.html.twig', array(
                         'subject'   => $subject,
                         'email'     => $email,
                         'name'      => $name,
                         'message'   => $msg
                     )), 'text/html')
                 ;
-                $this->get('mailer')->send($message);
+                $mailer->send($message);
                 $e          = array('msg' => array("J'ai bien reçu votre message. Merci beaucoup !"));
                 $view       = new JsonResponse($e, 200);
             } catch (\Exception $e) {

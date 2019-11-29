@@ -91,9 +91,6 @@ $(document).ready(function () {
             data: submitData,
             dataType: "json",
             success: function (data) {
-                document.WAG_TRACKER.setLastname($name.val())
-                    .setEmail($email.val());
-
                 $name.val('').removeAttr('disabled');
                 $email.val('').removeAttr('disabled');
                 $subject.val('').removeAttr('disabled');

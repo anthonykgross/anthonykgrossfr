@@ -25,11 +25,12 @@ class ItemManager
     /**
      * Feed constructor.
      * @param EntityManagerInterface $em
+     * @throws \Exception
      */
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->feed = new Feed();
+        $this->feed = (new Feed())->setLastModified(new \DateTime());
     }
     /**
      * @param Page $page
