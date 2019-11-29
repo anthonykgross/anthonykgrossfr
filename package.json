@@ -7,7 +7,6 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.17.0",
     "gulp": "~3.9.0",
     "gulp-concat": "~2.6.0",
     "gulp-header": "~1.2.2",
