@@ -32,14 +32,6 @@ $(document).ready(function () {
         }
     });
 
-    $.ajax({
-        url: "/captcha",
-        success: function (d) {
-            $('input[name="captcha_id"]').val(d.idx);
-            $('input[name="captcha"]').attr("placeholder", "Captcha : "+d.question);
-        }
-    });
-
     // CLIPABLE
     $('[data-anchor-id].clipable').each(function(i, elm) {
         var elm = $(elm);
@@ -66,61 +58,6 @@ $(document).ready(function () {
     if (uri.hash().length > 0) {
         animateAnchor(uri.hash().substr(1));
     }
-
-    /* Contact us process */
-    $("#contact form").submit(function () {
-        var submitData = $(this).serialize();
-        var $name = $(this).find("input[name='name']");
-        var $email = $(this).find("input[name='email']");
-        var $subject = $(this).find("input[name='subject']");
-        var $message = $(this).find("textarea[name='message']");
-        var $datastatus = $(this).next('.data-status');
-        var $submit = $(this).find("input[name='submit']");
-        var $captcha = $(this).find("input[name='captcha']");
-
-        $name.attr('disabled', 'disabled');
-        $email.attr('disabled', 'disabled');
-        $subject.attr('disabled', 'disabled');
-        $message.attr('disabled', 'disabled');
-        $captcha.attr('disabled', 'disabled');
-        $datastatus.show().html('<div class="alert alert-info"><strong>Loading...</strong></div>');
-
-        $.ajax({ // Send an offer process with AJAX
-            type: "POST",
-            url: $(this).attr("action"),
-            data: submitData,
-            dataType: "json",
-            success: function (data) {
-                $name.val('').removeAttr('disabled');
-                $email.val('').removeAttr('disabled');
-                $subject.val('').removeAttr('disabled');
-                $message.val('').removeAttr('disabled');
-                $captcha.val('').removeAttr('disabled', 'disabled');
-                $submit.removeAttr('disabled');
-                $datastatus.html('<div class="alert alert-info"><ul></ul></div>');
-
-                $.each(data.msg, function (k, v) {
-                    $datastatus.find("ul").append("<li><b>" + v + "</b></li>");
-                });
-            },
-            error: function (d) {
-                $name.removeAttr('disabled');
-                $email.removeAttr('disabled');
-                $subject.removeAttr('disabled');
-                $message.removeAttr('disabled');
-                $submit.removeAttr('disabled');
-                $captcha.removeAttr('disabled');
-                $datastatus.html('<div data-anchor-id="alert-danger" class="alert alert-danger"><ul></ul></div>');
-
-                var data = JSON.parse(d.responseText);
-                $.each(data.msg, function (k, v) {
-                    $datastatus.find("ul").append("<li><b>" + v + "</b></li>");
-                });
-                animateAnchor('alert-danger');
-            }
-        });
-        return false;
-    });
 
     // ALGOLIA
     var client = algoliasearch(algolia_app_id, algolia_api_key);

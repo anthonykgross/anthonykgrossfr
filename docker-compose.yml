@@ -3,12 +3,12 @@ services:
   app:
     build:
       context: .
-      dockerfile: docker/images/Dockerfile
+      dockerfile: docker/Dockerfile
     ports:
       - 80:80
     volumes:
-      - ./docker/conf/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
-      - ./docker/conf/nginx.conf:/etc/nginx/sites-enabled/nginx.conf
+      - ./docker/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
+      - ./docker/nginx.conf:/etc/nginx/sites-enabled/nginx.conf
       - ./docker/logs:/var/www/logs
       - .:/var/www/html
 

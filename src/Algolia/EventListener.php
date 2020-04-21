@@ -1,6 +1,7 @@
 <?php
 namespace App\Algolia;
 
+use AlgoliaSearch\AlgoliaException;
 use App\Entity\Page;
 use App\Sitemap\Generator;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -35,7 +36,7 @@ class EventListener
 
     /**
      * @param LifecycleEventArgs $args
-     * @throws \AlgoliaSearch\AlgoliaException
+     * @throws AlgoliaException
      */
     public function postUpdate(LifecycleEventArgs $args)
     {
@@ -44,7 +45,7 @@ class EventListener
 
     /**
      * @param LifecycleEventArgs $args
-     * @throws \AlgoliaSearch\AlgoliaException
+     * @throws AlgoliaException
      */
     public function postPersist(LifecycleEventArgs $args)
     {
@@ -53,7 +54,7 @@ class EventListener
 
     /**
      * @param LifecycleEventArgs $args
-     * @throws \AlgoliaSearch\AlgoliaException
+     * @throws AlgoliaException
      */
     public function index(LifecycleEventArgs $args)
     {
@@ -63,7 +64,7 @@ class EventListener
             /**
              * @var Page $entity
              */
-            if($this->env !== 'test') {
+            if($this->env === 'prod' && $entity->getIsOnline()) {
                 if ($entity->getTemplate()->getFile() == 'article.html.twig') {
                     $this->api->push($entity);
                     $this->generator->generate();

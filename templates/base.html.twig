@@ -29,7 +29,6 @@
     <meta name="twitter:image" content="{{ block('og_image') }}">
 
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href="https://google.com/+AnthonyKkuetGROSS" rel="author"/>
 
     <link rel="stylesheet" href="/build/css/bootstrap.css">
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
@@ -53,25 +52,13 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
             <a class="navbar-brand" href="/">
-                <img src="/images/akg.svg" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS">
+                <img src="/images/akg.svg" title="AKG - Anthony K GROSS" alt="AKG - Anthony K GROSS">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    {#<li class="nav-item">#}
-                        {#<a class="nav-link" href="{{ path("anthonykgrossfr_main_homepage") }}#services">Services</a>#}
-                    {#</li>#}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#apropos">A propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#partenaires">Partenaires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("anthonykgrossfr_main_homepage", {url: null}) }}#contact">Contact</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path("anthonykgrossfr_main_homepage", {url: 'cv'}) }}">CV</a>
                     </li>
@@ -106,7 +93,7 @@
     <main role="main">
         <div id="overlay" class="container-fluid" data-anchor-id="overlay">
             <div class="col-md-12 banner">
-                <img src="/images/theme.png" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS">
+                <img src="/images/theme.png" title="AKG - Anthony K GROSS" alt="AKG - Anthony K GROSS">
                 <div class="text-rotator title">
                     <h1>{{ block('title') }}</h1>
                 </div>
@@ -123,56 +110,6 @@
         <div class="container">
             {% block body %}{% endblock %}
         </div>
-
-        <section id="contact" class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="separator"></div>
-                    <div class="header">
-                        <h2 class="clipable" data-anchor-id="contact">Restez en contact</h2>
-                        <p>
-                            J'accepte régulièrement de nouveaux clients. C'est avec plaisir que je vous servirais.
-                        </p>
-                    </div>
-                    <p>
-                        Vous avez un projet à estimer, une demande de devis ou vous souhaitez être formé sur un domaine précis ?
-                        N'hésitez pas à me contacter et je vous répondrais avec plaisir dès que possible. Ne soyez pas timide !
-                        Vous pouvez me rejoindre ci-après sur la plupart des réseaux sociaux si vous souhaitez me connaitre
-                        davantage.
-                    </p>
-                </div>
-            </div>
-            <form method="post" action="{{ path("anthonykgrossfr_contactez_moi") }}">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="name" maxlength="80" placeholder="Nom & Prénom (obligatoire)"/>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="email" maxlength="255"
-                               placeholder="Votre adresse email (obligatoire)"/>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="subject" placeholder="Sujet"/>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="captcha" placeholder="Chargement du captcha ..."
-                               class="no-margin-bottom"/>
-                            <input type="hidden" name="captcha_id" value=""/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Message (obligatoire)"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" value="C'est parti !" class="btn btn-block btn-primary"/>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <div class="data-status"></div>
-        </section>
 
         <section id="social" class="container-fluid">
             <div class="row">
@@ -218,26 +155,9 @@
 
         <!-- FOOTER -->
         <footer class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span>Anthony GROSS</span><br/>
-                    <span>
-                        <span>40 rue P.LUCCIONI</span><br/>
-                        <span>Résidence Le clos des peintres</span><br/>
-                        <span>13010</span> <span>Marseille</span><br/>
-                    </span>
-                </div>
-                <div class="col-md-4" style="text-align: center;">
-                    Email : <span>Anthony.k.gross@gmail.com</span><br/>
-                </div>
-                <div class="col-md-4" style="text-align: right;">
-                    Siret: 530 132 729 00027
-                </div>
-            </div>
-            <br/>
             <p>
                 <a href="#overlay">
-                    <img src="/images/akg.svg" title="AKG - Anthony Kkuet GROSS" alt="AKG - Anthony Kkuet GROSS"/>
+                    <img src="/images/akg.svg" title="AKG - Anthony K GROSS" alt="AKG - Anthony K GROSS"/>
                 </a>
                 <br/><br/>
                 &copy; {{ "now"|date('Y') }} AnthonyKGross.fr

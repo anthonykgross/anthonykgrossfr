@@ -1,53 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-{% spaceless %}
+{% apply spaceless %}
     {% if entity.metaTitle %}
         {{ entity.metaTitle }}
     {% else %}
         {{ parent() }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
 
 {% block description %}
-{% spaceless %}
+{% apply spaceless %}
     {% if entity.metaDescription %}
         {{ entity.metaDescription }}
     {% else %}
         {{ parent() }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
 
 {% block keywords %}
-{% spaceless %}
+{% apply spaceless %}
     {% if entity.metaKeywords %}
         {{ entity.metaKeywords }}
     {% else %}
         {{ parent() }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
 
 {% block og_url %}
-{% spaceless %}
+{% apply spaceless %}
     {% if entity.url %}
         http://{{ app.request.host ~'/'~ entity.url }}
     {% else %}
         {{ parent() }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
 
 {% block og_image %}
-{% spaceless %}
+{% apply spaceless %}
     {% if entity.thumbnail %}
         /{{ entity.thumbnail }}
     {% else %}
         {{ parent() }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock %}
 
 {% block draft_mode %}

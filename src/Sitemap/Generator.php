@@ -37,9 +37,11 @@ class Generator
 
         $pages = $this->em->getRepository(Page::class)->findAll();
 
+        /**
+         * @var $page Page
+         */
         foreach ($pages as $page) {
-
-            if(is_null($page->getParent())){
+            if($page->getParents()->count() == 0){
                 if ($page->getUrl() == 'cv') {
                     $sitemap->add(
                         $this->hostUrl . '/' . $page->getUrl(),

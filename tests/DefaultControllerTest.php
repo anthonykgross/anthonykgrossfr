@@ -5,7 +5,9 @@ namespace App\Tests;
 use App\Entity\Page;
 use App\Entity\Template;
 use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Client;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
@@ -16,13 +18,13 @@ class DefaultControllerTest extends WebTestCase
     private $em;
 
     /**
-     * @var Client
+     * @var KernelBrowser
      */
     private $client;
 
     /**
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function setUp()
     {
@@ -70,8 +72,8 @@ class DefaultControllerTest extends WebTestCase
     }
 
     /**
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function testOnline()
     {
@@ -80,7 +82,7 @@ class DefaultControllerTest extends WebTestCase
         $this->em->persist($page);
         $this->em->flush();
 
-        $clientA = static::createClient();
+        $clientA = $this->client;
         $crawler = $clientA->request('GET', '/');
         $this->assertSame(404, $clientA->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('h2:contains("Article introuvable")')->count());
@@ -122,7 +124,7 @@ class DefaultControllerTest extends WebTestCase
             $crawler->filter('meta[name="twitter:description"]')->attr('content')
         );
 
-        $clientB = static::createClient();
+        $clientB = $this->client;
         $crawler = $clientB->request('GET', '/test');
         $this->assertSame(200, $clientB->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('h2:contains("MyTitle")')->count());
@@ -166,8 +168,8 @@ class DefaultControllerTest extends WebTestCase
     }
 
     /**
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function testNotOnline()
     {
@@ -184,8 +186,8 @@ class DefaultControllerTest extends WebTestCase
     }
 
     /**
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function testMetadata()
     {
@@ -197,7 +199,7 @@ class DefaultControllerTest extends WebTestCase
         $this->em->persist($page);
         $this->em->flush();
 
-        $clientA = static::createClient();
+        $clientA = $this->client;
         $crawler = $clientA->request('GET', '/test');
         $this->assertSame(200, $clientA->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('h2:contains("MyTitle")')->count());

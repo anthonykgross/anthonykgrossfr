@@ -1,6 +1,7 @@
 <?php
 namespace App\Algolia;
 
+use AlgoliaSearch\AlgoliaException;
 use AlgoliaSearch\Client;
 use App\Entity\Page;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -30,7 +31,7 @@ class API
 
     /**
      * @param $entity
-     * @throws \AlgoliaSearch\AlgoliaException
+     * @throws AlgoliaException
      */
     public function push(Page $entity)
     {
@@ -54,7 +55,7 @@ class API
     /**
      * @param $string
      * @return mixed
-     * @throws \AlgoliaSearch\AlgoliaException
+     * @throws AlgoliaException
      */
     public function search($string)
     {

@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Page;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Page|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class PageRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Page::class);
     }
@@ -26,7 +26,6 @@ class PageRepository extends ServiceEntityRepository
     public function getArticles($id = null)
     {
         $qb = $this->createQueryBuilder('p')
-            ->where('p.parent IS NOT NULL')
             ->orderBy('p.createdAt', 'DESC');
 
         if (!is_null($id)) {

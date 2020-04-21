@@ -49,12 +49,6 @@ services:
             $applicationID: '%algolia.app_id%'
             $adminKey: '%algolia.admin_key%'
 
-    App\Cache\CloudFlare:
-        arguments:
-            $email: '%cloudflare.email%'
-            $key: '%cloudflare.key%'
-            $zone: '%cloudflare.zone%'
-
     debril.rss_atom.provider:
         class: App\Rss\FeedContentProvider
 

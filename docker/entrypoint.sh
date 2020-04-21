@@ -1,26 +1,26 @@
 #!/bin/bash
 set -e
 
-source ~/.bash_profile
-
 install() {
-    gosu docker yarn
-    gosu docker gulp
-    gosu docker composer install
-    gosu docker php bin/console cache:warmup
-    gosu docker php bin/console app:cloudflare:clear-cache
+  permission
+  gosu docker yarn
+  gosu docker gulp
+  gosu docker composer install
+  gosu docker php bin/console cache:warmup
 }
 
 tests() {
-    gosu docker php bin/phpunit
+  install
+  gosu docker php bin/phpunit
 }
 
 run() {
-    supervisord
+  permission
+  supervisord
 }
 
 permission() {
-    chown -Rf docker:docker .
+  find . \! -user docker -exec chown docker '{}' +
 }
 
 case "$1" in

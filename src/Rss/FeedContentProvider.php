@@ -39,9 +39,13 @@ class FeedContentProvider implements FeedProviderInterface
     {
         $pages = $this->em->getRepository(Page::class)->getArticles($request->query->get('id', null));
 
-        // fetch feed from data repository
+        /**
+         * @var $page Page
+         */
         foreach ($pages as $page) {
-            $this->itemManager->addPage($page);
+            if ($page->getIsOnline()) {
+                $this->itemManager->addPage($page);
+            }
         }
 
         return $this->itemManager->getFeed();

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -139,17 +140,14 @@ class Page
     private $template;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Page", inversedBy="children")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true)
-     * @Groups({"page"})
-     */
-    private $parent;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Page", mappedBy="parent", cascade={"remove"})
-     * @ORM\OrderBy({"createdAt" = "DESC"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Page", inversedBy="parents")
      */
     private $children;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Page", mappedBy="children")
+     */
+    private $parents;
 
     /**
      * Page constructor.
@@ -159,6 +157,7 @@ class Page
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
         $this->children = new ArrayCollection();
+        $this->parents = new ArrayCollection();
     }
 
     /**
@@ -454,42 +453,6 @@ class Page
     }
 
     /**
-     * @return mixed
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @param mixed $parent
-     * @return Page
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
-     * @param mixed $children
-     * @return Page
-     */
-    public function setChildren($children)
-    {
-        $this->children = $children;
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function __toString()
@@ -512,6 +475,60 @@ class Page
     public function setAlias($alias)
     {
         $this->alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    public function addChild(self $child): self
+    {
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+        }
+
+        return $this;
+    }
+
+    public function removeChild(self $child): self
+    {
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getParents(): Collection
+    {
+        return $this->parents;
+    }
+
+    public function addParent(self $parent): self
+    {
+        if (!$this->parents->contains($parent)) {
+            $this->parents[] = $parent;
+            $parent->addChild($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParent(self $parent): self
+    {
+        if ($this->parents->contains($parent)) {
+            $this->parents->removeElement($parent);
+            $parent->removeChild($this);
+        }
 
         return $this;
     }

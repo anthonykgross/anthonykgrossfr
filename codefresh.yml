@@ -1,46 +1,66 @@
 version: '1.0'
+
+stages:
+- clone
+- prepare
+- test
+- build
+- deploy
+
 steps:
-    build_the_testing_image:
-        type: build
-        title: Builds my service for testing
-        dockerfile: docker/images/Dockerfile
-        image_name: anthonykgross/anthonykgrossfr
-        tag: ${{CF_BRANCH}}
+    cloning:
+        title: Cloning main repository...
+        type: git-clone
+        repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+        revision: '${{CF_REVISION}}'
+        stage: 'clone'
 
-    unit_test:
-        type: composition
-        title: Run unit tests
-        working_directory: ${{main_clone}}
-        composition:
-            version: '2'
-            services:
-                mysql:
-                    image: mysql:5.7
-                    ports:
-                        - 3306
-                    environment:
-                        MYSQL_DATABASE: $MYSQL_DATABASE
-                        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+#    prepare:
+#        stage: 'prepare'
+#        type: build
+#        title: Builds my service for testing
+#        working_directory: ${{CF_REPO_NAME}}
+#        dockerfile: docker/Dockerfile
+#        image_name: anthonykgross/anthonykgrossfr
+#        tag: ${{CF_BRANCH}}
+#
+#    tests:
+#        stage: 'test'
+#        type: composition
+#        title: Run unit tests
+#        working_directory: ${{CF_REPO_NAME}}
+#        composition:
+#            version: '2'
+#            services:
+#                mysql:
+#                    image: mysql:5.7
+#                    ports:
+#                        - 3306
+#                    environment:
+#                        MYSQL_DATABASE: $MYSQL_DATABASE
+#                        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+#
+#        composition_candidates:
+#            test:
+#                image: ${{prepare}}
+#                links:
+#                    - mysql:mysql
+#                command: bash -c 'sleep 30 && cp -f .env.test .env && php bin/console doctrine:schema:update --force && entrypoint.sh tests'
+#
+#        composition_variables:
+#            - MYSQL_ROOT_PASSWORD=root
+#            - MYSQL_DATABASE=anthonykgrossfr_test
 
-        composition_candidates:
-            test:
-                image: ${{build_the_testing_image}}
-                links:
-                    - mysql:mysql
-                command: bash -c 'sleep 30 && cp -f .env.test .env && php bin/console doctrine:schema:update --force && /entrypoint.sh tests'
-
-        composition_variables:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=anthonykgrossfr_test
-
-    build_the_image:
+    build:
+        stage: 'build'
         type: build
         title: Builds my service
-        dockerfile: docker/images/Dockerfile
+        working_directory: ${{CF_REPO_NAME}}
+        dockerfile: docker/Dockerfile
         image_name: anthonykgross/anthonykgrossfr
+        tag: ${{CF_BRANCH}}
         no_cache: true
         no_cf_cache: true
-        tag: ${{CF_BRANCH}}
         build_arguments:
             - APPLICATION_ENV=prod
             - MAILER_USER=${{MAILER_USER}}
@@ -49,8 +69,6 @@ steps:
             - DB_PASSWORD=${{DB_PASSWORD}}
             - DB_HOST=${{DB_HOST}}
             - DB_NAME=${{DB_NAME}}
-            - CLOUDFLARE_KEY=${{CLOUDFLARE_KEY}}
-            - CLOUDFLARE_ZONE=${{CLOUDFLARE_ZONE}}
             - ALGOLIA_APP_ID=${{ALGOLIA_APP_ID}}
             - ALGOLIA_ADMIN_KEY=${{ALGOLIA_ADMIN_KEY}}
             - ALGOLIA_API_KEY=${{ALGOLIA_API_KEY}}
@@ -61,6 +79,7 @@ steps:
                 only: [ master ]
 
     deploy:
+        stage: 'deploy'
         title: Deployment
         image: cdrx/rancher-gitlab-deploy
         commands:
