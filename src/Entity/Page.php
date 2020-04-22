@@ -141,11 +141,13 @@ class Page
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Page", inversedBy="parents")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $children;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Page", mappedBy="children")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $parents;
 
