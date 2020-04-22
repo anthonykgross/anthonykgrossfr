@@ -9,7 +9,7 @@
         </div>
 
         {% for a in entity.children %}
-            {% if entity.isOnline %}
+            {% if a.isOnline %}
                 <div class="item">
                     <figure>
                         <a href="/{{ a.url }}">
