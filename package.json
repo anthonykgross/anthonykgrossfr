@@ -23,7 +23,7 @@
     "clipboard": "^2.0.0",
     "codemirror": "^5.35.0",
     "font-awesome": "^4.7",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "jticker": "https://github.com/stephband/jticker",
     "jwplayer": "https://github.com/sathyapulse/jwplayer#6.10",
     "leaflet": "^1.3.1",
