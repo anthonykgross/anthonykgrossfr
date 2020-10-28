@@ -26,6 +26,9 @@ jobs:
         command: 'ansible-vault decrypt ENV'
 
     - name: Set the value
+      run: id
+
+    - name: Set the value
       run: ls -al
 
     - name: Set the value
