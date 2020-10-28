@@ -14,22 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-#    - name: Login to DockerHub
-#      uses: docker/login-action@v1
-#      with:
-#        username: ${{ secrets.DOCKERHUB_USERNAME }}
-#        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - uses: anthonykgross/ansible-vault-cli-github-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
       with:
-        vault_key: ${{ secrets.vault_key }}
-        command: 'ansible-vault decrypt ENV && chown 1001:116 ENV && chmod +r ENV'
-
-    - name: Set the value
-      run: cat ENV >> $GITHUB_ENV
-
-    - name: Set the value
-      run: printenv
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and push
       uses: docker/build-push-action@v2
@@ -40,14 +29,9 @@ jobs:
         tags: anthonykgross/anthonykgrossfr:latest
         build-args: |
           APPLICATION_ENV=prod
-          MAILER_USER=${{ env.MAILER_USER }}
-          MAILER_PASSWORD=${{ env.MAILER_PASSWORD }}
-          DB_USER=${{ env.DB_USER }}
-          DB_PASSWORD=${{ env.DB_PASSWORD }}
-          DB_HOST=${{ env.DB_HOST }}
-          DB_NAME=${{ env.DB_NAME }}
-          ALGOLIA_APP_ID=${{ env.ALGOLIA_APP_ID }}
-          ALGOLIA_ADMIN_KEY=${{ env.ALGOLIA_ADMIN_KEY }}
-          ALGOLIA_API_KEY=${{ env.ALGOLIA_API_KEY }}
-          ADMIN_USER=${{ env.ADMIN_USER }}
-          ADMIN_SHA512_PASSWORD=${{ env.ADMIN_SHA512_PASSWORD }}
+          VAULT_KEY=${{ secrets.vault_key }}
+
+    - uses: addnab/docker-run-action@v1
+      with:
+        image: cdrx/rancher-gitlab-deploy
+        run: upgrade --environment ${{ secrets.RANCHER_ENV }} --stack ${{ secrets.RANCHER_STACK }} --service ${{ secrets.RANCHER_SERVICE }} --no-start-before-stopping --no-wait-for-upgrade-to-finish

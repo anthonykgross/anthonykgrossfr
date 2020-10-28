@@ -16,6 +16,7 @@ help:
 
 build:          ## Build the Docker image
 build:
+	touch docker/.vault_key
 	$(FIG) build
 
 install:        ## Install vendors

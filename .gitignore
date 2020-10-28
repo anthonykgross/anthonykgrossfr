@@ -26,3 +26,5 @@ public/build/
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+docker/.vault_key
