@@ -21,9 +21,9 @@ jobs:
 #        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - uses: anthonykgross/ansible-vault-cli-github-action@v1
-        with:
-          vault_key: ${{ secrets.vault_key }}
-          command: 'ansible-vault decrypt ENV && cat ENV'
+      with:
+        vault_key: ${{ secrets.vault_key }}
+        command: 'ansible-vault decrypt ENV && cat ENV'
 
     - name: Set the value
       run: printenv
