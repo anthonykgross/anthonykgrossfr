@@ -23,11 +23,7 @@ jobs:
     - uses: anthonykgross/ansible-vault-cli-github-action@v1
       with:
         vault_key: ${{ secrets.vault_key }}
-        command: 'ansible-vault decrypt ENV'
-
-    - name: Permission
-      run: chmod +r ENV
-
+        command: 'ansible-vault decrypt ENV && chown 1001:116 ENV && chmod +r ENV'
     - name: Set the value
       run: ls -al
 
