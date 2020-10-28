@@ -23,7 +23,10 @@ jobs:
     - uses: anthonykgross/ansible-vault-cli-github-action@v1
       with:
         vault_key: ${{ secrets.vault_key }}
-        command: 'ansible-vault decrypt ENV && cat ENV'
+        command: 'ansible-vault decrypt ENV'
+
+    - name: Set the value
+      run: cat ENV
 
     - name: Set the value
       run: printenv
