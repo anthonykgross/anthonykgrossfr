@@ -32,9 +32,9 @@ jobs:
     - uses: addnab/docker-run-action@v1
       with:
         image: cdrx/rancher-gitlab-deploy
-        run: upgrade |
-          --rancher-url ${{ secrets.RANCHER_URL }} |
-          --environment ${{ secrets.RANCHER_ENV }} |
-          --stack ${{ secrets.RANCHER_STACK }} |
-          --service ${{ secrets.RANCHER_SERVICE }} |
+        run: upgrade
+          --rancher-url ${{ secrets.RANCHER_URL }}
+          --environment ${{ secrets.RANCHER_ENV }}
+          --stack ${{ secrets.RANCHER_STACK }}
+          --service ${{ secrets.RANCHER_SERVICE }}
           --no-start-before-stopping --no-wait-for-upgrade-to-finish
