@@ -34,6 +34,7 @@ jobs:
         image: cdrx/rancher-gitlab-deploy
         run: upgrade
           --rancher-url ${{ secrets.RANCHER_URL }}
+          --rancher-key ${{ secrets.RANCHER_ACCESS_KEY }}
           --environment ${{ secrets.RANCHER_ENV }}
           --stack ${{ secrets.RANCHER_STACK }}
           --service ${{ secrets.RANCHER_SERVICE }}
