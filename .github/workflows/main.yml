@@ -2,13 +2,10 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ test ]
-  pull_request:
-    branches: [ test ]
+    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -44,4 +41,5 @@ jobs:
           --environment ${{ secrets.RANCHER_ENV }}
           --stack ${{ secrets.RANCHER_STACK }}
           --service ${{ secrets.RANCHER_SERVICE }}
-          --no-start-before-stopping --no-wait-for-upgrade-to-finish
+          --no-start-before-stopping
+          --no-wait-for-upgrade-to-finish
