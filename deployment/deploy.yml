@@ -80,7 +80,3 @@
         path: "{{security_file}}"
         regexp: 'nhDr7OyKlXQju\+Ge\/WKGrPQ9lPBSUFfpK\+B1xqx\/\+8zLZqRNX0\+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ=='
         replace: '{{ADMIN_SHA512_PASSWORD}}'
-
-    - name: Basic usage
-      debug:
-        msg: "'{{ lookup('env', 'ANSIBLE_VAULT_PASSWORD_FILE') }}' is the HOME environment variable."
