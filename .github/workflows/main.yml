@@ -22,6 +22,7 @@ jobs:
         repository: anthonykgross/anthonykgrossfr:latest
         context: .
         file: docker/Dockerfile
+        push: true
         build-args: |
           APPLICATION_ENV=prod
           VAULT_KEY=${{ secrets.vault_key }}
