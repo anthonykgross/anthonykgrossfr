@@ -1,0 +1,45 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        tags: anthonykgross/anthonykgrossfr:latest
+        context: .
+        file: docker/Dockerfile
+        push: true
+        build-args: |
+          APPLICATION_ENV=prod
+          VAULT_KEY=${{ secrets.vault_key }}
+
+    - uses: addnab/docker-run-action@v1
+      with:
+        image: cdrx/rancher-gitlab-deploy
+        run: upgrade
+          --rancher-url ${{ secrets.RANCHER_URL }}
+          --rancher-key ${{ secrets.RANCHER_ACCESS_KEY }}
+          --rancher-secret ${{ secrets.RANCHER_SECRET_KEY }}
+          --environment ${{ secrets.RANCHER_ENV }}
+          --stack ${{ secrets.RANCHER_STACK }}
+          --service ${{ secrets.RANCHER_SERVICE }}
+          --no-start-before-stopping
+          --no-wait-for-upgrade-to-finish

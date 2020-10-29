@@ -58,6 +58,13 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 	apt-get install -y nodejs && \
 	npm install -g uglify-js gulp yarn
 
+# Install Ansible
+ENV ANSIBLE_VAULT_PASSWORD_FILE '/.vault_key'
+ARG VAULT_KEY='VAULT_KEY'
+RUN echo $VAULT_KEY > $ANSIBLE_VAULT_PASSWORD_FILE && \
+    apt-get install -y python3-pip && \
+	pip3 install ansible ansible-vault
+
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
@@ -76,39 +83,11 @@ COPY . /var/www/html
 COPY ./docker/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY ./docker/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
-ARG MAILER_USER='MAILER_USER'
-ARG MAILER_PASSWORD='MAILER_PASSWORD'
-
-ARG DB_USER='DB_USER'
-ARG DB_PASSWORD='DB_PASSWORD'
-ARG DB_HOST='DB_HOST'
-ARG DB_NAME='DB_NAME'
-
-ARG ALGOLIA_APP_ID='ALGOLIA_APP_ID'
-ARG ALGOLIA_ADMIN_KEY='ALGOLIA_ADMIN_KEY'
-ARG ALGOLIA_API_KEY='ALGOLIA_API_KEY'
-
-ARG ADMIN_USER='admin'
-ARG ADMIN_SHA512_PASSWORD='nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ=='
-
 ARG APPLICATION_ENV='dev'
 ENV APPLICATION_ENV $APPLICATION_ENV
 RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
-        cp -f .env.prod .env && \
-        sed -i -e "s,\${{MAILER_USER}},$MAILER_USER,g" .env && \
-        sed -i -e "s,\${{MAILER_PASSWORD}},$MAILER_PASSWORD,g" .env && \
-        \
-        sed -i -e "s,\${{DB_USER}},$DB_USER,g" .env && \
-        sed -i -e "s,\${{DB_PASSWORD}},$DB_PASSWORD,g" .env && \
-        sed -i -e "s,\${{DB_HOST}},$DB_HOST,g" .env && \
-        sed -i -e "s,\${{DB_NAME}},$DB_NAME,g" .env && \
-        \
-        sed -i -e "s,\${{ALGOLIA_APP_ID}},$ALGOLIA_APP_ID,g" .env && \
-        sed -i -e "s,\${{ALGOLIA_ADMIN_KEY}},$ALGOLIA_ADMIN_KEY,g" .env && \
-        sed -i -e "s,\${{ALGOLIA_API_KEY}},$ALGOLIA_API_KEY,g" .env && \
-        \
-        sed -i -e "s,admin:,$ADMIN_USER:,g" config/packages/security.yaml && \
-        sed -i -e "s,nhDr7OyKlXQju+Ge/WKGrPQ9lPBSUFfpK+B1xqx/+8zLZqRNX0+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ==,$ADMIN_SHA512_PASSWORD,g" config/packages/security.yaml && \
+        ansible-playbook deployment/deploy.yml && \
+        rm -Rf $ANSIBLE_VAULT_PASSWORD_FILE && \
         echo "Settings done !" \
     ; fi
 

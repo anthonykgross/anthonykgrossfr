@@ -10,8 +10,8 @@ services:
       - ./docker/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
       - ./docker/nginx.conf:/etc/nginx/sites-enabled/nginx.conf
       - ./docker/logs:/var/www/logs
+      - ./docker/.vault_key:/.vault_key
       - .:/var/www/html
-
 
   mysql:
     image: mariadb:10.3.2

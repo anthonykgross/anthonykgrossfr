@@ -1,0 +1,86 @@
+---
+- name: Deployment
+  hosts: localhost
+
+  vars:
+    env_file: /var/www/html/.env
+    security_file: /var/www/html/config/packages/security.yaml
+
+  tasks:
+    - include_vars: vars.yml
+
+    - name: Move .env.prod to .env
+      copy:
+        src: /var/www/html/.env.prod
+        dest: "{{env_file}}"
+
+    - name: Replace variable DB_USER
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{DB_USER\}\}'
+        replace: '{{DB_USER}}'
+
+    - name: Replace variable DB_PASSWORD
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{DB_PASSWORD\}\}'
+        replace: '{{DB_PASSWORD}}'
+
+    - name: Replace variable DB_HOST
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{DB_HOST\}\}'
+        replace: '{{DB_HOST}}'
+
+    - name: Replace variable DB_NAME
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{DB_NAME\}\}'
+        replace: '{{DB_NAME}}'
+
+    - name: Replace variable MAILER_USER
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{MAILER_USER\}\}'
+        replace: '{{MAILER_USER}}'
+
+    - name: Replace variable MAILER_PASSWORD
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{MAILER_PASSWORD\}\}'
+        replace: '{{MAILER_PASSWORD}}'
+
+
+    - name: Replace variable ALGOLIA_APP_ID
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{ALGOLIA_APP_ID\}\}'
+        replace: '{{ALGOLIA_APP_ID}}'
+
+    - name: Replace variable ALGOLIA_ADMIN_KEY
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{ALGOLIA_ADMIN_KEY\}\}'
+        replace: '{{ALGOLIA_ADMIN_KEY}}'
+
+    - name: Replace variable ALGOLIA_API_KEY
+      replace:
+        path: "{{env_file}}"
+        regexp: '\$\{\{ALGOLIA_API_KEY\}\}'
+        replace: '{{ALGOLIA_API_KEY}}'
+
+    - name: Replace variable Admin
+      replace:
+        path: "{{security_file}}"
+        regexp: 'admin:'
+        replace: '{{ADMIN_USER}}:'
+
+    - name: Replace variable Admin password
+      replace:
+        path: "{{security_file}}"
+        regexp: 'nhDr7OyKlXQju\+Ge\/WKGrPQ9lPBSUFfpK\+B1xqx\/\+8zLZqRNX0\+5G1zBQklXUFy86lCpkAofsExlXiorUcKSNQ=='
+        replace: '{{ADMIN_SHA512_PASSWORD}}'
+
+    - name: Basic usage
+      debug:
+        msg: "'{{ lookup('env', 'ANSIBLE_VAULT_PASSWORD_FILE') }}' is the HOME environment variable."
